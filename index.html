@@ -517,7 +517,7 @@ const Store = {
 // ===== STATE =====
 const state = {
   words:[],bitmap:null,meta:null,initialized:false,
-  session:{active:false,roundCount:0,correctCount:0,wrongCount:0,streak:0,levelUps:0,levelDowns:0,punished:[],recentWrong:new Set()},
+  session:{active:false,roundCount:0,correctCount:0,wrongCount:0,streak:0,levelUps:0,levelDowns:0,punished:[],recentWrong:new Set(),queue:[],queuePos:0},
   getWord(i){return this.words[i]||null},
   wordCount(){return this.words.length},
   getLevel(i){return Bitmap.read(this.bitmap,i)},
@@ -549,7 +549,7 @@ const state = {
     this.meta.n=w.length;Store.saveBitmap(this.bitmap);Store.saveMeta(this.meta);
     this.resetSession();
   },
-  resetSession(){this.session={active:false,roundCount:0,correctCount:0,wrongCount:0,streak:0,levelUps:0,levelDowns:0,punished:[],recentWrong:new Set()}},
+  resetSession(){this.session={active:false,roundCount:0,correctCount:0,wrongCount:0,streak:0,levelUps:0,levelDowns:0,punished:[],recentWrong:new Set(),queue:[],queuePos:0}},
 };
 
 // ===== SELECTOR =====
@@ -730,14 +730,33 @@ const App = {
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
   },
-  startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;el('study-timer').textContent='00:00';this.timerStartTick();Router.show('study');this.nextQuestion()},
+  startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();Router.show('study');this.nextQuestion()},
   endStudy(){state.session.active=false;this.timerStop();state.persist();Router.goHome()},
+  startRound(){
+    const n=state.wordCount(),learn=[],master=[];
+    for(let i=0;i<n;i++){(state.getLevel(i)>=7?master:learn).push(i)}
+    Utils.shuffle(learn);Utils.shuffle(master);
+    const lc=Math.min(Math.floor(this.roundSize*.8),learn.length);
+    const mc=Math.min(this.roundSize-lc,master.length);
+    const q=[];
+    for(let i=0;i<lc;i++)q.push(learn[i]);
+    for(let i=0;i<mc;i++)q.push(master[i]);
+    // Pad with more learning if not enough mastered words
+    while(q.length<this.roundSize&&q.length<n){
+      for(const i of learn){if(!q.includes(i)){q.push(i);break}}
+    }
+    Utils.shuffle(q);
+    state.session.queue=q;state.session.queuePos=0;state.session.roundCount=0;
+    state.session.correctCount=0;state.session.wrongCount=0;state.session.streak=0;
+    state.session.levelUps=0;state.session.levelDowns=0;
+  },
   nextQuestion(){
     this.answering=false;Router.show('study');
     if(state.session.roundCount>=this.roundSize){Render.roundEnd();state.persist();Router.show('round');return}
-    const idx=Selector.pickNext();if(idx<0){Router.goHome();return}
-    this.currentWordIndex=idx;state.session.roundCount++;
-    state.meta.l=idx;
+    const q=state.session.queue;
+    if(state.session.queuePos>=q.length){Router.goHome();return}
+    const idx=q[state.session.queuePos];state.session.queuePos++;state.session.roundCount++;
+    this.currentWordIndex=idx;state.meta.l=idx;
     el('study-counter').textContent=`${state.session.roundCount} / ${this.roundSize}`;
     el('study-progress').style.width=(state.session.roundCount/this.roundSize*100)+'%';
     el('study-streak').textContent=state.session.streak;
@@ -770,7 +789,7 @@ const App = {
     if(ic){Render.toast(true,wi,lb,la);setTimeout(()=>{el('toast').style.transform='translateY(-120%)';this.nextQuestion()},900)}
     else{Render.result(wi,lb,la);Router.show('result')}
   },
-  continueRound(){this.answering=false;Router.show('study');this.nextQuestion()},
+  continueRound(){this.answering=false;this.startRound();Router.show('study');this.nextQuestion()},
   handleFileImport(e){
     const file=e.target.files[0];if(!file)return;
     const reader=new FileReader();
