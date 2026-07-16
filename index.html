@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Word-Force 强制单词</title>
+<style>
+/* Tailwind 替代工具类 */
+.flex{display:flex}.inline-flex{display:inline-flex}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.flex-1{flex:1}
+.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}
+.grid{display:grid}.grid-cols-2{grid-template-columns:repeat(2,1fr)}.grid-cols-4{grid-template-columns:repeat(4,1fr)}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}.gap-5{gap:20px}
+.w-full{width:100%}.h-full{height:100%}
+.max-w-400{max-width:400px}.max-w-460{max-width:460px}.max-w-480{max-width:480px}.max-w-640{max-width:640px}.min-w-200{min-width:200px}
+.block{display:block}.inline-block{display:inline-block}.hidden{display:none}.cursor-pointer{cursor:pointer}
+.text-left{text-align:left}.text-center{text-align:center}
+.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-lg{font-size:1.125rem}
+.text-2xl{font-size:1.5rem}.text-3xl{font-size:1.875rem}.text-4xl{font-size:2.25rem}.text-5xl{font-size:3rem}.text-7xl{font-size:4.5rem}
+.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}
+.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}
+.p-4{padding:1rem}.p-5{padding:1.25rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-4{padding-top:1rem;padding-bottom:1rem}
+.pt-2{padding-top:.5rem}.pt-4{padding-top:1rem}.pb-3{padding-bottom:.75rem}.pb-4{padding-bottom:1rem}
+.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}
+.mt-1{margin-top:.25rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-auto{margin-top:auto}.mx-auto{margin-left:auto;margin-right:auto}
+.space-y-2>*+*{margin-top:.5rem}.space-y-3>*+*{margin-top:.75rem}.space-y-4>*+*{margin-top:1rem}.space-x-2>*+*{margin-left:.5rem}
+.rounded-xl{border-radius:.75rem}.rounded{border-radius:.25rem}
+.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}
+.border-card{border:1px solid var(--border)}
+.shadow-lg{box-shadow:0 10px 25px -5px rgba(0,0,0,.3),0 8px 10px -6px rgba(0,0,0,.2)}
+.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.select-none{user-select:none}.opacity-50{opacity:.5}
+.accent-green{accent-color:var(--green-bright)}
+.text-dim{color:var(--text-dim)}.text-muted{color:var(--text-muted)}.text-red{color:var(--red)}.text-green{color:var(--green-bright)}
+.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* 主主题 */
+:root {
+  --bg-deep: #14171c;
+  --bg-card: #1c2028;
+  --bg-surface: #242830;
+  --border: #323844;
+  --border-light: #3d4454;
+  --text-main: #e0e2e8;
+  --text-dim: #7a7f8c;
+  --text-muted: #5a5f6c;
+  --green: #3d6b1e;
+  --green-bright: #5a8f2c;
+  --green-glow: rgba(61,107,30,.25);
+  --red: #c0392b;
+  --red-glow: rgba(192,57,43,.2);
+  --orange: #e67e22;
+  --yellow: #f1c40f;
+  --blue: #3498db;
+  --cyan: #1abc9c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg-deep);
+  color:var(--text-main);
+  font-family:system-ui,-apple-system,'Segoe UI',sans-serif;
+  line-height:1.5;
+  overflow:hidden
+}
+#app{height:100vh;display:flex;flex-direction:column;max-width:720px;margin:0 auto;width:100%}
+.page{display:none;flex-direction:column;height:100%;overflow-y:auto;padding:16px 20px}
+.page.active{display:flex}
+.page::-webkit-scrollbar{width:4px}
+.page::-webkit-scrollbar-track{background:transparent}
+.page::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+@keyframes flash-correct{0%{box-shadow:inset 0 0 0 2px var(--green-bright)}100%{box-shadow:inset 0 0 0 2px transparent}}
+@keyframes flash-wrong{0%{box-shadow:inset 0 0 0 2px var(--red)}100%{box-shadow:inset 0 0 0 2px transparent}}
+@keyframes fade-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 8px var(--green-glow)}50%{box-shadow:0 0 20px var(--green-glow)}}
+.flash-correct{animation:flash-correct .35s ease-out}
+.flash-wrong{animation:flash-wrong .45s ease-out}
+.fade-in{animation:fade-in .25s ease-out}
+.pulse-start{animation:pulse-glow 2s ease-in-out infinite}
+
+.lv-0{color:var(--red)}
+.lv-1,.lv-2{color:var(--orange)}
+.lv-3,.lv-4{color:var(--yellow)}
+.lv-5,.lv-6{color:var(--green-bright)}
+.lv-7{color:var(--cyan)}
+.mono{font-family:'SF Mono','Cascadia Code','JetBrains Mono','Fira Code',monospace}
+.bg-card{background:var(--bg-card)}
+.bg-surface{background:var(--bg-surface)}
+.glow-green{box-shadow:0 0 0 2px var(--green-bright)}
+.glow-red{box-shadow:0 0 0 2px var(--red)}
+
+.progress-track{background:var(--bg-surface);border-radius:999px;height:6px;overflow:hidden}
+.progress-fill{height:100%;border-radius:999px;transition:width .4s ease;background:var(--green-bright)}
+.bar-track{background:var(--bg-surface);border-radius:4px;height:12px;overflow:hidden;flex:1}
+.bar-fill{height:100%;border-radius:4px;transition:width .5s ease}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;border-radius:6px;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent;transition:all .15s;user-select:none}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--green);color:#fff;border-color:var(--green-bright)}
+.btn-primary:hover{background:var(--green-bright)}
+.btn-secondary{background:var(--bg-surface);color:var(--text-main);border-color:var(--border)}
+.btn-secondary:hover{background:var(--border);border-color:var(--border-light)}
+.btn-danger{background:transparent;color:var(--red);border-color:var(--red)}
+.btn-danger:hover{background:var(--red);color:#fff}
+.btn-ghost{background:transparent;color:var(--text-dim);border-color:transparent}
+.btn-ghost:hover{color:var(--text-main);background:var(--bg-surface)}
+.btn-lg{padding:14px 32px;font-size:16px}
+.btn-block{width:100%}
+
+.opt{display:block;width:100%;padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text-main);font-size:15px;cursor:pointer;transition:all .12s;text-align:left}
+.opt:hover{background:var(--bg-surface);border-color:var(--border-light)}
+.opt-correct{background:rgba(61,107,30,.25);border-color:var(--green-bright)}
+.opt-wrong{background:rgba(192,57,43,.2);border-color:var(--red)}
+
+.input-field{width:100%;padding:12px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;color:var(--text-main);font-size:18px;font-family:'SF Mono','Cascadia Code',monospace;outline:none;transition:border .15s}
+.input-field:focus{border-color:var(--green-bright);box-shadow:0 0 0 2px var(--green-glow)}
+.input-field::placeholder{color:var(--text-muted)}
+
+.badge{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid}
+.badge-lv0{color:var(--red);border-color:var(--red)}
+.badge-lv1,.badge-lv2{color:var(--orange);border-color:var(--orange)}
+.badge-lv3,.badge-lv4{color:var(--yellow);border-color:var(--yellow)}
+.badge-lv5,.badge-lv6{color:var(--green-bright);border-color:var(--green-bright)}
+.badge-lv7{color:var(--cyan);border-color:var(--cyan)}
+
+.shame-item{padding:8px 0;border-bottom:1px solid var(--border)}
+.shame-item:last-child{border-bottom:none}
+
+@media(max-width:480px){
+  .page{padding:12px 14px}
+  .opt{padding:12px 14px;font-size:14px}
+  .btn-lg{padding:12px 24px;font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<div id="app">
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="flex items-center gap-3 pt-2 pb-4">
+    <span class="text-2xl font-bold tracking-wider" style="color:var(--green-bright)">WORD-FORCE</span>
+    <span class="text-sm text-dim mt-1">强制单词</span>
+  </div>
+  <div id="home-stats" class="bg-card border-card rounded-xl p-5 mb-4">
+    <div class="flex justify-between items-center mb-3">
+      <span class="text-sm text-dim">词库进度</span>
+      <span class="text-sm mono" id="home-progress-pct">0%</span>
+    </div>
+    <div class="progress-track mb-3">
+      <div class="progress-fill" id="home-progress-bar" style="width:0%"></div>
+    </div>
+    <div class="grid grid-cols-4 gap-2 text-center">
+      <div><div class="text-lg font-bold mono lv-7" id="home-lv7">0</div><div class="text-xs text-dim">已掌握</div></div>
+      <div><div class="text-lg font-bold mono" style="color:var(--orange)" id="home-lv1-6">0</div><div class="text-xs text-dim">学习中</div></div>
+      <div><div class="text-lg font-bold mono lv-0" id="home-lv0">0</div><div class="text-xs text-dim">未学习</div></div>
+      <div><div class="text-lg font-bold mono text-dim" id="home-total">0</div><div class="text-xs text-dim">总词数</div></div>
+    </div>
+  </div>
+  <div class="grid grid-cols-2 gap-3 mb-4">
+    <div class="bg-card border-card rounded-xl p-4">
+      <div class="text-xs text-dim mb-1">今日学习</div>
+      <div class="text-2xl font-bold mono" id="home-today-count" style="color:var(--green-bright)">0</div>
+      <div class="text-xs text-dim">词次</div>
+    </div>
+    <div class="bg-card border-card rounded-xl p-4">
+      <div class="text-xs text-dim mb-1">今日掌握</div>
+      <div class="text-2xl font-bold mono lv-7" id="home-today-mastered">0</div>
+      <div class="text-xs text-dim">达到 Lv.7</div>
+    </div>
+  </div>
+  <div id="home-wordlist-bar" class="bg-card border-card rounded-xl p-4 mb-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <div class="text-xs text-dim">当前词库</div>
+        <div class="font-medium" id="home-wordlist-name">—</div>
+      </div>
+      <span class="text-xs text-dim" id="home-wordlist-words"></span>
+    </div>
+  </div>
+  <button id="btn-start" class="btn btn-primary btn-lg btn-block pulse-start" style="font-size:18px;padding:18px">
+    ▶ 开始强制学习
+  </button>
+  <div class="mt-auto pt-4 flex gap-3 justify-center">
+    <button class="btn btn-ghost page-nav" data-page="stats">📊 统计</button>
+    <button class="btn btn-ghost page-nav" data-page="settings">⚙️ 设置</button>
+    <button class="btn btn-ghost page-nav" data-page="import">📂 词库</button>
+  </div>
+</div>
+
+<!-- STUDY -->
+<div id="page-study" class="page">
+  <div class="flex items-center justify-between pb-3 border-b border-card mb-4">
+    <button id="btn-study-exit" class="btn btn-ghost text-sm">← 退出</button>
+    <div class="text-sm text-dim mono" id="study-counter">0 / 10</div>
+    <div class="flex items-center gap-2">
+      <span class="text-xs text-dim">⚡</span>
+      <span class="text-sm font-bold mono" id="study-streak" style="color:var(--yellow)">0</span>
+    </div>
+  </div>
+  <div class="progress-track mb-5">
+    <div class="progress-fill" id="study-progress" style="width:0%"></div>
+  </div>
+  <div id="study-question-area" class="flex-1 flex flex-col items-center justify-center gap-4 fade-in">
+    <div class="text-center">
+      <div class="text-xs text-dim mb-1" id="study-question-label">选择正确的中文释义</div>
+      <div class="text-4xl font-bold mono tracking-wide mb-2" id="study-word" style="color:var(--text-main)">word</div>
+      <div class="flex items-center justify-center gap-3">
+        <span class="text-sm text-dim" id="study-pos">v.</span>
+        <span class="badge" id="study-level-badge">Lv.0</span>
+      </div>
+    </div>
+    <div id="study-options" class="w-full space-y-3 mt-4 max-w-480"></div>
+    <div id="study-spelling-area" class="w-full mt-4 max-w-480" style="display:none">
+      <input id="spelling-input" class="input-field text-center" placeholder="输入英文单词…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button id="btn-spelling-submit" class="btn btn-primary btn-block mt-3">确认</button>
+    </div>
+  </div>
+  <div class="flex justify-center gap-4 pt-3 text-xs text-dim">
+    <span>Lv.0 <span class="mono lv-0" id="study-lv0">0</span></span>
+    <span>Lv.1-2 <span class="mono" style="color:var(--orange)" id="study-lv2">0</span></span>
+    <span>Lv.3-4 <span class="mono" style="color:var(--yellow)" id="study-lv4">0</span></span>
+    <span>Lv.5-6 <span class="mono" style="color:var(--green-bright)" id="study-lv6">0</span></span>
+    <span>Lv.7 <span class="mono lv-7" id="study-lv7">0</span></span>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" style="position:fixed;top:0;left:0;right:0;z-index:100;transform:translateY(-120%);transition:transform .35s cubic-bezier(.34,1.56,.64,1);padding:12px 20px;pointer-events:none">
+  <div id="toast-body" class="rounded-xl px-5 py-4 text-center shadow-lg mx-auto max-w-460" style="background:var(--bg-card);border:1px solid var(--border)">
+    <div id="toast-icon" class="text-2xl mb-1">✅</div>
+    <div class="font-bold mono text-lg" id="toast-word"></div>
+    <div class="text-sm text-dim" id="toast-def"></div>
+    <div class="flex justify-center gap-3 mt-1 text-sm">
+      <span class="mono" id="toast-level-before"></span>
+      <span class="text-dim">→</span>
+      <span class="mono" id="toast-level-after"></span>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT (wrong only) -->
+<div id="page-result" class="page" style="background:rgba(20,23,28,.95);z-index:10">
+  <div class="flex-1 flex flex-col items-center justify-center gap-5 text-center fade-in">
+    <div id="result-icon" class="text-7xl mb-2">❌</div>
+    <div id="result-title" class="text-2xl font-bold" style="color:var(--red)">残酷但诚实 ×</div>
+    <div class="bg-card border-card rounded-xl p-5 w-full max-w-400">
+      <div class="text-xl font-bold mono" id="result-word">word</div>
+      <div class="text-sm text-dim mt-1" id="result-pos">v.</div>
+      <div class="text-lg mt-2" id="result-def">释义</div>
+      <div class="flex justify-center gap-4 mt-3 text-sm">
+        <span id="result-level-before" class="mono">Lv.0</span>
+        <span class="text-dim">→</span>
+        <span id="result-level-after" class="mono" style="color:var(--red)">Lv.0</span>
+      </div>
+    </div>
+    <button id="btn-next" class="btn btn-primary btn-lg min-w-200">下一题 →</button>
+  </div>
+</div>
+
+<!-- ROUND END -->
+<div id="page-round" class="page">
+  <div class="flex-1 flex flex-col items-center justify-center gap-5 fade-in">
+    <div class="text-5xl mb-2" id="round-icon">🏁</div>
+    <div class="text-xl font-bold">关卡完成</div>
+    <div class="bg-card border-card rounded-xl p-5 w-full max-w-400">
+      <div class="flex justify-around mb-4">
+        <div class="text-center">
+          <div class="text-3xl font-bold mono" id="round-correct" style="color:var(--green-bright)">0</div>
+          <div class="text-xs text-dim">正确</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold mono" id="round-wrong" style="color:var(--red)">0</div>
+          <div class="text-xs text-dim">错误</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold mono" id="round-accuracy" style="color:var(--yellow)">0%</div>
+          <div class="text-xs text-dim">正确率</div>
+        </div>
+      </div>
+      <div class="text-xs text-dim text-center" id="round-level-summary">等级变化: +0 ↑ -0 ↓</div>
+    </div>
+    <button id="btn-round-continue" class="btn btn-primary btn-lg min-w-200">继续下一关 →</button>
+  </div>
+</div>
+
+<!-- STATS -->
+<div id="page-stats" class="page">
+  <div class="flex items-center justify-between pb-3 border-b border-card mb-4">
+    <div class="text-lg font-bold">📊 学习统计</div>
+    <button class="btn btn-ghost text-sm page-nav" data-page="home">← 返回</button>
+  </div>
+  <div class="grid grid-cols-2 gap-3 mb-4">
+    <div class="bg-card border-card rounded-xl p-4 text-center">
+      <div class="text-xs text-dim">总掌握率</div>
+      <div class="text-2xl font-bold mono lv-7" id="stats-mastery-rate">0%</div>
+    </div>
+    <div class="bg-card border-card rounded-xl p-4 text-center">
+      <div class="text-xs text-dim">今日学习</div>
+      <div class="text-2xl font-bold mono" id="stats-today" style="color:var(--green-bright)">0</div>
+    </div>
+  </div>
+  <div class="bg-card border-card rounded-xl p-4 mb-4">
+    <div class="text-sm font-medium mb-3">等级分布</div>
+    <div id="stats-level-bars" class="space-y-2"></div>
+  </div>
+  <div class="bg-card border-card rounded-xl p-4 mb-4">
+    <div class="text-sm font-medium mb-3" style="color:var(--red)">耻辱榜 😈 答错最多的词</div>
+    <div id="stats-shame-list">
+      <div class="text-sm text-dim py-4 text-center">还没有足够数据</div>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS -->
+<div id="page-settings" class="page">
+  <div class="flex items-center justify-between pb-3 border-b border-card mb-4">
+    <div class="text-lg font-bold">⚙️ 设置</div>
+    <button class="btn btn-ghost text-sm page-nav" data-page="home">← 返回</button>
+  </div>
+  <div class="bg-card border-card rounded-xl p-4 space-y-4">
+    <div>
+      <div class="flex justify-between mb-1">
+        <label class="text-sm">每关题数</label>
+        <span class="text-sm mono text-dim" id="val-round-size">10</span>
+      </div>
+      <input type="range" id="set-round-size" min="5" max="30" value="10" class="w-full accent-green">
+    </div>
+    <div>
+      <div class="flex justify-between mb-1">
+        <label class="text-sm">学习模式</label>
+        <span class="text-sm text-dim" id="val-mode">英→中</span>
+      </div>
+      <select id="set-mode" class="w-full p-2 rounded bg-surface border-card text-sm" style="color:var(--text-main)">
+        <option value="en2zh">英→中（选择题）</option>
+        <option value="zh2en">中→英（拼写）</option>
+        <option value="mixed">混合模式</option>
+      </select>
+    </div>
+    <div>
+      <div class="flex justify-between mb-1">
+        <label class="text-sm">复习强度</label>
+        <span class="text-sm text-dim" id="val-intensity">中等</span>
+      </div>
+      <input type="range" id="set-intensity" min="1" max="5" value="3" class="w-full accent-green">
+    </div>
+  </div>
+  <div class="mt-4 bg-card border-card rounded-xl p-4">
+    <div class="text-sm font-medium mb-2">数据管理</div>
+    <button id="btn-reset-data" class="btn btn-danger btn-block">🗑️ 重置所有学习数据</button>
+  </div>
+</div>
+
+<!-- IMPORT -->
+<div id="page-import" class="page">
+  <div class="flex items-center justify-between pb-3 border-b border-card mb-4">
+    <div class="text-lg font-bold">📂 词库管理</div>
+    <button class="btn btn-ghost text-sm page-nav" data-page="home">← 返回</button>
+  </div>
+  <div class="bg-card border-card rounded-xl p-5 text-center mb-4">
+    <div class="text-4xl mb-3">📄</div>
+    <div class="text-sm text-dim mb-4">导入 JSON 格式单词表</div>
+    <div class="text-xs text-dim mb-4 mono" style="word-break:break-all">[{"en":"word","pos":"n","zh":"释义"},...]</div>
+    <label class="btn btn-primary cursor-pointer inline-flex">
+      📁 选择 JSON 文件
+      <input type="file" id="file-input" accept=".json" style="display:none">
+    </label>
+  </div>
+  <div id="import-current" class="bg-card border-card rounded-xl p-4">
+    <div class="text-sm font-medium mb-2">当前词库</div>
+    <div class="flex justify-between text-sm">
+      <span class="text-dim">名称</span>
+      <span id="import-name">—</span>
+    </div>
+    <div class="flex justify-between text-sm">
+      <span class="text-dim">单词数</span>
+      <span id="import-count" class="mono">0</span>
+    </div>
+    <div class="flex justify-between text-sm">
+      <span class="text-dim">已掌握</span>
+      <span id="import-mastered" class="mono lv-7">0</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /app -->
+
+<script>
+// ===== CONFIG =====
+const CFG = {
+  DEFAULT_ROUND_SIZE: 10, DEFAULT_MODE: 'en2zh',
+  INTENSITY_LABELS: ['','很低','低','中等','高','很高'],
+  LV_LABELS: ['Lv.0','Lv.1','Lv.2','Lv.3','Lv.4','Lv.5','Lv.6','Lv.7'],
+  LV_COLORS: ['#c0392b','#e67e22','#e67e22','#f1c40f','#f1c40f','#5a8f2c','#5a8f2c','#1abc9c'],
+};
+
+// ===== SAMPLE WORDS =====
+const SAMPLE_WORDS = [
+  {en:"abandon",pos:"v",zh:"遗弃、放弃"},{en:"ability",pos:"n",zh:"能力、才能"},
+  {en:"abroad",pos:"adv",zh:"在国外、到国外"},{en:"absent",pos:"adj",zh:"缺席的、不在的"},
+  {en:"absorb",pos:"v",zh:"吸收、吸引"},{en:"abstract",pos:"adj",zh:"抽象的、理论上的"},
+  {en:"abundant",pos:"adj",zh:"丰富的、充裕的"},{en:"abuse",pos:"v/n",zh:"滥用、虐待"},
+  {en:"academic",pos:"adj",zh:"学术的、学院的"},{en:"accelerate",pos:"v",zh:"加速、促进"},
+];
+
+// ===== UTILS =====
+const Utils = {
+  shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a},
+  clamp(v,l,h){return Math.max(l,Math.min(h,v))},
+  levelLabel(lv){return CFG.LV_LABELS[lv]||'Lv.'+lv},
+  levelColor(lv){return CFG.LV_COLORS[lv]||'#7a7f8c'},
+  levelClass(lv){return ['lv-0','lv-1','lv-2','lv-3','lv-4','lv-5','lv-6','lv-7'][lv]||'lv-0'},
+  btoa(b){return btoa(String.fromCharCode(...b))},
+  atob(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0))},
+};
+
+// ===== BITMAP =====
+const Bitmap = {
+  byteCount(n){return Math.ceil(n*3/8)},
+  create(n){return new Uint8Array(this.byteCount(n))},
+  read(b,i){
+    const p=i*3,bi=p>>>3,bo=p&7;
+    if(bo<=5)return(b[bi]>>>bo)&7;
+    const lo=8-bo,hi=3-lo;
+    return((b[bi]>>>bo)|((b[bi+1]&((1<<hi)-1))<<lo))&7;
+  },
+  write(b,i,v){
+    const p=i*3,bi=p>>>3,bo=p&7;v&=7;
+    if(bo<=5){const m=7<<bo;b[bi]=(b[bi]&~m)|(v<<bo)}
+    else{
+      const lo=8-bo,hi=3-lo;
+      b[bi]=(b[bi]&((1<<bo)-1))|(v<<bo);
+      const hm=(1<<hi)-1;
+      b[bi+1]=(b[bi+1]&~hm)|((v>>>lo)&hm);
+    }
+  },
+  readAll(b,c){const r=[];for(let i=0;i<c;i++)r.push(this.read(b,i));return r},
+  writeAll(l){const b=this.create(l.length);for(let i=0;i<l.length;i++)this.write(b,i,l[i]);return b},
+  encode(l){return Utils.btoa(this.writeAll(l))},
+  decode(s,c){return this.readAll(Utils.atob(s),c)},
+};
+
+// ===== STORE =====
+const Store = {
+  KEYS:{WORDS:'wf_words',DATA:'wf_data',META:'wf_meta'},
+  loadWords(){try{const r=localStorage.getItem(this.KEYS.WORDS);return r?JSON.parse(r):null}catch{return null}},
+  saveWords(w){localStorage.setItem(this.KEYS.WORDS,JSON.stringify(w))},
+  loadBitmap(n){
+    try{
+      const r=localStorage.getItem(this.KEYS.DATA);
+      if(!r)return Bitmap.create(n);
+      const l=Bitmap.decode(r,n);
+      if(l.length<n){const e=new Array(n).fill(0);for(let i=0;i<l.length;i++)e[i]=l[i];return Bitmap.writeAll(e)}
+      return Bitmap.writeAll(l.slice(0,n));
+    }catch{return Bitmap.create(n)}
+  },
+  saveBitmap(b){localStorage.setItem(this.KEYS.DATA,Utils.btoa(b))},
+  loadMeta(){try{const r=localStorage.getItem(this.KEYS.META);if(!r)return this.defaultMeta();return{...this.defaultMeta(),...JSON.parse(r)}}catch{return this.defaultMeta()}},
+  saveMeta(m){localStorage.setItem(this.KEYS.META,JSON.stringify(m))},
+  defaultMeta(){return{v:1,n:0,d:'',m:0,t:0,l:0,wrongs:{}}},
+  clearAll(){Object.values(this.KEYS).forEach(k=>localStorage.removeItem(k))},
+};
+
+// ===== STATE =====
+const state = {
+  words:[],bitmap:null,meta:null,initialized:false,
+  session:{active:false,roundCount:0,correctCount:0,wrongCount:0,streak:0,levelUps:0,levelDowns:0,punished:[],recentWrong:new Set()},
+  getWord(i){return this.words[i]||null},
+  wordCount(){return this.words.length},
+  getLevel(i){return Bitmap.read(this.bitmap,i)},
+  setLevel(i,l){Bitmap.write(this.bitmap,i,Utils.clamp(l,0,7))},
+  levelDist(){const d=[0,0,0,0,0,0,0,0];for(let i=0;i<this.wordCount();i++)d[this.getLevel(i)]++;return d},
+  getWrongs(i){return this.meta.wrongs[i]||0},
+  incrWrong(i){this.meta.wrongs[i]=(this.meta.wrongs[i]||0)+1},
+  persist(){Store.saveBitmap(this.bitmap);Store.saveMeta(this.meta)},
+  init(){
+    const w=Store.loadWords();
+    if(w&&Array.isArray(w)&&w.length>0)this.words=w;
+    else{this.words=SAMPLE_WORDS;Store.saveWords(this.words)}
+    this.meta=Store.loadMeta();this.bitmap=Store.loadBitmap(this.wordCount());
+    this.meta.n=this.wordCount();this.initialized=true;
+  },
+  replaceWords(w){
+    this.words=w;Store.saveWords(w);
+    this.bitmap=Bitmap.create(w.length);this.meta=Store.defaultMeta();
+    this.meta.n=w.length;Store.saveBitmap(this.bitmap);Store.saveMeta(this.meta);
+    this.resetSession();
+  },
+  resetSession(){this.session={active:false,roundCount:0,correctCount:0,wrongCount:0,streak:0,levelUps:0,levelDowns:0,punished:[],recentWrong:new Set()}},
+};
+
+// ===== SELECTOR =====
+const Selector = {
+  pickNext(){
+    const n=state.wordCount();if(n===0)return-1;
+    const punish=[],review=[],newWords=[],consolidate=[];
+    for(let i=0;i<n;i++){const l=state.getLevel(i);if(l>=7)consolidate.push(i);else if(l>=3)review.push(i);else if(l===0)newWords.push(i);else review.push(i)}
+    for(const i of state.session.recentWrong){const l=state.getLevel(i);if(l<=2&&!punish.includes(i))punish.push(i)}
+    const r=Math.random();
+    if(punish.length>0&&r<.4)return punish[Math.floor(Math.random()*punish.length)];
+    if(review.length>0&&r<.75){const c=review.filter(i=>state.getLevel(i)<=5);const p=c.length>0?c:review;return p[Math.floor(Math.random()*p.length)]}
+    if(newWords.length>0)return newWords[Math.floor(Math.random()*newWords.length)];
+    if(consolidate.length>0)return consolidate[Math.floor(Math.random()*consolidate.length)];
+    return Math.floor(Math.random()*n);
+  },
+};
+
+// ===== QUIZ =====
+const Quiz = {
+  correctIndex:-1,
+  generate(ci){
+    const words=state.words,n=words.length,m=Math.min(3,n-1),candidates=[];
+    for(let i=0;i<n;i++)if(i!==ci)candidates.push(i);Utils.shuffle(candidates);
+    const samePos=candidates.filter(i=>words[i].pos===words[ci].pos),chosen=[];
+    for(const i of samePos){if(chosen.length>=m)break;if(!chosen.includes(i))chosen.push(i)}
+    for(const i of candidates){if(chosen.length>=m)break;if(!chosen.includes(i))chosen.push(i)}
+    const opts=[{text:words[ci].zh,isCorrect:true,index:ci},...chosen.map(i=>({text:words[i].zh,isCorrect:false,index:i}))];
+    Utils.shuffle(opts);
+    this.correctIndex=opts.findIndex(o=>o.isCorrect);
+    return{word:words[ci].en,pos:words[ci].pos,options:opts.map(o=>o.text),correctPos:this.correctIndex};
+  },
+  check(p){return p===this.correctIndex},
+};
+
+// ===== SPELLING =====
+const Spelling = {
+  correctWord:'',
+  generate(ci){const w=state.words[ci];this.correctWord=w.en;return{zh:w.zh,pos:w.pos}},
+  check(i){return i.trim().toLowerCase()===this.correctWord.trim().toLowerCase()},
+};
+
+// ===== ROUTER =====
+const Router = {
+  pages:new Set(['home','study','result','round','stats','settings','import']),
+  show(p){
+    if(!this.pages.has(p))return;
+    document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+    const el=document.getElementById('page-'+p);if(el)el.classList.add('active');
+  },
+  goHome(){this.show('home');Render.dashboard()},
+};
+
+// ===== RENDER =====
+const el=id=>document.getElementById(id);
+
+const Render = {
+  dashboard(){
+    const n=state.wordCount(),dist=state.levelDist(),mastered=dist[7],learning=dist[1]+dist[2]+dist[3]+dist[4]+dist[5]+dist[6],unlearned=dist[0],pct=n>0?Math.round(mastered/n*100):0;
+    el('home-progress-pct').textContent=pct+'%';el('home-progress-bar').style.width=pct+'%';
+    el('home-lv7').textContent=mastered;el('home-lv1-6').textContent=learning;el('home-lv0').textContent=unlearned;el('home-total').textContent=n;
+    const today=now(),isToday=state.meta.d===today;
+    el('home-today-count').textContent=isToday?state.meta.t:0;el('home-today-mastered').textContent=isToday?state.meta.m:0;
+    el('home-wordlist-name').textContent=n>0?`词库 (${n} 词)`:'—';el('home-wordlist-words').textContent=n>0?`${n} 个单词`:'空';
+    const btn=el('btn-start');
+    if(n===0){btn.textContent='⚠️ 请先导入词库';btn.disabled=true;btn.style.opacity='.5'}
+    else{btn.textContent='▶ 开始强制学习';btn.disabled=false;btn.style.opacity='1'}
+  },
+  study(q,wi,mode){
+    const dist=state.levelDist();
+    el('study-lv0').textContent=dist[0];el('study-lv2').textContent=dist[1]+dist[2];
+    el('study-lv4').textContent=dist[3]+dist[4];el('study-lv6').textContent=dist[5]+dist[6];el('study-lv7').textContent=dist[7];
+    const oa=el('study-options'),sa=el('study-spelling-area'),we=el('study-word'),pe=el('study-pos'),le=el('study-question-label'),be=el('study-level-badge');
+    const lv=state.getLevel(wi);
+    be.textContent=Utils.levelLabel(lv);be.className='badge '+Utils.levelClass(lv);
+    if(mode==='zh2en'||mode==='mixed'){
+      const am=mode==='mixed'?(Math.random()<.5?'en2zh':'zh2en'):mode;
+      if(am==='zh2en'){
+        oa.style.display='none';sa.style.display='block';
+        le.textContent='输入对应的英文单词';we.textContent=q.zh;pe.textContent=q.pos||'';
+        el('spelling-input').value='';el('spelling-input').focus();
+        window._spellingWordIndex=wi;return;
+      }
+    }
+    oa.style.display='block';sa.style.display='none';
+    le.textContent='选择正确的中文释义';we.textContent=q.word;pe.textContent=q.pos||'';
+    oa.innerHTML='';
+    q.options.forEach((opt,idx)=>{
+      const b=document.createElement('button');b.className='opt';
+      b.textContent=String.fromCharCode(65+idx)+'. '+opt;
+      b.dataset.idx=idx;b.addEventListener('click',()=>App.handleAnswer(idx));
+      oa.appendChild(b);
+    });
+    window._quizCorrectPos=q.correctPos;window._studyWordIndex=wi;
+  },
+  result(wi,lb,la){
+    const w=state.getWord(wi);
+    el('result-icon').textContent='❌';el('result-title').textContent='残酷但诚实 ×';el('result-title').style.color='var(--red)';
+    el('result-word').textContent=w.en;el('result-pos').textContent=w.pos||'';el('result-def').textContent=w.zh;
+    el('result-level-before').textContent=Utils.levelLabel(lb);el('result-level-before').style.color=Utils.levelColor(lb);
+    el('result-level-after').textContent=Utils.levelLabel(la);el('result-level-after').style.color=Utils.levelColor(la);
+  },
+  toast(ic,wi,lb,la){
+    const w=state.getWord(wi);
+    el('toast-icon').textContent=ic?'✅':'❌';el('toast-word').textContent=w.en;el('toast-def').textContent=w.zh;
+    el('toast-level-before').textContent=Utils.levelLabel(lb);el('toast-level-before').style.color=Utils.levelColor(lb);
+    el('toast-level-after').textContent=Utils.levelLabel(la);el('toast-level-after').style.color=Utils.levelColor(la);
+    el('toast').style.transform='translateY(0)';
+  },
+  roundEnd(){
+    const s=state.session,t=s.correctCount+s.wrongCount,a=t>0?Math.round(s.correctCount/t*100):0;
+    el('round-icon').textContent=a>=80?'🏆':a>=50?'🏁':'💀';
+    el('round-correct').textContent=s.correctCount;el('round-wrong').textContent=s.wrongCount;el('round-accuracy').textContent=a+'%';
+    el('round-level-summary').textContent=`等级变化: +${s.levelUps} ↑  -${s.levelDowns} ↓  ⚡最大连击 ${s.streak}`;
+  },
+  stats(){
+    const n=state.wordCount(),dist=state.levelDist(),mastered=dist[7],pct=n>0?Math.round(mastered/n*100):0;
+    el('stats-mastery-rate').textContent=pct+'%';
+    const today=now(),isToday=state.meta.d===today;
+    el('stats-today').textContent=isToday?state.meta.t:0;
+    const bc=el('stats-level-bars');bc.innerHTML='';
+    const lb=['Lv.0','Lv.1','Lv.2','Lv.3','Lv.4','Lv.5','Lv.6','Lv.7'],lc=['#c0392b','#e67e22','#e67e22','#f1c40f','#f1c40f','#5a8f2c','#5a8f2c','#1abc9c'];
+    for(let l=0;l<=7;l++){const c=dist[l],pw=n>0?c/n*100:0;const r=document.createElement('div');r.className='flex items-center gap-3 text-xs';r.innerHTML=`<span class="mono" style="width:36px;color:${lc[l]}">${lb[l]}</span><div class="bar-track"><div class="bar-fill" style="width:${pw}%;background:${lc[l]}"></div></div><span class="mono text-dim" style="width:32px;text-align:right">${c}</span>`;bc.appendChild(r)}
+    const se=el('stats-shame-list'),wr=Object.entries(state.meta.wrongs).filter(([i,c])=>c>0).sort((a,b)=>b[1]-a[1]).slice(0,10);
+    if(wr.length===0)se.innerHTML='<div class="text-sm text-dim py-4 text-center">还没有足够数据</div>';
+    else se.innerHTML=wr.map(([i,c])=>{const w=state.words[parseInt(i)];if(!w)return'';const l=state.getLevel(parseInt(i));return`<div class="shame-item flex justify-between items-center"><div><span class="mono">${w.en}</span> <span class="text-xs text-dim">${w.pos||''}</span></div><div class="flex items-center gap-3"><span class="text-xs text-dim">${Utils.levelLabel(l)}</span><span class="text-sm font-bold mono" style="color:var(--red)">${'×'.repeat(Math.min(c,5))}</span></div></div>`}).join('');
+  },
+  settings(){
+    const ls=loadSettings();
+    el('set-round-size').value=ls.roundSize;el('val-round-size').textContent=ls.roundSize;
+    el('set-mode').value=ls.mode;el('val-mode').textContent=ls.mode==='en2zh'?'英→中':ls.mode==='zh2en'?'中→英':'混合';
+    el('set-intensity').value=ls.intensity;el('val-intensity').textContent=CFG.INTENSITY_LABELS[ls.intensity]||'中等';
+  },
+  importPage(){
+    const n=state.wordCount(),dist=state.levelDist();
+    el('import-name').textContent=n>0?'自定义词库':'—';el('import-count').textContent=n;el('import-mastered').textContent=dist[7]||0;
+  },
+};
+
+// ===== SETTINGS PERSISTENCE =====
+function loadSettings(){
+  try{const r=localStorage.getItem('wf_settings');if(!r)return{roundSize:10,mode:'en2zh',intensity:3};return{roundSize:10,mode:'en2zh',intensity:3,...JSON.parse(r)}}catch{return{roundSize:10,mode:'en2zh',intensity:3}}
+}
+function saveSettings(s){localStorage.setItem('wf_settings',JSON.stringify(s))}
+function now(){return new Date().toISOString().slice(0,10)}
+
+// ===== APP =====
+const App = {
+  mode:'en2zh',roundSize:10,currentWordIndex:-1,answering:false,
+  init(){state.init();this.mode=loadSettings().mode;this.roundSize=loadSettings().roundSize;this.bindEvents();Router.goHome()},
+  bindEvents(){
+    document.querySelectorAll('.page-nav').forEach(b=>b.addEventListener('click',()=>{const p=b.dataset.page;if(p==='home')Router.goHome();else{Router.show(p);if(p==='stats')Render.stats();if(p==='settings')Render.settings();if(p==='import')Render.importPage()}}));
+    el('btn-start').addEventListener('click',()=>this.startStudy());
+    el('btn-study-exit').addEventListener('click',()=>this.endStudy());
+    el('btn-spelling-submit').addEventListener('click',()=>this.handleSpellingSubmit());
+    el('spelling-input').addEventListener('keydown',e=>{if(e.key==='Enter')this.handleSpellingSubmit()});
+    el('btn-next').addEventListener('click',()=>this.nextQuestion());
+    el('btn-round-continue').addEventListener('click',()=>this.continueRound());
+    el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
+    el('set-mode').addEventListener('change',e=>{const v=e.target.value;el('val-mode').textContent=v==='en2zh'?'英→中':v==='zh2en'?'中→英':'混合';const s=loadSettings();s.mode=v;this.mode=v;saveSettings(s)});
+    el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
+    el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
+    el('file-input').addEventListener('change',e=>this.handleFileImport(e));
+  },
+  startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;Router.show('study');this.nextQuestion()},
+  endStudy(){state.session.active=false;state.persist();Router.goHome()},
+  nextQuestion(){
+    this.answering=false;Router.show('study');
+    if(state.session.roundCount>=this.roundSize){Render.roundEnd();state.persist();Router.show('round');return}
+    const idx=Selector.pickNext();if(idx<0){Router.goHome();return}
+    this.currentWordIndex=idx;state.session.roundCount++;
+    el('study-counter').textContent=`${state.session.roundCount} / ${this.roundSize}`;
+    el('study-progress').style.width=(state.session.roundCount/this.roundSize*100)+'%';
+    el('study-streak').textContent=state.session.streak;
+    const settings=loadSettings();let mode=settings.mode;
+    if(mode==='mixed')mode=Math.random()<.5?'en2zh':'zh2en';
+    this.mode=mode;
+    if(mode==='zh2en'){const q=Spelling.generate(idx);Render.study(q,idx,'zh2en')}
+    else{const q=Quiz.generate(idx);Render.study(q,idx,'en2zh')}
+  },
+  handleAnswer(p){if(this.answering)return;this.answering=true;this.processResult(Quiz.check(p),window._studyWordIndex)},
+  handleSpellingSubmit(){if(this.answering)return;this.answering=true;this.processResult(Spelling.check(el('spelling-input').value),window._spellingWordIndex)},
+  processResult(ic,wi){
+    const lb=state.getLevel(wi),la=ic?Math.min(lb+1,7):Math.max(lb-1,0);
+    state.setLevel(wi,la);
+    if(ic){state.session.correctCount++;state.session.streak++;if(la>lb)state.session.levelUps++;if(la>2)state.session.recentWrong.delete(wi)}
+    else{state.session.wrongCount++;state.session.streak=0;state.session.levelDowns++;state.session.recentWrong.add(wi);state.incrWrong(wi)}
+    const today=now();
+    if(state.meta.d!==today){state.meta.d=today;state.meta.t=0;state.meta.m=0}
+    state.meta.t++;if(lb<7&&la===7)state.meta.m++;
+    state.persist();
+    if(ic){Render.toast(true,wi,lb,la);setTimeout(()=>{el('toast').style.transform='translateY(-120%)';this.nextQuestion()},900)}
+    else{Render.result(wi,lb,la);Router.show('result')}
+  },
+  continueRound(){this.answering=false;Router.show('study');this.nextQuestion()},
+  handleFileImport(e){
+    const file=e.target.files[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=ev=>{
+      try{
+        const d=JSON.parse(ev.target.result);
+        if(!Array.isArray(d)||d.length===0){alert('无效的词库：JSON 格式应为数组，且不能为空');return}
+        for(const x of d){if(!x.en||!x.zh){alert('无效的词条：每个单词必须有 "en" 和 "zh" 字段');return}}
+        if(state.wordCount()>0&&!confirm(`将导入 ${d.length} 个单词，覆盖当前词库。确定？`))return;
+        state.replaceWords(d);Render.dashboard();Render.importPage();Router.goHome();alert(`✅ 成功导入 ${d.length} 个单词！`);
+      }catch(err){alert('JSON 解析失败：'+err.message)}
+    };
+    reader.readAsText(file);e.target.value='';
+  },
+};
+
+document.addEventListener('DOMContentLoaded',()=>App.init());
+</script>
+</body>
+</html>
