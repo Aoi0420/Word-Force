@@ -14,7 +14,7 @@
 .max-w-400{max-width:400px}.max-w-460{max-width:460px}.max-w-480{max-width:480px}.max-w-640{max-width:640px}.min-w-200{min-width:200px}
 .block{display:block}.inline-block{display:inline-block}.hidden{display:none}.cursor-pointer{cursor:pointer}
 .text-left{text-align:left}.text-center{text-align:center}
-.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-lg{font-size:1.125rem}
+.text-xs{font-size:.75rem}.text-2xs{font-size:.625rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-lg{font-size:1.125rem}
 .text-2xl{font-size:1.5rem}.text-3xl{font-size:1.875rem}.text-4xl{font-size:2.25rem}.text-5xl{font-size:3rem}.text-7xl{font-size:4.5rem}
 .font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}
 .tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}
@@ -153,7 +153,6 @@ body{
   .opt{padding:14px 12px;font-size:15px}
   .btn-lg{padding:12px 20px;font-size:15px}
   .grid-cols-4{grid-template-columns:repeat(2,1fr)}
-  .grid-cols-2{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -182,16 +181,16 @@ body{
       <div><div class="text-lg font-bold mono text-dim" id="home-total">0</div><div class="text-xs text-dim">总词数</div></div>
     </div>
   </div>
-  <div class="grid grid-cols-2 gap-3 mb-4">
-    <div class="bg-card border-card rounded-xl p-4">
-      <div class="text-xs text-dim mb-1">今日学习</div>
-      <div class="text-2xl font-bold mono" id="home-today-count" style="color:var(--green-bright)">0</div>
-      <div class="text-xs text-dim">词次</div>
+  <div class="grid grid-cols-2 gap-2 mb-3">
+    <div class="bg-card border-card rounded-xl p-3">
+      <div class="text-xs text-dim">今日学习</div>
+      <div class="text-xl font-bold mono" id="home-today-count" style="color:var(--green-bright)">0</div>
+      <div class="text-2xs text-dim">词次</div>
     </div>
-    <div class="bg-card border-card rounded-xl p-4">
-      <div class="text-xs text-dim mb-1">今日掌握</div>
-      <div class="text-2xl font-bold mono lv-7" id="home-today-mastered">0</div>
-      <div class="text-xs text-dim">达到 Lv.7</div>
+    <div class="bg-card border-card rounded-xl p-3">
+      <div class="text-xs text-dim">今日掌握</div>
+      <div class="text-xl font-bold mono lv-7" id="home-today-mastered">0</div>
+      <div class="text-2xs text-dim">达 Lv.7</div>
     </div>
   </div>
   <div id="home-wordlist-bar" class="bg-card border-card rounded-xl p-4 mb-4">
