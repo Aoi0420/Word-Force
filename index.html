@@ -571,6 +571,7 @@ const Selector = {
 // ===== QUIZ =====
 const Quiz = {
   correctIndex:-1,
+  // en→zh: show English, pick Chinese
   generate(ci){
     const words=state.words,n=words.length,m=Math.min(3,n-1),candidates=[];
     for(let i=0;i<n;i++)if(i!==ci)candidates.push(i);Utils.shuffle(candidates);
@@ -581,6 +582,17 @@ const Quiz = {
     Utils.shuffle(opts);
     this.correctIndex=opts.findIndex(o=>o.isCorrect);
     return{word:words[ci].en,pos:words[ci].pos,options:opts.map(o=>o.text),correctPos:this.correctIndex};
+  },
+  // zh→en: show Chinese, pick English
+  generateZh2En(ci){
+    const words=state.words,n=words.length,m=Math.min(3,n-1),candidates=[];
+    for(let i=0;i<n;i++)if(i!==ci)candidates.push(i);Utils.shuffle(candidates);
+    const chosen=[];
+    for(const i of candidates){if(chosen.length>=m)break;if(!chosen.includes(i))chosen.push(i)}
+    const opts=[{text:words[ci].en,isCorrect:true},...chosen.map(i=>({text:words[i].en,isCorrect:false}))];
+    Utils.shuffle(opts);
+    this.correctIndex=opts.findIndex(o=>o.isCorrect);
+    return{zh:words[ci].zh,pos:words[ci].pos,options:opts.map(o=>o.text),correctPos:this.correctIndex};
   },
   check(p){return p===this.correctIndex},
 };
@@ -625,15 +637,27 @@ const Render = {
     const oa=el('study-options'),sa=el('study-spelling-area'),we=el('study-word'),pe=el('study-pos'),le=el('study-question-label'),be=el('study-level-badge');
     const lv=state.getLevel(wi);
     be.textContent=Utils.levelLabel(lv);be.className='badge '+Utils.levelClass(lv);
-    if(mode==='zh2en'||mode==='mixed'){
-      const am=mode==='mixed'?(Math.random()<.5?'en2zh':'zh2en'):mode;
-      if(am==='zh2en'){
-        oa.style.display='none';sa.style.display='block';
-        le.textContent='输入对应的英文单词';we.textContent=q.zh;pe.textContent=q.pos||'';
-        el('spelling-input').value='';el('spelling-input').focus();
-        window._spellingWordIndex=wi;return;
-      }
+    // spell: show Chinese, type English
+    if(mode==='spell'){
+      oa.style.display='none';sa.style.display='block';
+      le.textContent='输入对应的英文单词';we.textContent=q.zh;pe.textContent=q.pos||'';
+      el('spelling-input').value='';el('spelling-input').focus();
+      window._spellingWordIndex=wi;return;
     }
+    // zh2en quiz: show Chinese, pick English
+    if(mode==='zh2en'){
+      oa.style.display='block';sa.style.display='none';
+      le.textContent='选择正确的英文单词';we.textContent=q.zh;pe.textContent=q.pos||'';
+      oa.innerHTML='';
+      q.options.forEach((opt,idx)=>{
+        const b=document.createElement('button');b.className='opt';
+        b.textContent=String.fromCharCode(65+idx)+'. '+opt;
+        b.dataset.idx=idx;b.addEventListener('click',()=>App.handleAnswer(idx));
+        oa.appendChild(b);
+      });
+      window._quizCorrectPos=q.correctPos;window._studyWordIndex=wi;return;
+    }
+    // en2zh: show English, pick Chinese (default)
     oa.style.display='block';sa.style.display='none';
     le.textContent='选择正确的中文释义';we.textContent=q.word;pe.textContent=q.pos||'';
     oa.innerHTML='';
@@ -738,12 +762,17 @@ const App = {
     Utils.shuffle(learn);Utils.shuffle(master);
     const lc=Math.min(Math.floor(this.roundSize*.8),learn.length);
     const mc=Math.min(this.roundSize-lc,master.length);
+    const words=[];
+    for(let i=0;i<lc;i++)words.push(learn[i]);
+    for(let i=0;i<mc;i++)words.push(master[i]);
+    while(words.length<this.roundSize&&words.length<n){
+      for(const i of learn){if(!words.includes(i)){words.push(i);break}}
+    }
+    // Build 30-question queue: 3 types per word, shuffled
+    const types=['en2zh','zh2en','spell'];
     const q=[];
-    for(let i=0;i<lc;i++)q.push(learn[i]);
-    for(let i=0;i<mc;i++)q.push(master[i]);
-    // Pad with more learning if not enough mastered words
-    while(q.length<this.roundSize&&q.length<n){
-      for(const i of learn){if(!q.includes(i)){q.push(i);break}}
+    for(const wi of words){
+      for(const t of types)q.push({type:t,wordIndex:wi});
     }
     Utils.shuffle(q);
     state.session.queue=q;state.session.queuePos=0;state.session.roundCount=0;
@@ -752,18 +781,15 @@ const App = {
   },
   nextQuestion(){
     this.answering=false;Router.show('study');
-    if(state.session.roundCount>=this.roundSize){Render.roundEnd();state.persist();Router.show('round');return}
-    const q=state.session.queue;
-    if(state.session.queuePos>=q.length){Router.goHome();return}
-    const idx=q[state.session.queuePos];state.session.queuePos++;state.session.roundCount++;
-    this.currentWordIndex=idx;state.meta.l=idx;
-    el('study-counter').textContent=`${state.session.roundCount} / ${this.roundSize}`;
-    el('study-progress').style.width=(state.session.roundCount/this.roundSize*100)+'%';
+    if(state.session.queuePos>=state.session.queue.length){Render.roundEnd();state.persist();Router.show('round');return}
+    const entry=state.session.queue[state.session.queuePos];state.session.queuePos++;state.session.roundCount++;
+    const idx=entry.wordIndex;this.currentWordIndex=idx;state.meta.l=idx;
+    const totalQ=state.session.queue.length;
+    el('study-counter').textContent=`${state.session.roundCount} / ${totalQ}`;
+    el('study-progress').style.width=(state.session.roundCount/totalQ*100)+'%';
     el('study-streak').textContent=state.session.streak;
-    const settings=loadSettings();let mode=settings.mode;
-    if(mode==='mixed')mode=Math.random()<.5?'en2zh':'zh2en';
-    this.mode=mode;
-    if(mode==='zh2en'){const q=Spelling.generate(idx);Render.study(q,idx,'zh2en')}
+    if(entry.type==='spell'){const q=Spelling.generate(idx);Render.study(q,idx,'spell')}
+    else if(entry.type==='zh2en'){const q=Quiz.generateZh2En(idx);Render.study(q,idx,'zh2en')}
     else{const q=Quiz.generate(idx);Render.study(q,idx,'en2zh')}
   },
   handleAnswer(p){
