@@ -192,6 +192,10 @@ body{
 <div id="page-study" class="page">
   <div class="flex items-center justify-between pb-3 border-b border-card mb-4">
     <button id="btn-study-exit" class="btn btn-ghost text-sm">← 退出</button>
+    <div class="flex items-center gap-3">
+      <span class="text-xs text-dim">⏱</span>
+      <span class="text-xs mono text-dim" id="study-timer">00:00</span>
+    </div>
     <div class="text-sm text-dim mono" id="study-counter">0 / 10</div>
     <div class="flex items-center gap-2">
       <span class="text-xs text-dim">⚡</span>
@@ -636,7 +640,23 @@ function now(){return new Date().toISOString().slice(0,10)}
 // ===== APP =====
 const App = {
   mode:'en2zh',roundSize:10,currentWordIndex:-1,answering:false,
+  timerInterval:null,timerStart:0,
   init(){state.init();this.mode=loadSettings().mode;this.roundSize=loadSettings().roundSize;this.bindEvents();Router.goHome()},
+  timerFormat(s){
+    const m=String(Math.floor(s/60)).padStart(2,'0'),sec=String(s%60).padStart(2,'0');
+    return m+':'+sec;
+  },
+  timerStartTick(){
+    this.timerStart=Date.now();
+    if(this.timerInterval)clearInterval(this.timerInterval);
+    this.timerInterval=setInterval(()=>{
+      const elapsed=Math.floor((Date.now()-this.timerStart)/1000);
+      el('study-timer').textContent=this.timerFormat(elapsed);
+    },500);
+  },
+  timerStop(){
+    if(this.timerInterval){clearInterval(this.timerInterval);this.timerInterval=null}
+  },
   bindEvents(){
     document.querySelectorAll('.page-nav').forEach(b=>b.addEventListener('click',()=>{const p=b.dataset.page;if(p==='home')Router.goHome();else{Router.show(p);if(p==='stats')Render.stats();if(p==='settings')Render.settings();if(p==='import')Render.importPage()}}));
     el('btn-start').addEventListener('click',()=>this.startStudy());
@@ -651,13 +671,14 @@ const App = {
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
   },
-  startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;Router.show('study');this.nextQuestion()},
-  endStudy(){state.session.active=false;state.persist();Router.goHome()},
+  startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;el('study-timer').textContent='00:00';this.timerStartTick();Router.show('study');this.nextQuestion()},
+  endStudy(){state.session.active=false;this.timerStop();state.persist();Router.goHome()},
   nextQuestion(){
     this.answering=false;Router.show('study');
     if(state.session.roundCount>=this.roundSize){Render.roundEnd();state.persist();Router.show('round');return}
     const idx=Selector.pickNext();if(idx<0){Router.goHome();return}
     this.currentWordIndex=idx;state.session.roundCount++;
+    state.meta.l=idx;
     el('study-counter').textContent=`${state.session.roundCount} / ${this.roundSize}`;
     el('study-progress').style.width=(state.session.roundCount/this.roundSize*100)+'%';
     el('study-streak').textContent=state.session.streak;
@@ -667,7 +688,15 @@ const App = {
     if(mode==='zh2en'){const q=Spelling.generate(idx);Render.study(q,idx,'zh2en')}
     else{const q=Quiz.generate(idx);Render.study(q,idx,'en2zh')}
   },
-  handleAnswer(p){if(this.answering)return;this.answering=true;this.processResult(Quiz.check(p),window._studyWordIndex)},
+  handleAnswer(p){
+    if(this.answering)return;this.answering=true;
+    const opts=el('study-options').querySelectorAll('.opt');
+    const correct=Quiz.check(p);
+    if(opts[p])opts[p].classList.add(correct?'flash-correct':'flash-wrong');
+    // Show correct answer highlight for wrong answers
+    if(!correct&&opts[window._quizCorrectPos])opts[window._quizCorrectPos].classList.add('opt-correct');
+    setTimeout(()=>this.processResult(correct,window._studyWordIndex),350);
+  },
   handleSpellingSubmit(){if(this.answering)return;this.answering=true;this.processResult(Spelling.check(el('spelling-input').value),window._spellingWordIndex)},
   processResult(ic,wi){
     const lb=state.getLevel(wi),la=ic?Math.min(lb+1,7):Math.max(lb-1,0);
