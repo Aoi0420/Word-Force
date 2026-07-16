@@ -404,10 +404,11 @@ body{
         <span class="text-sm text-dim" id="val-qtype">全部三种</span>
       </div>
       <select id="set-qtype" class="w-full p-2 rounded bg-surface border-card text-sm" style="color:var(--text-main)">
-        <option value="all">全部三种</option>
+        <option value="all">全部四种</option>
         <option value="en2zh">仅英选中</option>
         <option value="zh2en">仅中选英</option>
         <option value="spell">仅拼写</option>
+        <option value="fill">仅填空拼写</option>
       </select>
     </div>
   </div>
@@ -469,6 +470,7 @@ const CFG = {
   BLITZ_SECONDS: 8,            // 闪电战每题秒数
   BLITZ_SPELL_SECONDS: 12,     // 拼写题秒数放宽
   BLITZ_BONUS: 2,              // 答对奖励秒数
+  BLITZ_FILL_SECONDS: 6,       // 填空拼写秒数
 };
 
 // ===== SAMPLE WORDS =====
@@ -668,6 +670,14 @@ const Quiz = {
 const Spelling = {
   correctWord:'',
   generate(ci){const w=state.words[ci];this.correctWord=w.en;return{zh:w.zh,pos:w.pos}},
+  generateFill(ci){
+    const w=state.words[ci];this.correctWord=w.en;
+    const c=w.en.split(''),valid=[];
+    for(let i=0;i<c.length;i++)if(c[i]!==' '&&c[i]!=='-')valid.push(i);
+    Utils.shuffle(valid);const n=Math.min(2,valid.length);
+    for(let i=0;i<n;i++)c[valid[i]]='_';
+    return{zh:w.zh,pos:w.pos,display:c.join('')};
+  },
   check(i){return i.trim().toLowerCase()===this.correctWord.trim().toLowerCase()},
 };
 
@@ -722,6 +732,15 @@ const Render = {
       el('spelling-hint-area').style.display='none';el('spelling-hint-area').textContent='';
       el('btn-spelling-hint').disabled=false;el('btn-spelling-hint').style.opacity='1';
       App._hintUsed=false;App._spellingWordIndex=wi;return;
+    }
+    // fill: show partial word, type full word
+    if(mode==='fill'){
+      oa.style.display='none';sa.style.display='block';
+      le.textContent='补全单词 '+q.zh;we.textContent=q.display;pe.textContent=q.pos||'';
+      el('spelling-input').value='';
+      el('spelling-hint-area').style.display='none';el('spelling-hint-area').textContent='';
+      el('btn-spelling-hint').disabled=false;el('btn-spelling-hint').style.opacity='1';
+      App._spellingWordIndex=wi;return;
     }
     // zh2en quiz: show Chinese, pick English
     if(mode==='zh2en'){
@@ -791,7 +810,7 @@ const Render = {
     const ls=loadSettings();
     el('set-round-size').value=ls.roundSize;el('val-round-size').textContent=ls.roundSize;
     el('set-mode').value=ls.mode;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[ls.mode]||'普通模式';
-    el('set-qtype').value=ls.qtype;const qtLabels={all:'全部三种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写'};el('val-qtype').textContent=qtLabels[ls.qtype]||'全部三种';
+    el('set-qtype').value=ls.qtype;const qtLabels={all:'全部四种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写',fill:'仅填空拼写'};el('val-qtype').textContent=qtLabels[ls.qtype]||'全部四种';
     el('set-intensity').value=ls.intensity;el('val-intensity').textContent=CFG.INTENSITY_LABELS[ls.intensity]||'中等';
   },
   importPage(){
@@ -831,7 +850,7 @@ const App = {
   },
   clearBlitzTimer(){if(this._blitzTimer){clearInterval(this._blitzTimer);this._blitzTimer=null}},
   startBlitzTimer(){
-    const base=this._currentQType==='spell'?CFG.BLITZ_SPELL_SECONDS:CFG.BLITZ_SECONDS;
+    const base=this._currentQType==='fill'?CFG.BLITZ_FILL_SECONDS:this._currentQType==='spell'?CFG.BLITZ_SPELL_SECONDS:CFG.BLITZ_SECONDS;
     const total=base+this._blitzBonus;this._blitzBonus=0;
     const ticks={v:total*10},bar=el('study-countdown-bar'),fill=el('study-countdown-fill');
     bar.style.display='block';fill.style.width='100%';fill.style.background='var(--green-bright)';
@@ -878,7 +897,7 @@ const App = {
     el('toast').addEventListener('click',()=>{if(this._toastTimeout){clearTimeout(this._toastTimeout);this._toastTimeout=null;el('toast').style.transform='translateY(-120%)';this.nextQuestion()}});
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
     el('set-mode').addEventListener('change',e=>{const v=e.target.value;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[v]||'普通模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
-    el('set-qtype').addEventListener('change',e=>{const v=e.target.value;const qtLabels={all:'全部三种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写'};el('val-qtype').textContent=qtLabels[v]||'全部三种';const s=loadSettings();s.qtype=v;saveSettings(s)});
+    el('set-qtype').addEventListener('change',e=>{const v=e.target.value;const qtLabels={all:'全部四种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写',fill:'仅填空拼写'};el('val-qtype').textContent=qtLabels[v]||'全部四种';const s=loadSettings();s.qtype=v;saveSettings(s)});
     el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
@@ -903,7 +922,7 @@ const App = {
     Utils.shuffle(pool);
     if(pool.length<this.roundSize){const all=[];for(let i=0;i<n;i++)all.push(i);Utils.shuffle(all);for(const i of all){if(!pool.includes(i)){pool.push(i);if(pool.length>=this.roundSize)break}}}
     const words=pool.slice(0,this.roundSize);
-    const allTypes=['en2zh','zh2en','spell'],types=qtype==='all'?allTypes:[qtype],q=[];
+    const allTypes=['en2zh','zh2en','spell','fill'],types=qtype==='all'?allTypes:[qtype],q=[];
     for(const wi of words){for(const t of types)q.push({type:t,wordIndex:wi})}
     Utils.shuffle(q);
     state.session.queue=q;state.session.queuePos=0;state.session.roundCount=0;
@@ -924,6 +943,7 @@ const App = {
     el('study-streak').textContent=state.session.streak;
     if(entry.type==='spell'){const q=Spelling.generate(idx);Render.study(q,idx,'spell')}
     else if(entry.type==='zh2en'){const q=Quiz.generateZh2En(idx);Render.study(q,idx,'zh2en')}
+    else if(entry.type==='fill'){const q=Spelling.generateFill(idx);Render.study(q,idx,'fill')}
     else{const q=Quiz.generate(idx);Render.study(q,idx,'en2zh')}
     if(loadSettings().mode==='blitz')this.startBlitzTimer();
   },
