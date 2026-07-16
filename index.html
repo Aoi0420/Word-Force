@@ -853,7 +853,8 @@ const App = {
       else{
         const start=inp.selectionStart||inp.value.length;
         inp.value=inp.value.slice(0,start)+k+inp.value.slice(inp.selectionEnd||start);
-        const pos=start+k.length;inp.setSelectionRange(pos,pos)
+        const pos=start+k.length;inp.setSelectionRange(pos,pos);
+        if(!this.answering&&Spelling.check(inp.value))this.handleSpellingSubmit();
       }
     });
     el('btn-next').addEventListener('click',()=>this.nextQuestion());
