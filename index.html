@@ -824,13 +824,13 @@ const App = {
   startBlitzTimer(){
     const base=this._currentQType==='spell'?CFG.BLITZ_SPELL_SECONDS:CFG.BLITZ_SECONDS;
     const total=base+this._blitzBonus;this._blitzBonus=0;
-    const remain={v:total*100},bar=el('study-countdown-bar'),fill=el('study-countdown-fill');
+    const ticks={v:total*10},bar=el('study-countdown-bar'),fill=el('study-countdown-fill');
     bar.style.display='block';fill.style.width='100%';fill.style.background='var(--green-bright)';
     this._blitzTimer=setInterval(()=>{
-      remain.v--;if(remain.v<=0){this.clearBlitzTimer();if(!this.answering)this.processResult(false,this.currentWordIndex);return}
-      const pct=remain.v/(total*100)*100;fill.style.width=pct+'%';
-      if(remain.v<total*10)fill.style.background='#c0392b';
-      else if(remain.v<total*30)fill.style.background='#e67e22';
+      ticks.v--;if(ticks.v<=0){this.clearBlitzTimer();if(!this.answering)this.processResult(false,this.currentWordIndex);return}
+      const pct=ticks.v/(total*10)*100;fill.style.width=pct+'%';
+      if(ticks.v<10)fill.style.background='#c0392b';
+      else if(ticks.v<30)fill.style.background='#e67e22';
     },100);
   },
   bindEvents(){
