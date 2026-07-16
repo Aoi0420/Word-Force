@@ -245,7 +245,8 @@ body{
   <div id="study-question-area" class="flex-1 flex flex-col items-center justify-center gap-4 fade-in">
     <div class="text-center">
       <div class="text-xs text-dim mb-1" id="study-question-label">选择正确的中文释义</div>
-      <div class="text-4xl font-bold mono tracking-wide mb-2" id="study-word" style="color:var(--text-main)">word</div>
+      <div class="text-4xl font-bold mono tracking-wide mb-1" id="study-word" style="color:var(--text-main)">word</div>
+      <div class="text-xs text-dim mb-2" id="study-phrase-hint" style="display:none">📝 短语</div>
       <div class="flex items-center justify-center gap-3">
         <span class="text-sm text-dim" id="study-pos">v.</span>
         <span class="badge" id="study-level-badge">Lv.0</span>
@@ -707,6 +708,8 @@ const Render = {
     const oa=el('study-options'),sa=el('study-spelling-area'),we=el('study-word'),pe=el('study-pos'),le=el('study-question-label'),be=el('study-level-badge');
     const lv=state.getLevel(wi);
     be.textContent=Utils.levelLabel(lv);be.className='badge '+Utils.levelClass(lv);
+    const ph=el('study-phrase-hint'),wobj=state.getWord(wi);
+    ph.style.display=wobj&&wobj.en.includes(' ')?'block':'none';
     // spell: show Chinese, type English
     if(mode==='spell'){
       oa.style.display='none';sa.style.display='block';
