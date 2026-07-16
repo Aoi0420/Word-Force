@@ -91,6 +91,7 @@
   <div class="bar-countdown" id="study-countdown-bar" style="display:none">
     <div class="bar-fill" id="study-countdown-fill" style="width:100%;background:var(--green-bright)"></div>
   </div>
+  <div class="text-center" style="height:18px;line-height:18px"><span id="study-result" class="text-xs"></span></div>
   <div id="study-question-area" class="flex-1 flex flex-col items-center justify-center gap-4 fade-in">
     <div class="text-center">
       <div class="text-xs text-dim mb-1" id="study-question-label">选择正确的中文释义</div>
@@ -336,7 +337,6 @@ const CFG = {
   REVIEW_UPPER_BOUND: 5,       // 复习池上限等级
   PENALTY_LOWER_BOUND: 2,      // 惩罚池下限等级
   MAX_DISTRACTORS: 3,          // 选择题干扰项数量
-  TOAST_DELAY_MS: 200,         // 答对后 Toast 显示时长
   MAX_WRONGS: 50,              // 耻辱榜上限条目
   RESULT_DELAY_MS: 350,        // 答错后展示结果延迟
   MIN_POOL_SIZE: 3,            // 各池最小抽取数
@@ -822,7 +822,6 @@ const App = {
     });
     el('btn-next').addEventListener('click',()=>this.nextQuestion());
     el('btn-round-continue').addEventListener('click',()=>this.continueRound());
-    el('toast').addEventListener('click',()=>{if(this._toastTimeout){clearTimeout(this._toastTimeout);this._toastTimeout=null}el('toast').style.transform='translateY(-120%)'});
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
     el('set-mode').addEventListener('change',e=>{const v=e.target.value;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[v]||'普通模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
     el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
@@ -925,7 +924,7 @@ const App = {
     // Abyss: clear wrongs record when pushed to Lv.7
     if(loadSettings().mode==='abyss'&&la===7&&state.meta.wrongs[wi])delete state.meta.wrongs[wi];
     state.persist();
-    if(ic){Render.toast(true,wi,lb,la);this.nextQuestion();this._toastTimeout=setTimeout(()=>el('toast').style.transform='translateY(-120%)',CFG.TOAST_DELAY_MS)}
+    if(ic){const w=state.getWord(wi);el('study-result').textContent='✅ '+w.en;el('study-result').style.color='var(--green-bright)';setTimeout(()=>el('study-result').textContent='',400);this.nextQuestion()}
     else{Render.result(wi,lb,la);Router.show('result')}
   },
   continueRound(){this.answering=false;el('study-countdown-bar').style.display='none';this.startRound();if(this._abyssCleared){this.endStudy();return}Router.show('study');this.nextQuestion()},
