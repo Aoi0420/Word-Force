@@ -823,7 +823,7 @@ const App = {
     });
     el('btn-next').addEventListener('click',()=>this.nextQuestion());
     el('btn-round-continue').addEventListener('click',()=>this.continueRound());
-    el('toast').addEventListener('click',()=>{if(this._toastTimeout){clearTimeout(this._toastTimeout);this._toastTimeout=null;el('toast').style.transform='translateY(-120%)';this.nextQuestion()}});
+    el('toast').addEventListener('click',()=>{if(this._toastTimeout){clearTimeout(this._toastTimeout);this._toastTimeout=null}el('toast').style.transform='translateY(-120%)'});
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
     el('set-mode').addEventListener('change',e=>{const v=e.target.value;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[v]||'普通模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
     el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
@@ -926,7 +926,7 @@ const App = {
     // Abyss: clear wrongs record when pushed to Lv.7
     if(loadSettings().mode==='abyss'&&la===7&&state.meta.wrongs[wi])delete state.meta.wrongs[wi];
     state.persist();
-    if(ic){setTimeout(()=>{Render.toast(true,wi,lb,la);this._toastTimeout=setTimeout(()=>{el('toast').style.transform='translateY(-120%)';this.nextQuestion()},CFG.TOAST_DELAY_MS)},CFG.TOAST_SHOW_DELAY)}
+    if(ic){setTimeout(()=>{Render.toast(true,wi,lb,la);this.nextQuestion();this._toastTimeout=setTimeout(()=>el('toast').style.transform='translateY(-120%)',CFG.TOAST_DELAY_MS)},CFG.TOAST_SHOW_DELAY)}
     else{Render.result(wi,lb,la);Router.show('result')}
   },
   continueRound(){this.answering=false;el('study-countdown-bar').style.display='none';this.startRound();if(this._abyssCleared){this.endStudy();return}Router.show('study');this.nextQuestion()},
