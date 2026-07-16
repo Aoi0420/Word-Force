@@ -255,7 +255,11 @@ body{
     <div id="study-options" class="w-full space-y-3 mt-4 max-w-480"></div>
     <div id="study-spelling-area" class="w-full mt-4 max-w-480" style="display:none">
       <input id="spelling-input" class="input-field text-center" placeholder="输入英文单词…" autocomplete="off" autocapitalize="off" spellcheck="false" readonly>
-      <button id="btn-spelling-submit" class="btn btn-primary btn-block mt-3">确认</button>
+      <div id="spelling-hint-area" class="text-center text-sm mono text-dim mt-2" style="display:none"></div>
+      <div class="flex gap-2 mt-3">
+        <button id="btn-spelling-hint" class="btn btn-ghost flex-1">💡 提示</button>
+        <button id="btn-spelling-submit" class="btn btn-primary flex-1">确认</button>
+      </div>
       <div id="vkeyboard" class="mt-3 select-none" style="touch-action:manipulation">
         <div class="vkey-row"><button class="vkey" data-k="q">q</button><button class="vkey" data-k="w">w</button><button class="vkey" data-k="e">e</button><button class="vkey" data-k="r">r</button><button class="vkey" data-k="t">t</button><button class="vkey" data-k="y">y</button><button class="vkey" data-k="u">u</button><button class="vkey" data-k="i">i</button><button class="vkey" data-k="o">o</button><button class="vkey" data-k="p">p</button></div>
         <div class="vkey-row"><button class="vkey" data-k="a">a</button><button class="vkey" data-k="s">s</button><button class="vkey" data-k="d">d</button><button class="vkey" data-k="f">f</button><button class="vkey" data-k="g">g</button><button class="vkey" data-k="h">h</button><button class="vkey" data-k="j">j</button><button class="vkey" data-k="k">k</button><button class="vkey" data-k="l">l</button></div>
@@ -715,7 +719,9 @@ const Render = {
       oa.style.display='none';sa.style.display='block';
       le.textContent='输入对应的英文单词';we.textContent=q.zh;pe.textContent=q.pos||'';
       el('spelling-input').value='';
-      App._spellingWordIndex=wi;return;
+      el('spelling-hint-area').style.display='none';el('spelling-hint-area').textContent='';
+      el('btn-spelling-hint').disabled=false;el('btn-spelling-hint').style.opacity='1';
+      App._hintUsed=false;App._spellingWordIndex=wi;return;
     }
     // zh2en quiz: show Chinese, pick English
     if(mode==='zh2en'){
@@ -805,7 +811,7 @@ function now(){return new Date().toISOString().slice(0,10)}
 const App = {
   mode:'normal',roundSize:10,currentWordIndex:-1,answering:false,
   _quizCorrectPos:-1,_studyWordIndex:-1,_spellingWordIndex:-1,
-  _blitzTimer:null,_blitzBonus:0,_currentQType:'en2zh',_abyssCleared:false,
+  _blitzTimer:null,_blitzBonus:0,_currentQType:'en2zh',_abyssCleared:false,_hintUsed:false,
   timerInterval:null,timerStart:0,
   async init(){await state.ensureWords();state.init();const ls=loadSettings();this.mode=ls.mode;this.roundSize=ls.roundSize;this.bindEvents();Router.goHome()},
   timerFormat(s){
@@ -846,6 +852,13 @@ const App = {
     }));
     el('btn-study-exit').addEventListener('click',()=>this.endStudy());
     el('btn-spelling-submit').addEventListener('click',()=>this.handleSpellingSubmit());
+    el('btn-spelling-hint').addEventListener('click',()=>{
+      if(this.answering||this._hintUsed)return;
+      const w=Spelling.correctWord,first=w[0],last=w[w.length-1];
+      el('spelling-hint-area').textContent='💡 '+first+'…'+last;el('spelling-hint-area').style.display='block';
+      el('btn-spelling-hint').disabled=true;el('btn-spelling-hint').style.opacity='.5';
+      this._hintUsed=true;
+    });
     el('spelling-input').addEventListener('keydown',e=>{if(e.key==='Enter')this.handleSpellingSubmit()});
     el('vkeyboard').addEventListener('click',e=>{
       const btn=e.target.closest('.vkey');if(!btn)return;
@@ -926,7 +939,8 @@ const App = {
   handleSpellingSubmit(){if(this.answering)return;this.answering=true;this.clearBlitzTimer();this.processResult(Spelling.check(el('spelling-input').value),this._spellingWordIndex)},
   processResult(ic,wi){
     AudioFX[ic?'correct':'wrong']();
-    const lb=state.getLevel(wi),la=ic?Math.min(lb+1,7):Math.max(lb-1,0);
+    const lb=state.getLevel(wi),la=ic?(this._hintUsed?lb:Math.min(lb+1,7)):Math.max(lb-1,0);
+    this._hintUsed=false;
     state.setLevel(wi,la);
     if(ic){state.session.correctCount++;state.session.streak++;if(la>lb)state.session.levelUps++;if(la>2)state.session.recentWrong.delete(wi);this._blitzBonus=Math.min(this._blitzBonus+CFG.BLITZ_BONUS,4)}
     else{state.session.wrongCount++;state.session.streak=0;state.session.levelDowns++;state.session.recentWrong.add(wi);state.incrWrong(wi);this._blitzBonus=0}
