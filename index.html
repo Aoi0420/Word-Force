@@ -267,7 +267,7 @@ body{
 </div>
 
 <!-- TOAST -->
-<div id="toast" style="position:fixed;top:0;left:0;right:0;z-index:100;transform:translateY(-120%);transition:transform .35s cubic-bezier(.34,1.56,.64,1);padding:12px 20px;pointer-events:none">
+<div id="toast" style="position:fixed;top:0;left:0;right:0;z-index:100;transform:translateY(-120%);transition:transform .35s cubic-bezier(.34,1.56,.64,1);padding:12px 20px;cursor:pointer">
   <div id="toast-body" class="rounded-xl px-5 py-4 text-center shadow-lg mx-auto max-w-460" style="background:var(--bg-card);border:1px solid var(--border)">
     <div id="toast-icon" class="text-2xl mb-1">✅</div>
     <div class="font-bold mono text-lg" id="toast-word"></div>
@@ -445,6 +445,14 @@ const CFG = {
   INTENSITY_LABELS: ['','很低','低','中等','高','很高'],
   LV_LABELS: ['Lv.0','Lv.1','Lv.2','Lv.3','Lv.4','Lv.5','Lv.6','Lv.7'],
   LV_COLORS: ['#c0392b','#e67e22','#e67e22','#f1c40f','#f1c40f','#5a8f2c','#5a8f2c','#1abc9c'],
+  PENALTY_WEIGHT: 0.4,          // 惩罚池出题概率
+  REVIEW_UPPER_BOUND: 5,       // 复习池上限等级
+  PENALTY_LOWER_BOUND: 2,      // 惩罚池下限等级
+  MAX_DISTRACTORS: 3,          // 选择题干扰项数量
+  TOAST_DELAY_MS: 500,         // 答对后 Toast 显示时长
+  MAX_WRONGS: 50,              // 耻辱榜上限条目
+  RESULT_DELAY_MS: 350,        // 答错后展示结果延迟
+  MIN_POOL_SIZE: 3,            // 各池最小抽取数
 };
 
 // ===== SAMPLE WORDS =====
@@ -505,16 +513,20 @@ const Bitmap = {
   byteCount(n){return Math.ceil(n*3/8)},
   create(n){return new Uint8Array(this.byteCount(n))},
   read(b,i){
+    if(i<0||i>=b.length*8/3)return 0;
     const p=i*3,bi=p>>>3,bo=p&7;
     if(bo<=5)return(b[bi]>>>bo)&7;
     const lo=8-bo,hi=3-lo;
+    if(bi+1>=b.length)return 0;
     return((b[bi]>>>bo)|((b[bi+1]&((1<<hi)-1))<<lo))&7;
   },
   write(b,i,v){
+    if(i<0||i>=b.length*8/3)return;
     const p=i*3,bi=p>>>3,bo=p&7;v&=7;
     if(bo<=5){const m=7<<bo;b[bi]=(b[bi]&~m)|(v<<bo)}
     else{
       const lo=8-bo,hi=3-lo;
+      if(bi+1>=b.length)return;
       b[bi]=(b[bi]&((1<<bo)-1))|(v<<bo);
       const hm=(1<<hi)-1;
       b[bi+1]=(b[bi+1]&~hm)|((v>>>lo)&hm);
@@ -542,8 +554,9 @@ const Store = {
   },
   saveBitmap(b){localStorage.setItem(this.KEYS.DATA,Utils.btoa(b))},
   loadMeta(){try{const r=localStorage.getItem(this.KEYS.META);if(!r)return this.defaultMeta();return{...this.defaultMeta(),...JSON.parse(r)}}catch{return this.defaultMeta()}},
-  saveMeta(m){localStorage.setItem(this.KEYS.META,JSON.stringify(m))},
-  defaultMeta(){return{v:1,n:0,d:'',m:0,t:0,l:0,wrongs:{}}},
+  saveMeta(m){this.trimWrongs(m);localStorage.setItem(this.KEYS.META,JSON.stringify(m))},
+  trimWrongs(m){const e=Object.entries(m.wrongs||{}).sort((a,b)=>b[1]-a[1]);if(e.length>50){m.wrongs={};for(let i=0;i<50;i++)m.wrongs[e[i][0]]=e[i][1]}},
+  defaultMeta(){return{v:1,n:0,d:'',m:0,t:0,wrongs:{}}},
   clearAll(){Object.values(this.KEYS).forEach(k=>localStorage.removeItem(k))},
 };
 
@@ -593,8 +606,8 @@ const Selector = {
     for(let i=0;i<n;i++){const l=state.getLevel(i);if(l>=7)consolidate.push(i);else if(l>=3)review.push(i);else if(l===0)newWords.push(i);else review.push(i)}
     for(const i of state.session.recentWrong){const l=state.getLevel(i);if(l<=2&&!punish.includes(i))punish.push(i)}
     const r=Math.random();
-    if(punish.length>0&&r<.4)return punish[Math.floor(Math.random()*punish.length)];
-    if(review.length>0&&r<.75){const c=review.filter(i=>state.getLevel(i)<=5);const p=c.length>0?c:review;return p[Math.floor(Math.random()*p.length)]}
+    if(punish.length>0&&r<CFG.PENALTY_WEIGHT)return punish[Math.floor(Math.random()*punish.length)];
+    if(review.length>0&&r<.75){const c=review.filter(i=>state.getLevel(i)<=CFG.REVIEW_UPPER_BOUND);const p=c.length>0?c:review;return p[Math.floor(Math.random()*p.length)]}
     if(newWords.length>0)return newWords[Math.floor(Math.random()*newWords.length)];
     if(consolidate.length>0)return consolidate[Math.floor(Math.random()*consolidate.length)];
     return Math.floor(Math.random()*n);
@@ -606,7 +619,7 @@ const Quiz = {
   correctIndex:-1,
   // en→zh: show English, pick Chinese
   generate(ci){
-    const words=state.words,n=words.length,m=Math.min(3,n-1),candidates=[];
+    const words=state.words,n=words.length,m=Math.min(CFG.MAX_DISTRACTORS,n-1),candidates=[];
     for(let i=0;i<n;i++)if(i!==ci)candidates.push(i);Utils.shuffle(candidates);
     const samePos=candidates.filter(i=>words[i].pos===words[ci].pos),chosen=[];
     for(const i of samePos){if(chosen.length>=m)break;if(!chosen.includes(i))chosen.push(i)}
@@ -618,7 +631,7 @@ const Quiz = {
   },
   // zh→en: show Chinese, pick English
   generateZh2En(ci){
-    const words=state.words,n=words.length,m=Math.min(3,n-1),candidates=[];
+    const words=state.words,n=words.length,m=Math.min(CFG.MAX_DISTRACTORS,n-1),candidates=[];
     for(let i=0;i<n;i++)if(i!==ci)candidates.push(i);Utils.shuffle(candidates);
     const chosen=[];
     for(const i of candidates){if(chosen.length>=m)break;if(!chosen.includes(i))chosen.push(i)}
@@ -683,7 +696,7 @@ const Render = {
       oa.style.display='none';sa.style.display='block';
       le.textContent='输入对应的英文单词';we.textContent=q.zh;pe.textContent=q.pos||'';
       el('spelling-input').value='';
-      window._spellingWordIndex=wi;return;
+      App._spellingWordIndex=wi;return;
     }
     // zh2en quiz: show Chinese, pick English
     if(mode==='zh2en'){
@@ -696,7 +709,7 @@ const Render = {
         b.dataset.idx=idx;b.addEventListener('click',()=>App.handleAnswer(idx));
         oa.appendChild(b);
       });
-      window._quizCorrectPos=q.correctPos;window._studyWordIndex=wi;return;
+      App._quizCorrectPos=q.correctPos;App._studyWordIndex=wi;return;
     }
     // en2zh: show English, pick Chinese (default)
     oa.style.display='block';sa.style.display='none';
@@ -708,7 +721,7 @@ const Render = {
       b.dataset.idx=idx;b.addEventListener('click',()=>App.handleAnswer(idx));
       oa.appendChild(b);
     });
-    window._quizCorrectPos=q.correctPos;window._studyWordIndex=wi;
+    App._quizCorrectPos=q.correctPos;App._studyWordIndex=wi;
   },
   result(wi,lb,la){
     const w=state.getWord(wi);
@@ -765,6 +778,7 @@ function now(){return new Date().toISOString().slice(0,10)}
 // ===== APP =====
 const App = {
   mode:'normal',roundSize:10,currentWordIndex:-1,answering:false,
+  _quizCorrectPos:-1,_studyWordIndex:-1,_spellingWordIndex:-1,
   timerInterval:null,timerStart:0,
   async init(){await state.ensureWords();state.init();const ls=loadSettings();this.mode=ls.mode;this.roundSize=ls.roundSize;this.bindEvents();Router.goHome()},
   timerFormat(s){
@@ -807,6 +821,7 @@ const App = {
     });
     el('btn-next').addEventListener('click',()=>this.nextQuestion());
     el('btn-round-continue').addEventListener('click',()=>this.continueRound());
+    el('toast').addEventListener('click',()=>{if(this._toastTimeout){clearTimeout(this._toastTimeout);this._toastTimeout=null;el('toast').style.transform='translateY(-120%)';this.nextQuestion()}});
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
     el('set-mode').addEventListener('change',e=>{const v=e.target.value;el('val-mode').textContent=v==='normal'?'普通模式':v==='review'?'复习模式':'学习模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
     el('set-qtype').addEventListener('change',e=>{const v=e.target.value;const qtLabels={all:'全部三种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写'};el('val-qtype').textContent=qtLabels[v]||'全部三种';const s=loadSettings();s.qtype=v;saveSettings(s)});
@@ -842,7 +857,7 @@ const App = {
     this.answering=false;Router.show('study');
     if(state.session.queuePos>=state.session.queue.length){Render.roundEnd();state.persist();Router.show('round');return}
     const entry=state.session.queue[state.session.queuePos];state.session.queuePos++;state.session.roundCount++;
-    const idx=entry.wordIndex;this.currentWordIndex=idx;state.meta.l=idx;
+    const idx=entry.wordIndex;this.currentWordIndex=idx;
     const totalQ=state.session.queue.length;
     el('study-counter').textContent=`${state.session.roundCount} / ${totalQ}`;
     el('study-progress').style.width=(state.session.roundCount/totalQ*100)+'%';
@@ -857,10 +872,10 @@ const App = {
     const correct=Quiz.check(p);
     if(opts[p])opts[p].classList.add(correct?'flash-correct':'flash-wrong');
     // Show correct answer highlight for wrong answers
-    if(!correct&&opts[window._quizCorrectPos])opts[window._quizCorrectPos].classList.add('opt-correct');
-    setTimeout(()=>this.processResult(correct,window._studyWordIndex),350);
+    if(!correct&&opts[this._quizCorrectPos])opts[this._quizCorrectPos].classList.add('opt-correct');
+    setTimeout(()=>this.processResult(correct,this._studyWordIndex),350);
   },
-  handleSpellingSubmit(){if(this.answering)return;this.answering=true;this.processResult(Spelling.check(el('spelling-input').value),window._spellingWordIndex)},
+  handleSpellingSubmit(){if(this.answering)return;this.answering=true;this.processResult(Spelling.check(el('spelling-input').value),this._spellingWordIndex)},
   processResult(ic,wi){
     AudioFX[ic?'correct':'wrong']();
     const lb=state.getLevel(wi),la=ic?Math.min(lb+1,7):Math.max(lb-1,0);
@@ -871,7 +886,7 @@ const App = {
     if(state.meta.d!==today){state.meta.d=today;state.meta.t=0;state.meta.m=0}
     state.meta.t++;if(lb<7&&la===7)state.meta.m++;
     state.persist();
-    if(ic){Render.toast(true,wi,lb,la);setTimeout(()=>{el('toast').style.transform='translateY(-120%)';this.nextQuestion()},900)}
+    if(ic){Render.toast(true,wi,lb,la);this._toastTimeout=setTimeout(()=>{el('toast').style.transform='translateY(-120%)';this.nextQuestion()},CFG.TOAST_DELAY_MS)}
     else{Render.result(wi,lb,la);Router.show('result')}
   },
   continueRound(){this.answering=false;this.startRound();Router.show('study');this.nextQuestion()},
