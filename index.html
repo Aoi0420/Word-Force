@@ -367,9 +367,9 @@ body{
         <span class="text-sm text-dim" id="val-mode">英→中</span>
       </div>
       <select id="set-mode" class="w-full p-2 rounded bg-surface border-card text-sm" style="color:var(--text-main)">
-        <option value="en2zh">英→中（选择题）</option>
-        <option value="zh2en">中→英（拼写）</option>
-        <option value="mixed">混合模式</option>
+        <option value="normal">普通模式（混合题型）</option>
+        <option value="review">复习模式（Lv.5 及以上）</option>
+        <option value="learn">学习模式（Lv.3 及以下）</option>
       </select>
     </div>
     <div>
@@ -719,7 +719,7 @@ const Render = {
   settings(){
     const ls=loadSettings();
     el('set-round-size').value=ls.roundSize;el('val-round-size').textContent=ls.roundSize;
-    el('set-mode').value=ls.mode;el('val-mode').textContent=ls.mode==='en2zh'?'英→中':ls.mode==='zh2en'?'中→英':'混合';
+    el('set-mode').value=ls.mode;el('val-mode').textContent=ls.mode==='normal'?'普通模式':ls.mode==='review'?'复习模式':'学习模式';
     el('set-intensity').value=ls.intensity;el('val-intensity').textContent=CFG.INTENSITY_LABELS[ls.intensity]||'中等';
   },
   importPage(){
@@ -730,16 +730,16 @@ const Render = {
 
 // ===== SETTINGS PERSISTENCE =====
 function loadSettings(){
-  try{const r=localStorage.getItem('wf_settings');if(!r)return{roundSize:10,mode:'en2zh',intensity:3};return{roundSize:10,mode:'en2zh',intensity:3,...JSON.parse(r)}}catch{return{roundSize:10,mode:'en2zh',intensity:3}}
+  try{const r=localStorage.getItem('wf_settings');if(!r)return{roundSize:10,mode:'normal',intensity:3};return{roundSize:10,mode:'normal',intensity:3,...JSON.parse(r)}}catch{return{roundSize:10,mode:'normal',intensity:3}}
 }
 function saveSettings(s){localStorage.setItem('wf_settings',JSON.stringify(s))}
 function now(){return new Date().toISOString().slice(0,10)}
 
 // ===== APP =====
 const App = {
-  mode:'en2zh',roundSize:10,currentWordIndex:-1,answering:false,
+  mode:'normal',roundSize:10,currentWordIndex:-1,answering:false,
   timerInterval:null,timerStart:0,
-  async init(){await state.ensureWords();state.init();this.mode=loadSettings().mode;this.roundSize=loadSettings().roundSize;this.bindEvents();Router.goHome()},
+  async init(){await state.ensureWords();state.init();const ls=loadSettings();this.mode=ls.mode;this.roundSize=ls.roundSize;this.bindEvents();Router.goHome()},
   timerFormat(s){
     const m=String(Math.floor(s/60)).padStart(2,'0'),sec=String(s%60).padStart(2,'0');
     return m+':'+sec;
@@ -776,7 +776,7 @@ const App = {
     el('btn-next').addEventListener('click',()=>this.nextQuestion());
     el('btn-round-continue').addEventListener('click',()=>this.continueRound());
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
-    el('set-mode').addEventListener('change',e=>{const v=e.target.value;el('val-mode').textContent=v==='en2zh'?'英→中':v==='zh2en'?'中→英':'混合';const s=loadSettings();s.mode=v;this.mode=v;saveSettings(s)});
+    el('set-mode').addEventListener('change',e=>{const v=e.target.value;el('val-mode').textContent=v==='normal'?'普通模式':v==='review'?'复习模式':'学习模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
     el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
@@ -784,23 +784,28 @@ const App = {
   startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();Router.show('study');this.nextQuestion()},
   endStudy(){state.session.active=false;this.timerStop();state.persist();Router.goHome()},
   startRound(){
-    const n=state.wordCount(),learn=[],master=[];
-    for(let i=0;i<n;i++){(state.getLevel(i)>=7?master:learn).push(i)}
-    Utils.shuffle(learn);Utils.shuffle(master);
-    const lc=Math.min(Math.floor(this.roundSize*.8),learn.length);
-    const mc=Math.min(this.roundSize-lc,master.length);
-    const words=[];
-    for(let i=0;i<lc;i++)words.push(learn[i]);
-    for(let i=0;i<mc;i++)words.push(master[i]);
-    while(words.length<this.roundSize&&words.length<n){
-      for(const i of learn){if(!words.includes(i)){words.push(i);break}}
+    const n=state.wordCount(),roundMode=loadSettings().mode;
+    let pool=[];
+    if(roundMode==='review'){
+      // Review mode: Lv.5+
+      for(let i=0;i<n;i++){if(state.getLevel(i)>=5)pool.push(i)}
+    }else if(roundMode==='learn'){
+      // Learn mode: Lv.3-
+      for(let i=0;i<n;i++){if(state.getLevel(i)<=3)pool.push(i)}
+    }else{
+      // Normal mode: 8 learn + 2 mastered
+      const learn=[],master=[];
+      for(let i=0;i<n;i++){(state.getLevel(i)>=7?master:learn).push(i)}
+      Utils.shuffle(learn);Utils.shuffle(master);
+      const lc=Math.min(Math.floor(this.roundSize*.8),learn.length);
+      const mc=Math.min(this.roundSize-lc,master.length);
+      pool=learn.slice(0,lc).concat(master.slice(0,mc));
     }
-    // Build 30-question queue: 3 types per word, shuffled
-    const types=['en2zh','zh2en','spell'];
-    const q=[];
-    for(const wi of words){
-      for(const t of types)q.push({type:t,wordIndex:wi});
-    }
+    Utils.shuffle(pool);
+    const words=pool.slice(0,this.roundSize);
+    // Build 3-question-per-word queue
+    const types=['en2zh','zh2en','spell'],q=[];
+    for(const wi of words){for(const t of types)q.push({type:t,wordIndex:wi})}
     Utils.shuffle(q);
     state.session.queue=q;state.session.queuePos=0;state.session.roundCount=0;
     state.session.correctCount=0;state.session.wrongCount=0;state.session.streak=0;
