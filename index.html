@@ -167,6 +167,7 @@ body{
   <div class="flex items-center gap-3 pt-2 pb-4">
     <span class="text-2xl font-bold tracking-wider" style="color:var(--green-bright)">WORD-FORCE</span>
     <span class="text-sm text-dim mt-1">强制单词</span>
+    <button id="btn-search-open" class="btn btn-ghost text-sm ml-auto" style="padding:2px 8px;font-size:18px;line-height:1">🔍</button>
   </div>
   <div id="home-stats" class="bg-card border-card rounded-xl p-5 mb-4">
     <div class="flex justify-between items-center mb-3">
@@ -450,6 +451,32 @@ body{
 
 </div><!-- /app -->
 
+<!-- SEARCH OVERLAY -->
+<div id="page-search" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:50;background:rgba(20,23,28,.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);flex-direction:column;padding:16px 20px">
+  <div class="flex items-center gap-3 pb-3 border-b border-card">
+    <span class="text-lg">🔍</span>
+    <input id="search-input" class="input-field flex-1" placeholder="搜索单词（中文/英文）…" autocomplete="off" autocapitalize="off" spellcheck="false">
+    <button id="btn-search-close" class="btn btn-ghost text-sm">取消</button>
+  </div>
+  <div id="search-results" class="flex-1 overflow-y-auto space-y-2 mt-4"></div>
+</div>
+
+<!-- WORD DETAIL MODAL -->
+<div id="word-detail" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:60;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px;width:90%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,.5)">
+  <div class="flex justify-between items-start mb-3">
+    <div>
+      <div class="text-2xl font-bold mono" id="wd-word"></div>
+      <div class="text-sm text-dim" id="wd-pos"></div>
+    </div>
+    <button id="btn-wd-close" class="btn btn-ghost text-xs" style="padding:2px 8px">✕</button>
+  </div>
+  <div class="text-base mb-4" id="wd-def"></div>
+  <div class="flex items-center gap-4 text-sm">
+    <span class="badge" id="wd-level"></span>
+    <span class="text-dim" id="wd-wrongs"></span>
+  </div>
+</div>
+
 <script>
 // ===== CONFIG =====
 const CFG = {
@@ -686,6 +713,29 @@ const Spelling = {
   },
 };
 
+// ===== SEARCH =====
+const Search = {
+  results:[],
+  query(q){
+    if(!q||!q.trim()){this.results=[];return[]}
+    const lq=q.trim().toLowerCase(),words=state.words;
+    const scored=[];
+    for(let i=0;i<words.length;i++){
+      const w=words[i],en=w.en.toLowerCase(),zh=w.zh;
+      let score=0;
+      if(en===lq)score=100;
+      else if(en.startsWith(lq))score=80-lq.length*2;
+      else if(en.includes(lq))score=50;
+      else if(zh.includes(lq))score=40;
+      else continue;
+      scored.push({index:i,score,word:w});
+    }
+    scored.sort((a,b)=>b.score-a.score);
+    this.results=scored.slice(0,60);
+    return this.results;
+  },
+};
+
 // ===== ROUTER =====
 const Router = {
   pages:new Set(['home','study','result','round','stats','settings','import']),
@@ -825,6 +875,28 @@ const Render = {
     const n=state.wordCount(),dist=state.levelDist();
     el('import-name').textContent=n>0?'自定义词库':'—';el('import-count').textContent=n;el('import-mastered').textContent=dist[7]||0;
   },
+  search(q){
+    const res=Search.query(q),container=el('search-results');
+    if(!q||!q.trim()){container.innerHTML='<div class="text-sm text-dim text-center py-8">输入中文或英文搜索单词</div>';return}
+    if(res.length===0){container.innerHTML='<div class="text-sm text-dim text-center py-8">未找到匹配单词</div>';return}
+    container.innerHTML=res.map(r=>{
+      const lv=state.getLevel(r.index),cls=Utils.levelClass(lv);
+      return`<div class="search-result flex items-center justify-between bg-card border-card rounded-xl p-3 cursor-pointer" data-idx="${r.index}">
+        <div><span class="mono font-bold">${r.word.en}</span> <span class="text-xs text-dim">${r.word.pos||''}</span><div class="text-xs text-dim mt-1">${r.word.zh}</div></div>
+        <span class="badge ${cls}">${Utils.levelLabel(lv)}</span>
+      </div>`;
+    }).join('');
+  },
+  wordDetail(idx){
+    const w=state.getWord(idx);if(!w)return;
+    const lv=state.getLevel(idx),cls=Utils.levelClass(lv);
+    el('wd-word').textContent=w.en;el('wd-pos').textContent=w.pos||'';
+    el('wd-def').textContent=w.zh;
+    el('wd-level').textContent=Utils.levelLabel(lv);el('wd-level').className='badge '+cls;
+    const wr=state.meta.wrongs[idx]||0;
+    el('wd-wrongs').textContent=wr>0?`答错 ${wr} 次`:'暂无错题记录';
+    el('word-detail').style.display='block';
+  },
 };
 
 // ===== SETTINGS PERSISTENCE =====
@@ -935,6 +1007,21 @@ const App = {
     });
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
+    // Search
+    el('btn-search-open').addEventListener('click',()=>{
+      el('page-search').style.display='flex';el('search-input').value='';el('search-input').focus();
+      Render.search('');
+    });
+    el('btn-search-close').addEventListener('click',()=>{el('page-search').style.display='none';el('word-detail').style.display='none'});
+    el('btn-wd-close').addEventListener('click',()=>el('word-detail').style.display='none');
+    el('search-input').addEventListener('input',e=>Render.search(e.target.value));
+    el('search-input').addEventListener('keydown',e=>{if(e.key==='Escape'){el('page-search').style.display='none';el('word-detail').style.display='none'}});
+    el('search-results').addEventListener('click',e=>{
+      const r=e.target.closest('.search-result');if(!r)return;
+      Render.wordDetail(parseInt(r.dataset.idx));
+    });
+    // Escape from search
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&el('page-search').style.display==='flex'){el('page-search').style.display='none';el('word-detail').style.display='none'}});
   },
   startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;this._abyssCleared=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();Router.show('study');this.nextQuestion()},
   endStudy(){state.session.active=false;this.timerStop();this.clearBlitzTimer();el('study-countdown-bar').style.display='none';state.persist();Router.goHome()},
