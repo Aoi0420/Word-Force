@@ -92,6 +92,8 @@ body{
 .progress-fill{height:100%;border-radius:999px;transition:width .4s ease;background:var(--green-bright)}
 .bar-track{background:var(--bg-surface);border-radius:4px;height:12px;overflow:hidden;flex:1}
 .bar-fill{height:100%;border-radius:4px;transition:width .5s ease}
+.bar-countdown{background:var(--bg-surface);border-radius:4px;height:6px;overflow:hidden;transition:none;margin-bottom:12px}
+.bar-countdown .bar-fill{height:100%;border-radius:4px;transition:width .08s linear}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 20px;border-radius:6px;font-weight:600;font-size:14px;cursor:pointer;border:1px solid transparent;transition:all .15s;user-select:none}
 .btn:active{transform:scale(.97)}
@@ -205,10 +207,12 @@ body{
   <button id="btn-start" class="btn btn-primary btn-lg btn-block pulse-start" style="font-size:18px;padding:18px">
     ▶ 开始强制学习
   </button>
-  <div class="flex gap-2 mt-3">
+  <div class="flex gap-2 mt-3 flex-wrap">
     <button class="btn flex-1 mode-btn text-xs" data-mode="normal" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">📖 普通</button>
     <button class="btn flex-1 mode-btn text-xs" data-mode="review" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">🔄 复习</button>
     <button class="btn flex-1 mode-btn text-xs" data-mode="learn" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">📚 学习</button>
+    <button class="btn flex-1 mode-btn text-xs" data-mode="abyss" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">🔥 错题</button>
+    <button class="btn flex-1 mode-btn text-xs" data-mode="blitz" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">⚡ 闪电</button>
   </div>
   <div class="mt-auto pt-4 flex gap-3 justify-center">
     <button class="btn btn-ghost page-nav" data-page="stats">📊 统计</button>
@@ -234,6 +238,9 @@ body{
   </div>
   <div class="progress-track mb-5">
     <div class="progress-fill" id="study-progress" style="width:0%"></div>
+  </div>
+  <div class="bar-countdown" id="study-countdown-bar" style="display:none">
+    <div class="bar-fill" id="study-countdown-fill" style="width:100%;background:var(--green-bright)"></div>
   </div>
   <div id="study-question-area" class="flex-1 flex flex-col items-center justify-center gap-4 fade-in">
     <div class="text-center">
@@ -375,6 +382,8 @@ body{
         <option value="normal">普通模式（混合题型）</option>
         <option value="review">复习模式（Lv.5 及以上）</option>
         <option value="learn">学习模式（Lv.3 及以下）</option>
+        <option value="abyss">错题深渊（只出历史错题）</option>
+        <option value="blitz">闪电战（限时答题）</option>
       </select>
     </div>
     <div>
@@ -452,6 +461,9 @@ const CFG = {
   MAX_WRONGS: 50,              // 耻辱榜上限条目
   RESULT_DELAY_MS: 350,        // 答错后展示结果延迟
   MIN_POOL_SIZE: 3,            // 各池最小抽取数
+  BLITZ_SECONDS: 8,            // 闪电战每题秒数
+  BLITZ_SPELL_SECONDS: 12,     // 拼写题秒数放宽
+  BLITZ_BONUS: 2,              // 答对奖励秒数
 };
 
 // ===== SAMPLE WORDS =====
@@ -611,6 +623,11 @@ const Selector = {
     if(consolidate.length>0)return consolidate[Math.floor(Math.random()*consolidate.length)];
     return Math.floor(Math.random()*n);
   },
+  pickAbyss(){
+    const n=state.wordCount(),w=state.meta.wrongs,c=[];
+    for(let i=0;i<n;i++)if(w[i]>0&&state.getLevel(i)<7)c.push(i);
+    return c.length?c[Math.floor(Math.random()*c.length)]:-1;
+  },
 };
 
 // ===== QUIZ =====
@@ -736,11 +753,18 @@ const Render = {
     el('toast-level-after').textContent=Utils.levelLabel(la);el('toast-level-after').style.color=Utils.levelColor(la);
     el('toast').style.transform='translateY(0)';
   },
-  roundEnd(){
+  roundEnd(abyss){
     const s=state.session,t=s.correctCount+s.wrongCount,a=t>0?Math.round(s.correctCount/t*100):0;
-    el('round-icon').textContent=a>=80?'🏆':a>=50?'🏁':'💀';
-    el('round-correct').textContent=s.correctCount;el('round-wrong').textContent=s.wrongCount;el('round-accuracy').textContent=a+'%';
-    el('round-level-summary').textContent=`等级变化: +${s.levelUps} ↑  -${s.levelDowns} ↓  ⚡最大连击 ${s.streak}`;
+    if(abyss){
+      const remain=Object.entries(state.meta.wrongs).filter(([i])=>state.getLevel(parseInt(i))<7).length;
+      el('round-icon').textContent=remain>0?'🔥':'🎉';
+      el('round-correct').textContent=s.correctCount;el('round-wrong').textContent=s.wrongCount;el('round-accuracy').textContent=a+'%';
+      el('round-level-summary').textContent=remain>0?`剩余 ${remain} 个错题待清除`:`错题已全部歼灭！`;
+    }else{
+      el('round-icon').textContent=a>=80?'🏆':a>=50?'🏁':'💀';
+      el('round-correct').textContent=s.correctCount;el('round-wrong').textContent=s.wrongCount;el('round-accuracy').textContent=a+'%';
+      el('round-level-summary').textContent=`等级变化: +${s.levelUps} ↑  -${s.levelDowns} ↓  ⚡最大连击 ${s.streak}`;
+    }
   },
   stats(){
     const n=state.wordCount(),dist=state.levelDist(),mastered=dist[7],pct=n>0?Math.round(mastered/n*100):0;
@@ -757,7 +781,7 @@ const Render = {
   settings(){
     const ls=loadSettings();
     el('set-round-size').value=ls.roundSize;el('val-round-size').textContent=ls.roundSize;
-    el('set-mode').value=ls.mode;el('val-mode').textContent=ls.mode==='normal'?'普通模式':ls.mode==='review'?'复习模式':'学习模式';
+    el('set-mode').value=ls.mode;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[ls.mode]||'普通模式';
     el('set-qtype').value=ls.qtype;const qtLabels={all:'全部三种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写'};el('val-qtype').textContent=qtLabels[ls.qtype]||'全部三种';
     el('set-intensity').value=ls.intensity;el('val-intensity').textContent=CFG.INTENSITY_LABELS[ls.intensity]||'中等';
   },
@@ -778,6 +802,7 @@ function now(){return new Date().toISOString().slice(0,10)}
 const App = {
   mode:'normal',roundSize:10,currentWordIndex:-1,answering:false,
   _quizCorrectPos:-1,_studyWordIndex:-1,_spellingWordIndex:-1,
+  _blitzTimer:null,_blitzBonus:0,_currentQType:'en2zh',_abyssCleared:false,
   timerInterval:null,timerStart:0,
   async init(){await state.ensureWords();state.init();const ls=loadSettings();this.mode=ls.mode;this.roundSize=ls.roundSize;this.bindEvents();Router.goHome()},
   timerFormat(s){
@@ -794,6 +819,19 @@ const App = {
   },
   timerStop(){
     if(this.timerInterval){clearInterval(this.timerInterval);this.timerInterval=null}
+  },
+  clearBlitzTimer(){if(this._blitzTimer){clearInterval(this._blitzTimer);this._blitzTimer=null}},
+  startBlitzTimer(){
+    const base=this._currentQType==='spell'?CFG.BLITZ_SPELL_SECONDS:CFG.BLITZ_SECONDS;
+    const total=base+this._blitzBonus;this._blitzBonus=0;
+    const remain={v:total*100},bar=el('study-countdown-bar'),fill=el('study-countdown-fill');
+    bar.style.display='block';fill.style.width='100%';fill.style.background='var(--green-bright)';
+    this._blitzTimer=setInterval(()=>{
+      remain.v--;if(remain.v<=0){this.clearBlitzTimer();if(!this.answering)this.processResult(false,this.currentWordIndex);return}
+      const pct=remain.v/(total*100)*100;fill.style.width=pct+'%';
+      if(remain.v<total*10)fill.style.background='#c0392b';
+      else if(remain.v<total*30)fill.style.background='#e67e22';
+    },100);
   },
   bindEvents(){
     document.querySelectorAll('.page-nav').forEach(b=>b.addEventListener('click',()=>{const p=b.dataset.page;if(p==='home')Router.goHome();else{Router.show(p);if(p==='stats')Render.stats();if(p==='settings')Render.settings();if(p==='import')Render.importPage()}}));
@@ -822,18 +860,21 @@ const App = {
     el('btn-round-continue').addEventListener('click',()=>this.continueRound());
     el('toast').addEventListener('click',()=>{if(this._toastTimeout){clearTimeout(this._toastTimeout);this._toastTimeout=null;el('toast').style.transform='translateY(-120%)';this.nextQuestion()}});
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
-    el('set-mode').addEventListener('change',e=>{const v=e.target.value;el('val-mode').textContent=v==='normal'?'普通模式':v==='review'?'复习模式':'学习模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
+    el('set-mode').addEventListener('change',e=>{const v=e.target.value;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[v]||'普通模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
     el('set-qtype').addEventListener('change',e=>{const v=e.target.value;const qtLabels={all:'全部三种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写'};el('val-qtype').textContent=qtLabels[v]||'全部三种';const s=loadSettings();s.qtype=v;saveSettings(s)});
     el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
   },
-  startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();Router.show('study');this.nextQuestion()},
-  endStudy(){state.session.active=false;this.timerStop();state.persist();Router.goHome()},
+  startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;this._abyssCleared=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();Router.show('study');this.nextQuestion()},
+  endStudy(){state.session.active=false;this.timerStop();this.clearBlitzTimer();el('study-countdown-bar').style.display='none';state.persist();Router.goHome()},
   startRound(){
     const n=state.wordCount(),s=loadSettings(),roundMode=s.mode,qtype=s.qtype;
     let pool=[];
-    if(roundMode==='review'){for(let i=0;i<n;i++){if(state.getLevel(i)>=5)pool.push(i)}}
+    if(roundMode==='abyss'){
+      for(let i=0;i<n;i++)if(state.meta.wrongs[i]>0&&state.getLevel(i)<7)pool.push(i);
+      if(pool.length===0){this._abyssCleared=true;return}
+    }else if(roundMode==='review'){for(let i=0;i<n;i++){if(state.getLevel(i)>=5)pool.push(i)}}
     else if(roundMode==='learn'){for(let i=0;i<n;i++){if(state.getLevel(i)<=3)pool.push(i)}}
     else{
       const low=[],mid=[],high=[],master=[];
@@ -854,9 +895,12 @@ const App = {
   },
   nextQuestion(){
     this.answering=false;Router.show('study');
-    if(state.session.queuePos>=state.session.queue.length){Render.roundEnd();state.persist();Router.show('round');return}
+    const mode=loadSettings().mode;
+    if(mode==='abyss'&&this._abyssCleared){this._abyssCleared=false;Render.roundEnd(true);state.persist();Router.show('round');return}
+    if(state.session.queuePos>=state.session.queue.length){Render.roundEnd(mode==='abyss');state.persist();Router.show('round');return}
     const entry=state.session.queue[state.session.queuePos];state.session.queuePos++;state.session.roundCount++;
     const idx=entry.wordIndex;this.currentWordIndex=idx;
+    this._currentQType=entry.type;
     const totalQ=state.session.queue.length;
     el('study-counter').textContent=`${state.session.roundCount} / ${totalQ}`;
     el('study-progress').style.width=(state.session.roundCount/totalQ*100)+'%';
@@ -864,9 +908,10 @@ const App = {
     if(entry.type==='spell'){const q=Spelling.generate(idx);Render.study(q,idx,'spell')}
     else if(entry.type==='zh2en'){const q=Quiz.generateZh2En(idx);Render.study(q,idx,'zh2en')}
     else{const q=Quiz.generate(idx);Render.study(q,idx,'en2zh')}
+    if(loadSettings().mode==='blitz')this.startBlitzTimer();
   },
   handleAnswer(p){
-    if(this.answering)return;this.answering=true;
+    if(this.answering)return;this.answering=true;this.clearBlitzTimer();
     const opts=el('study-options').querySelectorAll('.opt');
     const correct=Quiz.check(p);
     if(opts[p])opts[p].classList.add(correct?'flash-correct':'flash-wrong');
@@ -874,21 +919,23 @@ const App = {
     if(!correct&&opts[this._quizCorrectPos])opts[this._quizCorrectPos].classList.add('opt-correct');
     setTimeout(()=>this.processResult(correct,this._studyWordIndex),350);
   },
-  handleSpellingSubmit(){if(this.answering)return;this.answering=true;this.processResult(Spelling.check(el('spelling-input').value),this._spellingWordIndex)},
+  handleSpellingSubmit(){if(this.answering)return;this.answering=true;this.clearBlitzTimer();this.processResult(Spelling.check(el('spelling-input').value),this._spellingWordIndex)},
   processResult(ic,wi){
     AudioFX[ic?'correct':'wrong']();
     const lb=state.getLevel(wi),la=ic?Math.min(lb+1,7):Math.max(lb-1,0);
     state.setLevel(wi,la);
-    if(ic){state.session.correctCount++;state.session.streak++;if(la>lb)state.session.levelUps++;if(la>2)state.session.recentWrong.delete(wi)}
-    else{state.session.wrongCount++;state.session.streak=0;state.session.levelDowns++;state.session.recentWrong.add(wi);state.incrWrong(wi)}
+    if(ic){state.session.correctCount++;state.session.streak++;if(la>lb)state.session.levelUps++;if(la>2)state.session.recentWrong.delete(wi);this._blitzBonus=Math.min(this._blitzBonus+CFG.BLITZ_BONUS,4)}
+    else{state.session.wrongCount++;state.session.streak=0;state.session.levelDowns++;state.session.recentWrong.add(wi);state.incrWrong(wi);this._blitzBonus=0}
     const today=now();
     if(state.meta.d!==today){state.meta.d=today;state.meta.t=0;state.meta.m=0}
     state.meta.t++;if(lb<7&&la===7)state.meta.m++;
+    // Abyss: clear wrongs record when pushed to Lv.7
+    if(loadSettings().mode==='abyss'&&la===7&&state.meta.wrongs[wi])delete state.meta.wrongs[wi];
     state.persist();
     if(ic){Render.toast(true,wi,lb,la);this._toastTimeout=setTimeout(()=>{el('toast').style.transform='translateY(-120%)';this.nextQuestion()},CFG.TOAST_DELAY_MS)}
     else{Render.result(wi,lb,la);Router.show('result')}
   },
-  continueRound(){this.answering=false;this.startRound();Router.show('study');this.nextQuestion()},
+  continueRound(){this.answering=false;el('study-countdown-bar').style.display='none';this.startRound();if(this._abyssCleared){this.endStudy();return}Router.show('study');this.nextQuestion()},
   handleFileImport(e){
     const file=e.target.files[0];if(!file)return;
     const reader=new FileReader();
