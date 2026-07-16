@@ -336,7 +336,8 @@ const CFG = {
   REVIEW_UPPER_BOUND: 5,       // 复习池上限等级
   PENALTY_LOWER_BOUND: 2,      // 惩罚池下限等级
   MAX_DISTRACTORS: 3,          // 选择题干扰项数量
-  TOAST_DELAY_MS: 500,         // 答对后 Toast 显示时长
+  TOAST_DELAY_MS: 200,         // 答对后 Toast 显示时长
+  TOAST_SHOW_DELAY: 50,        // 答对后 Toast 弹出延时
   MAX_WRONGS: 50,              // 耻辱榜上限条目
   RESULT_DELAY_MS: 350,        // 答错后展示结果延迟
   MIN_POOL_SIZE: 3,            // 各池最小抽取数
@@ -925,7 +926,7 @@ const App = {
     // Abyss: clear wrongs record when pushed to Lv.7
     if(loadSettings().mode==='abyss'&&la===7&&state.meta.wrongs[wi])delete state.meta.wrongs[wi];
     state.persist();
-    if(ic){Render.toast(true,wi,lb,la);this._toastTimeout=setTimeout(()=>{el('toast').style.transform='translateY(-120%)';this.nextQuestion()},CFG.TOAST_DELAY_MS)}
+    if(ic){setTimeout(()=>{Render.toast(true,wi,lb,la);this._toastTimeout=setTimeout(()=>{el('toast').style.transform='translateY(-120%)';this.nextQuestion()},CFG.TOAST_DELAY_MS)},CFG.TOAST_SHOW_DELAY)}
     else{Render.result(wi,lb,la);Router.show('result')}
   },
   continueRound(){this.answering=false;el('study-countdown-bar').style.display='none';this.startRound();if(this._abyssCleared){this.endStudy();return}Router.show('study');this.nextQuestion()},
