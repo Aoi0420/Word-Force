@@ -124,6 +124,15 @@ body{
 
 .shame-item{padding:8px 0;border-bottom:1px solid var(--border)}
 .shame-item:last-child{border-bottom:none}
+/* virtual keyboard */
+#vkeyboard{width:100%;max-width:520px;margin:0 auto}
+.vkey-row{display:flex;gap:4px;margin-bottom:4px;justify-content:center}
+.vkey{flex:1;height:44px;border:none;border-radius:6px;background:var(--bg-surface);color:var(--text-main);font-size:14px;font-weight:600;font-family:'SF Mono','Cascadia Code',monospace;cursor:pointer;transition:all .08s;touch-action:manipulation;-webkit-tap-highlight-color:transparent;padding:0;line-height:44px;text-align:center;user-select:none;max-width:44px}
+.vkey:active{background:var(--green);color:#fff;transform:scale(.92)}
+.vkey-wide{flex:1.5;max-width:66px;font-size:16px}
+.vkey-space{flex:6;max-width:none;font-size:13px;letter-spacing:2px}
+@media(max-width:640px){.vkey{height:48px;font-size:15px;max-width:48px;border-radius:8px}.vkey-wide{max-width:72px}.vkey:active{transform:scale(.9)}}
+@media(max-width:400px){.vkey{height:42px;font-size:13px;max-width:40px;border-radius:6px}.vkey-wide{max-width:60px}}
 
 @media(max-width:640px){
   .page{padding:10px 12px}
@@ -234,6 +243,12 @@ body{
     <div id="study-spelling-area" class="w-full mt-4 max-w-480" style="display:none">
       <input id="spelling-input" class="input-field text-center" placeholder="输入英文单词…" autocomplete="off" autocapitalize="off" spellcheck="false">
       <button id="btn-spelling-submit" class="btn btn-primary btn-block mt-3">确认</button>
+      <div id="vkeyboard" class="mt-3 select-none" style="touch-action:manipulation">
+        <div class="vkey-row"><button class="vkey" data-k="Q">Q</button><button class="vkey" data-k="W">W</button><button class="vkey" data-k="E">E</button><button class="vkey" data-k="R">R</button><button class="vkey" data-k="T">T</button><button class="vkey" data-k="Y">Y</button><button class="vkey" data-k="U">U</button><button class="vkey" data-k="I">I</button><button class="vkey" data-k="O">O</button><button class="vkey" data-k="P">P</button></div>
+        <div class="vkey-row"><button class="vkey" data-k="A">A</button><button class="vkey" data-k="S">S</button><button class="vkey" data-k="D">D</button><button class="vkey" data-k="F">F</button><button class="vkey" data-k="G">G</button><button class="vkey" data-k="H">H</button><button class="vkey" data-k="J">J</button><button class="vkey" data-k="K">K</button><button class="vkey" data-k="L">L</button></div>
+        <div class="vkey-row"><button class="vkey vkey-wide" data-k="⌫">⌫</button><button class="vkey" data-k="Z">Z</button><button class="vkey" data-k="X">X</button><button class="vkey" data-k="C">C</button><button class="vkey" data-k="V">V</button><button class="vkey" data-k="B">B</button><button class="vkey" data-k="N">N</button><button class="vkey" data-k="M">M</button><button class="vkey vkey-wide" data-k="↵">↵</button></div>
+        <div class="vkey-row"><button class="vkey vkey-space" data-k=" ">空格</button></div>
+      </div>
     </div>
   </div>
   <div class="flex justify-center gap-4 pt-3 text-xs text-dim">
@@ -746,6 +761,18 @@ const App = {
     el('btn-study-exit').addEventListener('click',()=>this.endStudy());
     el('btn-spelling-submit').addEventListener('click',()=>this.handleSpellingSubmit());
     el('spelling-input').addEventListener('keydown',e=>{if(e.key==='Enter')this.handleSpellingSubmit()});
+    el('vkeyboard').addEventListener('click',e=>{
+      const btn=e.target.closest('.vkey');if(!btn)return;
+      const k=btn.dataset.k;
+      const inp=el('spelling-input');
+      if(k==='⌫'){inp.value=inp.value.slice(0,-1);inp.focus()}
+      else if(k==='↵'){this.handleSpellingSubmit()}
+      else{
+        const start=inp.selectionStart||inp.value.length;
+        inp.value=inp.value.slice(0,start)+k+inp.value.slice(inp.selectionEnd||start);
+        const pos=start+k.length;inp.setSelectionRange(pos,pos);inp.focus()
+      }
+    });
     el('btn-next').addEventListener('click',()=>this.nextQuestion());
     el('btn-round-continue').addEventListener('click',()=>this.continueRound());
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
