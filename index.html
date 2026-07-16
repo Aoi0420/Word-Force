@@ -480,9 +480,19 @@ const state = {
   init(){
     const w=Store.loadWords();
     if(w&&Array.isArray(w)&&w.length>0)this.words=w;
-    else{this.words=SAMPLE_WORDS;Store.saveWords(this.words)}
+    else this.words=SAMPLE_WORDS;
     this.meta=Store.loadMeta();this.bitmap=Store.loadBitmap(this.wordCount());
     this.meta.n=this.wordCount();this.initialized=true;
+  },
+  async ensureWords(){
+    // If no words in storage, try loading words.json via fetch
+    const w=Store.loadWords();
+    if(w&&Array.isArray(w)&&w.length>0){this.words=w;return}
+    try{
+      const r=await fetch('words.json');
+      if(r.ok){const j=await r.json();if(Array.isArray(j)&&j.length>0){this.words=j;Store.saveWords(j);return}}
+    }catch{}
+    this.words=SAMPLE_WORDS;
   },
   replaceWords(w){
     this.words=w;Store.saveWords(w);
@@ -641,7 +651,7 @@ function now(){return new Date().toISOString().slice(0,10)}
 const App = {
   mode:'en2zh',roundSize:10,currentWordIndex:-1,answering:false,
   timerInterval:null,timerStart:0,
-  init(){state.init();this.mode=loadSettings().mode;this.roundSize=loadSettings().roundSize;this.bindEvents();Router.goHome()},
+  async init(){await state.ensureWords();state.init();this.mode=loadSettings().mode;this.roundSize=loadSettings().roundSize;this.bindEvents();Router.goHome()},
   timerFormat(s){
     const m=String(Math.floor(s/60)).padStart(2,'0'),sec=String(s%60).padStart(2,'0');
     return m+':'+sec;
