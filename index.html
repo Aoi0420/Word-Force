@@ -125,10 +125,26 @@ body{
 .shame-item{padding:8px 0;border-bottom:1px solid var(--border)}
 .shame-item:last-child{border-bottom:none}
 
-@media(max-width:480px){
-  .page{padding:12px 14px}
-  .opt{padding:12px 14px;font-size:14px}
-  .btn-lg{padding:12px 24px;font-size:15px}
+@media(max-width:640px){
+  .page{padding:10px 12px}
+  .opt{padding:16px 16px;font-size:16px;border-radius:10px}
+  .btn-lg{padding:14px 28px;font-size:16px}
+  .btn{padding:12px 18px;font-size:15px}
+  #study-word.text-4xl{font-size:2rem}
+  .input-field{font-size:20px;padding:14px 16px}
+  .badge{padding:4px 12px;font-size:13px}
+  #app{max-width:100%}
+  .progress-track{height:8px}
+  .bar-track{height:14px}
+  #toast-body{padding:14px 20px}
+  #toast-word{font-size:1.25rem}
+}
+@media(max-width:400px){
+  #study-word.text-4xl{font-size:1.6rem}
+  .opt{padding:14px 12px;font-size:15px}
+  .btn-lg{padding:12px 20px;font-size:15px}
+  .grid-cols-4{grid-template-columns:repeat(2,1fr)}
+  .grid-cols-2{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -416,6 +432,39 @@ const Utils = {
   levelClass(lv){return ['lv-0','lv-1','lv-2','lv-3','lv-4','lv-5','lv-6','lv-7'][lv]||'lv-0'},
   btoa(b){return btoa(String.fromCharCode(...b))},
   atob(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0))},
+};
+
+// ===== AUDIO FX =====
+const AudioFX = {
+  ctx:null,
+  _ctx(){
+    if(!this.ctx)this.ctx=new(window.AudioContext||window.webkitAudioContext)();
+    if(this.ctx.state==='suspended')this.ctx.resume();
+    return this.ctx;
+  },
+  correct(){
+    try{
+      const c=this._ctx(),o=c.createOscillator(),g=c.createGain();
+      o.connect(g);g.connect(c.destination);
+      o.frequency.setValueAtTime(880,c.currentTime);
+      o.frequency.setValueAtTime(1100,c.currentTime+.1);
+      g.gain.setValueAtTime(.25,c.currentTime);
+      g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.2);
+      o.start(c.currentTime);o.stop(c.currentTime+.2);
+    }catch{}
+  },
+  wrong(){
+    try{
+      const c=this._ctx(),o=c.createOscillator(),g=c.createGain();
+      o.connect(g);g.connect(c.destination);
+      o.type='sawtooth';
+      o.frequency.setValueAtTime(220,c.currentTime);
+      o.frequency.setValueAtTime(180,c.currentTime+.15);
+      g.gain.setValueAtTime(.2,c.currentTime);
+      g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.3);
+      o.start(c.currentTime);o.stop(c.currentTime+.3);
+    }catch{}
+  },
 };
 
 // ===== BITMAP =====
@@ -709,6 +758,7 @@ const App = {
   },
   handleSpellingSubmit(){if(this.answering)return;this.answering=true;this.processResult(Spelling.check(el('spelling-input').value),window._spellingWordIndex)},
   processResult(ic,wi){
+    AudioFX[ic?'correct':'wrong']();
     const lb=state.getLevel(wi),la=ic?Math.min(lb+1,7):Math.max(lb-1,0);
     state.setLevel(wi,la);
     if(ic){state.session.correctCount++;state.session.streak++;if(la>lb)state.session.levelUps++;if(la>2)state.session.recentWrong.delete(wi)}
