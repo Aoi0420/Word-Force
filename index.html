@@ -399,17 +399,15 @@ body{
       <input type="range" id="set-intensity" min="1" max="5" value="3" class="w-full accent-green">
     </div>
     <div>
-      <div class="flex justify-between mb-1">
-        <label class="text-sm">题型筛选</label>
-        <span class="text-sm text-dim" id="val-qtype">全部三种</span>
+      <div class="text-sm font-medium mb-2">题型筛选</div>
+      <div id="qtype-checkboxes" class="space-y-2 mb-3">
+        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="en2zh" class="accent-green" style="width:18px;height:18px"><span class="text-sm">英选中</span></label>
+        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="zh2en" class="accent-green" style="width:18px;height:18px"><span class="text-sm">中选英</span></label>
+        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="spell" class="accent-green" style="width:18px;height:18px"><span class="text-sm">拼写</span></label>
+        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" value="fill" class="accent-green" style="width:18px;height:18px"><span class="text-sm">填空拼写</span></label>
       </div>
-      <select id="set-qtype" class="w-full p-2 rounded bg-surface border-card text-sm" style="color:var(--text-main)">
-        <option value="all">全部四种</option>
-        <option value="en2zh">仅英选中</option>
-        <option value="zh2en">仅中选英</option>
-        <option value="spell">仅拼写</option>
-        <option value="fill">仅填空拼写</option>
-      </select>
+      <button id="btn-qtype-confirm" class="btn btn-primary btn-block text-sm">确认题型</button>
+      <div class="text-xs text-dim text-center mt-2" id="val-qtypes"></div>
     </div>
   </div>
   <div class="mt-4 bg-card border-card rounded-xl p-4">
@@ -816,7 +814,11 @@ const Render = {
     const ls=loadSettings();
     el('set-round-size').value=ls.roundSize;el('val-round-size').textContent=ls.roundSize;
     el('set-mode').value=ls.mode;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[ls.mode]||'普通模式';
-    el('set-qtype').value=ls.qtype;const qtLabels={all:'全部四种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写',fill:'仅填空拼写'};el('val-qtype').textContent=qtLabels[ls.qtype]||'全部四种';
+    // Render qtype checkboxes + summary
+    const cbLabels={en2zh:'英选中',zh2en:'中选英',spell:'拼写',fill:'填空拼写'};
+    document.querySelectorAll('#qtype-checkboxes input[type=checkbox]').forEach(cb=>cb.checked=ls.qtypes.includes(cb.value));
+    const sel=ls.qtypes.map(v=>cbLabels[v]).filter(Boolean);
+    el('val-qtypes').textContent=sel.length===4?'全部题型':sel.join('、');
     el('set-intensity').value=ls.intensity;el('val-intensity').textContent=CFG.INTENSITY_LABELS[ls.intensity]||'中等';
   },
   importPage(){
@@ -827,7 +829,15 @@ const Render = {
 
 // ===== SETTINGS PERSISTENCE =====
 function loadSettings(){
-  try{const r=localStorage.getItem('wf_settings');if(!r)return{roundSize:10,mode:'normal',intensity:3,qtype:'all'};return{roundSize:10,mode:'normal',intensity:3,qtype:'all',...JSON.parse(r)}}catch{return{roundSize:10,mode:'normal',intensity:3,qtype:'all'}}
+  try{
+    const r=localStorage.getItem('wf_settings');
+    if(!r)return{roundSize:10,mode:'normal',intensity:3,qtypes:['en2zh','zh2en','spell','fill']};
+    const s=JSON.parse(r);
+    // migrate old string-based qtype to array
+    if(typeof s.qtype==='string'){s.qtypes=s.qtype==='all'?['en2zh','zh2en','spell','fill']:[s.qtype];delete s.qtype}
+    if(!Array.isArray(s.qtypes))s.qtypes=['en2zh','zh2en','spell','fill'];
+    return{roundSize:10,mode:'normal',intensity:3,qtypes:['en2zh','zh2en','spell','fill'],...s};
+  }catch{return{roundSize:10,mode:'normal',intensity:3,qtypes:['en2zh','zh2en','spell','fill']}}
 }
 function saveSettings(s){localStorage.setItem('wf_settings',JSON.stringify(s))}
 function now(){return new Date().toISOString().slice(0,10)}
@@ -915,15 +925,21 @@ const App = {
     el('toast').addEventListener('click',()=>{if(this._toastTimeout){clearTimeout(this._toastTimeout);this._toastTimeout=null;el('toast').style.transform='translateY(-120%)';this.nextQuestion()}});
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
     el('set-mode').addEventListener('change',e=>{const v=e.target.value;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[v]||'普通模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
-    el('set-qtype').addEventListener('change',e=>{const v=e.target.value;const qtLabels={all:'全部四种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写',fill:'仅填空拼写'};el('val-qtype').textContent=qtLabels[v]||'全部四种';const s=loadSettings();s.qtype=v;saveSettings(s)});
     el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
+    el('btn-qtype-confirm').addEventListener('click',()=>{
+      const cbLabels={en2zh:'英选中',zh2en:'中选英',spell:'拼写',fill:'填空拼写'};
+      const checked=[...document.querySelectorAll('#qtype-checkboxes input[type=checkbox]:checked')].map(cb=>cb.value);
+      if(checked.length===0){alert('请至少选择一种题型');return}
+      const s=loadSettings();s.qtypes=checked;saveSettings(s);
+      el('val-qtypes').textContent=checked.length===4?'全部题型':checked.map(v=>cbLabels[v]).join('、');
+    });
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
   },
   startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;this._abyssCleared=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();Router.show('study');this.nextQuestion()},
   endStudy(){state.session.active=false;this.timerStop();this.clearBlitzTimer();el('study-countdown-bar').style.display='none';state.persist();Router.goHome()},
   startRound(){
-    const n=state.wordCount(),s=loadSettings(),roundMode=s.mode,qtype=s.qtype;
+    const n=state.wordCount(),s=loadSettings(),roundMode=s.mode;
     let pool=[];
     if(roundMode==='abyss'){
       for(let i=0;i<n;i++)if(state.meta.wrongs[i]>0&&state.getLevel(i)<7)pool.push(i);
@@ -940,7 +956,8 @@ const App = {
     Utils.shuffle(pool);
     if(pool.length<this.roundSize){const all=[];for(let i=0;i<n;i++)all.push(i);Utils.shuffle(all);for(const i of all){if(!pool.includes(i)){pool.push(i);if(pool.length>=this.roundSize)break}}}
     const words=pool.slice(0,this.roundSize);
-    const allTypes=['en2zh','zh2en','spell','fill'],types=qtype==='all'?allTypes:[qtype],q=[];
+    const allTypes=['en2zh','zh2en','spell','fill'];
+    const types=s.qtypes&&s.qtypes.length>0?s.qtypes:allTypes,q=[];
     for(const wi of words){for(const t of types)q.push({type:t,wordIndex:wi})}
     Utils.shuffle(q);
     state.session.queue=q;state.session.queuePos=0;state.session.roundCount=0;
