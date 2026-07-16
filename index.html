@@ -206,6 +206,11 @@ body{
   <button id="btn-start" class="btn btn-primary btn-lg btn-block pulse-start" style="font-size:18px;padding:18px">
     ▶ 开始强制学习
   </button>
+  <div class="flex gap-2 mt-3">
+    <button class="btn flex-1 mode-btn text-xs" data-mode="normal" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">📖 普通</button>
+    <button class="btn flex-1 mode-btn text-xs" data-mode="review" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">🔄 复习</button>
+    <button class="btn flex-1 mode-btn text-xs" data-mode="learn" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">📚 学习</button>
+  </div>
   <div class="mt-auto pt-4 flex gap-3 justify-center">
     <button class="btn btn-ghost page-nav" data-page="stats">📊 统计</button>
     <button class="btn btn-ghost page-nav" data-page="settings">⚙️ 设置</button>
@@ -644,6 +649,14 @@ const Render = {
     const btn=el('btn-start');
     if(n===0){btn.textContent='⚠️ 请先导入词库';btn.disabled=true;btn.style.opacity='.5'}
     else{btn.textContent='▶ 开始强制学习';btn.disabled=false;btn.style.opacity='1'}
+    // Highlight active mode
+    const mode=loadSettings().mode;
+    document.querySelectorAll('.mode-btn').forEach(b=>{
+      const active=b.dataset.mode===mode;
+      b.style.background=active?'var(--green)':'var(--bg-card)';
+      b.style.borderColor=active?'var(--green-bright)':'var(--border)';
+      b.style.color=active?'#fff':'var(--text-dim)';
+    });
   },
   study(q,wi,mode){
     const dist=state.levelDist();
@@ -758,6 +771,11 @@ const App = {
   bindEvents(){
     document.querySelectorAll('.page-nav').forEach(b=>b.addEventListener('click',()=>{const p=b.dataset.page;if(p==='home')Router.goHome();else{Router.show(p);if(p==='stats')Render.stats();if(p==='settings')Render.settings();if(p==='import')Render.importPage()}}));
     el('btn-start').addEventListener('click',()=>this.startStudy());
+    document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>{
+      const mode=b.dataset.mode;
+      const s=loadSettings();s.mode=mode;saveSettings(s);this.mode=mode;
+      Render.dashboard();
+    }));
     el('btn-study-exit').addEventListener('click',()=>this.endStudy());
     el('btn-spelling-submit').addEventListener('click',()=>this.handleSpellingSubmit());
     el('spelling-input').addEventListener('keydown',e=>{if(e.key==='Enter')this.handleSpellingSubmit()});
@@ -802,6 +820,13 @@ const App = {
       pool=learn.slice(0,lc).concat(master.slice(0,mc));
     }
     Utils.shuffle(pool);
+    // Ensure we have enough words (pad from all words if needed)
+    if(pool.length<this.roundSize){
+      const all=[];
+      for(let i=0;i<n;i++)all.push(i);
+      Utils.shuffle(all);
+      for(const i of all){if(!pool.includes(i)){pool.push(i);if(pool.length>=this.roundSize)break}}
+    }
     const words=pool.slice(0,this.roundSize);
     // Build 3-question-per-word queue
     const types=['en2zh','zh2en','spell'],q=[];
