@@ -241,7 +241,7 @@ body{
     </div>
     <div id="study-options" class="w-full space-y-3 mt-4 max-w-480"></div>
     <div id="study-spelling-area" class="w-full mt-4 max-w-480" style="display:none">
-      <input id="spelling-input" class="input-field text-center" placeholder="输入英文单词…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <input id="spelling-input" class="input-field text-center" placeholder="输入英文单词…" autocomplete="off" autocapitalize="off" spellcheck="false" readonly>
       <button id="btn-spelling-submit" class="btn btn-primary btn-block mt-3">确认</button>
       <div id="vkeyboard" class="mt-3 select-none" style="touch-action:manipulation">
         <div class="vkey-row"><button class="vkey" data-k="Q">Q</button><button class="vkey" data-k="W">W</button><button class="vkey" data-k="E">E</button><button class="vkey" data-k="R">R</button><button class="vkey" data-k="T">T</button><button class="vkey" data-k="Y">Y</button><button class="vkey" data-k="U">U</button><button class="vkey" data-k="I">I</button><button class="vkey" data-k="O">O</button><button class="vkey" data-k="P">P</button></div>
@@ -656,7 +656,7 @@ const Render = {
     if(mode==='spell'){
       oa.style.display='none';sa.style.display='block';
       le.textContent='输入对应的英文单词';we.textContent=q.zh;pe.textContent=q.pos||'';
-      el('spelling-input').value='';el('spelling-input').focus();
+      el('spelling-input').value='';
       window._spellingWordIndex=wi;return;
     }
     // zh2en quiz: show Chinese, pick English
@@ -765,12 +765,12 @@ const App = {
       const btn=e.target.closest('.vkey');if(!btn)return;
       const k=btn.dataset.k;
       const inp=el('spelling-input');
-      if(k==='⌫'){inp.value=inp.value.slice(0,-1);inp.focus()}
+      if(k==='⌫'){inp.value=inp.value.slice(0,-1)}
       else if(k==='↵'){this.handleSpellingSubmit()}
       else{
         const start=inp.selectionStart||inp.value.length;
         inp.value=inp.value.slice(0,start)+k+inp.value.slice(inp.selectionEnd||start);
-        const pos=start+k.length;inp.setSelectionRange(pos,pos);inp.focus()
+        const pos=start+k.length;inp.setSelectionRange(pos,pos)
       }
     });
     el('btn-next').addEventListener('click',()=>this.nextQuestion());
