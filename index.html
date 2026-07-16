@@ -211,11 +211,12 @@ body{
     <button class="btn flex-1 mode-btn text-xs" data-mode="review" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">🔄 复习</button>
     <button class="btn flex-1 mode-btn text-xs" data-mode="learn" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">📚 学习</button>
   </div>
-  <div class="mt-auto pt-4 flex gap-3 justify-center">
+  <div class="mt-auto pt-4 flex gap-3 justify-center" style="padding-bottom:calc(8px + env(safe-area-inset-bottom,16px))">
     <button class="btn btn-ghost page-nav" data-page="stats">📊 统计</button>
     <button class="btn btn-ghost page-nav" data-page="settings">⚙️ 设置</button>
     <button class="btn btn-ghost page-nav" data-page="import">📂 词库</button>
   </div>
+  <div class="text-center pb-1" style="font-size:10px;color:var(--text-muted);letter-spacing:1px">WORD-FORCE · 强制单词</div>
 </div>
 
 <!-- STUDY -->
@@ -383,6 +384,18 @@ body{
         <span class="text-sm text-dim" id="val-intensity">中等</span>
       </div>
       <input type="range" id="set-intensity" min="1" max="5" value="3" class="w-full accent-green">
+    </div>
+    <div>
+      <div class="flex justify-between mb-1">
+        <label class="text-sm">题型筛选</label>
+        <span class="text-sm text-dim" id="val-qtype">全部三种</span>
+      </div>
+      <select id="set-qtype" class="w-full p-2 rounded bg-surface border-card text-sm" style="color:var(--text-main)">
+        <option value="all">全部三种</option>
+        <option value="en2zh">仅英选中</option>
+        <option value="zh2en">仅中选英</option>
+        <option value="spell">仅拼写</option>
+      </select>
     </div>
   </div>
   <div class="mt-4 bg-card border-card rounded-xl p-4">
@@ -733,6 +746,7 @@ const Render = {
     const ls=loadSettings();
     el('set-round-size').value=ls.roundSize;el('val-round-size').textContent=ls.roundSize;
     el('set-mode').value=ls.mode;el('val-mode').textContent=ls.mode==='normal'?'普通模式':ls.mode==='review'?'复习模式':'学习模式';
+    el('set-qtype').value=ls.qtype;const qtLabels={all:'全部三种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写'};el('val-qtype').textContent=qtLabels[ls.qtype]||'全部三种';
     el('set-intensity').value=ls.intensity;el('val-intensity').textContent=CFG.INTENSITY_LABELS[ls.intensity]||'中等';
   },
   importPage(){
@@ -743,7 +757,7 @@ const Render = {
 
 // ===== SETTINGS PERSISTENCE =====
 function loadSettings(){
-  try{const r=localStorage.getItem('wf_settings');if(!r)return{roundSize:10,mode:'normal',intensity:3};return{roundSize:10,mode:'normal',intensity:3,...JSON.parse(r)}}catch{return{roundSize:10,mode:'normal',intensity:3}}
+  try{const r=localStorage.getItem('wf_settings');if(!r)return{roundSize:10,mode:'normal',intensity:3,qtype:'all'};return{roundSize:10,mode:'normal',intensity:3,qtype:'all',...JSON.parse(r)}}catch{return{roundSize:10,mode:'normal',intensity:3,qtype:'all'}}
 }
 function saveSettings(s){localStorage.setItem('wf_settings',JSON.stringify(s))}
 function now(){return new Date().toISOString().slice(0,10)}
@@ -795,6 +809,7 @@ const App = {
     el('btn-round-continue').addEventListener('click',()=>this.continueRound());
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
     el('set-mode').addEventListener('change',e=>{const v=e.target.value;el('val-mode').textContent=v==='normal'?'普通模式':v==='review'?'复习模式':'学习模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
+    el('set-qtype').addEventListener('change',e=>{const v=e.target.value;const qtLabels={all:'全部三种',en2zh:'仅英选中',zh2en:'仅中选英',spell:'仅拼写'};el('val-qtype').textContent=qtLabels[v]||'全部三种';const s=loadSettings();s.qtype=v;saveSettings(s)});
     el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
@@ -802,34 +817,21 @@ const App = {
   startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();Router.show('study');this.nextQuestion()},
   endStudy(){state.session.active=false;this.timerStop();state.persist();Router.goHome()},
   startRound(){
-    const n=state.wordCount(),roundMode=loadSettings().mode;
+    const n=state.wordCount(),s=loadSettings(),roundMode=s.mode,qtype=s.qtype;
     let pool=[];
-    if(roundMode==='review'){
-      // Review mode: Lv.5+
-      for(let i=0;i<n;i++){if(state.getLevel(i)>=5)pool.push(i)}
-    }else if(roundMode==='learn'){
-      // Learn mode: Lv.3-
-      for(let i=0;i<n;i++){if(state.getLevel(i)<=3)pool.push(i)}
-    }else{
-      // Normal mode: 8 learn + 2 mastered
-      const learn=[],master=[];
-      for(let i=0;i<n;i++){(state.getLevel(i)>=7?master:learn).push(i)}
-      Utils.shuffle(learn);Utils.shuffle(master);
-      const lc=Math.min(Math.floor(this.roundSize*.8),learn.length);
-      const mc=Math.min(this.roundSize-lc,master.length);
-      pool=learn.slice(0,lc).concat(master.slice(0,mc));
+    if(roundMode==='review'){for(let i=0;i<n;i++){if(state.getLevel(i)>=5)pool.push(i)}}
+    else if(roundMode==='learn'){for(let i=0;i<n;i++){if(state.getLevel(i)<=3)pool.push(i)}}
+    else{
+      const low=[],mid=[],high=[],master=[];
+      for(let i=0;i<n;i++){const l=state.getLevel(i);if(l>=7)master.push(i);else if(l>=5)high.push(i);else if(l>=2)mid.push(i);else low.push(i)}
+      Utils.shuffle(low);Utils.shuffle(mid);Utils.shuffle(high);Utils.shuffle(master);
+      const tL=Math.min(3,low.length),tM=Math.min(3,mid.length),tH=Math.min(2,high.length),tS=Math.min(2,master.length);
+      pool=low.slice(0,tL).concat(mid.slice(0,tM)).concat(high.slice(0,tH)).concat(master.slice(0,tS));
     }
     Utils.shuffle(pool);
-    // Ensure we have enough words (pad from all words if needed)
-    if(pool.length<this.roundSize){
-      const all=[];
-      for(let i=0;i<n;i++)all.push(i);
-      Utils.shuffle(all);
-      for(const i of all){if(!pool.includes(i)){pool.push(i);if(pool.length>=this.roundSize)break}}
-    }
+    if(pool.length<this.roundSize){const all=[];for(let i=0;i<n;i++)all.push(i);Utils.shuffle(all);for(const i of all){if(!pool.includes(i)){pool.push(i);if(pool.length>=this.roundSize)break}}}
     const words=pool.slice(0,this.roundSize);
-    // Build 3-question-per-word queue
-    const types=['en2zh','zh2en','spell'],q=[];
+    const allTypes=['en2zh','zh2en','spell'],types=qtype==='all'?allTypes:[qtype],q=[];
     for(const wi of words){for(const t of types)q.push({type:t,wordIndex:wi})}
     Utils.shuffle(q);
     state.session.queue=q;state.session.queuePos=0;state.session.roundCount=0;
