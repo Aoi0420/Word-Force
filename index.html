@@ -56,12 +56,13 @@
   <button id="btn-start" class="btn btn-primary btn-lg btn-block pulse-start" style="font-size:18px;padding:18px">
     ▶ 开始强制学习
   </button>
-  <div class="flex gap-2 mt-3 flex-wrap">
-    <button class="btn flex-1 mode-btn text-xs" data-mode="normal" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">📖 普通</button>
-    <button class="btn flex-1 mode-btn text-xs" data-mode="review" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">🔄 复习</button>
-    <button class="btn flex-1 mode-btn text-xs" data-mode="learn" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">📚 学习</button>
-    <button class="btn flex-1 mode-btn text-xs" data-mode="abyss" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">🔥 错题</button>
-    <button class="btn flex-1 mode-btn text-xs" data-mode="blitz" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">⚡ 闪电</button>
+  <div class="grid grid-cols-3 gap-2 mt-3">
+    <button class="btn mode-btn text-xs" data-mode="normal" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">📖 普通</button>
+    <button class="btn mode-btn text-xs" data-mode="review" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">🔄 复习</button>
+    <button class="btn mode-btn text-xs" data-mode="learn" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">📚 学习</button>
+    <button class="btn mode-btn text-xs" data-mode="abyss" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">🔥 错题</button>
+    <button class="btn mode-btn text-xs" data-mode="blitz" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">⚡ 闪电</button>
+    <button class="btn mode-btn text-xs" data-mode="purgatory" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">☠️ 炼狱</button>
   </div>
   <div class="mt-auto pt-4 flex gap-3 justify-center">
     <button class="btn btn-ghost page-nav" data-page="stats">📊 统计</button>
@@ -239,6 +240,7 @@
         <option value="learn">学习模式（Lv.3 及以下）</option>
         <option value="abyss">错题深渊（只出历史错题）</option>
         <option value="blitz">闪电战（限时答题）</option>
+        <option value="purgatory">☠️ 炼狱（限时6选项）</option>
       </select>
     </div>
     <div>
@@ -344,6 +346,7 @@ const CFG = {
   BLITZ_SPELL_SECONDS: 12,     // 拼写题秒数放宽
   BLITZ_BONUS: 2,              // 答对奖励秒数
   BLITZ_FILL_SECONDS: 6,       // 填空拼写秒数
+  PURGATORY_DISTRACTORS: 5,    // 炼狱模式干扰项数→共6选项
 };
 
 // ===== SAMPLE WORDS =====
@@ -495,7 +498,7 @@ const Quiz = {
   correctIndex:-1,
   // en→zh: show English, pick Chinese
   generate(ci){
-    const words=state.words,n=words.length,m=Math.min(CFG.MAX_DISTRACTORS,n-1),candidates=[];
+    const words=state.words,n=words.length,m=Math.min(App.mode==='purgatory'?CFG.PURGATORY_DISTRACTORS:CFG.MAX_DISTRACTORS,n-1),candidates=[];
     for(let i=0;i<n;i++)if(i!==ci)candidates.push(i);Utils.shuffle(candidates);
     const samePos=candidates.filter(i=>words[i].pos===words[ci].pos),chosen=[];
     for(const i of samePos){if(chosen.length>=m)break;if(!chosen.includes(i))chosen.push(i)}
@@ -507,7 +510,7 @@ const Quiz = {
   },
   // zh→en: show Chinese, pick English
   generateZh2En(ci){
-    const words=state.words,n=words.length,m=Math.min(CFG.MAX_DISTRACTORS,n-1),candidates=[];
+    const words=state.words,n=words.length,m=Math.min(App.mode==='purgatory'?CFG.PURGATORY_DISTRACTORS:CFG.MAX_DISTRACTORS,n-1),candidates=[];
     for(let i=0;i<n;i++)if(i!==ci)candidates.push(i);Utils.shuffle(candidates);
     const chosen=[];
     for(const i of candidates){if(chosen.length>=m)break;if(!chosen.includes(i))chosen.push(i)}
@@ -628,7 +631,7 @@ const Render = {
     if(mode==='zh2en'){
       oa.style.display='block';sa.style.display='none';
       le.textContent='选择正确的英文单词';we.textContent=q.zh;pe.textContent=q.pos||'';
-      oa.innerHTML='';
+      oa.innerHTML='';oa.className=App.mode==='purgatory'?'grid grid-cols-2 gap-2 w-full mt-4 max-w-480':'w-full space-y-3 mt-4 max-w-480';
       q.options.forEach((opt,idx)=>{
         const b=document.createElement('button');b.className='opt';
         b.textContent=String.fromCharCode(65+idx)+'. '+opt;
@@ -640,7 +643,7 @@ const Render = {
     // en2zh: show English, pick Chinese (default)
     oa.style.display='block';sa.style.display='none';
     le.textContent='选择正确的中文释义';we.textContent=q.word;pe.textContent=q.pos||'';
-    oa.innerHTML='';
+    oa.innerHTML='';oa.className=App.mode==='purgatory'?'grid grid-cols-2 gap-2 w-full mt-4 max-w-480':'w-full space-y-3 mt-4 max-w-480';
     q.options.forEach((opt,idx)=>{
       const b=document.createElement('button');b.className='opt';
       b.textContent=String.fromCharCode(65+idx)+'. '+opt;
@@ -691,7 +694,7 @@ const Render = {
   settings(){
     const ls=loadSettings();
     el('set-round-size').value=ls.roundSize;el('val-round-size').textContent=ls.roundSize;
-    el('set-mode').value=ls.mode;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[ls.mode]||'普通模式';
+    el('set-mode').value=ls.mode;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战',purgatory:'☠️ 炼狱'};el('val-mode').textContent=mLabels[ls.mode]||'普通模式';
     // Render qtype checkboxes + summary
     const cbLabels={en2zh:'英选中',zh2en:'中选英',spell:'拼写',fill:'填空拼写'};
     document.querySelectorAll('#qtype-checkboxes input[type=checkbox]').forEach(cb=>cb.checked=ls.qtypes.includes(cb.value));
@@ -768,7 +771,7 @@ const App = {
   clearBlitzTimer(){if(this._blitzTimer){clearInterval(this._blitzTimer);this._blitzTimer=null}},
   startBlitzTimer(){
     const base=this._currentQType==='fill'?CFG.BLITZ_FILL_SECONDS:this._currentQType==='spell'?CFG.BLITZ_SPELL_SECONDS:CFG.BLITZ_SECONDS;
-    const total=base+this._blitzBonus;this._blitzBonus=0;
+    const total=(this.mode==='purgatory'?Math.max(base-2,2):base)+this._blitzBonus;this._blitzBonus=0;
     const ticks={v:total*10},bar=el('study-countdown-bar'),fill=el('study-countdown-fill');
     bar.style.display='block';fill.style.width='100%';fill.style.background='var(--green-bright)';
     this._blitzTimer=setInterval(()=>{
@@ -823,7 +826,7 @@ const App = {
     el('btn-next').addEventListener('click',()=>this.nextQuestion());
     el('btn-round-continue').addEventListener('click',()=>this.continueRound());
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
-    el('set-mode').addEventListener('change',e=>{const v=e.target.value;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战'};el('val-mode').textContent=mLabels[v]||'普通模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
+    el('set-mode').addEventListener('change',e=>{const v=e.target.value;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战',purgatory:'☠️ 炼狱'};el('val-mode').textContent=mLabels[v]||'普通模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
     el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
     el('btn-qtype-confirm').addEventListener('click',()=>{
       const cbLabels={en2zh:'英选中',zh2en:'中选英',spell:'拼写',fill:'填空拼写'};
@@ -894,7 +897,7 @@ const App = {
     else if(entry.type==='zh2en'){const q=Quiz.generateZh2En(idx);Render.study(q,idx,'zh2en')}
     else if(entry.type==='fill'){const q=Spelling.generateFill(idx);Render.study(q,idx,'fill')}
     else{const q=Quiz.generate(idx);Render.study(q,idx,'en2zh')}
-    if(loadSettings().mode==='blitz')this.startBlitzTimer();
+    if(mode==='blitz'||mode==='purgatory')this.startBlitzTimer();
   },
   handleAnswer(p){
     if(this.answering)return;this.answering=true;this.clearBlitzTimer();
