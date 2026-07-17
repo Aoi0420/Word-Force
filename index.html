@@ -194,6 +194,7 @@
       <div class="text-xs text-dim text-center" id="round-level-summary">等级变化: +0 ↑ -0 ↓</div>
     </div>
     <button id="btn-round-continue" class="btn btn-primary btn-lg min-w-200">继续下一关 →</button>
+    <button id="btn-round-home" class="btn btn-ghost text-sm mt-2">🏠 返回首页</button>
   </div>
 </div>
 
@@ -845,6 +846,7 @@ const App = {
     });
     el('btn-next').addEventListener('click',()=>this.nextQuestion());
     el('btn-round-continue').addEventListener('click',()=>this.continueRound());
+    el('btn-round-home').addEventListener('click',()=>this.endStudy());
     el('set-round-size').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-round-size').textContent=v;const s=loadSettings();s.roundSize=v;this.roundSize=v;saveSettings(s)});
     el('set-mode').addEventListener('change',e=>{const v=e.target.value;const mLabels={normal:'普通模式',review:'复习模式',learn:'学习模式',abyss:'错题深渊',blitz:'闪电战',purgatory:'☠️ 炼狱'};el('val-mode').textContent=mLabels[v]||'普通模式';const s=loadSettings();s.mode=v;saveSettings(s);this.mode=v});
     el('set-intensity').addEventListener('input',e=>{const v=parseInt(e.target.value);el('val-intensity').textContent=CFG.INTENSITY_LABELS[v]||'中等';const s=loadSettings();s.intensity=v;saveSettings(s)});
