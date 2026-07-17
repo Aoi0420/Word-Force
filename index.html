@@ -68,6 +68,7 @@
     <button class="btn btn-ghost page-nav" data-page="stats">📊 统计</button>
     <button class="btn btn-ghost page-nav" data-page="settings">⚙️ 设置</button>
     <button class="btn btn-ghost page-nav" data-page="import">📂 词库</button>
+    <button class="btn btn-ghost page-nav" data-page="about">📖 关于</button>
   </div>
   <div class="text-center pb-1" style="font-size:10px;color:var(--text-muted);letter-spacing:1px">WORD-FORCE · 强制单词</div>
 </div>
@@ -308,6 +309,37 @@
       <span class="text-dim">已掌握</span>
       <span id="import-mastered" class="mono lv-7">0</span>
     </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <div class="flex items-center justify-between pb-3 border-b border-card mb-4">
+    <div class="text-lg font-bold">📖 关于</div>
+    <button class="btn btn-ghost text-sm page-nav" data-page="home">← 返回</button>
+  </div>
+  <div class="bg-card border-card rounded-xl p-5 space-y-3">
+    <div class="text-center">
+      <div class="text-2xl font-bold tracking-wider" style="color:var(--green-bright)">WORD-FORCE</div>
+      <div class="text-sm text-dim mt-1">强制单词 · 词汇强制记忆工具</div>
+    </div>
+    <div class="text-sm text-dim leading-relaxed">
+      <p>一款移动端优先的单词学习应用，通过选择题、拼写和填空拼写三种题型强制巩固词汇记忆。</p>
+      <p class="mt-3">特性：</p>
+      <ul class="space-y-1 mt-1" style="padding-left:1.2em">
+        <li>• 8 级熟练度系统（Lv.0–Lv.7）</li>
+        <li>• 5 种学习模式：普通 / 复习 / 学习 / 错题深渊 / 闪电战</li>
+        <li>• ☠️ 炼狱模式：6 选项 + 极限限时</li>
+        <li>• 自定义词库 JSON 导入</li>
+        <li>• 虚拟键盘，专注拼写</li>
+        <li>• 耻辱榜记录高频错词</li>
+        <li>• 一键预习本关单词</li>
+      </ul>
+    </div>
+    <div class="text-center pt-2">
+      <a href="https://github.com/Aoi0420/Word-Force" target="_blank" class="btn btn-secondary btn-sm inline-flex" style="padding:8px 20px;font-size:13px;text-decoration:none">🐙 GitHub 仓库</a>
+    </div>
+    <div class="text-center text-2xs text-muted pt-1">Made with ❤️</div>
   </div>
 </div>
 
@@ -580,7 +612,7 @@ const Search = {
 
 // ===== ROUTER =====
 const Router = {
-  pages:new Set(['home','memorize','study','result','round','stats','settings','import']),
+  pages:new Set(['home','memorize','study','result','round','stats','settings','import','about']),
   show(p){
     if(!this.pages.has(p))return;
     document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
