@@ -64,6 +64,7 @@
     <button class="btn mode-btn text-xs" data-mode="blitz" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">⚡ 闪电</button>
     <button class="btn mode-btn text-xs" data-mode="purgatory" style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:8px 4px;color:var(--text-dim);font-weight:500;transition:all .15s">☠️ 炼狱</button>
   </div>
+  <button id="btn-pk" class="btn btn-primary btn-sm" style="width:100%;padding:8px;font-size:13px;margin-top:6px">⚔️ 单词 PK（横屏）</button>
   <div class="mt-auto pt-4 flex gap-3 justify-center">
     <button class="btn btn-ghost page-nav" data-page="stats">📊 统计</button>
     <button class="btn btn-ghost page-nav" data-page="settings">⚙️ 设置</button>
@@ -343,6 +344,78 @@
   </div>
 </div>
 
+<!-- PK SETUP -->
+<div id="page-pk-setup" class="page">
+  <div class="flex items-center justify-between pb-3 border-b border-card mb-4">
+    <div class="text-lg font-bold">⚔️ 单词 PK</div>
+    <button class="btn btn-ghost text-sm page-nav" data-page="home">← 返回</button>
+  </div>
+  <div class="bg-card border-card rounded-xl p-5 space-y-4">
+    <div>
+      <div class="text-sm font-medium mb-2">PK 词数</div>
+      <div class="flex gap-2 flex-wrap" id="pk-wordcount-options">
+        <button class="btn btn-sm pk-wc-btn" data-v="10" style="background:var(--green);color:#fff;border-color:var(--green-bright)">10</button>
+        <button class="btn btn-sm pk-wc-btn" data-v="20">20</button>
+        <button class="btn btn-sm pk-wc-btn" data-v="30">30</button>
+        <button class="btn btn-sm pk-wc-btn" data-v="50">50</button>
+        <button class="btn btn-sm pk-wc-btn" data-v="100">100</button>
+        <button class="btn btn-sm pk-wc-btn" data-v="200">200</button>
+      </div>
+    </div>
+    <div>
+      <div class="text-sm font-medium mb-2">限时（分钟）</div>
+      <div class="flex gap-2 flex-wrap" id="pk-time-options">
+        <button class="btn btn-sm pk-time-btn" data-v="1" style="background:var(--green);color:#fff;border-color:var(--green-bright)">1</button>
+        <button class="btn btn-sm pk-time-btn" data-v="2">2</button>
+        <button class="btn btn-sm pk-time-btn" data-v="3">3</button>
+        <button class="btn btn-sm pk-time-btn" data-v="5">5</button>
+        <button class="btn btn-sm pk-time-btn" data-v="10">10</button>
+      </div>
+      <div class="text-xs text-dim mt-1">分</div>
+    </div>
+    <button id="btn-pk-start" class="btn btn-primary btn-lg btn-block">⚔️ 开始 PK</button>
+  </div>
+</div>
+
+<!-- PK GAME (overlay-style, not a page) -->
+<div id="pk-game" style="display:none">
+  <div id="pk-left" class="pk-half left">
+    <div class="pk-score" id="pk1-score">0</div>
+    <div class="pk-word" id="pk1-word">—</div>
+    <div class="pk-pos" id="pk1-pos"></div>
+    <div class="pk-options" id="pk1-options"></div>
+    <div class="pk-player-name" style="margin-top:auto;padding:4px;font-size:.7rem;color:var(--text-dim)">P1</div>
+  </div>
+  <div class="pk-center">
+    <div class="pk-timer" id="pk-timer-display">00:00</div>
+    <div class="pk-vs">⚔️</div>
+    <button class="pk-start-btn" id="pk-start-btn">▶</button>
+    <div class="pk-players" id="pk-players-info" style="display:none">
+      <span>P1: <span id="pk-p1-correct">0</span></span>
+      <span>P2: <span id="pk-p2-correct">0</span></span>
+    </div>
+  </div>
+  <div id="pk-right" class="pk-half">
+    <div class="pk-score" id="pk2-score">0</div>
+    <div class="pk-word" id="pk2-word">—</div>
+    <div class="pk-pos" id="pk2-pos"></div>
+    <div class="pk-options" id="pk2-options"></div>
+    <div class="pk-player-name" style="margin-top:auto;padding:4px;font-size:.7rem;color:var(--text-dim)">P2</div>
+  </div>
+</div>
+
+<!-- PK RESULT -->
+<div id="pk-result" style="display:none">
+  <div class="pk-result-overlay">
+    <div class="pk-result-title" id="pk-result-title">🏆</div>
+    <div class="pk-result-score" id="pk-result-score"></div>
+    <div class="flex gap-4 mt-2">
+      <button class="btn btn-primary btn-lg" id="btn-pk-again">再来一局</button>
+      <button class="btn btn-ghost btn-lg page-nav" data-page="home">返回首页</button>
+    </div>
+  </div>
+</div>
+
 </div><!-- /app -->
 
 <!-- SEARCH OVERLAY -->
@@ -612,7 +685,7 @@ const Search = {
 
 // ===== ROUTER =====
 const Router = {
-  pages:new Set(['home','memorize','study','result','round','stats','settings','import','about']),
+  pages:new Set(['home','memorize','study','result','round','stats','settings','import','about','pk-setup']),
   show(p){
     if(!this.pages.has(p))return;
     document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
@@ -891,6 +964,34 @@ const App = {
     });
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
+    // PK
+    el('btn-pk').addEventListener('click',()=>{
+      PK.setup(20,3);Router.show('pk-setup');
+      document.querySelectorAll('.pk-wc-btn').forEach(b=>{b.style.background=b.dataset.v=='10'?'var(--green)':'var(--bg-card)';b.style.color=b.dataset.v=='10'?'#fff':'var(--text-dim)';b.style.borderColor=b.dataset.v=='10'?'var(--green-bright)':'var(--border)'});
+      document.querySelectorAll('.pk-time-btn').forEach(b=>{b.style.background=b.dataset.v=='3'?'var(--green)':'var(--bg-card)';b.style.color=b.dataset.v=='3'?'#fff':'var(--text-dim)';b.style.borderColor=b.dataset.v=='3'?'var(--green-bright)':'var(--border)'});
+    });
+    document.querySelectorAll('.pk-wc-btn').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.pk-wc-btn').forEach(x=>{x.style.background='var(--bg-card)';x.style.color='var(--text-dim)';x.style.borderColor='var(--border)'});
+      b.style.background='var(--green)';b.style.color='#fff';b.style.borderColor='var(--green-bright)';PK.wc=parseInt(b.dataset.v);
+    }));
+    document.querySelectorAll('.pk-time-btn').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('.pk-time-btn').forEach(x=>{x.style.background='var(--bg-card)';x.style.color='var(--text-dim)';x.style.borderColor='var(--border)'});
+      b.style.background='var(--green)';b.style.color='#fff';b.style.borderColor='var(--green-bright)';PK.tm=parseInt(b.dataset.v);
+    }));
+    el('btn-pk-start').addEventListener('click',()=>{
+      PK.setup(PK.wc,PK.tm);PK.reset();
+      el('pk-game').style.display='flex';el('pk-result').style.display='none';
+      el('pk1-score').textContent='0';el('pk2-score').textContent='0';
+      el('pk-p1-correct').textContent='0';el('pk-p2-correct').textContent='0';
+      el('pk-start-btn').style.display='flex';el('pk-players-info').style.display='none';
+      el('pk-timer-display').textContent='0'+PK.tm+':00';
+    });
+    el('pk-start-btn').addEventListener('click',()=>{
+      PK.nxt(PK.p1,'pk1-');PK.nxt(PK.p2,'pk2-');PK.start();
+    });
+    el('pk1-options').addEventListener('click',e=>{const btn=e.target.closest('button');if(!btn)return;PK.ans(PK.p1,'pk1-',parseInt(btn.dataset.i))});
+    el('pk2-options').addEventListener('click',e=>{const btn=e.target.closest('button');if(!btn)return;PK.ans(PK.p2,'pk2-',parseInt(btn.dataset.i))});
+    el('btn-pk-again').addEventListener('click',()=>{PK.reset();Router.show('pk-setup')});
     // Search
     el('btn-search-open').addEventListener('click',()=>{
       el('page-search').style.display='flex';el('search-input').value='';el('search-input').focus();
@@ -1000,6 +1101,67 @@ const App = {
     reader.readAsText(file);e.target.value='';
   },
 };
+
+// ===== PK MODE =====
+const PK = {
+  wc:20, tm:3, pool:[], started:false, timer:null, remaining:0,
+  p1:{q:[],pos:0,correct:0,wrong:0,locked:false,cur:null},
+  p2:{q:[],pos:0,correct:0,wrong:0,locked:false,cur:null},
+  setup(wc,tm){
+    this.wc=wc; this.tm=tm; this.started=false;
+    const n=state.wordCount(),a=[]; for(let i=0;i<n;i++)a.push(i); Utils.shuffle(a);
+    this.pool=a.slice(0,Math.min(wc,n));
+    this.p1.q=[...this.pool]; Utils.shuffle(this.p1.q); this.p1.pos=0; this.p1.correct=0; this.p1.wrong=0; this.p1.cur=null; this.p1.locked=0;
+    this.p2.q=[...this.pool]; Utils.shuffle(this.p2.q); this.p2.pos=0; this.p2.correct=0; this.p2.wrong=0; this.p2.cur=null; this.p2.locked=0;
+  },
+  _gen(ci){
+    const words=state.words,n=words.length,m=Math.min(5,n-1),c=[],isZh=Math.random()<.5;
+    for(let i=0;i<n;i++)if(i!==ci)c.push(i); Utils.shuffle(c); const ch=[];
+    for(const i of c){if(ch.length>=m)break;if(!ch.includes(i))ch.push(i)}
+    const opts=isZh
+      ?[{t:words[ci].zh,_c:true},...ch.map(i=>({t:words[i].zh,_c:false}))]
+      :[{t:words[ci].en,_c:true},...ch.map(i=>({t:words[i].en,_c:false}))];
+    Utils.shuffle(opts);
+    return{word:isZh?words[ci].zh:words[ci].en,pos:words[ci].pos,options:opts.map(o=>o.t),cp:opts.findIndex(o=>o._c)};
+  },
+  nxt(p,side){
+    p.cur=this._gen(p.q[p.pos%p.q.length]); p.pos++;
+    el(side+'word').textContent=p.cur.word; el(side+'pos').textContent=p.cur.pos||'';
+    el(side+'options').innerHTML=p.cur.options.map((o,i)=>`<button data-i="${i}">${String.fromCharCode(65+i)}. ${o}</button>`).join('');
+  },
+  ans(p,side,idx){
+    if(!this.started||p.locked>0)return;
+    if(idx===p.cur.cp){p.correct++;el(side+'score').textContent=p.correct;this.nxt(p,side)}
+    else{p.wrong++;p.locked=1;const opts=el(side+'options').querySelectorAll('button');if(opts[idx])opts[idx].style.background='var(--red)';setTimeout(()=>{p.locked=0;this.nxt(p,side)},50)}
+  },
+  start(){
+    this.started=true; this.remaining=this.tm*60;
+    el('pk-start-btn').style.display='none';el('pk-players-info').style.display='flex';
+    this.tick();this.timer=setInterval(()=>this.tick(),1000);
+  },
+  tick(){
+    if(this.remaining<=0){this.end();return}
+    this.remaining--;
+    const m=Math.floor(this.remaining/60),s=this.remaining%60;
+    el('pk-timer-display').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    el('pk-p1-correct').textContent=this.p1.correct;el('pk-p2-correct').textContent=this.p2.correct;
+  },
+  end(){
+    if(this.timer){clearInterval(this.timer);this.timer=null}
+    this.started=false;
+    const p1=this.p1.correct,p2=this.p2.correct;
+    let title,score;
+    if(p1>p2){title='🏆 P1 获胜！';score=`P1 ${p1} : ${p2} P2`}
+    else if(p2>p1){title='🏆 P2 获胜！';score=`P1 ${p1} : ${p2} P2`}
+    else{title='🤝 平局！';score=`${p1} : ${p2}`}
+    el('pk-result-title').textContent=title;el('pk-result-score').textContent=score;
+    el('pk-result').style.display='block';
+  },
+  reset(){if(this.timer){clearInterval(this.timer);this.timer=null}this.started=false;el('pk-game').style.display='none';el('pk-result').style.display='none'},
+};
+
+// 禁止右键
+document.addEventListener('contextmenu',e=>e.preventDefault());
 
 document.addEventListener('DOMContentLoaded',()=>App.init());
 </script>

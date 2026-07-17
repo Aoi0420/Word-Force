@@ -149,3 +149,26 @@ body{
   .btn-lg{padding:12px 20px;font-size:15px}
   .grid-cols-4{grid-template-columns:repeat(2,1fr)}
 }
+
+/* PK */
+@media(orientation:portrait){#btn-pk{display:none}}
+#pk-game{display:flex;height:100%;width:100%;position:fixed;top:0;left:0;z-index:200;background:var(--bg-deep)}
+.pk-half{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px;overflow:hidden;position:relative}
+.pk-half.left{border-right:1px solid var(--border)}
+.pk-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:flex;flex-direction:column;align-items:center;gap:8px}
+.pk-score{font-size:2rem;font-weight:700;font-family:monospace;color:var(--green-bright)}
+.pk-word{font-size:1.3rem;font-weight:700;font-family:monospace;text-align:center;margin:4px 0;line-height:1.2}
+.pk-pos{font-size:.7rem;color:var(--text-dim)}
+.pk-options{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;width:100%;max-width:260px}
+.pk-options button{padding:8px 4px;font-size:12px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;color:var(--text-main);cursor:pointer;transition:all .1s;touch-action:manipulation;text-align:center;line-height:1.2}
+.pk-options button:active{transform:scale(.95)}
+.pk-timer{font-size:2.2rem;font-weight:700;font-family:monospace;color:var(--green-bright);background:var(--bg-card);padding:6px 14px;border-radius:10px;border:1px solid var(--border)}
+.pk-vs{font-size:.8rem;color:var(--text-dim);font-weight:600}
+.pk-start-btn{width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;border:2px solid var(--green-bright);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;touch-action:manipulation;transition:transform .15s}
+.pk-start-btn:active{transform:scale(.9)}
+.pk-players{display:flex;gap:12px;font-size:.7rem;color:var(--text-dim)}
+.pk-player-name{font-weight:600;font-size:.8rem;color:var(--text-main)}
+.pk-result-overlay{position:fixed;top:0;left:0;right:0;bottom:0;z-index:300;background:rgba(20,23,28,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px}
+.pk-result-title{font-size:2rem;font-weight:700}
+.pk-result-score{font-size:1.2rem;font-family:monospace}
+
