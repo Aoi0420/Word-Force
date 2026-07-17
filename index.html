@@ -72,6 +72,16 @@
   <div class="text-center pb-1" style="font-size:10px;color:var(--text-muted);letter-spacing:1px">WORD-FORCE · 强制单词</div>
 </div>
 
+<!-- MEMORIZE -->
+<div id="page-memorize" class="page">
+  <div class="flex items-center justify-between pb-3 border-b border-card mb-4">
+    <div class="text-lg font-bold">📖 预习本关</div>
+    <span class="text-sm mono text-dim" id="memorize-timer">01:00</span>
+  </div>
+  <div id="memorize-list" class="flex-1 overflow-y-auto space-y-2"></div>
+  <button id="btn-memorize-go" class="btn btn-primary btn-lg btn-block mt-4">开始答题 →</button>
+</div>
+
 <!-- STUDY -->
 <div id="page-study" class="page">
   <div class="flex items-center justify-between pb-3 border-b border-card mb-4">
@@ -569,7 +579,7 @@ const Search = {
 
 // ===== ROUTER =====
 const Router = {
-  pages:new Set(['home','study','result','round','stats','settings','import']),
+  pages:new Set(['home','memorize','study','result','round','stats','settings','import']),
   show(p){
     if(!this.pages.has(p))return;
     document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
@@ -718,6 +728,13 @@ const Render = {
       </div>`;
     }).join('');
   },
+  memorize(){
+    const seen=new Set(),list=[];for(const e of state.session.queue){if(!seen.has(e.wordIndex)){seen.add(e.wordIndex);list.push(e.wordIndex)}}
+    el('memorize-list').innerHTML=list.map(i=>{
+      const w=state.getWord(i),lv=state.getLevel(i);
+      return`<div class="bg-card border-card rounded-xl p-3 flex items-center justify-between"><div><span class="mono font-bold">${w.en}</span> <span class="text-xs text-dim">${w.pos||''}</span><div class="text-xs text-dim mt-1">${w.zh}</div></div><span class="badge ${Utils.levelClass(lv)}">${Utils.levelLabel(lv)}</span></div>`;
+    }).join('');
+  },
   wordDetail(idx){
     const w=state.getWord(idx);if(!w)return;
     const lv=state.getLevel(idx),cls=Utils.levelClass(lv);
@@ -750,7 +767,7 @@ const App = {
   mode:'normal',roundSize:10,currentWordIndex:-1,answering:false,
   _quizCorrectPos:-1,_studyWordIndex:-1,_spellingWordIndex:-1,
   _blitzTimer:null,_blitzBonus:0,_currentQType:'en2zh',_abyssCleared:false,_hintUsed:false,
-  _fillChars:null,_fillProgress:0,
+  _fillChars:null,_fillProgress:0,_memorizeTimer:null,
   timerInterval:null,timerStart:0,
   async init(){await state.ensureWords();state.init();const ls=loadSettings();this.mode=ls.mode;this.roundSize=ls.roundSize;this.bindEvents();Router.goHome()},
   timerFormat(s){
@@ -769,6 +786,8 @@ const App = {
     if(this.timerInterval){clearInterval(this.timerInterval);this.timerInterval=null}
   },
   clearBlitzTimer(){if(this._blitzTimer){clearInterval(this._blitzTimer);this._blitzTimer=null}},
+  startMemorizeTimer(){let s=60;el('memorize-timer').textContent=this.timerFormat(s);this._memorizeTimer=setInterval(()=>{s--;el('memorize-timer').textContent=this.timerFormat(s);if(s<=0)this.endMemorize()},1000)},
+  endMemorize(){if(this._memorizeTimer){clearInterval(this._memorizeTimer);this._memorizeTimer=null}Router.show('study');this.nextQuestion()},
   startBlitzTimer(){
     const base=this._currentQType==='fill'?CFG.BLITZ_FILL_SECONDS:this._currentQType==='spell'?CFG.BLITZ_SPELL_SECONDS:CFG.BLITZ_SECONDS;
     const total=(this.mode==='purgatory'?Math.max(base-2,2):base)+this._blitzBonus;this._blitzBonus=0;
@@ -784,6 +803,7 @@ const App = {
   bindEvents(){
     document.querySelectorAll('.page-nav').forEach(b=>b.addEventListener('click',()=>{const p=b.dataset.page;if(p==='home')Router.goHome();else{Router.show(p);if(p==='stats')Render.stats();if(p==='settings')Render.settings();if(p==='import')Render.importPage()}}));
     el('btn-start').addEventListener('click',()=>this.startStudy());
+    el('btn-memorize-go').addEventListener('click',()=>this.endMemorize());
     document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>{
       const mode=b.dataset.mode;
       const s=loadSettings();s.mode=mode;saveSettings(s);this.mode=mode;
@@ -853,8 +873,8 @@ const App = {
     // Escape from search
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&el('page-search').style.display==='flex'){el('page-search').style.display='none';el('word-detail').style.display='none'}});
   },
-  startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;this._abyssCleared=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();Router.show('study');this.nextQuestion()},
-  endStudy(){state.session.active=false;this.timerStop();this.clearBlitzTimer();el('study-countdown-bar').style.display='none';state.persist();Router.goHome()},
+  startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;this._abyssCleared=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();if(this.mode!=='purgatory'&&state.session.queue.length>0){Router.show('memorize');Render.memorize();this.startMemorizeTimer()}else{Router.show('study');this.nextQuestion()}},
+  endStudy(){state.session.active=false;this.timerStop();this.clearBlitzTimer();if(this._memorizeTimer){clearInterval(this._memorizeTimer);this._memorizeTimer=null}el('study-countdown-bar').style.display='none';state.persist();Router.goHome()},
   startRound(){
     const n=state.wordCount(),s=loadSettings(),roundMode=s.mode;
     let pool=[];
@@ -930,7 +950,7 @@ const App = {
     if(ic){const w=state.getWord(wi);el('study-result').textContent='✅ '+w.en;el('study-result').style.color='var(--green-bright)';setTimeout(()=>el('study-result').textContent='',400);this.nextQuestion()}
     else{Render.result(wi,lb,la);Router.show('result')}
   },
-  continueRound(){this.answering=false;el('study-countdown-bar').style.display='none';this.startRound();if(this._abyssCleared){this.endStudy();return}Router.show('study');this.nextQuestion()},
+  continueRound(){this.answering=false;el('study-countdown-bar').style.display='none';this.startRound();if(this._abyssCleared){this.endStudy();return}if(this.mode!=='purgatory'&&state.session.queue.length>0){Router.show('memorize');Render.memorize();this.startMemorizeTimer()}else{Router.show('study');this.nextQuestion()}},
   handleFileImport(e){
     const file=e.target.files[0];if(!file)return;
     const reader=new FileReader();
