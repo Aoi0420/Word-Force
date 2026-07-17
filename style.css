@@ -152,7 +152,7 @@ body{
 
 /* PK */
 @media(orientation:portrait){#btn-pk{display:none}}
-#pk-game{display:flex;height:100%;width:100%;position:fixed;top:0;left:0;z-index:200;background:var(--bg-deep)}
+#pk-game{display:flex;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:var(--bg-deep)}
 .pk-half{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px;overflow:hidden;position:relative}
 .pk-half.left{border-right:1px solid var(--border)}
 .pk-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;display:flex;flex-direction:column;align-items:center;gap:8px}

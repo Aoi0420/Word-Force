@@ -377,7 +377,9 @@
   </div>
 </div>
 
-<!-- PK GAME (overlay-style, not a page) -->
+</div><!-- /app -->
+
+<!-- PK GAME -->
 <div id="pk-game" style="display:none">
   <div id="pk-left" class="pk-half left">
     <div class="pk-score" id="pk1-score">0</div>
@@ -415,8 +417,6 @@
     </div>
   </div>
 </div>
-
-</div><!-- /app -->
 
 <!-- SEARCH OVERLAY -->
 <div id="page-search" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:50;background:rgba(20,23,28,.93);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);flex-direction:column;padding:16px 20px">
@@ -1119,8 +1119,8 @@ const PK = {
     for(let i=0;i<n;i++)if(i!==ci)c.push(i); Utils.shuffle(c); const ch=[];
     for(const i of c){if(ch.length>=m)break;if(!ch.includes(i))ch.push(i)}
     const opts=isZh
-      ?[{t:words[ci].zh,_c:true},...ch.map(i=>({t:words[i].zh,_c:false}))]
-      :[{t:words[ci].en,_c:true},...ch.map(i=>({t:words[i].en,_c:false}))];
+      ?[{t:words[ci].en,_c:true},...ch.map(i=>({t:words[i].en,_c:false}))]
+      :[{t:words[ci].zh,_c:true},...ch.map(i=>({t:words[i].zh,_c:false}))];
     Utils.shuffle(opts);
     return{word:isZh?words[ci].zh:words[ci].en,pos:words[ci].pos,options:opts.map(o=>o.t),cp:opts.findIndex(o=>o._c)};
   },
