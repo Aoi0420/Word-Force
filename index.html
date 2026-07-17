@@ -1109,10 +1109,9 @@ const PK = {
   p2:{q:[],pos:0,correct:0,wrong:0,locked:false,cur:null},
   setup(wc,tm){
     this.wc=wc; this.tm=tm; this.started=false;
-    const n=state.wordCount(),a=[]; for(let i=0;i<n;i++)a.push(i); Utils.shuffle(a);
-    this.pool=a.slice(0,Math.min(wc,n));
-    this.p1.q=[...this.pool]; Utils.shuffle(this.p1.q); this.p1.pos=0; this.p1.correct=0; this.p1.wrong=0; this.p1.cur=null; this.p1.locked=0;
-    this.p2.q=[...this.pool]; Utils.shuffle(this.p2.q); this.p2.pos=0; this.p2.correct=0; this.p2.wrong=0; this.p2.cur=null; this.p2.locked=0;
+    const n=state.wordCount(),a=[]; for(let i=0;i<n;i++)a.push(i);
+    Utils.shuffle(a); this.p1.q=a.slice(0,Math.min(wc,n)); Utils.shuffle(this.p1.q); this.p1.pos=0; this.p1.correct=0; this.p1.wrong=0; this.p1.cur=null; this.p1.locked=0;
+    Utils.shuffle(a); this.p2.q=a.slice(0,Math.min(wc,n)); Utils.shuffle(this.p2.q); this.p2.pos=0; this.p2.correct=0; this.p2.wrong=0; this.p2.cur=null; this.p2.locked=0;
   },
   _gen(ci){
     const words=state.words,n=words.length,m=Math.min(5,n-1),c=[],isZh=Math.random()<.5;
