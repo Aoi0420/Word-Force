@@ -49,7 +49,7 @@ python3 -m http.server 8000
 ]
 ```
 
-首次启动会自动加载项目根目录的 `words.json`。
+首次启动会自动加载项目根目录的 `words.json`（预设词库）。词库页面可切换其他内置词库（CET-4、CET-6、高考、中考），每个词库的学习进度独立保存。
 
 ## 数据存储
 
@@ -57,10 +57,10 @@ python3 -m http.server 8000
 
 | 键 | 内容 |
 |----|------|
-| `wf_data` | 单词等级位图（Base64 编码） |
-| `wf_words` | 词库 JSON |
-| `wf_meta` | 元数据（今日统计、耻辱榜） |
-| `wf_settings` | 用户设置 |
+| `wf_words_{id}` | 词库 JSON（按词库 ID 独立存储） |
+| `wf_data_{id}` | 单词等级位图（Base64 编码） |
+| `wf_meta_{id}` | 元数据（今日统计、耻辱榜） |
+| `wf_settings` | 用户设置（含当前词库 ID） |
 
 ## 技术栈
 
@@ -78,7 +78,11 @@ python3 -m http.server 8000
 Word-Force/
 ├── index.html    # 应用主文件（HTML + JS）
 ├── style.css     # 样式表
-├── words.json    # 默认词库（501 词）
+├── words.json    # 默认词库（预设，基于中考词汇修改）
+├── cet4.json     # CET-4 四级词库
+├── cet6.json     # CET-6 六级词库
+├── gaokao.json   # 高考词库
+├── zhongkao.json # 中考词库
 ├── docs/
 │   ├── 功能设计.md
 │   └── 技术设计.md

@@ -1,0 +1,9417 @@
+[
+  {
+    "en": "a (an)",
+    "pos": "art.",
+    "zh": "一（个、件……）"
+  },
+  {
+    "en": "ability",
+    "pos": "n.",
+    "zh": "能力;才能"
+  },
+  {
+    "en": "able",
+    "pos": "a.",
+    "zh": "能够;有能力的"
+  },
+  {
+    "en": "about",
+    "pos": "ad.",
+    "zh": "大约;到处;四处 prep. 关于;在各处;四处"
+  },
+  {
+    "en": "above",
+    "pos": "prep.",
+    "zh": "在…上面 a. 上面的 ad. 在…之上"
+  },
+  {
+    "en": "abroad",
+    "pos": "ad.",
+    "zh": "到（在）国外"
+  },
+  {
+    "en": "accept",
+    "pos": "vt.",
+    "zh": "接受"
+  },
+  {
+    "en": "accident",
+    "pos": "n.",
+    "zh": "事故,意外"
+  },
+  {
+    "en": "across",
+    "pos": "prep.",
+    "zh": "/ad. 横过;穿过;另一边,在对面"
+  },
+  {
+    "en": "act",
+    "pos": "n.",
+    "zh": "法令，条例 v. 行动,（戏）表演,扮演（角色）"
+  },
+  {
+    "en": "action",
+    "pos": "n.",
+    "zh": "行动,行为,举动"
+  },
+  {
+    "en": "active",
+    "pos": "a.",
+    "zh": "积极的，主动的"
+  },
+  {
+    "en": "activity",
+    "pos": "n.",
+    "zh": "活动"
+  },
+  {
+    "en": "advantage",
+    "pos": "n.",
+    "zh": "优点；好处,有利条件"
+  },
+  {
+    "en": "advertisement",
+    "pos": "n.",
+    "zh": "广告"
+  },
+  {
+    "en": "advice",
+    "pos": "n.",
+    "zh": "忠告，劝告，建议"
+  },
+  {
+    "en": "afford",
+    "pos": "vt.",
+    "zh": "负担得起（…的费用）；抽得出（时间）；提供"
+  },
+  {
+    "en": "afraid",
+    "pos": "a.",
+    "zh": "害怕的；担心"
+  },
+  {
+    "en": "Africa",
+    "pos": "n.",
+    "zh": "非洲"
+  },
+  {
+    "en": "after",
+    "pos": "ad.",
+    "zh": "在后；后来 prep. 在…之后 conj. 在…以后"
+  },
+  {
+    "en": "afternoon",
+    "pos": "n.",
+    "zh": "下午，午后"
+  },
+  {
+    "en": "again",
+    "pos": "ad.",
+    "zh": "再一次；再，又"
+  },
+  {
+    "en": "against",
+    "pos": "prep.",
+    "zh": "对着,反对,倚靠"
+  },
+  {
+    "en": "age",
+    "pos": "n.",
+    "zh": "年龄；时代"
+  },
+  {
+    "en": "ago",
+    "pos": "ad.",
+    "zh": "以前"
+  },
+  {
+    "en": "agree",
+    "pos": "v.",
+    "zh": "同意"
+  },
+  {
+    "en": "air",
+    "pos": "n.",
+    "zh": "空气；大气"
+  },
+  {
+    "en": "aircraft",
+    "pos": "n.",
+    "zh": "飞机 (单复数同)"
+  },
+  {
+    "en": "airline",
+    "pos": "n.",
+    "zh": "航空公司;航空系统;航线"
+  },
+  {
+    "en": "airplane",
+    "pos": "n.",
+    "zh": "（美）飞机"
+  },
+  {
+    "en": "airport",
+    "pos": "n.",
+    "zh": "航空站,飞机场"
+  },
+  {
+    "en": "alike",
+    "pos": "ad.",
+    "zh": "很相似地，同样地"
+  },
+  {
+    "en": "alive",
+    "pos": "a.",
+    "zh": "活着的，存在的"
+  },
+  {
+    "en": "all",
+    "pos": "ad.",
+    "zh": "全部地 a. 全（部）;所有的;总;整 pron. 全部;全体"
+  },
+  {
+    "en": "allow",
+    "pos": "vt.",
+    "zh": "允许，准许"
+  },
+  {
+    "en": "almost",
+    "pos": "ad.",
+    "zh": "几乎，差不多"
+  },
+  {
+    "en": "alone",
+    "pos": "a.",
+    "zh": "单独的，孤独的"
+  },
+  {
+    "en": "along",
+    "pos": "ad.",
+    "zh": "向前；和…一起；一同 prep. 沿着；顺着"
+  },
+  {
+    "en": "already",
+    "pos": "ad.",
+    "zh": "已经"
+  },
+  {
+    "en": "also",
+    "pos": "ad.",
+    "zh": "也"
+  },
+  {
+    "en": "although",
+    "pos": "conj.",
+    "zh": "虽然，尽管"
+  },
+  {
+    "en": "always",
+    "pos": "ad.",
+    "zh": "总是；一直；永远"
+  },
+  {
+    "en": "am/æm/",
+    "pos": "v.",
+    "zh": "be的人称形式之一 "
+  },
+  {
+    "en": "a.m./A.M.",
+    "pos": "n.",
+    "zh": "午前，上午"
+  },
+  {
+    "en": "amaze",
+    "pos": "v.",
+    "zh": "惊奇，惊叹；震惊"
+  },
+  {
+    "en": "amazing",
+    "pos": "a.",
+    "zh": "惊叹的;震惊的;令人惊讶的"
+  },
+  {
+    "en": "America",
+    "pos": "n.",
+    "zh": "美国；美洲"
+  },
+  {
+    "en": "American",
+    "pos": "a.",
+    "zh": "美国的；美国人的 n. 美国人"
+  },
+  {
+    "en": "among",
+    "pos": "prep.",
+    "zh": "在…中间；在（三个以上）之间"
+  },
+  {
+    "en": "and",
+    "pos": "conj.",
+    "zh": "和；又"
+  },
+  {
+    "en": "angel",
+    "pos": "n.",
+    "zh": "天使,守护神"
+  },
+  {
+    "en": "angry",
+    "pos": "a.",
+    "zh": "生气的，愤怒的"
+  },
+  {
+    "en": "animal",
+    "pos": "n.",
+    "zh": "动物"
+  },
+  {
+    "en": "another",
+    "pos": "a.",
+    "zh": "再一；另一；别的 pron. 另一个"
+  },
+  {
+    "en": "answer",
+    "pos": "n.",
+    "zh": "回答,答复;答案 v. 回答,答复;（作出）答案"
+  },
+  {
+    "en": "any",
+    "pos": "pron.",
+    "zh": "任何的;（用于疑问句、否定句）一些；什么"
+  },
+  {
+    "en": "anyhow",
+    "pos": "ad.",
+    "zh": "不管怎样"
+  },
+  {
+    "en": "anyone",
+    "pos": "pron.",
+    "zh": "任何人，无论谁"
+  },
+  {
+    "en": "anything",
+    "pos": "pron.",
+    "zh": "什么事（物）；任何事（物）"
+  },
+  {
+    "en": "anywhere",
+    "pos": "ad.",
+    "zh": "任何地方"
+  },
+  {
+    "en": "apologize",
+    "pos": "vi.",
+    "zh": "道歉，谢罪"
+  },
+  {
+    "en": "apology",
+    "pos": "n.",
+    "zh": "道歉；歉意"
+  },
+  {
+    "en": "apple",
+    "pos": "n.",
+    "zh": "苹果"
+  },
+  {
+    "en": "April",
+    "pos": "n.",
+    "zh": "4月"
+  },
+  {
+    "en": "Arab",
+    "pos": "a.",
+    "zh": "阿拉伯的 n. 阿拉伯人"
+  },
+  {
+    "en": "area",
+    "pos": "n.",
+    "zh": "面积；地域，区域；范围，领域"
+  },
+  {
+    "en": "arm",
+    "pos": "n.",
+    "zh": "臂,支架,（美）武器,武力"
+  },
+  {
+    "en": "army",
+    "pos": "n.",
+    "zh": "军队"
+  },
+  {
+    "en": "around",
+    "pos": "ad.",
+    "zh": "在周围；在附近 prep. 在…周围；大约"
+  },
+  {
+    "en": "arrive",
+    "pos": "vi.",
+    "zh": "到达；达到"
+  },
+  {
+    "en": "arrow",
+    "pos": "n.",
+    "zh": "箭；箭头"
+  },
+  {
+    "en": "art",
+    "pos": "n.",
+    "zh": "艺术，美术；技艺"
+  },
+  {
+    "en": "artist",
+    "pos": "n.",
+    "zh": "艺术家,美术家"
+  },
+  {
+    "en": "article",
+    "pos": "n.",
+    "zh": "文章;物品;冠词"
+  },
+  {
+    "en": "as",
+    "pos": "ad.",
+    "zh": "& conj. 像…一样;当…时；如同；因为 prep. 作为，当做"
+  },
+  {
+    "en": "Asia",
+    "pos": "n.",
+    "zh": "亚洲"
+  },
+  {
+    "en": "Asian",
+    "pos": "a.",
+    "zh": "亚洲（人）的 n. 亚洲人"
+  },
+  {
+    "en": "ask",
+    "pos": "v.",
+    "zh": "问；请求，要求；邀请"
+  },
+  {
+    "en": "asleep",
+    "pos": "a.",
+    "zh": "睡着的，熟睡"
+  },
+  {
+    "en": "assistant",
+    "pos": "n.",
+    "zh": "助手，助理"
+  },
+  {
+    "en": "at",
+    "pos": "prep.",
+    "zh": "在（几点钟）;在（某处）"
+  },
+  {
+    "en": "attack",
+    "pos": "vt.",
+    "zh": "/ n. 攻击，袭击"
+  },
+  {
+    "en": "attend",
+    "pos": "v.",
+    "zh": "看护，照料，服侍；出席，参加"
+  },
+  {
+    "en": "attention",
+    "pos": "n.",
+    "zh": "注意，关心"
+  },
+  {
+    "en": "attract",
+    "pos": "v.",
+    "zh": "吸引，引起"
+  },
+  {
+    "en": "August",
+    "pos": "n.",
+    "zh": "8月"
+  },
+  {
+    "en": "aunt",
+    "pos": "n.",
+    "zh": "伯母；舅母；婶；姑；姨"
+  },
+  {
+    "en": "Australia",
+    "pos": "n.",
+    "zh": "澳洲；澳大利亚"
+  },
+  {
+    "en": "Australian",
+    "pos": "a.",
+    "zh": "澳洲的，澳大利亚人的 n. 澳大利亚人"
+  },
+  {
+    "en": "autumn",
+    "pos": "n.",
+    "zh": "秋天，秋季"
+  },
+  {
+    "en": "awake (awoke, awoken) [əˈweɪk]",
+    "pos": "v.",
+    "zh": "唤醒 a. 醒着的"
+  },
+  {
+    "en": "away",
+    "pos": "ad.",
+    "zh": "离开；远离"
+  },
+  {
+    "en": "awful",
+    "pos": "adj.",
+    "zh": "极坏的、极讨厌的、糟糕的、可怕的"
+  },
+  {
+    "en": "baby",
+    "pos": "n.",
+    "zh": "婴儿"
+  },
+  {
+    "en": "back",
+    "pos": "ad.",
+    "zh": "回（原处）；向后 a. 后面的 n. 背后，后部；背"
+  },
+  {
+    "en": "bad (worse, worst) [bæd]",
+    "pos": "a.",
+    "zh": "坏的；有害的，不利的；严重的"
+  },
+  {
+    "en": "badly",
+    "pos": "ad.",
+    "zh": "坏，恶劣地"
+  },
+  {
+    "en": "bake",
+    "pos": "v.",
+    "zh": "烤； 烘（面包）"
+  },
+  {
+    "en": "ball",
+    "pos": "n.",
+    "zh": "球 n. 舞会"
+  },
+  {
+    "en": "balloon",
+    "pos": "n.",
+    "zh": "气球"
+  },
+  {
+    "en": "bamboo",
+    "pos": "n.",
+    "zh": "竹子"
+  },
+  {
+    "en": "banana",
+    "pos": "n.",
+    "zh": "香蕉"
+  },
+  {
+    "en": "band",
+    "pos": "n.",
+    "zh": "乐队,波段,一伙,一帮,带(状物)"
+  },
+  {
+    "en": "bang",
+    "pos": "int.",
+    "zh": "砰"
+  },
+  {
+    "en": "bank",
+    "pos": "n.",
+    "zh": "（河海湖的）岸，堤, 银行"
+  },
+  {
+    "en": "base",
+    "pos": "n.",
+    "zh": "根据地,基地,（棒球）垒"
+  },
+  {
+    "en": "baseball",
+    "pos": "n.",
+    "zh": "棒球"
+  },
+  {
+    "en": "basket",
+    "pos": "n.",
+    "zh": "篮子"
+  },
+  {
+    "en": "basketball",
+    "pos": "n.",
+    "zh": "篮球"
+  },
+  {
+    "en": "bath",
+    "pos": "n.",
+    "zh": "洗澡；浴室；澡盆"
+  },
+  {
+    "en": "be",
+    "pos": "v.",
+    "zh": "是 (am, is, are, was, were, being, been)；成为"
+  },
+  {
+    "en": "beach",
+    "pos": "n.",
+    "zh": "海滨，海滩"
+  },
+  {
+    "en": "bear",
+    "pos": "v.",
+    "zh": "承受，负担，承担；忍受；容忍 n. 熊"
+  },
+  {
+    "en": "beat (beat, beaten) [biːt]",
+    "pos": "v.",
+    "zh": "敲打；跳动；打赢 n.（音乐）节拍"
+  },
+  {
+    "en": "beautiful",
+    "pos": "a.",
+    "zh": "美，美丽，美观的"
+  },
+  {
+    "en": "because",
+    "pos": "conj.",
+    "zh": "因为"
+  },
+  {
+    "en": "become (became, be come) [bɪˈkʌm]",
+    "pos": "v.",
+    "zh": "变得；成为"
+  },
+  {
+    "en": "bed",
+    "pos": "n.",
+    "zh": "床"
+  },
+  {
+    "en": "bedroom",
+    "pos": "n.",
+    "zh": "寝室，卧室"
+  },
+  {
+    "en": "bee",
+    "pos": "n.",
+    "zh": "蜜蜂"
+  },
+  {
+    "en": "beef",
+    "pos": "n.",
+    "zh": "牛肉"
+  },
+  {
+    "en": "beer",
+    "pos": "n.",
+    "zh": "啤酒"
+  },
+  {
+    "en": "before",
+    "pos": "prep.",
+    "zh": "在…以前；在…前面 ad. 以前 conj. 在…之前"
+  },
+  {
+    "en": "beg",
+    "pos": "v.",
+    "zh": "请求，乞求，乞讨 "
+  },
+  {
+    "en": "begin(began,begun) [bɪˈɡɪn]",
+    "pos": "v.",
+    "zh": "开始,着手"
+  },
+  {
+    "en": "beginning",
+    "pos": "n.",
+    "zh": "开始，开端"
+  },
+  {
+    "en": "behind",
+    "pos": "prep.",
+    "zh": "(表示位置)在…后面 ad. 在后面；向后"
+  },
+  {
+    "en": "believe",
+    "pos": "v.",
+    "zh": "相信，认为"
+  },
+  {
+    "en": "bell",
+    "pos": "n.",
+    "zh": "钟,铃;钟(铃)声;钟形物"
+  },
+  {
+    "en": "below",
+    "pos": "prep.",
+    "zh": "在…下面"
+  },
+  {
+    "en": "beside",
+    "pos": "prep.",
+    "zh": "在…旁边；靠近"
+  },
+  {
+    "en": "besides",
+    "pos": "prep.",
+    "zh": "除…以外（还有） ad. 还有，此外"
+  },
+  {
+    "en": "best（good, well的最高级）[best]",
+    "pos": "a.",
+    "zh": "& ad. 最好的,最好地,最 n. 最好的（人或物）"
+  },
+  {
+    "en": "best-seller",
+    "pos": "n.",
+    "zh": "畅销书"
+  },
+  {
+    "en": "better (good, well的比较级) [ˈbetə(r)] a.&",
+    "pos": "ad.",
+    "zh": "更好的,更好地；更,更多 n. 较好的事物between [bɪˈtwiːn] prep. 在（两者）之间；在…中间"
+  },
+  {
+    "en": "bicycle",
+    "pos": "n.",
+    "zh": "自行车"
+  },
+  {
+    "en": "big",
+    "pos": "a.",
+    "zh": "大的"
+  },
+  {
+    "en": "bike = bicycle [baɪk]",
+    "pos": "n.",
+    "zh": "自行车"
+  },
+  {
+    "en": "bill",
+    "pos": "n.",
+    "zh": "账单；法案，议案；（美）钞票，纸币"
+  },
+  {
+    "en": "billion",
+    "pos": "num.",
+    "zh": "十亿"
+  },
+  {
+    "en": "biology",
+    "pos": "n.",
+    "zh": "生物（学）"
+  },
+  {
+    "en": "bird",
+    "pos": "n.",
+    "zh": "鸟"
+  },
+  {
+    "en": "birth",
+    "pos": "n.",
+    "zh": "出生；诞生"
+  },
+  {
+    "en": "birthday",
+    "pos": "n.",
+    "zh": "生日"
+  },
+  {
+    "en": "bit",
+    "pos": "n.",
+    "zh": "一点，一些，少量的"
+  },
+  {
+    "en": "black",
+    "pos": "n.",
+    "zh": "黑色 a. 黑色的"
+  },
+  {
+    "en": "blackboard",
+    "pos": "n.",
+    "zh": "黑板"
+  },
+  {
+    "en": "blank",
+    "pos": "n.",
+    "zh": "& a. 空格，空白（处）；空的；茫然无表情的"
+  },
+  {
+    "en": "blind",
+    "pos": "a.",
+    "zh": "瞎的"
+  },
+  {
+    "en": "blouse",
+    "pos": "n.",
+    "zh": "宽罩衫；（妇女、儿童穿的）短上衣"
+  },
+  {
+    "en": "blow (blew, blown) [bləʊ]",
+    "pos": "v.",
+    "zh": "吹；刮风；吹气 n. 击；打击"
+  },
+  {
+    "en": "blue",
+    "pos": "n.",
+    "zh": "蓝色 a. 蓝色的 a. 悲伤的；沮丧的"
+  },
+  {
+    "en": "board",
+    "pos": "n.",
+    "zh": "木板；布告牌;（政府的）部 v. 上（船、火车、飞机）"
+  },
+  {
+    "en": "boat",
+    "pos": "n.",
+    "zh": "小船，小舟"
+  },
+  {
+    "en": "boating",
+    "pos": "n.",
+    "zh": "划船（游玩），泛舟"
+  },
+  {
+    "en": "body",
+    "pos": "n.",
+    "zh": "身体"
+  },
+  {
+    "en": "book",
+    "pos": "n.",
+    "zh": "书；本子 v. 预定，定（房间、车票等）"
+  },
+  {
+    "en": "bookmark",
+    "pos": "n.",
+    "zh": "书签"
+  },
+  {
+    "en": "bookshop",
+    "pos": "n.",
+    "zh": "书店"
+  },
+  {
+    "en": "bookstore",
+    "pos": "n.",
+    "zh": "书店"
+  },
+  {
+    "en": "boom",
+    "pos": "n.",
+    "zh": "/ v. 繁荣，轰鸣，激增"
+  },
+  {
+    "en": "boot",
+    "pos": "n.",
+    "zh": "长筒靴；靴"
+  },
+  {
+    "en": "boring",
+    "pos": "a.",
+    "zh": "乏味的，无聊的"
+  },
+  {
+    "en": "born",
+    "pos": "a.",
+    "zh": "出生的"
+  },
+  {
+    "en": "borrow",
+    "pos": "v.",
+    "zh": "（向别人）借用；借"
+  },
+  {
+    "en": "both",
+    "pos": "a.",
+    "zh": "两；双 pron. 两者；双方"
+  },
+  {
+    "en": "bottle",
+    "pos": "n.",
+    "zh": "瓶子"
+  },
+  {
+    "en": "bottom",
+    "pos": "n.",
+    "zh": "底部；底"
+  },
+  {
+    "en": "bowl",
+    "pos": "n.",
+    "zh": "碗"
+  },
+  {
+    "en": "box",
+    "pos": "n.",
+    "zh": "盒子，箱子"
+  },
+  {
+    "en": "boy",
+    "pos": "n.",
+    "zh": "男孩"
+  },
+  {
+    "en": "brain",
+    "pos": "n.",
+    "zh": "脑（子）"
+  },
+  {
+    "en": "bread",
+    "pos": "n.",
+    "zh": "面包"
+  },
+  {
+    "en": "break (broke, broken) [breɪk]",
+    "pos": "n.",
+    "zh": "间隙,中断,暂停 v. 打破（断，碎）"
+  },
+  {
+    "en": "breakfast",
+    "pos": "n.",
+    "zh": "早餐"
+  },
+  {
+    "en": "breathe",
+    "pos": "vi.",
+    "zh": "呼吸"
+  },
+  {
+    "en": "bridge",
+    "pos": "n.",
+    "zh": "桥"
+  },
+  {
+    "en": "bright",
+    "pos": "a.",
+    "zh": "明亮的；聪明的"
+  },
+  {
+    "en": "bring (brought, brought) [brɪŋ]",
+    "pos": "vt.",
+    "zh": "拿来，带来，取来"
+  },
+  {
+    "en": "Britain",
+    "pos": "n.",
+    "zh": "英国；不列颠"
+  },
+  {
+    "en": "British",
+    "pos": "a.",
+    "zh": "英国的；大不列颠的；英国人的"
+  },
+  {
+    "en": "broadcast",
+    "pos": "n.",
+    "zh": "/v. 广播"
+  },
+  {
+    "en": "broken",
+    "pos": "a.",
+    "zh": "弄坏了的"
+  },
+  {
+    "en": "broom",
+    "pos": "n.",
+    "zh": "扫帚"
+  },
+  {
+    "en": "brother",
+    "pos": "n.",
+    "zh": "兄；弟"
+  },
+  {
+    "en": "brotherhood",
+    "pos": "n.",
+    "zh": "兄弟般的关系"
+  },
+  {
+    "en": "brown",
+    "pos": "n.",
+    "zh": "褐色，棕色 a. 褐色的，棕色的"
+  },
+  {
+    "en": "brush",
+    "pos": "v.",
+    "zh": "刷；擦 n. 刷子"
+  },
+  {
+    "en": "build (built, built) [bɪld]",
+    "pos": "v.",
+    "zh": "建筑；造"
+  },
+  {
+    "en": "building",
+    "pos": "n.",
+    "zh": "建筑物；房屋；大楼"
+  },
+  {
+    "en": "burn (-ed, -ed / burnt, burnt) [bɜːn]",
+    "pos": "v.",
+    "zh": "燃烧,着火;使烧焦;使晒黑 n. 烧伤;晒伤"
+  },
+  {
+    "en": "bury",
+    "pos": "vt.",
+    "zh": "埋；葬"
+  },
+  {
+    "en": "bus",
+    "pos": "n.",
+    "zh": "公共汽车"
+  },
+  {
+    "en": "business",
+    "pos": "n.",
+    "zh": "（本分）工作，职业；职责；生意，交易；事业"
+  },
+  {
+    "en": "businessman (pl. businessmen)",
+    "pos": "n.",
+    "zh": "商人（男）；男企业家"
+  },
+  {
+    "en": "busy",
+    "pos": "a.",
+    "zh": "忙（碌）的"
+  },
+  {
+    "en": "but",
+    "pos": "conj.",
+    "zh": "但是，可是 prep. 除了, 除……外"
+  },
+  {
+    "en": "butter",
+    "pos": "n.",
+    "zh": "黄油，奶油"
+  },
+  {
+    "en": "butterfly",
+    "pos": "n.",
+    "zh": "蝴蝶"
+  },
+  {
+    "en": "button",
+    "pos": "n.",
+    "zh": "纽扣；（电铃等的）按钮 v. 扣（纽扣） "
+  },
+  {
+    "en": "buy (bought,bought) [baɪ]",
+    "pos": "vt.",
+    "zh": "买"
+  },
+  {
+    "en": "by",
+    "pos": "prep.",
+    "zh": "在…旁；不迟于；被；用；乘（车）"
+  },
+  {
+    "en": "bye",
+    "pos": "int.",
+    "zh": "再见"
+  },
+  {
+    "en": "cabbage",
+    "pos": "n.",
+    "zh": "卷心菜，洋白菜"
+  },
+  {
+    "en": "café [ˈkæfeɪ; (US) kæˈfeɪ]",
+    "pos": "n.",
+    "zh": "咖啡馆;餐馆"
+  },
+  {
+    "en": "cake",
+    "pos": "n.",
+    "zh": "蛋糕，糕点；饼"
+  },
+  {
+    "en": "call",
+    "pos": "n.",
+    "zh": "喊，叫；电话，通话 v. 称呼；呼唤；喊，叫"
+  },
+  {
+    "en": "camel",
+    "pos": "n.",
+    "zh": "骆驼"
+  },
+  {
+    "en": "camera",
+    "pos": "n.",
+    "zh": "照相机；摄像机"
+  },
+  {
+    "en": "camp",
+    "pos": "n.",
+    "zh": "（夏令）营 vi. 野营,宿营"
+  },
+  {
+    "en": "can (could)",
+    "pos": "v.",
+    "zh": "可能；能够；可以 n.（美）罐头；罐子"
+  },
+  {
+    "en": "Canada",
+    "pos": "n.",
+    "zh": "加拿大"
+  },
+  {
+    "en": "Canadian",
+    "pos": "a.",
+    "zh": "加拿大的；加拿大人的 n. 加拿大人"
+  },
+  {
+    "en": "cancer",
+    "pos": "n.",
+    "zh": "癌,癌症,弊端,社会恶习"
+  },
+  {
+    "en": "candle",
+    "pos": "n.",
+    "zh": "蜡烛"
+  },
+  {
+    "en": "candy",
+    "pos": "n.",
+    "zh": "糖果"
+  },
+  {
+    "en": "cannon",
+    "pos": "n.",
+    "zh": "大炮"
+  },
+  {
+    "en": "canoe",
+    "pos": "n.",
+    "zh": "独木舟 v. 乘独木舟"
+  },
+  {
+    "en": "cap",
+    "pos": "n.",
+    "zh": "帽子；（瓶子的）盖"
+  },
+  {
+    "en": "capital",
+    "pos": "n.",
+    "zh": "首都,省会,大写；资本"
+  },
+  {
+    "en": "captain",
+    "pos": "n.",
+    "zh": "（海军）上校；船长，舰长；队长"
+  },
+  {
+    "en": "caption",
+    "pos": "n.",
+    "zh": "（图片，漫画等的）说明文字"
+  },
+  {
+    "en": "car",
+    "pos": "n.",
+    "zh": "汽车，小卧车"
+  },
+  {
+    "en": "card",
+    "pos": "n.",
+    "zh": "卡片；名片；纸牌"
+  },
+  {
+    "en": "care",
+    "pos": "n.",
+    "zh": "照料，保护；小心 v. 介意…，在乎；关心"
+  },
+  {
+    "en": "careful",
+    "pos": "a.",
+    "zh": "小心，仔细，谨慎的"
+  },
+  {
+    "en": "careless",
+    "pos": "a.",
+    "zh": "粗心的，漫不经心的"
+  },
+  {
+    "en": "carrot",
+    "pos": "n.",
+    "zh": "胡萝卜"
+  },
+  {
+    "en": "carry",
+    "pos": "vt.",
+    "zh": "拿，搬，带，提，抬，背，抱，运等"
+  },
+  {
+    "en": "cat",
+    "pos": "n.",
+    "zh": "猫"
+  },
+  {
+    "en": "catch(caught,caught) [kætʃ]",
+    "pos": "v.",
+    "zh": "接住；捉住；赶上；染上（疾病）"
+  },
+  {
+    "en": "cause",
+    "pos": "n.",
+    "zh": "原因，起因 vt. 促使，引起，使发生"
+  },
+  {
+    "en": "ceiling",
+    "pos": "n.",
+    "zh": "天花板，顶棚"
+  },
+  {
+    "en": "celebrate",
+    "pos": "v.",
+    "zh": "庆祝"
+  },
+  {
+    "en": "celebration",
+    "pos": "n.",
+    "zh": "庆祝；庆祝会"
+  },
+  {
+    "en": "cent",
+    "pos": "n.",
+    "zh": "美分（100 cents = 1 dollar）"
+  },
+  {
+    "en": "centre (美 center ) [ˈsentə]",
+    "pos": "n.",
+    "zh": "中心，中央"
+  },
+  {
+    "en": "century",
+    "pos": "n.",
+    "zh": "世纪，百年"
+  },
+  {
+    "en": "certain",
+    "pos": "a.",
+    "zh": "（未指明真实名称的）某…；确定的，无疑的；一定会…"
+  },
+  {
+    "en": "certainly",
+    "pos": "ad.",
+    "zh": "当然；一定，无疑"
+  },
+  {
+    "en": "chair",
+    "pos": "n.",
+    "zh": "椅子"
+  },
+  {
+    "en": "chalk",
+    "pos": "n.",
+    "zh": "粉笔"
+  },
+  {
+    "en": "challenge",
+    "pos": "n.",
+    "zh": "挑战(性)"
+  },
+  {
+    "en": "chance",
+    "pos": "n.",
+    "zh": "机会，可能性"
+  },
+  {
+    "en": "change",
+    "pos": "n.",
+    "zh": "零钱；找头 v. 改变，变化；更换；兑换"
+  },
+  {
+    "en": "channel",
+    "pos": "n.",
+    "zh": "频道；通道；水渠"
+  },
+  {
+    "en": "chart",
+    "pos": "n.",
+    "zh": "图表；航海图"
+  },
+  {
+    "en": "cheap",
+    "pos": "a.",
+    "zh": "便宜的，贱"
+  },
+  {
+    "en": "check",
+    "pos": "n.",
+    "zh": "检查；批改 vt. 校对，核对；检查；批改"
+  },
+  {
+    "en": "check-out",
+    "pos": "n.",
+    "zh": "结账台,收银台"
+  },
+  {
+    "en": "cheese",
+    "pos": "n.",
+    "zh": "奶酪"
+  },
+  {
+    "en": "chemistry",
+    "pos": "n.",
+    "zh": "化学"
+  },
+  {
+    "en": "cheque [tʃek] (美check)",
+    "pos": "n.",
+    "zh": "支票"
+  },
+  {
+    "en": "chess",
+    "pos": "n.",
+    "zh": "国际象棋,棋"
+  },
+  {
+    "en": "chick",
+    "pos": "n.",
+    "zh": "小鸡"
+  },
+  {
+    "en": "chicken",
+    "pos": "n.",
+    "zh": "鸡；鸡肉"
+  },
+  {
+    "en": "child (复children) [tʃaɪld]",
+    "pos": "n.",
+    "zh": "孩子，儿童"
+  },
+  {
+    "en": "chimney",
+    "pos": "n.",
+    "zh": "烟囱，烟筒"
+  },
+  {
+    "en": "China",
+    "pos": "n.",
+    "zh": "中国"
+  },
+  {
+    "en": "Chinese",
+    "pos": "a.",
+    "zh": "中国的；中国人的；汉语的 n. 中国人；汉语，"
+  },
+  {
+    "en": "chocolate",
+    "pos": "n.",
+    "zh": "巧克力"
+  },
+  {
+    "en": "choose (chose, chosen) [tʃuːz]",
+    "pos": "vt.",
+    "zh": "选择"
+  },
+  {
+    "en": "Christmas",
+    "pos": "n.",
+    "zh": "圣诞节"
+  },
+  {
+    "en": "church",
+    "pos": "n.",
+    "zh": "教堂；教会"
+  },
+  {
+    "en": "cinema",
+    "pos": "n.",
+    "zh": "电影院；电影"
+  },
+  {
+    "en": "circle",
+    "pos": "n.",
+    "zh": "/vt. 圆,环绕"
+  },
+  {
+    "en": "city",
+    "pos": "n.",
+    "zh": "市，城市，都市"
+  },
+  {
+    "en": "class",
+    "pos": "n.",
+    "zh": "（学校的）班；年级；课"
+  },
+  {
+    "en": "classmate",
+    "pos": "n.",
+    "zh": "同班同学"
+  },
+  {
+    "en": "classroom",
+    "pos": "n.",
+    "zh": "教室"
+  },
+  {
+    "en": "clean",
+    "pos": "vt.",
+    "zh": "弄干净，擦干净 a. 清洁的，干净的"
+  },
+  {
+    "en": "clear",
+    "pos": "a.",
+    "zh": "清晰；明亮的；清楚的"
+  },
+  {
+    "en": "clearly",
+    "pos": "ad.",
+    "zh": "清楚地，无疑地"
+  },
+  {
+    "en": "clever",
+    "pos": "a.",
+    "zh": "聪明的，伶俐的"
+  },
+  {
+    "en": "climb",
+    "pos": "v.",
+    "zh": "爬，攀登"
+  },
+  {
+    "en": "clock",
+    "pos": "n.",
+    "zh": "钟"
+  },
+  {
+    "en": "close",
+    "pos": "a.",
+    "zh": "亲密的；近，靠近 ad. 近，靠近 vt. 关，关闭"
+  },
+  {
+    "en": "cloth",
+    "pos": "n.",
+    "zh": "布"
+  },
+  {
+    "en": "clothes",
+    "pos": "n.",
+    "zh": "衣服；各种衣物"
+  },
+  {
+    "en": "cloud",
+    "pos": "n.",
+    "zh": "云；云状物；阴影"
+  },
+  {
+    "en": "cloudy",
+    "pos": "a.",
+    "zh": "多云的，阴天的"
+  },
+  {
+    "en": "club",
+    "pos": "n.",
+    "zh": "俱乐部；纸牌中的梅花"
+  },
+  {
+    "en": "coal",
+    "pos": "n.",
+    "zh": "煤；煤块"
+  },
+  {
+    "en": "coat",
+    "pos": "n.",
+    "zh": "外套；涂层；表皮；皮毛"
+  },
+  {
+    "en": "cock",
+    "pos": "n.",
+    "zh": "公鸡"
+  },
+  {
+    "en": "code",
+    "pos": "n.",
+    "zh": "密码,符号,准则"
+  },
+  {
+    "en": "cocoa",
+    "pos": "n.",
+    "zh": "可可粉"
+  },
+  {
+    "en": "coffee",
+    "pos": "n.",
+    "zh": "咖啡"
+  },
+  {
+    "en": "coin",
+    "pos": "n.",
+    "zh": "硬币"
+  },
+  {
+    "en": "coke",
+    "pos": "n.",
+    "zh": "可口可乐"
+  },
+  {
+    "en": "cold",
+    "pos": "a.",
+    "zh": "冷的，寒的 n. 寒冷；感冒，伤风"
+  },
+  {
+    "en": "collect",
+    "pos": "vt.",
+    "zh": "收集，搜集"
+  },
+  {
+    "en": "college",
+    "pos": "n.",
+    "zh": "学院；专科学校"
+  },
+  {
+    "en": "colour (美color) ['kʌlə]",
+    "pos": "n.",
+    "zh": "颜色 vt. 给…着色，涂色"
+  },
+  {
+    "en": "come (came, come) [kʌm]",
+    "pos": "vi.",
+    "zh": "来，来到"
+  },
+  {
+    "en": "comfort",
+    "pos": "n.",
+    "zh": "安慰；慰问"
+  },
+  {
+    "en": "comfortable",
+    "pos": "a.",
+    "zh": "舒服的；安逸的；舒服自在的"
+  },
+  {
+    "en": "common",
+    "pos": "a.",
+    "zh": "普通，一般；共有的"
+  },
+  {
+    "en": "company",
+    "pos": "n.",
+    "zh": "公司"
+  },
+  {
+    "en": "competition",
+    "pos": "n.",
+    "zh": "比赛，竞赛"
+  },
+  {
+    "en": "complain",
+    "pos": "v.",
+    "zh": "抱怨,投诉"
+  },
+  {
+    "en": "composition",
+    "pos": "n.",
+    "zh": "作文；作曲"
+  },
+  {
+    "en": "computer",
+    "pos": "n.",
+    "zh": "电子计算机"
+  },
+  {
+    "en": "comrade",
+    "pos": "n.",
+    "zh": "同志"
+  },
+  {
+    "en": "concert",
+    "pos": "n.",
+    "zh": "音乐会；演奏会"
+  },
+  {
+    "en": "conductor",
+    "pos": "n.",
+    "zh": "指导者;（车上的）售票员，列车员;乐队指挥"
+  },
+  {
+    "en": "confident",
+    "pos": "a.",
+    "zh": "自信的"
+  },
+  {
+    "en": "congratulate",
+    "pos": "vt.",
+    "zh": "祝贺"
+  },
+  {
+    "en": "congratulation",
+    "pos": "n.",
+    "zh": "祝贺，庆贺"
+  },
+  {
+    "en": "connect",
+    "pos": "v.",
+    "zh": "连接，把…联系起来"
+  },
+  {
+    "en": "continue",
+    "pos": "vi.",
+    "zh": "继续"
+  },
+  {
+    "en": "conversation",
+    "pos": "n.",
+    "zh": "谈话，交谈"
+  },
+  {
+    "en": "cook",
+    "pos": "n.",
+    "zh": "炊事员,厨师 v. 烹调,做饭"
+  },
+  {
+    "en": "cookie",
+    "pos": "n.",
+    "zh": "小甜饼"
+  },
+  {
+    "en": "cool",
+    "pos": "a.",
+    "zh": "凉的，凉爽的；酷"
+  },
+  {
+    "en": "copy",
+    "pos": "n.",
+    "zh": "抄本，副本；一本（份，册…） v. 抄写,复印,拷贝"
+  },
+  {
+    "en": "corn",
+    "pos": "n.",
+    "zh": "玉米，谷物"
+  },
+  {
+    "en": "corner",
+    "pos": "n.",
+    "zh": "角；角落；拐角"
+  },
+  {
+    "en": "correct",
+    "pos": "v.",
+    "zh": "改正；纠正 a. 正确的，对的；恰当的"
+  },
+  {
+    "en": "cost (cost, cost) [kɔst; (US) kɔːst]",
+    "pos": "v.",
+    "zh": "值（钱），花费 n. 价格"
+  },
+  {
+    "en": "cotton",
+    "pos": "n.",
+    "zh": "棉花 a. 棉花的"
+  },
+  {
+    "en": "cough",
+    "pos": "n.",
+    "zh": "& vi. 咳嗽"
+  },
+  {
+    "en": "could",
+    "pos": "v.",
+    "zh": "（can的过去式）可以…；（表示许可或请求）可以…，行"
+  },
+  {
+    "en": "count",
+    "pos": "vt.",
+    "zh": "数，点数"
+  },
+  {
+    "en": "country",
+    "pos": "n.",
+    "zh": "国家；农村，乡下"
+  },
+  {
+    "en": "countryside",
+    "pos": "n.",
+    "zh": "乡下，农村"
+  },
+  {
+    "en": "couple",
+    "pos": "n.",
+    "zh": "夫妇，一对"
+  },
+  {
+    "en": "course",
+    "pos": "n.",
+    "zh": "过程；经过；课程"
+  },
+  {
+    "en": "cousin",
+    "pos": "n.",
+    "zh": "堂（表）兄弟，堂（表）姐妹"
+  },
+  {
+    "en": "cover",
+    "pos": "n.",
+    "zh": "盖子；罩 v. 覆盖，遮盖；掩盖"
+  },
+  {
+    "en": "cow",
+    "pos": "n.",
+    "zh": "母牛，奶牛"
+  },
+  {
+    "en": "crash",
+    "pos": "v.",
+    "zh": "/ n. 碰撞，撞击"
+  },
+  {
+    "en": "cream",
+    "pos": "n.",
+    "zh": "奶油，乳脂"
+  },
+  {
+    "en": "crop",
+    "pos": "n.",
+    "zh": "庄稼；收成"
+  },
+  {
+    "en": "cross",
+    "pos": "a.",
+    "zh": "脾气不好的，易怒的 n. 十字形的东西 vt. 越过；穿过"
+  },
+  {
+    "en": "crossing",
+    "pos": "n.",
+    "zh": "十字路口，人行横道"
+  },
+  {
+    "en": "crowd",
+    "pos": "n.",
+    "zh": "人群 vt. 拥挤，群聚"
+  },
+  {
+    "en": "cry",
+    "pos": "n.",
+    "zh": "叫喊；哭声 v. 喊叫；哭"
+  },
+  {
+    "en": "culture",
+    "pos": "n.",
+    "zh": "文化"
+  },
+  {
+    "en": "cup",
+    "pos": "n.",
+    "zh": "茶杯"
+  },
+  {
+    "en": "cupboard",
+    "pos": "n.",
+    "zh": "碗柜；橱柜"
+  },
+  {
+    "en": "curtain",
+    "pos": "n.",
+    "zh": "窗帘"
+  },
+  {
+    "en": "cushion",
+    "pos": "n.",
+    "zh": "垫子"
+  },
+  {
+    "en": "customer",
+    "pos": "n.",
+    "zh": "（商店）顾客，主顾"
+  },
+  {
+    "en": "cut (cut, cut) [kʌt]",
+    "pos": "v.",
+    "zh": "切，剪，削，割"
+  },
+  {
+    "en": "cute",
+    "pos": "adj.",
+    "zh": "可爱的"
+  },
+  {
+    "en": "daily",
+    "pos": "a.",
+    "zh": "每日的；日常的 ad. 每天 n. 日报"
+  },
+  {
+    "en": "dance",
+    "pos": "n.",
+    "zh": "& vi. 跳舞"
+  },
+  {
+    "en": "dangerous",
+    "pos": "a.",
+    "zh": "危险的"
+  },
+  {
+    "en": "dare",
+    "pos": "v.",
+    "zh": "& aux. 敢，敢于"
+  },
+  {
+    "en": "dark",
+    "pos": "n.",
+    "zh": "黑暗；暗处；日暮 a. 黑暗的；暗淡的；深色的"
+  },
+  {
+    "en": "date",
+    "pos": "n.",
+    "zh": "日期；约会 n.枣"
+  },
+  {
+    "en": "daughter",
+    "pos": "n.",
+    "zh": "女儿"
+  },
+  {
+    "en": "day",
+    "pos": "n.",
+    "zh": "（一）天，（一）日；白天"
+  },
+  {
+    "en": "daytime",
+    "pos": "n.",
+    "zh": "白天，白昼"
+  },
+  {
+    "en": "dead",
+    "pos": "a.",
+    "zh": "死的；无生命的"
+  },
+  {
+    "en": "deaf",
+    "pos": "a.",
+    "zh": "聋的"
+  },
+  {
+    "en": "deal",
+    "pos": "n.",
+    "zh": "量，数额；交易"
+  },
+  {
+    "en": "dear",
+    "pos": "int.",
+    "zh": "（表示惊愕）哎呀！唷！a. 亲爱的；贵的"
+  },
+  {
+    "en": "death",
+    "pos": "n.",
+    "zh": "死"
+  },
+  {
+    "en": "December",
+    "pos": "n.",
+    "zh": "12月"
+  },
+  {
+    "en": "decide",
+    "pos": "v.",
+    "zh": "决定；下决心"
+  },
+  {
+    "en": "decision",
+    "pos": "n.",
+    "zh": "决定；决心"
+  },
+  {
+    "en": "decorate",
+    "pos": "vt.",
+    "zh": "装饰，修饰"
+  },
+  {
+    "en": "deep",
+    "pos": "a.",
+    "zh": "深 ad. 深；深厚"
+  },
+  {
+    "en": "deeply",
+    "pos": "ad.",
+    "zh": "深深地"
+  },
+  {
+    "en": "deer",
+    "pos": "n.",
+    "zh": "鹿"
+  },
+  {
+    "en": "delicious",
+    "pos": "a.",
+    "zh": "美味的，可口的"
+  },
+  {
+    "en": "delight",
+    "pos": "n.",
+    "zh": "快乐；乐事"
+  },
+  {
+    "en": "demand",
+    "pos": "vt.",
+    "zh": "要求"
+  },
+  {
+    "en": "depend",
+    "pos": "vi.",
+    "zh": "依靠，依赖，指望；取决于"
+  },
+  {
+    "en": "describe",
+    "pos": "vt.",
+    "zh": "描写，叙述"
+  },
+  {
+    "en": "description",
+    "pos": "n.",
+    "zh": "描述，描写"
+  },
+  {
+    "en": "desert",
+    "pos": "n.",
+    "zh": "沙漠 vt. 舍弃；遗弃"
+  },
+  {
+    "en": "deserve",
+    "pos": "v.",
+    "zh": "（不用于进行时态）应得，应受"
+  },
+  {
+    "en": "desk",
+    "pos": "n.",
+    "zh": "书桌，写字台"
+  },
+  {
+    "en": "destroy",
+    "pos": "vt.",
+    "zh": "破坏，毁坏"
+  },
+  {
+    "en": "detective",
+    "pos": "n.",
+    "zh": "侦探"
+  },
+  {
+    "en": "develop",
+    "pos": "v.",
+    "zh": "（使）发展；开发 vt. 冲洗（照片）"
+  },
+  {
+    "en": "diagram",
+    "pos": "n.",
+    "zh": "图表，图样"
+  },
+  {
+    "en": "dial",
+    "pos": "vt.",
+    "zh": "拨（电话号码）"
+  },
+  {
+    "en": "dialogue",
+    "pos": "n.",
+    "zh": "对话"
+  },
+  {
+    "en": "diary",
+    "pos": "n.",
+    "zh": "日记；日记簿"
+  },
+  {
+    "en": "dictation",
+    "pos": "n.",
+    "zh": "听写"
+  },
+  {
+    "en": "dictionary",
+    "pos": "n.",
+    "zh": "词典，字典"
+  },
+  {
+    "en": "die",
+    "pos": "v.",
+    "zh": "死"
+  },
+  {
+    "en": "difference",
+    "pos": "n.",
+    "zh": "不同"
+  },
+  {
+    "en": "different",
+    "pos": "a.",
+    "zh": "不同的，有差异的"
+  },
+  {
+    "en": "difficult",
+    "pos": "a.",
+    "zh": "难；艰难；不易相处的"
+  },
+  {
+    "en": "difficulty",
+    "pos": "n.",
+    "zh": "困难，费力"
+  },
+  {
+    "en": "dig (dug, dug) [dɪɡ]",
+    "pos": "v.",
+    "zh": "挖（洞沟）,掘"
+  },
+  {
+    "en": "digital",
+    "pos": "a.",
+    "zh": ".数字的，数码的"
+  },
+  {
+    "en": "dim",
+    "pos": "a.",
+    "zh": "昏暗的,暗淡的"
+  },
+  {
+    "en": "dinner",
+    "pos": "n.",
+    "zh": "正餐，宴会"
+  },
+  {
+    "en": "dip",
+    "pos": "vt.",
+    "zh": "浸，蘸；把…放入又取出"
+  },
+  {
+    "en": "direct",
+    "pos": "a.",
+    "zh": "直接的；直截了当的 vt. 指挥；指导；导演（电影）"
+  },
+  {
+    "en": "direction",
+    "pos": "n.",
+    "zh": "方向；方位"
+  },
+  {
+    "en": "director",
+    "pos": "n.",
+    "zh": "所长，处长，主任；董事；导演"
+  },
+  {
+    "en": "directory",
+    "pos": "n.",
+    "zh": "姓名地址录"
+  },
+  {
+    "en": "dirt",
+    "pos": "n.",
+    "zh": "污物；脏物"
+  },
+  {
+    "en": "dirty",
+    "pos": "a.",
+    "zh": "脏的"
+  },
+  {
+    "en": "disappear",
+    "pos": "vi.",
+    "zh": "消失"
+  },
+  {
+    "en": "discover",
+    "pos": "vt.",
+    "zh": "发现"
+  },
+  {
+    "en": "discovery",
+    "pos": "n.",
+    "zh": "发现"
+  },
+  {
+    "en": "discuss",
+    "pos": "vt.",
+    "zh": "讨论，议论"
+  },
+  {
+    "en": "discussion",
+    "pos": "n.",
+    "zh": "讨论，辩论"
+  },
+  {
+    "en": "disease",
+    "pos": "n.",
+    "zh": "病，疾病"
+  },
+  {
+    "en": "dish",
+    "pos": "n.",
+    "zh": "盘，碟；盘装菜；盘形物"
+  },
+  {
+    "en": "display",
+    "pos": "vt.",
+    "zh": "陈列,展览;显露,表现; n. 陈列,展览;展览品,展览品"
+  },
+  {
+    "en": "disturb",
+    "pos": "vt.",
+    "zh": "扰乱；打扰"
+  },
+  {
+    "en": "dive",
+    "pos": "vi.",
+    "zh": "跳水"
+  },
+  {
+    "en": "divide",
+    "pos": "vt.",
+    "zh": "分，划分"
+  },
+  {
+    "en": "do (did, done) [dʊ, duː]",
+    "pos": "v.",
+    "zh": "& aux. 做，干"
+  },
+  {
+    "en": "doctor",
+    "pos": "n.",
+    "zh": "医生，大夫；博士"
+  },
+  {
+    "en": "dog",
+    "pos": "n.",
+    "zh": "狗"
+  },
+  {
+    "en": "doll",
+    "pos": "n.",
+    "zh": "玩偶，玩具娃娃"
+  },
+  {
+    "en": "dollar",
+    "pos": "n.",
+    "zh": "元（美国、加拿大、澳大利亚等国货币单位）"
+  },
+  {
+    "en": "door",
+    "pos": "n.",
+    "zh": "门"
+  },
+  {
+    "en": "double",
+    "pos": "a.",
+    "zh": "两倍.双的 n. 两个.双"
+  },
+  {
+    "en": "down",
+    "pos": "prep.",
+    "zh": "沿着，沿…而下 ad. 向下"
+  },
+  {
+    "en": "download",
+    "pos": "n.",
+    "zh": "& v. 下载"
+  },
+  {
+    "en": "downstairs",
+    "pos": "ad.",
+    "zh": "在楼下；到楼下"
+  },
+  {
+    "en": "downtown",
+    "pos": "n.",
+    "zh": "城市的商业区，中心区，闹市区 a. 商业区的,闹市区的"
+  },
+  {
+    "en": "dozen",
+    "pos": "n.",
+    "zh": "十二个；几十，许多"
+  },
+  {
+    "en": "drag",
+    "pos": "v.",
+    "zh": "拖；拽"
+  },
+  {
+    "en": "dragon",
+    "pos": "n.",
+    "zh": "龙"
+  },
+  {
+    "en": "draw (drew, drawn) [drɔː]",
+    "pos": "v.",
+    "zh": "绘画；绘制；拉，拖；提取（金钱）"
+  },
+  {
+    "en": "drawer",
+    "pos": "n.",
+    "zh": "抽屉"
+  },
+  {
+    "en": "drawing",
+    "pos": "n.",
+    "zh": "图画，素描,绘画"
+  },
+  {
+    "en": "dream (dreamt, dreamt 或-ed, -ed) [driːm] n.&",
+    "pos": "vt.",
+    "zh": "梦，梦想"
+  },
+  {
+    "en": "dress",
+    "pos": "n.",
+    "zh": "女服，连衣裙；(统指)服装；童装 v. 穿衣"
+  },
+  {
+    "en": "drink",
+    "pos": "n.",
+    "zh": "饮料；喝酒 "
+  },
+  {
+    "en": "drop",
+    "pos": "n.",
+    "zh": "滴 v.掉下,落下,投递,放弃"
+  },
+  {
+    "en": "drought",
+    "pos": "n.",
+    "zh": "干旱"
+  },
+  {
+    "en": "drunk",
+    "pos": "a.",
+    "zh": "醉的"
+  },
+  {
+    "en": "dry",
+    "pos": "v.",
+    "zh": "使…干；弄干；擦干 a. 干的；干燥的"
+  },
+  {
+    "en": "duck",
+    "pos": "n.",
+    "zh": "鸭子"
+  },
+  {
+    "en": "dumpling",
+    "pos": "n.",
+    "zh": "饺子"
+  },
+  {
+    "en": "during",
+    "pos": "prep.",
+    "zh": "在…期间；在…过程中"
+  },
+  {
+    "en": "dusk",
+    "pos": "n.",
+    "zh": "黄昏"
+  },
+  {
+    "en": "dust",
+    "pos": "n.",
+    "zh": "灰尘，尘土"
+  },
+  {
+    "en": "dustbin",
+    "pos": "n.",
+    "zh": "垃圾箱"
+  },
+  {
+    "en": "duty",
+    "pos": "n.",
+    "zh": "责任，义务"
+  },
+  {
+    "en": "dynasty",
+    "pos": "n.",
+    "zh": "王朝，朝代"
+  },
+  {
+    "en": "each",
+    "pos": "a.",
+    "zh": "& pron. 每人,每个,每件"
+  },
+  {
+    "en": "ear",
+    "pos": "n.",
+    "zh": "耳朵.耳状物；听力，听觉"
+  },
+  {
+    "en": "early",
+    "pos": "a.",
+    "zh": "早的 ad. 早地"
+  },
+  {
+    "en": "earth",
+    "pos": "n.",
+    "zh": "地球；土，泥；大地"
+  },
+  {
+    "en": "earthquake",
+    "pos": "n.",
+    "zh": "地震"
+  },
+  {
+    "en": "east",
+    "pos": "a.",
+    "zh": "东方；东部的；ad. 在东方；向东方； n. 东，东方；"
+  },
+  {
+    "en": "easy",
+    "pos": "a.",
+    "zh": "容易的，不费力的"
+  },
+  {
+    "en": "eat (ate, eaten) [iːt]",
+    "pos": "v.",
+    "zh": "吃"
+  },
+  {
+    "en": "edge",
+    "pos": "n.",
+    "zh": "边缘"
+  },
+  {
+    "en": "education",
+    "pos": "n.",
+    "zh": "教育，培养"
+  },
+  {
+    "en": "egg",
+    "pos": "n.",
+    "zh": "蛋；卵"
+  },
+  {
+    "en": "Egypt",
+    "pos": "n.",
+    "zh": "埃及"
+  },
+  {
+    "en": "Egyptian",
+    "pos": "a.",
+    "zh": "埃及的；埃及人的；埃及语的 n. 埃及人"
+  },
+  {
+    "en": "eight",
+    "pos": "num.",
+    "zh": "八"
+  },
+  {
+    "en": "eighteen",
+    "pos": "num.",
+    "zh": "十八"
+  },
+  {
+    "en": "eighth",
+    "pos": "num.",
+    "zh": "第八"
+  },
+  {
+    "en": "eighty",
+    "pos": "num.",
+    "zh": "八十"
+  },
+  {
+    "en": "either",
+    "pos": "a.",
+    "zh": "两方任一方的；二者之一 conj. 二者之一；要么 ad. 也"
+  },
+  {
+    "en": "elder",
+    "pos": "n.",
+    "zh": "长者；前辈"
+  },
+  {
+    "en": "electricity",
+    "pos": "n.",
+    "zh": "电；电流"
+  },
+  {
+    "en": "elephant",
+    "pos": "n.",
+    "zh": "象"
+  },
+  {
+    "en": "elevator",
+    "pos": "n.",
+    "zh": "电梯,升降梯"
+  },
+  {
+    "en": "eleven",
+    "pos": "num.",
+    "zh": "十一"
+  },
+  {
+    "en": "else",
+    "pos": "ad.",
+    "zh": "别的，其他的"
+  },
+  {
+    "en": "e-mail [iː-meɪl]]",
+    "pos": "n.",
+    "zh": "电子邮件"
+  },
+  {
+    "en": "empty",
+    "pos": "a.",
+    "zh": "空的"
+  },
+  {
+    "en": "encourage",
+    "pos": "vt.",
+    "zh": "鼓励"
+  },
+  {
+    "en": "end",
+    "pos": "n.",
+    "zh": "末尾；终点；结束 v. 结束，终止"
+  },
+  {
+    "en": "enemy",
+    "pos": "n.",
+    "zh": "敌人；敌军"
+  },
+  {
+    "en": "engineer",
+    "pos": "n.",
+    "zh": "工程师；技师"
+  },
+  {
+    "en": "England",
+    "pos": "n.",
+    "zh": "英格兰"
+  },
+  {
+    "en": "English",
+    "pos": "a.",
+    "zh": "英国的，英国人的，英语的 n. 英语"
+  },
+  {
+    "en": "English-speaking",
+    "pos": "a.",
+    "zh": "说英语的"
+  },
+  {
+    "en": "enjoy",
+    "pos": "vt.",
+    "zh": "欣赏；享受乐趣；喜欢"
+  },
+  {
+    "en": "enjoyable",
+    "pos": "a.",
+    "zh": "愉快的；有趣的"
+  },
+  {
+    "en": "enough",
+    "pos": "n.",
+    "zh": "足够；充足 a. 足够；充分的 ad. 足够地；充分地"
+  },
+  {
+    "en": "enter",
+    "pos": "vt.",
+    "zh": "进入"
+  },
+  {
+    "en": "entrance",
+    "pos": "n.",
+    "zh": "入口;入场;进入的权利;入学许可"
+  },
+  {
+    "en": "entry",
+    "pos": "n.",
+    "zh": "进入"
+  },
+  {
+    "en": "envelope",
+    "pos": "n.",
+    "zh": "信封"
+  },
+  {
+    "en": "environment",
+    "pos": "n.",
+    "zh": "环境"
+  },
+  {
+    "en": "envy",
+    "pos": "vt.",
+    "zh": "& n. 忌妒； 羡慕"
+  },
+  {
+    "en": "equal",
+    "pos": "a.",
+    "zh": "平等的 vt. 等于，使等于"
+  },
+  {
+    "en": "equality",
+    "pos": "n.",
+    "zh": "平等"
+  },
+  {
+    "en": "equip",
+    "pos": "vt.",
+    "zh": "提供设备；装备；配备"
+  },
+  {
+    "en": "equipment",
+    "pos": "n.",
+    "zh": "装备，设备"
+  },
+  {
+    "en": "eraser",
+    "pos": "n.",
+    "zh": "橡皮擦；黑板擦"
+  },
+  {
+    "en": "error",
+    "pos": "n.",
+    "zh": "错误；差错"
+  },
+  {
+    "en": "escape",
+    "pos": "n.",
+    "zh": "& vi. 逃跑；逃脱"
+  },
+  {
+    "en": "especially",
+    "pos": "ad.",
+    "zh": "特别，尤其"
+  },
+  {
+    "en": "essay",
+    "pos": "n.",
+    "zh": "散文；文章；随笔"
+  },
+  {
+    "en": "Europe",
+    "pos": "n.",
+    "zh": "欧洲"
+  },
+  {
+    "en": "European",
+    "pos": "a.",
+    "zh": "欧洲的，欧洲人的 n. 欧洲人"
+  },
+  {
+    "en": "Eve",
+    "pos": "n.",
+    "zh": "前夕"
+  },
+  {
+    "en": "even",
+    "pos": "ad.",
+    "zh": "甚至，连（…都）；更"
+  },
+  {
+    "en": "evening",
+    "pos": "n.",
+    "zh": "傍晚，晚上"
+  },
+  {
+    "en": "event",
+    "pos": "n.",
+    "zh": "事件，大事"
+  },
+  {
+    "en": "ever",
+    "pos": "ad.",
+    "zh": "曾经；无论何时"
+  },
+  {
+    "en": "every",
+    "pos": "a.",
+    "zh": "每一，每个的"
+  },
+  {
+    "en": "everybody",
+    "pos": "pron.",
+    "zh": "每人，人人"
+  },
+  {
+    "en": "everyday",
+    "pos": "a.",
+    "zh": "每日的；日常的"
+  },
+  {
+    "en": "everyone",
+    "pos": "pron.",
+    "zh": "每人，人人"
+  },
+  {
+    "en": "everything",
+    "pos": "pron.",
+    "zh": "每件事，事事"
+  },
+  {
+    "en": "everywhere",
+    "pos": "ad.",
+    "zh": "到处"
+  },
+  {
+    "en": "exact",
+    "pos": "a.",
+    "zh": "精确的；确切的"
+  },
+  {
+    "en": "exactly",
+    "pos": "ad.",
+    "zh": "精确地；确切地"
+  },
+  {
+    "en": "exam = examination [ɪɡzæmɪˈneɪʃ(ə)n]",
+    "pos": "n.",
+    "zh": "考试，测试；检查；审查"
+  },
+  {
+    "en": "examine",
+    "pos": "vt.",
+    "zh": "检查；诊察"
+  },
+  {
+    "en": "example",
+    "pos": "n.",
+    "zh": "例子；榜样"
+  },
+  {
+    "en": "excellent",
+    "pos": "a.",
+    "zh": "极好的，优秀的"
+  },
+  {
+    "en": "except",
+    "pos": "prep.",
+    "zh": "除…之外"
+  },
+  {
+    "en": "excite",
+    "pos": "vt.",
+    "zh": "使兴奋，使激动"
+  },
+  {
+    "en": "excuse",
+    "pos": "n.",
+    "zh": "借口,辩解 vt. 原谅,宽恕"
+  },
+  {
+    "en": "exercise",
+    "pos": "n.",
+    "zh": "锻炼，做操；练习，习题 vi. 锻炼"
+  },
+  {
+    "en": "exhibition",
+    "pos": "n.",
+    "zh": "展览；展览会"
+  },
+  {
+    "en": "exist",
+    "pos": "vi.",
+    "zh": "存在"
+  },
+  {
+    "en": "expect",
+    "pos": "vt.",
+    "zh": "预料；盼望；认为"
+  },
+  {
+    "en": "expensive",
+    "pos": "a.",
+    "zh": "昂贵的"
+  },
+  {
+    "en": "experience",
+    "pos": "n.",
+    "zh": "经验；经历"
+  },
+  {
+    "en": "experiment",
+    "pos": "n.",
+    "zh": "实验"
+  },
+  {
+    "en": "expert",
+    "pos": "n.",
+    "zh": "专家，能手"
+  },
+  {
+    "en": "explain",
+    "pos": "vt.",
+    "zh": "解释，说明"
+  },
+  {
+    "en": "express",
+    "pos": "vt.",
+    "zh": "表达；表示；表情 n. 快车，特快专递"
+  },
+  {
+    "en": "eye",
+    "pos": "n.",
+    "zh": "眼睛"
+  },
+  {
+    "en": "face",
+    "pos": "n.",
+    "zh": "脸 vt. 面向；面对"
+  },
+  {
+    "en": "fact",
+    "pos": "n.",
+    "zh": "事实，现实"
+  },
+  {
+    "en": "factory",
+    "pos": "n.",
+    "zh": "工厂"
+  },
+  {
+    "en": "fail",
+    "pos": "v.",
+    "zh": "失败；不及格；衰退"
+  },
+  {
+    "en": "fame",
+    "pos": "n.",
+    "zh": "名声,名望,名誉"
+  },
+  {
+    "en": "family",
+    "pos": "n.",
+    "zh": "家庭；家族；子女"
+  },
+  {
+    "en": "famous",
+    "pos": "a.",
+    "zh": "著名的"
+  },
+  {
+    "en": "fan",
+    "pos": "n.",
+    "zh": "（电影、运动等的）迷；热心的爱好者（支持者） n. 风扇"
+  },
+  {
+    "en": "far [fɑː(r)] (farther, farthest 或further , furthest) a.&",
+    "pos": "ad.",
+    "zh": "远的；远地"
+  },
+  {
+    "en": "farm",
+    "pos": "n.",
+    "zh": "农场；农庄"
+  },
+  {
+    "en": "farmer",
+    "pos": "n.",
+    "zh": "农民"
+  },
+  {
+    "en": "farming",
+    "pos": "n.",
+    "zh": "农业,务农"
+  },
+  {
+    "en": "farmland",
+    "pos": "n.",
+    "zh": "农田"
+  },
+  {
+    "en": "farther",
+    "pos": "a.",
+    "zh": "/ad. (far的比较级形式之一)较远,更远"
+  },
+  {
+    "en": "farthest",
+    "pos": "a.",
+    "zh": "/ad. (far的最高级形式之一)最远"
+  },
+  {
+    "en": "fast",
+    "pos": "a.",
+    "zh": "快的，迅速的；紧密的 ad. 快地，迅速地；紧密地"
+  },
+  {
+    "en": "fasten",
+    "pos": "vt.",
+    "zh": "扎牢；扣住"
+  },
+  {
+    "en": "fat",
+    "pos": "n.",
+    "zh": "脂肪 a. 胖的；肥的"
+  },
+  {
+    "en": "father",
+    "pos": "n.",
+    "zh": "父亲"
+  },
+  {
+    "en": "favour ['feivə] (美favor)",
+    "pos": "n.",
+    "zh": "恩惠；好意；帮助"
+  },
+  {
+    "en": "favourite ['feivərit] (美 favorite)",
+    "pos": "a.",
+    "zh": "喜爱的 n. 特别喜爱的人（或物）"
+  },
+  {
+    "en": "fax",
+    "pos": "n.",
+    "zh": "传真"
+  },
+  {
+    "en": "fear",
+    "pos": "n.",
+    "zh": "害怕；恐惧； 担忧"
+  },
+  {
+    "en": "feather",
+    "pos": "n.",
+    "zh": "羽毛"
+  },
+  {
+    "en": "February",
+    "pos": "n.",
+    "zh": "2月"
+  },
+  {
+    "en": "federal",
+    "pos": "a.",
+    "zh": "中央的,（政府）联邦的"
+  },
+  {
+    "en": "fee",
+    "pos": "n.",
+    "zh": "费，费用"
+  },
+  {
+    "en": "feed (fed, fed) [fiːd]",
+    "pos": "vt.",
+    "zh": "喂（养）；饲（养）"
+  },
+  {
+    "en": "feeling",
+    "pos": "n.",
+    "zh": "感情；感觉"
+  },
+  {
+    "en": "fence",
+    "pos": "n.",
+    "zh": "栅栏；围栏；篱笆"
+  },
+  {
+    "en": "festival",
+    "pos": "n.",
+    "zh": "节日"
+  },
+  {
+    "en": "fetch",
+    "pos": "vt.",
+    "zh": "（去）取（物）来，（去）带（人）来"
+  },
+  {
+    "en": "fever",
+    "pos": "n.",
+    "zh": "发烧；发热"
+  },
+  {
+    "en": "few",
+    "pos": "pron.",
+    "zh": "不多;少数;不多的;少数的"
+  },
+  {
+    "en": "field",
+    "pos": "n.",
+    "zh": "田地;牧场;场地"
+  },
+  {
+    "en": "fifteen",
+    "pos": "num.",
+    "zh": "十五"
+  },
+  {
+    "en": "fifth",
+    "pos": "num.",
+    "zh": "第五"
+  },
+  {
+    "en": "fifty",
+    "pos": "num.",
+    "zh": "五十"
+  },
+  {
+    "en": "fight",
+    "pos": "n.",
+    "zh": "打仗（架），争论"
+  },
+  {
+    "en": "fight [faɪt] (fought, fought) n./",
+    "pos": "v.",
+    "zh": "打仗（架），与…打仗（架）"
+  },
+  {
+    "en": "fill",
+    "pos": "vt.",
+    "zh": "填空，装满"
+  },
+  {
+    "en": "film",
+    "pos": "n.",
+    "zh": "电影；影片；胶卷"
+  },
+  {
+    "en": "final",
+    "pos": "a.",
+    "zh": "最后的；终极的"
+  },
+  {
+    "en": "find [faɪnd] (found, found)",
+    "pos": "vt.",
+    "zh": "找到，发现，感到"
+  },
+  {
+    "en": "fine",
+    "pos": "a.",
+    "zh": "晴朗的；美好的；（身体）健康的"
+  },
+  {
+    "en": "finger",
+    "pos": "n.",
+    "zh": "手指"
+  },
+  {
+    "en": "finish",
+    "pos": "v.",
+    "zh": "结束；做完"
+  },
+  {
+    "en": "fire",
+    "pos": "n.",
+    "zh": "火；火炉；火灾 vi. 开火,射击,解雇"
+  },
+  {
+    "en": "fireplace",
+    "pos": "n.",
+    "zh": "壁炉"
+  },
+  {
+    "en": "first",
+    "pos": "num.",
+    "zh": "第一 a.& ad. 第一；首次；最初 n. 开始；开端"
+  },
+  {
+    "en": "fish",
+    "pos": "n.",
+    "zh": "鱼；鱼肉 vi. 钓鱼；捕鱼"
+  },
+  {
+    "en": "fisherman",
+    "pos": "n.",
+    "zh": "渔民；钓鱼健身者"
+  },
+  {
+    "en": "fit",
+    "pos": "a.",
+    "zh": "健康的,适合的 v.（使）适合,安装"
+  },
+  {
+    "en": "five",
+    "pos": "num.",
+    "zh": "五"
+  },
+  {
+    "en": "fix",
+    "pos": "vt.",
+    "zh": "修理；安装；确定，决定"
+  },
+  {
+    "en": "flag",
+    "pos": "n.",
+    "zh": "旗；标志；旗舰"
+  },
+  {
+    "en": "flight",
+    "pos": "n.",
+    "zh": "航班,飞行"
+  },
+  {
+    "en": "flood",
+    "pos": "n.",
+    "zh": "洪水 vt. 淹没，使泛滥"
+  },
+  {
+    "en": "floor",
+    "pos": "n.",
+    "zh": "地面，地板.（楼房的）层"
+  },
+  {
+    "en": "flower",
+    "pos": "n.",
+    "zh": "花"
+  },
+  {
+    "en": "fly (flew, flown) [flaɪ]",
+    "pos": "vi.",
+    "zh": "飞；飞行；飘动 vt. 放（风筝、飞机模型等）n. 苍蝇"
+  },
+  {
+    "en": "focus",
+    "pos": "v.",
+    "zh": "/ n. 集中（注意力，精力）于，焦点，中心点"
+  },
+  {
+    "en": "fog",
+    "pos": "n.",
+    "zh": "雾"
+  },
+  {
+    "en": "foggy",
+    "pos": "a.",
+    "zh": "多雾的"
+  },
+  {
+    "en": "follow",
+    "pos": "vt.",
+    "zh": "跟随；仿效；跟得上"
+  },
+  {
+    "en": "following",
+    "pos": "a.",
+    "zh": "接着的；以下的"
+  },
+  {
+    "en": "fond",
+    "pos": "a.",
+    "zh": "喜爱的，爱好的"
+  },
+  {
+    "en": "food",
+    "pos": "n.",
+    "zh": "食物，食品"
+  },
+  {
+    "en": "fool",
+    "pos": "n.",
+    "zh": "傻子，蠢人"
+  },
+  {
+    "en": "foolish",
+    "pos": "a.",
+    "zh": "愚蠢的，傻的"
+  },
+  {
+    "en": "foot (复feet) [fʊt]",
+    "pos": "n.",
+    "zh": "足，脚；英尺"
+  },
+  {
+    "en": "football",
+    "pos": "n.",
+    "zh": "（英式）足球；（美式）橄榄球"
+  },
+  {
+    "en": "for",
+    "pos": "prep.",
+    "zh": "为了…；因为…；对于…；对…来说 conj. 因为，由于"
+  },
+  {
+    "en": "foreign",
+    "pos": "a.",
+    "zh": "外国的"
+  },
+  {
+    "en": "foreigner",
+    "pos": "n.",
+    "zh": "外国人"
+  },
+  {
+    "en": "forest",
+    "pos": "n.",
+    "zh": "森林"
+  },
+  {
+    "en": "forever",
+    "pos": "ad.",
+    "zh": "永远；永恒的"
+  },
+  {
+    "en": "forget (forgot, forgotten) [fəˈɡet]",
+    "pos": "v.",
+    "zh": "忘记；忘掉"
+  },
+  {
+    "en": "forgetful",
+    "pos": "a.",
+    "zh": "健忘的，不留心的"
+  },
+  {
+    "en": "fork",
+    "pos": "n.",
+    "zh": "叉，餐叉"
+  },
+  {
+    "en": "form",
+    "pos": "n.",
+    "zh": "表格；形式；结构"
+  },
+  {
+    "en": "forth",
+    "pos": "n.",
+    "zh": "向前,往外"
+  },
+  {
+    "en": "forty",
+    "pos": "num.",
+    "zh": "四十"
+  },
+  {
+    "en": "found",
+    "pos": "vt.",
+    "zh": "成立，建立"
+  },
+  {
+    "en": "foundation",
+    "pos": "n.",
+    "zh": "基础;基本原理,根据,基金会;建立,创办"
+  },
+  {
+    "en": "fountain",
+    "pos": "n.",
+    "zh": "喷泉"
+  },
+  {
+    "en": "four",
+    "pos": "num.",
+    "zh": "四"
+  },
+  {
+    "en": "fourteen",
+    "pos": "num.",
+    "zh": "十四"
+  },
+  {
+    "en": "fourth",
+    "pos": "num.",
+    "zh": "第四"
+  },
+  {
+    "en": "fox",
+    "pos": "n.",
+    "zh": "狐狸"
+  },
+  {
+    "en": "France",
+    "pos": "n.",
+    "zh": "法国"
+  },
+  {
+    "en": "free",
+    "pos": "a.",
+    "zh": "自由，空闲的；免费的"
+  },
+  {
+    "en": "freeze [friːz] (froze, frozen)",
+    "pos": "vi.",
+    "zh": "结冰"
+  },
+  {
+    "en": "French",
+    "pos": "n.",
+    "zh": "法语 a. 法国的；法国人的；法语的"
+  },
+  {
+    "en": "Frenchman [ˈfrentʃmən] (复 Frenchmen)",
+    "pos": "n.",
+    "zh": "法国人（男）"
+  },
+  {
+    "en": "fresh",
+    "pos": "a.",
+    "zh": "新鲜的"
+  },
+  {
+    "en": "Friday",
+    "pos": "n.",
+    "zh": "星期五"
+  },
+  {
+    "en": "fridge =refrigerator [rɪˈfrɪdʒəreɪtə(r)]",
+    "pos": "n.",
+    "zh": "冰箱"
+  },
+  {
+    "en": "friend",
+    "pos": "n.",
+    "zh": "朋友"
+  },
+  {
+    "en": "friendly",
+    "pos": "a.",
+    "zh": "友好的"
+  },
+  {
+    "en": "friendship",
+    "pos": "n.",
+    "zh": "友谊，友情"
+  },
+  {
+    "en": "frighten",
+    "pos": "vt.",
+    "zh": "使惊恐，吓唬"
+  },
+  {
+    "en": "from",
+    "pos": "prep.",
+    "zh": "从,从…起,来自"
+  },
+  {
+    "en": "front",
+    "pos": "a.",
+    "zh": "前面的；前部的 n. 前面；前部；前线"
+  },
+  {
+    "en": "fruit",
+    "pos": "n.",
+    "zh": "水果；果实"
+  },
+  {
+    "en": "fruit juice",
+    "pos": "n.",
+    "zh": "果汁"
+  },
+  {
+    "en": "fry",
+    "pos": "vt.",
+    "zh": "用油煎；用油炸"
+  },
+  {
+    "en": "full",
+    "pos": "a.",
+    "zh": "满的，充满的；完全的"
+  },
+  {
+    "en": "fun",
+    "pos": "n.",
+    "zh": "有趣的事，娱乐，玩笑"
+  },
+  {
+    "en": "funny",
+    "pos": "a.",
+    "zh": "有趣的，滑稽可笑的"
+  },
+  {
+    "en": "fur",
+    "pos": "n.",
+    "zh": "毛皮；皮子"
+  },
+  {
+    "en": "further",
+    "pos": "a.",
+    "zh": "/ad. (far的比较级形式之一)较远,更远"
+  },
+  {
+    "en": "future",
+    "pos": "n.",
+    "zh": "将来、未来"
+  },
+  {
+    "en": "game",
+    "pos": "n.",
+    "zh": "游戏；运动；比赛"
+  },
+  {
+    "en": "garden",
+    "pos": "n.",
+    "zh": "花园，果园，菜园"
+  },
+  {
+    "en": "gate",
+    "pos": "n.",
+    "zh": "大门"
+  },
+  {
+    "en": "general",
+    "pos": "a.",
+    "zh": "大体，笼统的，总的"
+  },
+  {
+    "en": "generation",
+    "pos": "n.",
+    "zh": "代，一代"
+  },
+  {
+    "en": "generous",
+    "pos": "a.",
+    "zh": "慷慨大方的"
+  },
+  {
+    "en": "geography",
+    "pos": "n.",
+    "zh": "地理学"
+  },
+  {
+    "en": "geometry",
+    "pos": "n.",
+    "zh": "几何学"
+  },
+  {
+    "en": "German",
+    "pos": "a.",
+    "zh": "德国的，德国人的，德语的 n. 德国人，德语"
+  },
+  {
+    "en": "Germany",
+    "pos": "n.",
+    "zh": "德国"
+  },
+  {
+    "en": "get (got , got) [ɡet]",
+    "pos": "vt.",
+    "zh": "成为；得到；具有；到达"
+  },
+  {
+    "en": "gift",
+    "pos": "n.",
+    "zh": "赠品；礼物"
+  },
+  {
+    "en": "girl",
+    "pos": "n.",
+    "zh": "女孩"
+  },
+  {
+    "en": "give (gave, given) [ɡɪv]",
+    "pos": "vt.",
+    "zh": "给,递给,付出,给予"
+  },
+  {
+    "en": "glad",
+    "pos": "a.",
+    "zh": "高兴的；乐意的"
+  },
+  {
+    "en": "glass",
+    "pos": "n.",
+    "zh": "玻璃杯,玻璃；(复)眼镜"
+  },
+  {
+    "en": "glove",
+    "pos": "n.",
+    "zh": "手套"
+  },
+  {
+    "en": "go (went, gone) [ɡəʊ]",
+    "pos": "vi.",
+    "zh": "去；走；驶；通到；到达 n. 尝试（做某事）"
+  },
+  {
+    "en": "goal",
+    "pos": "n.",
+    "zh": "（足球）球门，目标"
+  },
+  {
+    "en": "goat",
+    "pos": "n.",
+    "zh": "山羊"
+  },
+  {
+    "en": "gold",
+    "pos": "n.",
+    "zh": "黄金 a 金的，黄金的"
+  },
+  {
+    "en": "golf",
+    "pos": "n.",
+    "zh": "高尔夫球"
+  },
+  {
+    "en": "good (better,best) [ɡʊd]",
+    "pos": "a.",
+    "zh": "好；良好"
+  },
+  {
+    "en": "good-bye",
+    "pos": "int.",
+    "zh": "再见；再会"
+  },
+  {
+    "en": "goodness",
+    "pos": "n.",
+    "zh": "善良，美德"
+  },
+  {
+    "en": "goose (复 geese) [ɡuːs]",
+    "pos": "n.",
+    "zh": "鹅"
+  },
+  {
+    "en": "government",
+    "pos": "n.",
+    "zh": "政府"
+  },
+  {
+    "en": "grade",
+    "pos": "n.",
+    "zh": "等级（中小学的）；学年；成绩，分数"
+  },
+  {
+    "en": "gradually",
+    "pos": "ad.",
+    "zh": "逐渐地"
+  },
+  {
+    "en": "graduate",
+    "pos": "v.",
+    "zh": "毕业"
+  },
+  {
+    "en": "grammar",
+    "pos": "n.",
+    "zh": "语法"
+  },
+  {
+    "en": "grand",
+    "pos": "a.",
+    "zh": "宏伟的"
+  },
+  {
+    "en": "grandchild",
+    "pos": "n.",
+    "zh": "(外)孙或孙女,孙辈"
+  },
+  {
+    "en": "granddaughter",
+    "pos": "n.",
+    "zh": "（外）孙女"
+  },
+  {
+    "en": "grandma = grandmother [ˈɡrænmɑː, ˈɡrændmʌðə(r)]",
+    "pos": "n.",
+    "zh": "奶奶；外婆"
+  },
+  {
+    "en": "grandpa = grandfather [ˈɡrænpɑː, ˈɡrændfɑːðə(r)]",
+    "pos": "n.",
+    "zh": "爷爷,外公"
+  },
+  {
+    "en": "grandparents",
+    "pos": "n.",
+    "zh": "祖父母,外祖父母"
+  },
+  {
+    "en": "grandson",
+    "pos": "n.",
+    "zh": "（外）孙子"
+  },
+  {
+    "en": "granny",
+    "pos": "n.",
+    "zh": "老奶奶；祖母；外婆"
+  },
+  {
+    "en": "grape",
+    "pos": "n.",
+    "zh": "葡萄"
+  },
+  {
+    "en": "grass",
+    "pos": "n.",
+    "zh": "草；草场；牧草"
+  },
+  {
+    "en": "grateful",
+    "pos": "a.",
+    "zh": "感激的，感谢的"
+  },
+  {
+    "en": "great",
+    "pos": "a.",
+    "zh": "伟大的,重要的,好极了 ad.（口语）好极了，很好"
+  },
+  {
+    "en": "Greece",
+    "pos": "n.",
+    "zh": "希腊"
+  },
+  {
+    "en": "green",
+    "pos": "a.",
+    "zh": "绿色的；青的 n. 绿色"
+  },
+  {
+    "en": "greet",
+    "pos": "vt.",
+    "zh": "问候；向…致敬"
+  },
+  {
+    "en": "grey / gray",
+    "pos": "a.",
+    "zh": "灰色的；灰白的"
+  },
+  {
+    "en": "group",
+    "pos": "n.",
+    "zh": "组，群"
+  },
+  {
+    "en": "grow (grew, grown) [ɡrəʊ]",
+    "pos": "v.",
+    "zh": "生长；发育；种植；变成"
+  },
+  {
+    "en": "growth",
+    "pos": "n.",
+    "zh": "生长，增长"
+  },
+  {
+    "en": "guess",
+    "pos": "vi.",
+    "zh": "猜"
+  },
+  {
+    "en": "guest",
+    "pos": "n.",
+    "zh": "客人，宾客"
+  },
+  {
+    "en": "guide",
+    "pos": "n.",
+    "zh": "向导，导游者"
+  },
+  {
+    "en": "guitar",
+    "pos": "n.",
+    "zh": "吉他，六弦琴"
+  },
+  {
+    "en": "gun",
+    "pos": "n.",
+    "zh": "炮，枪"
+  },
+  {
+    "en": "gym",
+    "pos": "n.",
+    "zh": "体育馆，健身房"
+  },
+  {
+    "en": "habit",
+    "pos": "n.",
+    "zh": "习惯，习性"
+  },
+  {
+    "en": "hair",
+    "pos": "n.",
+    "zh": "头发"
+  },
+  {
+    "en": "haircut",
+    "pos": "n.",
+    "zh": "（男子）理发"
+  },
+  {
+    "en": "half",
+    "pos": "a.",
+    "zh": "& n. 半，一半，半个"
+  },
+  {
+    "en": "hall",
+    "pos": "n.",
+    "zh": "大厅,会堂,礼堂;过道"
+  },
+  {
+    "en": "ham",
+    "pos": "n.",
+    "zh": "火腿"
+  },
+  {
+    "en": "hamburger",
+    "pos": "n.",
+    "zh": "汉堡包"
+  },
+  {
+    "en": "hand",
+    "pos": "n.",
+    "zh": "手；指针 v. 递;给;交付;交上"
+  },
+  {
+    "en": "handbag",
+    "pos": "n.",
+    "zh": "女用皮包，手提包"
+  },
+  {
+    "en": "handwriting",
+    "pos": "n.",
+    "zh": "书法"
+  },
+  {
+    "en": "hang (hung, hung) [hæŋ]",
+    "pos": "v.",
+    "zh": "悬挂，吊着；把…吊起  hang (hung, hung) 绞死"
+  },
+  {
+    "en": "happen",
+    "pos": "vi.",
+    "zh": "（偶然）发生,碰巧"
+  },
+  {
+    "en": "happily",
+    "pos": "ad.",
+    "zh": "幸福地，快乐地"
+  },
+  {
+    "en": "happy",
+    "pos": "a.",
+    "zh": "幸福；快乐的，高兴的"
+  },
+  {
+    "en": "hard",
+    "pos": "ad.",
+    "zh": "努力地；猛烈地 a. 硬的；困难的；艰难的"
+  },
+  {
+    "en": "hardly",
+    "pos": "ad.",
+    "zh": "几乎不"
+  },
+  {
+    "en": "hardworking",
+    "pos": "a.",
+    "zh": "努力工作的"
+  },
+  {
+    "en": "harm",
+    "pos": "n.",
+    "zh": "&v. 伤害；损伤"
+  },
+  {
+    "en": "harvest",
+    "pos": "n.",
+    "zh": "& vt. 收割，收获（物）"
+  },
+  {
+    "en": "hat",
+    "pos": "n.",
+    "zh": "帽子(一般指有边的)；礼帽"
+  },
+  {
+    "en": "hate",
+    "pos": "vt.",
+    "zh": "& n. 恨，讨厌"
+  },
+  {
+    "en": "have (has, had, had) [hæv]",
+    "pos": "vt.",
+    "zh": "有；吃；喝；进行；经受"
+  },
+  {
+    "en": "he",
+    "pos": "pron.",
+    "zh": "他"
+  },
+  {
+    "en": "head",
+    "pos": "n.",
+    "zh": "头；头脑；首脑；标题 a. 头部的；主要的 v. 率领；驶向"
+  },
+  {
+    "en": "headache",
+    "pos": "n.",
+    "zh": "头疼"
+  },
+  {
+    "en": "headmaster",
+    "pos": "n.",
+    "zh": "（英）中小学校长"
+  },
+  {
+    "en": "headmistress",
+    "pos": "n.",
+    "zh": "女校长"
+  },
+  {
+    "en": "headteacher",
+    "pos": "n.",
+    "zh": "中小学班主任"
+  },
+  {
+    "en": "health",
+    "pos": "n.",
+    "zh": "健康，卫生"
+  },
+  {
+    "en": "healthy",
+    "pos": "a.",
+    "zh": "健康的，健壮的"
+  },
+  {
+    "en": "hear (heard, heard) [hɪə(r)]",
+    "pos": "v.",
+    "zh": "听见；听说"
+  },
+  {
+    "en": "hearing",
+    "pos": "n.",
+    "zh": "听力"
+  },
+  {
+    "en": "heart",
+    "pos": "n.",
+    "zh": "心,心脏,纸牌中的红桃"
+  },
+  {
+    "en": "heat",
+    "pos": "n.",
+    "zh": "热 vt. 把…加热"
+  },
+  {
+    "en": "heaven",
+    "pos": "n.",
+    "zh": "天，天空"
+  },
+  {
+    "en": "heavy",
+    "pos": "a.",
+    "zh": "重的"
+  },
+  {
+    "en": "heavily",
+    "pos": "ad.",
+    "zh": "重地，大量地"
+  },
+  {
+    "en": "hello",
+    "pos": "int.",
+    "zh": "喂；你好（表示打招呼，问候或唤起注意）"
+  },
+  {
+    "en": "help",
+    "pos": "n.",
+    "zh": "& vt. 帮助，帮忙"
+  },
+  {
+    "en": "helpful",
+    "pos": "a.",
+    "zh": "有帮助的，有益的"
+  },
+  {
+    "en": "hen",
+    "pos": "n.",
+    "zh": "母鸡"
+  },
+  {
+    "en": "her",
+    "pos": "pron.",
+    "zh": "她(宾格),她的"
+  },
+  {
+    "en": "here",
+    "pos": "ad.",
+    "zh": "这里，在这里；向这里"
+  },
+  {
+    "en": "hero",
+    "pos": "n.",
+    "zh": "英雄，勇士，男主角"
+  },
+  {
+    "en": "hers",
+    "pos": "pron.",
+    "zh": "她的"
+  },
+  {
+    "en": "herself",
+    "pos": "pron.",
+    "zh": "她自己"
+  },
+  {
+    "en": "hey",
+    "pos": "int.",
+    "zh": "嘿！"
+  },
+  {
+    "en": "hi",
+    "pos": "int.",
+    "zh": "你好（表示打招呼、问候或唤起注意）"
+  },
+  {
+    "en": "hide (hid, hidden) [haɪd]",
+    "pos": "v.",
+    "zh": "把…藏起来，隐藏"
+  },
+  {
+    "en": "high",
+    "pos": "a.",
+    "zh": "高的;高度的 ad. 高地"
+  },
+  {
+    "en": "highway",
+    "pos": "n.",
+    "zh": "公路,主要交通道路"
+  },
+  {
+    "en": "hill",
+    "pos": "n.",
+    "zh": "小山;丘陵;土堆;斜坡"
+  },
+  {
+    "en": "him",
+    "pos": "pron.",
+    "zh": "他（宾格）"
+  },
+  {
+    "en": "himself",
+    "pos": "pron.",
+    "zh": "他自己"
+  },
+  {
+    "en": "his",
+    "pos": "pron.",
+    "zh": "他的"
+  },
+  {
+    "en": "history",
+    "pos": "n.",
+    "zh": "历史，历史学"
+  },
+  {
+    "en": "hit (hit, hit) [hɪt] n.&",
+    "pos": "vt.",
+    "zh": "打,撞,击中"
+  },
+  {
+    "en": "hobby",
+    "pos": "n.",
+    "zh": "业余爱好，嗜好"
+  },
+  {
+    "en": "hold (held, held) [həʊld]",
+    "pos": "vt.",
+    "zh": "拿；抱；握住；举行；进行"
+  },
+  {
+    "en": "hole",
+    "pos": "n.",
+    "zh": "洞，坑"
+  },
+  {
+    "en": "holiday",
+    "pos": "n.",
+    "zh": "假日；假期"
+  },
+  {
+    "en": "home",
+    "pos": "n.",
+    "zh": "家 ad. 到家；回家"
+  },
+  {
+    "en": "homeland",
+    "pos": "n.",
+    "zh": "祖国"
+  },
+  {
+    "en": "hometown",
+    "pos": "n.",
+    "zh": "故乡"
+  },
+  {
+    "en": "homework",
+    "pos": "n.",
+    "zh": "家庭作业"
+  },
+  {
+    "en": "honest",
+    "pos": "a.",
+    "zh": "诚实的，正直的"
+  },
+  {
+    "en": "hope",
+    "pos": "n.",
+    "zh": "& v. 希望"
+  },
+  {
+    "en": "hopeful",
+    "pos": "a.",
+    "zh": "有希望的；有前途的"
+  },
+  {
+    "en": "hopeless",
+    "pos": "a.",
+    "zh": "没有希望的"
+  },
+  {
+    "en": "horrible",
+    "pos": "a.",
+    "zh": "令人恐惧；恐怖的"
+  },
+  {
+    "en": "horse",
+    "pos": "n.",
+    "zh": "马"
+  },
+  {
+    "en": "hospital",
+    "pos": "n.",
+    "zh": "医院"
+  },
+  {
+    "en": "hot",
+    "pos": "a.",
+    "zh": "热的"
+  },
+  {
+    "en": "hotel",
+    "pos": "n.",
+    "zh": "旅馆，饭店，宾馆"
+  },
+  {
+    "en": "hour",
+    "pos": "n.",
+    "zh": "小时"
+  },
+  {
+    "en": "house",
+    "pos": "n.",
+    "zh": "房子；住宅"
+  },
+  {
+    "en": "housewife",
+    "pos": "n.",
+    "zh": "家庭主妇"
+  },
+  {
+    "en": "housework",
+    "pos": "n.",
+    "zh": "家务劳动"
+  },
+  {
+    "en": "how",
+    "pos": "ad.",
+    "zh": "怎样,如何；多么"
+  },
+  {
+    "en": "however",
+    "pos": "ad.",
+    "zh": "可是 conj. 然而，可是，尽管如此"
+  },
+  {
+    "en": "hug",
+    "pos": "v.",
+    "zh": "拥抱"
+  },
+  {
+    "en": "huge",
+    "pos": "a.",
+    "zh": "巨大的，庞大的"
+  },
+  {
+    "en": "human",
+    "pos": "a.",
+    "zh": "人的，人类的"
+  },
+  {
+    "en": "hundred",
+    "pos": "num.",
+    "zh": "百"
+  },
+  {
+    "en": "hunger",
+    "pos": "n.",
+    "zh": "饥饿"
+  },
+  {
+    "en": "hungry",
+    "pos": "a.",
+    "zh": "（饥）饿的"
+  },
+  {
+    "en": "hurry",
+    "pos": "vi.",
+    "zh": "赶快；急忙"
+  },
+  {
+    "en": "hurt (hurt, hurt) [hɜːt]",
+    "pos": "vt.",
+    "zh": "伤害，受伤；伤人感情"
+  },
+  {
+    "en": "husband",
+    "pos": "n.",
+    "zh": "丈夫"
+  },
+  {
+    "en": "I",
+    "pos": "pron.",
+    "zh": "我"
+  },
+  {
+    "en": "ice",
+    "pos": "n.",
+    "zh": "冰"
+  },
+  {
+    "en": "ice-cream",
+    "pos": "n.",
+    "zh": "冰淇淋"
+  },
+  {
+    "en": "idea",
+    "pos": "n.",
+    "zh": "主意,意见,打算,想法"
+  },
+  {
+    "en": "idiom",
+    "pos": "n.",
+    "zh": "习语，成语"
+  },
+  {
+    "en": "if",
+    "pos": "conj.",
+    "zh": "如果,假使,是否,是不是"
+  },
+  {
+    "en": "ill",
+    "pos": "a.",
+    "zh": "有病的；不健康的"
+  },
+  {
+    "en": "illness",
+    "pos": "n.",
+    "zh": "疾病"
+  },
+  {
+    "en": "imagine",
+    "pos": "vt.",
+    "zh": "想像，设想"
+  },
+  {
+    "en": "immediately",
+    "pos": "ad.",
+    "zh": "立即"
+  },
+  {
+    "en": "important",
+    "pos": "a.",
+    "zh": "重要的"
+  },
+  {
+    "en": "impossible",
+    "pos": "a.",
+    "zh": "不可能的"
+  },
+  {
+    "en": "improve",
+    "pos": "vt.",
+    "zh": "改进，更新"
+  },
+  {
+    "en": "in",
+    "pos": "prep.",
+    "zh": "在…里(内)；在 ad. 在家，在内，向内"
+  },
+  {
+    "en": "inch",
+    "pos": "n.",
+    "zh": "英寸"
+  },
+  {
+    "en": "include",
+    "pos": "vt.",
+    "zh": "包含，包括"
+  },
+  {
+    "en": "increase",
+    "pos": "v.",
+    "zh": "& n. 增加，繁殖"
+  },
+  {
+    "en": "indeed",
+    "pos": "a.",
+    "zh": "确实；实在"
+  },
+  {
+    "en": "India",
+    "pos": "n.",
+    "zh": "印度"
+  },
+  {
+    "en": "Indian",
+    "pos": "a.",
+    "zh": "（美洲）印地安人的； 印度人的 n. 印地安人；印度人"
+  },
+  {
+    "en": "information",
+    "pos": "n.",
+    "zh": "信息"
+  },
+  {
+    "en": "ink",
+    "pos": "n.",
+    "zh": "墨水，油墨"
+  },
+  {
+    "en": "insect",
+    "pos": "n.",
+    "zh": "昆虫"
+  },
+  {
+    "en": "inside",
+    "pos": "prep.",
+    "zh": "在…里面 ad. 在里面"
+  },
+  {
+    "en": "insist",
+    "pos": "vi.",
+    "zh": "坚持；坚决认为"
+  },
+  {
+    "en": "inspect",
+    "pos": "vt.",
+    "zh": "检查；检验；审视"
+  },
+  {
+    "en": "instruct",
+    "pos": "vt.",
+    "zh": "通知；指示；教"
+  },
+  {
+    "en": "instruction",
+    "pos": "n.",
+    "zh": "说明,须知;教导"
+  },
+  {
+    "en": "interest",
+    "pos": "n.",
+    "zh": "兴趣，趣味;利息"
+  },
+  {
+    "en": "interesting",
+    "pos": "a.",
+    "zh": "有趣的"
+  },
+  {
+    "en": "international",
+    "pos": "a.",
+    "zh": "国际的"
+  },
+  {
+    "en": "internet",
+    "pos": "n.",
+    "zh": "互联网，英特网"
+  },
+  {
+    "en": "into",
+    "pos": "prep.",
+    "zh": "到…里;向内；变成"
+  },
+  {
+    "en": "introduce",
+    "pos": "vt.",
+    "zh": "介绍"
+  },
+  {
+    "en": "invent",
+    "pos": "vt.",
+    "zh": "发明，创造"
+  },
+  {
+    "en": "invention",
+    "pos": "n.",
+    "zh": "发明，创造"
+  },
+  {
+    "en": "inventor",
+    "pos": "n.",
+    "zh": "发明者，创造者"
+  },
+  {
+    "en": "invite",
+    "pos": "vt.",
+    "zh": "邀请，招待"
+  },
+  {
+    "en": "is",
+    "pos": "v.",
+    "zh": "是"
+  },
+  {
+    "en": "island",
+    "pos": "n.",
+    "zh": "岛"
+  },
+  {
+    "en": "it",
+    "pos": "pron.",
+    "zh": "它"
+  },
+  {
+    "en": "its",
+    "pos": "pron.",
+    "zh": "它的"
+  },
+  {
+    "en": "itself",
+    "pos": "pron.",
+    "zh": "它自己"
+  },
+  {
+    "en": "jacket",
+    "pos": "n.",
+    "zh": "短上衣，夹克衫"
+  },
+  {
+    "en": "jam",
+    "pos": "n.",
+    "zh": "果酱；阻塞"
+  },
+  {
+    "en": "January",
+    "pos": "n.",
+    "zh": "1月"
+  },
+  {
+    "en": "Japan",
+    "pos": "n.",
+    "zh": "日本"
+  },
+  {
+    "en": "Japanese",
+    "pos": "a.",
+    "zh": "日本的，日本人的，日语的 n. 日本人，日语"
+  },
+  {
+    "en": "jeep",
+    "pos": "n.",
+    "zh": "吉普车"
+  },
+  {
+    "en": "job",
+    "pos": "n.",
+    "zh": "（一份）工作"
+  },
+  {
+    "en": "join",
+    "pos": "v.",
+    "zh": "参加,加入;连接;会合"
+  },
+  {
+    "en": "joke",
+    "pos": "n.",
+    "zh": "笑话"
+  },
+  {
+    "en": "journalist",
+    "pos": "n.",
+    "zh": "记者，新闻工作者"
+  },
+  {
+    "en": "journey",
+    "pos": "n.",
+    "zh": "旅行，路程"
+  },
+  {
+    "en": "joy",
+    "pos": "n.",
+    "zh": "欢乐，高兴，乐趣"
+  },
+  {
+    "en": "judge",
+    "pos": "n.",
+    "zh": "裁判；审判员；法官 vt. 判断，断定"
+  },
+  {
+    "en": "juice",
+    "pos": "n.",
+    "zh": "汁、液"
+  },
+  {
+    "en": "July",
+    "pos": "n.",
+    "zh": "7月"
+  },
+  {
+    "en": "jump",
+    "pos": "n.",
+    "zh": "跳跃；跳变 v. 跳跃；惊起；猛扑"
+  },
+  {
+    "en": "June",
+    "pos": "n.",
+    "zh": "6月"
+  },
+  {
+    "en": "jungle",
+    "pos": "n.",
+    "zh": "丛林，密林"
+  },
+  {
+    "en": "junior",
+    "pos": "a.",
+    "zh": "初级的；年少的"
+  },
+  {
+    "en": "just",
+    "pos": "ad.",
+    "zh": "刚才；恰好；不过；仅 a. 公正的"
+  },
+  {
+    "en": "kangaroo",
+    "pos": "n.",
+    "zh": "大袋鼠"
+  },
+  {
+    "en": "keep (kept, kept) [kiːp]",
+    "pos": "v.",
+    "zh": "保持；保存；继续不断 vt. 培育，饲养"
+  },
+  {
+    "en": "key",
+    "pos": "n.",
+    "zh": "钥匙;答案;键;关键"
+  },
+  {
+    "en": "keyboard",
+    "pos": "n.",
+    "zh": "键盘"
+  },
+  {
+    "en": "kick",
+    "pos": "v.",
+    "zh": "& n. 踢"
+  },
+  {
+    "en": "kid",
+    "pos": "n.",
+    "zh": "小孩"
+  },
+  {
+    "en": "kill",
+    "pos": "v.",
+    "zh": "杀死，弄死"
+  },
+  {
+    "en": "kilo",
+    "pos": "n.",
+    "zh": "千克；千米"
+  },
+  {
+    "en": "kilogram",
+    "pos": "n.",
+    "zh": "千克"
+  },
+  {
+    "en": "kilometre",
+    "pos": "n.",
+    "zh": "千米（公里）"
+  },
+  {
+    "en": "kind",
+    "pos": "n.",
+    "zh": "种;类 a. 善良,友好的"
+  },
+  {
+    "en": "kind-hearted",
+    "pos": "a.",
+    "zh": "好心的"
+  },
+  {
+    "en": "king",
+    "pos": "n.",
+    "zh": "国王"
+  },
+  {
+    "en": "kingdom",
+    "pos": "n.",
+    "zh": "王国"
+  },
+  {
+    "en": "kiss",
+    "pos": "n.",
+    "zh": "& vt. 吻，亲吻"
+  },
+  {
+    "en": "kitchen",
+    "pos": "n.",
+    "zh": "厨房"
+  },
+  {
+    "en": "kite",
+    "pos": "n.",
+    "zh": "风筝"
+  },
+  {
+    "en": "knee",
+    "pos": "n.",
+    "zh": "膝盖"
+  },
+  {
+    "en": "knife [naɪf] (复 knives)",
+    "pos": "n.",
+    "zh": "小刀;匕首;刀片"
+  },
+  {
+    "en": "knock",
+    "pos": "n.",
+    "zh": "& v. 敲；打；击 "
+  },
+  {
+    "en": "know(knew,known) [nəʊ]",
+    "pos": "v.",
+    "zh": "知道，了解；认识；懂得"
+  },
+  {
+    "en": "knowledge",
+    "pos": "n.",
+    "zh": "知识，学问"
+  },
+  {
+    "en": "Korea",
+    "pos": "n.",
+    "zh": "朝鲜；韩国"
+  },
+  {
+    "en": "Korean",
+    "pos": "n.",
+    "zh": "朝鲜的；韩国的；韩国的人"
+  },
+  {
+    "en": "lab[læb] = laboratory",
+    "pos": "n.",
+    "zh": "实验室"
+  },
+  {
+    "en": "ladder",
+    "pos": "n.",
+    "zh": "梯子"
+  },
+  {
+    "en": "lady",
+    "pos": "n.",
+    "zh": "女士，夫人"
+  },
+  {
+    "en": "lake",
+    "pos": "n.",
+    "zh": "湖"
+  },
+  {
+    "en": "lamp",
+    "pos": "n.",
+    "zh": "灯，油灯；光源"
+  },
+  {
+    "en": "land",
+    "pos": "n.",
+    "zh": "陆地,土地 v. 登岸(陆)降落"
+  },
+  {
+    "en": "language",
+    "pos": "n.",
+    "zh": "语言"
+  },
+  {
+    "en": "lap",
+    "pos": "n.",
+    "zh": "(人坐时)膝部,(跑道的)一圈"
+  },
+  {
+    "en": "large",
+    "pos": "a.",
+    "zh": "大的；巨大的"
+  },
+  {
+    "en": "last",
+    "pos": "a.",
+    "zh": "最后的 ad. 最后地 n. 最后 v. 持续"
+  },
+  {
+    "en": "late",
+    "pos": "a.",
+    "zh": "晚的,迟的 ad. 晚地,迟地"
+  },
+  {
+    "en": "lately",
+    "pos": "ad.",
+    "zh": "最近，不久前"
+  },
+  {
+    "en": "later",
+    "pos": "a.",
+    "zh": "晚些的，迟些的"
+  },
+  {
+    "en": "laugh",
+    "pos": "n.",
+    "zh": "& v. 笑，大笑；嘲笑"
+  },
+  {
+    "en": "law",
+    "pos": "n.",
+    "zh": "法律，法令；定律"
+  },
+  {
+    "en": "lay (laid, laid) [leɪ]",
+    "pos": "vt.",
+    "zh": "放，搁"
+  },
+  {
+    "en": "lazy",
+    "pos": "a.",
+    "zh": "懒惰的"
+  },
+  {
+    "en": "lead (led, led) [liːd]",
+    "pos": "v.",
+    "zh": "领导，带领 n. 铅"
+  },
+  {
+    "en": "leader",
+    "pos": "n.",
+    "zh": "领袖，领导人"
+  },
+  {
+    "en": "leaf (复 leaves) [liːf]",
+    "pos": "n.",
+    "zh": "（树，菜）叶"
+  },
+  {
+    "en": "league",
+    "pos": "n.",
+    "zh": "联盟，社团"
+  },
+  {
+    "en": "learn (learnt, learnt；-ed -ed) [lɜːn]",
+    "pos": "vt.",
+    "zh": "学，学习，学会"
+  },
+  {
+    "en": "least",
+    "pos": "n.",
+    "zh": "最少，最少量"
+  },
+  {
+    "en": "leather",
+    "pos": "n.",
+    "zh": "皮革"
+  },
+  {
+    "en": "leave (left, left) [liːv]",
+    "pos": "v.",
+    "zh": "离开;把…留下，剩下"
+  },
+  {
+    "en": "left",
+    "pos": "a.",
+    "zh": "左边的 ad. 向左 n. 左,左边"
+  },
+  {
+    "en": "leg",
+    "pos": "n.",
+    "zh": "腿；腿脚；支柱"
+  },
+  {
+    "en": "lend (lent, lent) [lend]",
+    "pos": "vt.",
+    "zh": "借(出),把…借给"
+  },
+  {
+    "en": "less（little的比较级） [les] a.&",
+    "pos": "ad.",
+    "zh": "少于,小于"
+  },
+  {
+    "en": "lesson",
+    "pos": "n.",
+    "zh": "课；功课；教训"
+  },
+  {
+    "en": "let (let, let) [let]",
+    "pos": "vt.",
+    "zh": "让"
+  },
+  {
+    "en": "letter",
+    "pos": "n.",
+    "zh": "信；字母"
+  },
+  {
+    "en": "librarian",
+    "pos": "n.",
+    "zh": "图书管理员；（西方的）图书馆馆长"
+  },
+  {
+    "en": "library",
+    "pos": "n.",
+    "zh": "图书馆，图书室"
+  },
+  {
+    "en": "license",
+    "pos": "n.",
+    "zh": "执照，许可证"
+  },
+  {
+    "en": "lie (lay, lain) [lai] v. 躺;卧;平放;位于n.&",
+    "pos": "vi.",
+    "zh": "(lied,lied) 说谎"
+  },
+  {
+    "en": "life (复lives) [laif]",
+    "pos": "n.",
+    "zh": "生命；生涯；生活；人生；生物"
+  },
+  {
+    "en": "lifetime",
+    "pos": "n.",
+    "zh": "一生，终生"
+  },
+  {
+    "en": "lift",
+    "pos": "v.",
+    "zh": "举起，抬起；（云、烟等）消散 n. （英）电梯"
+  },
+  {
+    "en": "light",
+    "pos": "n.",
+    "zh": "光，光亮；灯，灯光 vt. 点（火），点燃 a. 明亮的；轻的；浅色的"
+  },
+  {
+    "en": "like",
+    "pos": "prep.",
+    "zh": "像，跟…一样 vt. 喜欢，喜爱"
+  },
+  {
+    "en": "line",
+    "pos": "n.",
+    "zh": "绳索，线，排，行，线路 v. 画线于，（使）成行"
+  },
+  {
+    "en": "lion",
+    "pos": "n.",
+    "zh": "狮子"
+  },
+  {
+    "en": "lip",
+    "pos": "n.",
+    "zh": "嘴唇"
+  },
+  {
+    "en": "list",
+    "pos": "n.",
+    "zh": "一览表，清单"
+  },
+  {
+    "en": "listen",
+    "pos": "vi.",
+    "zh": "听,仔细听"
+  },
+  {
+    "en": "litter",
+    "pos": "v.",
+    "zh": "乱丢杂物"
+  },
+  {
+    "en": "little (less, least) [ˈlɪt(ə)l]",
+    "pos": "a.",
+    "zh": "小的,少的 ad. 很少地, 稍许 n. 没有多少"
+  },
+  {
+    "en": "live",
+    "pos": "vi.",
+    "zh": "生活;居住;活着 a. 活的,活着的;现场（直播）的"
+  },
+  {
+    "en": "lively",
+    "pos": "a.",
+    "zh": "活泼的;充满生气的"
+  },
+  {
+    "en": "living",
+    "pos": "a.",
+    "zh": "活着的 n. 生计"
+  },
+  {
+    "en": "lock",
+    "pos": "n.",
+    "zh": "锁 vt. 锁，锁上"
+  },
+  {
+    "en": "London",
+    "pos": "n.",
+    "zh": "伦敦"
+  },
+  {
+    "en": "lonely",
+    "pos": "a.",
+    "zh": "孤独的，寂寞的"
+  },
+  {
+    "en": "long",
+    "pos": "a.",
+    "zh": "长的，远 ad. 长久"
+  },
+  {
+    "en": "look",
+    "pos": "n.",
+    "zh": "看，瞧 v. 看，观看 v. link 看起来"
+  },
+  {
+    "en": "lose (lost, lost) [luːz]",
+    "pos": "vt.",
+    "zh": "失去，丢失"
+  },
+  {
+    "en": "lot",
+    "pos": "n.",
+    "zh": "许多，好些"
+  },
+  {
+    "en": "loud",
+    "pos": "a.",
+    "zh": "大声的"
+  },
+  {
+    "en": "loudly",
+    "pos": "ad.",
+    "zh": "大声地"
+  },
+  {
+    "en": "loudspeaker",
+    "pos": "n.",
+    "zh": "扬声器，喇叭"
+  },
+  {
+    "en": "love",
+    "pos": "n.",
+    "zh": "& vt. 爱；热爱;很喜欢"
+  },
+  {
+    "en": "lovely",
+    "pos": "a.",
+    "zh": "美好的，可爱的"
+  },
+  {
+    "en": "low",
+    "pos": "a.",
+    "zh": "& ad. 低；矮"
+  },
+  {
+    "en": "luck",
+    "pos": "n.",
+    "zh": "运气，好运"
+  },
+  {
+    "en": "lucky",
+    "pos": "a.",
+    "zh": "运气好，侥幸"
+  },
+  {
+    "en": "lunch",
+    "pos": "n.",
+    "zh": "午餐，午饭"
+  },
+  {
+    "en": "machine",
+    "pos": "n.",
+    "zh": "机器"
+  },
+  {
+    "en": "madam/ madame",
+    "pos": "n.",
+    "zh": "夫人,女士"
+  },
+  {
+    "en": "magazine",
+    "pos": "n.",
+    "zh": "杂志"
+  },
+  {
+    "en": "magic",
+    "pos": "a.",
+    "zh": "有魔力的"
+  },
+  {
+    "en": "mail",
+    "pos": "n.",
+    "zh": "邮政,邮递 v. (美)邮寄"
+  },
+  {
+    "en": "main",
+    "pos": "a.",
+    "zh": "主要的"
+  },
+  {
+    "en": "mainland",
+    "pos": "n.",
+    "zh": "大陆"
+  },
+  {
+    "en": "make (made,made) [meɪk]",
+    "pos": "vt.",
+    "zh": "制造,做;使得"
+  },
+  {
+    "en": "man (复men) [mæn]",
+    "pos": "n.",
+    "zh": "成年男人;人类"
+  },
+  {
+    "en": "manage",
+    "pos": "v.",
+    "zh": "管理；设法对付"
+  },
+  {
+    "en": "manager",
+    "pos": "n.",
+    "zh": "经理"
+  },
+  {
+    "en": "man-made",
+    "pos": "a.",
+    "zh": "人造的，人工的"
+  },
+  {
+    "en": "many (more, most) [ˈmenɪ]",
+    "pos": "pron.",
+    "zh": "许多人（或物）a. 许多的"
+  },
+  {
+    "en": "map",
+    "pos": "n.",
+    "zh": "地图"
+  },
+  {
+    "en": "March",
+    "pos": "n.",
+    "zh": "3月"
+  },
+  {
+    "en": "mark",
+    "pos": "n.",
+    "zh": "标记 vt. 标明,作记号于"
+  },
+  {
+    "en": "market",
+    "pos": "n.",
+    "zh": "市场，集市"
+  },
+  {
+    "en": "marry",
+    "pos": "v.",
+    "zh": "（使）成婚，结婚"
+  },
+  {
+    "en": "match",
+    "pos": "vt.",
+    "zh": "使相配，使成对 n. 比赛，竞赛 n. 火柴"
+  },
+  {
+    "en": "matter",
+    "pos": "n.",
+    "zh": "要紧事，要紧, 事情；问题 vi. 要紧，有重大关系"
+  },
+  {
+    "en": "May",
+    "pos": "n.",
+    "zh": "5月"
+  },
+  {
+    "en": "maybe",
+    "pos": "ad.",
+    "zh": "可能，大概，也许"
+  },
+  {
+    "en": "me",
+    "pos": "pron.",
+    "zh": "我（宾格）"
+  },
+  {
+    "en": "meal",
+    "pos": "n.",
+    "zh": "一餐（饭） "
+  },
+  {
+    "en": "mean(meant,meant) [miːn]",
+    "pos": "vt.",
+    "zh": "意思,意指"
+  },
+  {
+    "en": "meaning",
+    "pos": "n.",
+    "zh": "意思，含意"
+  },
+  {
+    "en": "means",
+    "pos": "n.",
+    "zh": "方法，手段；财产"
+  },
+  {
+    "en": "meat",
+    "pos": "n.",
+    "zh": "（猪、牛、羊等的）肉"
+  },
+  {
+    "en": "meet (met, met) [miːt] vt./",
+    "pos": "n.",
+    "zh": "遇见，见到 会；集会"
+  },
+  {
+    "en": "meeting",
+    "pos": "n.",
+    "zh": "会,集会,会见,汇合点"
+  },
+  {
+    "en": "melon",
+    "pos": "n.",
+    "zh": "（甜）瓜；瓜状物"
+  },
+  {
+    "en": "member",
+    "pos": "n.",
+    "zh": "成员，会员"
+  },
+  {
+    "en": "memory",
+    "pos": "n.",
+    "zh": "回忆，记忆"
+  },
+  {
+    "en": "mend",
+    "pos": "v.",
+    "zh": "修理，修补"
+  },
+  {
+    "en": "mention",
+    "pos": "n.",
+    "zh": "提及；记载 vt. 提到，说起"
+  },
+  {
+    "en": "menu",
+    "pos": "n.",
+    "zh": "菜单"
+  },
+  {
+    "en": "merry",
+    "pos": "a.",
+    "zh": "高兴的，愉快的"
+  },
+  {
+    "en": "message",
+    "pos": "n.",
+    "zh": "消息，音信"
+  },
+  {
+    "en": "metal",
+    "pos": "n.",
+    "zh": "金属 a. 金属制成的"
+  },
+  {
+    "en": "metre (美meter) ['mi:tə]",
+    "pos": "n.",
+    "zh": "米，公尺"
+  },
+  {
+    "en": "mid-autumn",
+    "pos": "n.",
+    "zh": "中秋"
+  },
+  {
+    "en": "middle",
+    "pos": "n.",
+    "zh": "中间;当中;中级的"
+  },
+  {
+    "en": "Middle East",
+    "pos": "n.",
+    "zh": "中东"
+  },
+  {
+    "en": "midnight",
+    "pos": "n.",
+    "zh": "午夜"
+  },
+  {
+    "en": "might",
+    "pos": "v.",
+    "zh": "aux. (may的过去式，助动词) 可能，也许，或许"
+  },
+  {
+    "en": "mild",
+    "pos": "a.",
+    "zh": "温和,暖和的,凉爽的"
+  },
+  {
+    "en": "mile",
+    "pos": "n.",
+    "zh": "英里"
+  },
+  {
+    "en": "milk",
+    "pos": "n.",
+    "zh": "牛奶 vt. 挤奶"
+  },
+  {
+    "en": "million",
+    "pos": "num.",
+    "zh": "百万 n. 百万个（人或物）"
+  },
+  {
+    "en": "mind",
+    "pos": "n.",
+    "zh": "思想,想法 v.介意,关心"
+  },
+  {
+    "en": "mine",
+    "pos": "n.",
+    "zh": "矿藏,矿山 vt. 开采(矿物); pron. 我的"
+  },
+  {
+    "en": "minibus",
+    "pos": "n.",
+    "zh": "小型公共汽车"
+  },
+  {
+    "en": "minus",
+    "pos": "prep.",
+    "zh": "& a.负的，减去的"
+  },
+  {
+    "en": "minute",
+    "pos": "n.",
+    "zh": "分钟;一会儿，瞬间"
+  },
+  {
+    "en": "mirror",
+    "pos": "n.",
+    "zh": "镜子"
+  },
+  {
+    "en": "miss",
+    "pos": "vt.",
+    "zh": "失去，错过，缺"
+  },
+  {
+    "en": "Miss.",
+    "pos": "n.",
+    "zh": "小姐,女士(称呼未婚妇女)"
+  },
+  {
+    "en": "mist",
+    "pos": "n.",
+    "zh": "雾"
+  },
+  {
+    "en": "mistake (mistook, mistaken) [mɪsˈteɪk]",
+    "pos": "n.",
+    "zh": "错误 vt. 弄错"
+  },
+  {
+    "en": "mobile",
+    "pos": "a.",
+    "zh": "活动的，可移动的"
+  },
+  {
+    "en": "model",
+    "pos": "n.",
+    "zh": "模型,原形,范例,模范"
+  },
+  {
+    "en": "modern",
+    "pos": "a.",
+    "zh": "现代的"
+  },
+  {
+    "en": "Mom =Mum [mɔm]",
+    "pos": "n.",
+    "zh": "妈妈"
+  },
+  {
+    "en": "moment",
+    "pos": "n.",
+    "zh": "片刻，瞬间"
+  },
+  {
+    "en": "mommy = mummy [ˈmʌmɪ]",
+    "pos": "n.",
+    "zh": "妈妈（美）"
+  },
+  {
+    "en": "Monday",
+    "pos": "n.",
+    "zh": "星期一"
+  },
+  {
+    "en": "money",
+    "pos": "n.",
+    "zh": "钱；货币"
+  },
+  {
+    "en": "monitor",
+    "pos": "n.",
+    "zh": "（班级内的）班长；纠察生；监视器"
+  },
+  {
+    "en": "monkey",
+    "pos": "n.",
+    "zh": "猴子"
+  },
+  {
+    "en": "month",
+    "pos": "n.",
+    "zh": "月，月份"
+  },
+  {
+    "en": "monument",
+    "pos": "n.",
+    "zh": "纪念碑，纪念物"
+  },
+  {
+    "en": "moon",
+    "pos": "n.",
+    "zh": "月球；月光；月状物"
+  },
+  {
+    "en": "mooncake",
+    "pos": "n.",
+    "zh": "月饼"
+  },
+  {
+    "en": "more（much或many的比较级）[mɔː(r)] a./",
+    "pos": "ad.",
+    "zh": "另外的;较多的;而且;更 n. 更多的量"
+  },
+  {
+    "en": "morning",
+    "pos": "n.",
+    "zh": "早晨，上午"
+  },
+  {
+    "en": "most (much或many的最高级) [məʊst; (US) mɔːst]",
+    "pos": "a.",
+    "zh": "& ad. 最多 n. 大部分,大多数"
+  },
+  {
+    "en": "mother",
+    "pos": "n.",
+    "zh": "母亲"
+  },
+  {
+    "en": "motor",
+    "pos": "n.",
+    "zh": "发动机，马达"
+  },
+  {
+    "en": "motorbike",
+    "pos": "n.",
+    "zh": "摩托车"
+  },
+  {
+    "en": "motorcycle",
+    "pos": "n.",
+    "zh": "摩托车"
+  },
+  {
+    "en": "mountain(s)",
+    "pos": "n.",
+    "zh": "山，山脉"
+  },
+  {
+    "en": "mouse (复mice) [maʊs]",
+    "pos": "n.",
+    "zh": "鼠，耗子；（计算机）鼠标"
+  },
+  {
+    "en": "mouth",
+    "pos": "n.",
+    "zh": "嘴，口"
+  },
+  {
+    "en": "move",
+    "pos": "v.",
+    "zh": "移动，搬动，搬家"
+  },
+  {
+    "en": "movement",
+    "pos": "n.",
+    "zh": "运动，活动"
+  },
+  {
+    "en": "movie",
+    "pos": "n.",
+    "zh": "（口语）电影"
+  },
+  {
+    "en": "Mr. (mister)",
+    "pos": "n.",
+    "zh": "先生（用于姓名前）"
+  },
+  {
+    "en": "Mrs. (mistress)",
+    "pos": "n.",
+    "zh": "夫人, 太太（称呼已婚妇女）"
+  },
+  {
+    "en": "Ms.",
+    "pos": "n.",
+    "zh": "女士(用在婚姻状况不明的女子姓名前)"
+  },
+  {
+    "en": "much (more，most) [mʌtʃ] a./",
+    "pos": "ad.",
+    "zh": "许多，大量，非常，更加"
+  },
+  {
+    "en": "multiply",
+    "pos": "vt.",
+    "zh": "乘；使相乘"
+  },
+  {
+    "en": "murder",
+    "pos": "vt.",
+    "zh": "谋杀"
+  },
+  {
+    "en": "museum",
+    "pos": "n.",
+    "zh": "博物馆，博物院"
+  },
+  {
+    "en": "music",
+    "pos": "n.",
+    "zh": "音乐，乐曲"
+  },
+  {
+    "en": "must",
+    "pos": "v.",
+    "zh": "必须,应当;必定是"
+  },
+  {
+    "en": "mutton",
+    "pos": "n.",
+    "zh": "羊肉"
+  },
+  {
+    "en": "my",
+    "pos": "pron.",
+    "zh": "我的"
+  },
+  {
+    "en": "myself",
+    "pos": "pron.",
+    "zh": "我自己"
+  },
+  {
+    "en": "nail",
+    "pos": "n.",
+    "zh": "钉，钉子"
+  },
+  {
+    "en": "name",
+    "pos": "n.",
+    "zh": "名字,姓名,名称 vt. 命名,名叫"
+  },
+  {
+    "en": "narrow",
+    "pos": "a.",
+    "zh": "狭窄的"
+  },
+  {
+    "en": "nation",
+    "pos": "n.",
+    "zh": "民族，国家"
+  },
+  {
+    "en": "national",
+    "pos": "a.",
+    "zh": "国家的,全国性的，民族的"
+  },
+  {
+    "en": "natural",
+    "pos": "a.",
+    "zh": "自然的"
+  },
+  {
+    "en": "nature",
+    "pos": "n.",
+    "zh": "自然, 性质，种类"
+  },
+  {
+    "en": "near",
+    "pos": "a.",
+    "zh": "近的 ad. 附近，邻近 prep. 在…附近，靠近"
+  },
+  {
+    "en": "nearby",
+    "pos": "a.",
+    "zh": "附近的"
+  },
+  {
+    "en": "nearly",
+    "pos": "ad.",
+    "zh": "将近，几乎"
+  },
+  {
+    "en": "neat",
+    "pos": "a.",
+    "zh": "整洁的；灵巧的"
+  },
+  {
+    "en": "necessary",
+    "pos": "a.",
+    "zh": "必需的，必要的"
+  },
+  {
+    "en": "neck",
+    "pos": "n.",
+    "zh": "颈，脖子"
+  },
+  {
+    "en": "necklace",
+    "pos": "n.",
+    "zh": "项链"
+  },
+  {
+    "en": "necktie",
+    "pos": "n.",
+    "zh": "领带，领花"
+  },
+  {
+    "en": "need",
+    "pos": "n.",
+    "zh": "需要,需求 aux.& v. 需要,必须"
+  },
+  {
+    "en": "needle",
+    "pos": "n.",
+    "zh": "针"
+  },
+  {
+    "en": "neighbour (美neighbor) [ˈneibə(r)]",
+    "pos": "n.",
+    "zh": "邻居，邻人"
+  },
+  {
+    "en": "neighbourhood (美neighborhood) ['neibəhud]",
+    "pos": "n.",
+    "zh": "四邻；邻近地区"
+  },
+  {
+    "en": "neither",
+    "pos": "a.",
+    "zh": "（两者）都不;也不"
+  },
+  {
+    "en": "nervous",
+    "pos": "a.",
+    "zh": "紧张不安的"
+  },
+  {
+    "en": "nest",
+    "pos": "n.",
+    "zh": "巢；窝"
+  },
+  {
+    "en": "net",
+    "pos": "n.",
+    "zh": "网"
+  },
+  {
+    "en": "network",
+    "pos": "n.",
+    "zh": "网络，网状系统"
+  },
+  {
+    "en": "never",
+    "pos": "ad.",
+    "zh": "决不，从来没有"
+  },
+  {
+    "en": "new",
+    "pos": "a.",
+    "zh": "新的；新鲜的"
+  },
+  {
+    "en": "news",
+    "pos": "n.",
+    "zh": "新闻，消息"
+  },
+  {
+    "en": "newspaper",
+    "pos": "n.",
+    "zh": "报纸"
+  },
+  {
+    "en": "next",
+    "pos": "a.",
+    "zh": "下一个的,紧挨着的，隔壁的 ad. 随后，然后，下一步"
+  },
+  {
+    "en": "nice",
+    "pos": "a.",
+    "zh": "令人愉快;好的,漂亮的"
+  },
+  {
+    "en": "niece",
+    "pos": "n.",
+    "zh": "侄女，甥女"
+  },
+  {
+    "en": "night",
+    "pos": "n.",
+    "zh": "夜；夜间"
+  },
+  {
+    "en": "night-club",
+    "pos": "n.",
+    "zh": "夜总会"
+  },
+  {
+    "en": "nine",
+    "pos": "num.",
+    "zh": "九"
+  },
+  {
+    "en": "nineteen",
+    "pos": "num.",
+    "zh": "十九"
+  },
+  {
+    "en": "ninety",
+    "pos": "num.",
+    "zh": "九十"
+  },
+  {
+    "en": "ninth",
+    "pos": "num.",
+    "zh": "第九"
+  },
+  {
+    "en": "no",
+    "pos": "ad.",
+    "zh": "不,不是 a. 没有,无,不"
+  },
+  {
+    "en": "No.(缩) = number [ˈnʌmbə(r)]",
+    "pos": "n.",
+    "zh": "数字;号码"
+  },
+  {
+    "en": "nobody",
+    "pos": "n.",
+    "zh": "渺小人物 pron. 没有人，谁也不"
+  },
+  {
+    "en": "nod",
+    "pos": "vi.",
+    "zh": "点头"
+  },
+  {
+    "en": "noise",
+    "pos": "n.",
+    "zh": "声音，噪声，喧闹声"
+  },
+  {
+    "en": "noisily",
+    "pos": "ad.",
+    "zh": "喧闹地"
+  },
+  {
+    "en": "noisy",
+    "pos": "a.",
+    "zh": "喧闹的，嘈杂的"
+  },
+  {
+    "en": "none",
+    "pos": "pron.",
+    "zh": "无任何东西, 无一人"
+  },
+  {
+    "en": "noodle",
+    "pos": "n.",
+    "zh": "面条"
+  },
+  {
+    "en": "noon",
+    "pos": "n.",
+    "zh": "中午，正午"
+  },
+  {
+    "en": "nor",
+    "pos": "conj.",
+    "zh": "也不"
+  },
+  {
+    "en": "normal",
+    "pos": "n.",
+    "zh": "& a. 正常的（状态）"
+  },
+  {
+    "en": "north",
+    "pos": "a.",
+    "zh": "北的;朝北的 ad. 向（在,从）北方 n. 北;北方;北部"
+  },
+  {
+    "en": "northeast",
+    "pos": "n.",
+    "zh": "东北（部）"
+  },
+  {
+    "en": "northern",
+    "pos": "a.",
+    "zh": "北方的，北部的"
+  },
+  {
+    "en": "northwest",
+    "pos": "n.",
+    "zh": "西北"
+  },
+  {
+    "en": "nose",
+    "pos": "n.",
+    "zh": "鼻子"
+  },
+  {
+    "en": "not",
+    "pos": "ad.",
+    "zh": "不，没"
+  },
+  {
+    "en": "note",
+    "pos": "n.",
+    "zh": "便条，笔记，注释；钞票，音调"
+  },
+  {
+    "en": "notebook",
+    "pos": "n.",
+    "zh": "笔记簿"
+  },
+  {
+    "en": "nothing",
+    "pos": "n.",
+    "zh": "没有东西,没有什么"
+  },
+  {
+    "en": "notice",
+    "pos": "n.",
+    "zh": "布告，通告；注意 vt. 注意，注意到"
+  },
+  {
+    "en": "novel",
+    "pos": "n.",
+    "zh": "（长篇）小说"
+  },
+  {
+    "en": "November",
+    "pos": "n.",
+    "zh": "11月"
+  },
+  {
+    "en": "now",
+    "pos": "ad.",
+    "zh": "现在"
+  },
+  {
+    "en": "nowhere",
+    "pos": "ad.",
+    "zh": "任何地方都不,无处"
+  },
+  {
+    "en": "number",
+    "pos": "n.",
+    "zh": "数,数字,号码,数量"
+  },
+  {
+    "en": "nurse",
+    "pos": "n.",
+    "zh": "护士；保姆；保育员"
+  },
+  {
+    "en": "obey",
+    "pos": "v.",
+    "zh": "服从，顺从，听从"
+  },
+  {
+    "en": "object",
+    "pos": "n.",
+    "zh": "物，物体；宾语"
+  },
+  {
+    "en": "ocean",
+    "pos": "n.",
+    "zh": "海洋"
+  },
+  {
+    "en": "Oceania",
+    "pos": "n.",
+    "zh": "大洋洲"
+  },
+  {
+    "en": "o'clock[əʃklɔk]",
+    "pos": "n.",
+    "zh": "点钟"
+  },
+  {
+    "en": "October",
+    "pos": "n.",
+    "zh": "10月"
+  },
+  {
+    "en": "of",
+    "pos": "prep.",
+    "zh": "….的"
+  },
+  {
+    "en": "off",
+    "pos": "prep.",
+    "zh": "离开,脱离,（走）开"
+  },
+  {
+    "en": "offer",
+    "pos": "n.",
+    "zh": "& vt. 提供；建议"
+  },
+  {
+    "en": "office",
+    "pos": "n.",
+    "zh": "办公室"
+  },
+  {
+    "en": "often",
+    "pos": "ad.",
+    "zh": "经常，常常"
+  },
+  {
+    "en": "oh",
+    "pos": "int.",
+    "zh": "哦！啊！"
+  },
+  {
+    "en": "oil",
+    "pos": "n.",
+    "zh": "油"
+  },
+  {
+    "en": "OK",
+    "pos": "ad.",
+    "zh": "（口语）好,对,不错"
+  },
+  {
+    "en": "old",
+    "pos": "a.",
+    "zh": "老的，旧的"
+  },
+  {
+    "en": "Olympic(s)",
+    "pos": "a.",
+    "zh": "& n. 奥林匹克"
+  },
+  {
+    "en": "Olympic Games",
+    "pos": "n.",
+    "zh": "奥运会"
+  },
+  {
+    "en": "on",
+    "pos": "prep.",
+    "zh": "在…上（时），关于 ad. 接通；进行下去；（电灯）开"
+  },
+  {
+    "en": "once",
+    "pos": "n.",
+    "zh": "& ad. 一次,一度,从前 conj. 一旦"
+  },
+  {
+    "en": "one",
+    "pos": "pron.",
+    "zh": "一（个，只…）"
+  },
+  {
+    "en": "oneself",
+    "pos": "pron.",
+    "zh": "自己；自身"
+  },
+  {
+    "en": "onion",
+    "pos": "n.",
+    "zh": "洋葱；洋葱头"
+  },
+  {
+    "en": "only",
+    "pos": "a.",
+    "zh": "惟一的，仅有的 ad. 仅仅，只，才"
+  },
+  {
+    "en": "onto",
+    "pos": "prep.",
+    "zh": "到…的上面"
+  },
+  {
+    "en": "open",
+    "pos": "a.",
+    "zh": "开着的,开的 vt. 开,打开"
+  },
+  {
+    "en": "opera",
+    "pos": "n.",
+    "zh": "歌剧"
+  },
+  {
+    "en": "operate",
+    "pos": "v.",
+    "zh": "做手术，运转；实施，负责, 经营，管理"
+  },
+  {
+    "en": "opinion",
+    "pos": "n.",
+    "zh": "看法，见解"
+  },
+  {
+    "en": "or",
+    "pos": "conj.",
+    "zh": "或；就是；否则"
+  },
+  {
+    "en": "orange",
+    "pos": "n.",
+    "zh": "橘子，橙子，橘汁 a. 橘色的，橙色的"
+  },
+  {
+    "en": "order",
+    "pos": "vt.",
+    "zh": "定购，定货；点菜n. 顺序"
+  },
+  {
+    "en": "ordinary",
+    "pos": "a.",
+    "zh": "普通的，平常的"
+  },
+  {
+    "en": "other",
+    "pos": "pron.",
+    "zh": "别人，别的东西 a. 别的,另外的"
+  },
+  {
+    "en": "our",
+    "pos": "pron.",
+    "zh": "我们的"
+  },
+  {
+    "en": "ours",
+    "pos": "pron.",
+    "zh": "我们的"
+  },
+  {
+    "en": "ourselves",
+    "pos": "pron.",
+    "zh": "我们自己"
+  },
+  {
+    "en": "out",
+    "pos": "ad.",
+    "zh": "出外;在外,向外;熄"
+  },
+  {
+    "en": "outdoors",
+    "pos": "ad.",
+    "zh": "在户外, 在野外"
+  },
+  {
+    "en": "outside",
+    "pos": "n.",
+    "zh": "外面 ad. 在外面；向外面 prep. 在…外面"
+  },
+  {
+    "en": "over",
+    "pos": "prep.",
+    "zh": "在…上方,越过,遍及 ad. 翻倒,遍布,越过,结束"
+  },
+  {
+    "en": "overcoat",
+    "pos": "n.",
+    "zh": "大衣"
+  },
+  {
+    "en": "own",
+    "pos": "a.",
+    "zh": "自己的 v. 拥有,所有"
+  },
+  {
+    "en": "owner",
+    "pos": "n.",
+    "zh": "物主，所有人"
+  },
+  {
+    "en": "Pacific",
+    "pos": "a.",
+    "zh": "太平洋的"
+  },
+  {
+    "en": "pack",
+    "pos": "n.",
+    "zh": "包,捆;（猎犬、野兽的）一群 v. (为运输或储存而)打包"
+  },
+  {
+    "en": "packet",
+    "pos": "n.",
+    "zh": "小包裹，袋"
+  },
+  {
+    "en": "page",
+    "pos": "n.",
+    "zh": "页，页码"
+  },
+  {
+    "en": "pain",
+    "pos": "n.",
+    "zh": "疼痛，疼"
+  },
+  {
+    "en": "painful",
+    "pos": "a.",
+    "zh": "使痛的，使痛苦的"
+  },
+  {
+    "en": "paint",
+    "pos": "n.",
+    "zh": "油漆 vt. 油漆,粉刷,绘画"
+  },
+  {
+    "en": "painter",
+    "pos": "n.",
+    "zh": "绘画者,（油）画家"
+  },
+  {
+    "en": "painting",
+    "pos": "n.",
+    "zh": "油画，水彩画"
+  },
+  {
+    "en": "pair",
+    "pos": "n.",
+    "zh": "一双，一对"
+  },
+  {
+    "en": "palace",
+    "pos": "n.",
+    "zh": "宫，宫殿"
+  },
+  {
+    "en": "pale",
+    "pos": "a.",
+    "zh": "苍白的，灰白的"
+  },
+  {
+    "en": "pan",
+    "pos": "n.",
+    "zh": "平底锅"
+  },
+  {
+    "en": "panda",
+    "pos": "n.",
+    "zh": "熊猫"
+  },
+  {
+    "en": "paper",
+    "pos": "n.",
+    "zh": "纸；报纸"
+  },
+  {
+    "en": "pardon",
+    "pos": "n.",
+    "zh": "原谅,宽恕,对不起"
+  },
+  {
+    "en": "parent",
+    "pos": "n.",
+    "zh": "父(母)，双亲"
+  },
+  {
+    "en": "park",
+    "pos": "n.",
+    "zh": "公园 vt. 停放（汽车）"
+  },
+  {
+    "en": "parking",
+    "pos": "n.",
+    "zh": "停车"
+  },
+  {
+    "en": "parrot",
+    "pos": "n.",
+    "zh": "鹦鹉"
+  },
+  {
+    "en": "part",
+    "pos": "n.",
+    "zh": "部分；角色；部件；零件 a. 局部的；部分的"
+  },
+  {
+    "en": "party",
+    "pos": "n.",
+    "zh": "聚会，晚会；党派"
+  },
+  {
+    "en": "pass",
+    "pos": "vt.",
+    "zh": "传，递；经过；通过"
+  },
+  {
+    "en": "passage",
+    "pos": "n.",
+    "zh": "（文章等的）一节，一段；通道；走廊"
+  },
+  {
+    "en": "passenger",
+    "pos": "n.",
+    "zh": "乘客，旅客"
+  },
+  {
+    "en": "passport",
+    "pos": "n.",
+    "zh": "护照"
+  },
+  {
+    "en": "past",
+    "pos": "ad.",
+    "zh": "过 n. 过去，昔日，往事 prep. 过…，走过某处"
+  },
+  {
+    "en": "path",
+    "pos": "n.",
+    "zh": "小道，小径"
+  },
+  {
+    "en": "patient",
+    "pos": "n.",
+    "zh": "病人"
+  },
+  {
+    "en": "pause",
+    "pos": "n.",
+    "zh": "& vi. 中止，暂停；停止"
+  },
+  {
+    "en": "pay [peɪ] (paid, paid)",
+    "pos": "v.",
+    "zh": "付钱，给…报酬 n. 工资"
+  },
+  {
+    "en": "pea",
+    "pos": "n.",
+    "zh": "豌豆"
+  },
+  {
+    "en": "peace",
+    "pos": "n.",
+    "zh": "和平"
+  },
+  {
+    "en": "pear",
+    "pos": "n.",
+    "zh": "梨子，梨树"
+  },
+  {
+    "en": "pen",
+    "pos": "n.",
+    "zh": "钢笔，笔"
+  },
+  {
+    "en": "pencil",
+    "pos": "n.",
+    "zh": "铅笔"
+  },
+  {
+    "en": "pencil-box",
+    "pos": "n.",
+    "zh": "铅笔盒"
+  },
+  {
+    "en": "people",
+    "pos": "n.",
+    "zh": "人，人们；人民"
+  },
+  {
+    "en": "pepper",
+    "pos": "n.",
+    "zh": "胡椒粉"
+  },
+  {
+    "en": "performance",
+    "pos": "n.",
+    "zh": "演出，表演"
+  },
+  {
+    "en": "perhaps",
+    "pos": "ad.",
+    "zh": "可能，或"
+  },
+  {
+    "en": "permit",
+    "pos": "vt.",
+    "zh": "许可,允许;执照 n. 许可证"
+  },
+  {
+    "en": "person",
+    "pos": "n.",
+    "zh": "人"
+  },
+  {
+    "en": "personal",
+    "pos": "a.",
+    "zh": "个人的，私人的"
+  },
+  {
+    "en": "pet",
+    "pos": "n.",
+    "zh": "宠物，爱畜"
+  },
+  {
+    "en": "phone = telephone [fəʊn]",
+    "pos": "v.",
+    "zh": "打电话 n. 电话，电话机"
+  },
+  {
+    "en": "photo =photograph [ˈfəʊtəʊ]",
+    "pos": "n.",
+    "zh": "照片"
+  },
+  {
+    "en": "photograph",
+    "pos": "n.",
+    "zh": "照片"
+  },
+  {
+    "en": "phrase",
+    "pos": "n.",
+    "zh": "短语；习惯用语"
+  },
+  {
+    "en": "physicist",
+    "pos": "n.",
+    "zh": "物理学家"
+  },
+  {
+    "en": "physics",
+    "pos": "n.",
+    "zh": "物理（学）"
+  },
+  {
+    "en": "pianist",
+    "pos": "n.",
+    "zh": "钢琴家"
+  },
+  {
+    "en": "piano",
+    "pos": "n.",
+    "zh": "钢琴"
+  },
+  {
+    "en": "pick",
+    "pos": "v.",
+    "zh": "拾起，采集；挑选"
+  },
+  {
+    "en": "picnic",
+    "pos": "n.",
+    "zh": "& v. 野餐"
+  },
+  {
+    "en": "picture",
+    "pos": "n.",
+    "zh": "图片，画片，照片"
+  },
+  {
+    "en": "pie",
+    "pos": "n.",
+    "zh": "甜馅饼"
+  },
+  {
+    "en": "piece",
+    "pos": "n.",
+    "zh": "一块（片，张，件…）"
+  },
+  {
+    "en": "pig",
+    "pos": "n.",
+    "zh": "猪"
+  },
+  {
+    "en": "pile",
+    "pos": "n.",
+    "zh": "/v. 堆"
+  },
+  {
+    "en": "pill",
+    "pos": "n.",
+    "zh": "药丸，药片"
+  },
+  {
+    "en": "pilot",
+    "pos": "n.",
+    "zh": "飞行员"
+  },
+  {
+    "en": "ping-pong",
+    "pos": "n.",
+    "zh": "乒乓球"
+  },
+  {
+    "en": "pink",
+    "pos": "a.",
+    "zh": "粉红色的"
+  },
+  {
+    "en": "pioneer",
+    "pos": "n.",
+    "zh": "先锋，开拓者"
+  },
+  {
+    "en": "pity",
+    "pos": "n.",
+    "zh": "怜悯，同情"
+  },
+  {
+    "en": "place",
+    "pos": "n.",
+    "zh": "地方，处所 v. 放置，安置，安排"
+  },
+  {
+    "en": "plan",
+    "pos": "n.",
+    "zh": "& v. 计划，打算"
+  },
+  {
+    "en": "plane",
+    "pos": "n.",
+    "zh": "飞机"
+  },
+  {
+    "en": "planet",
+    "pos": "n.",
+    "zh": "行星"
+  },
+  {
+    "en": "plant",
+    "pos": "vt.",
+    "zh": "种植，播种 n. 植物"
+  },
+  {
+    "en": "plastic",
+    "pos": "a.",
+    "zh": "塑料的"
+  },
+  {
+    "en": "plate",
+    "pos": "n.",
+    "zh": "板；片；牌；盘子；盆子"
+  },
+  {
+    "en": "play",
+    "pos": "v.",
+    "zh": "玩；打（球）；游戏；播放 n. 玩耍，戏剧"
+  },
+  {
+    "en": "player",
+    "pos": "n.",
+    "zh": "比赛者，选手"
+  },
+  {
+    "en": "playground",
+    "pos": "n.",
+    "zh": "操场，运动场"
+  },
+  {
+    "en": "pleasant",
+    "pos": "a.",
+    "zh": "令人愉快的，舒适的"
+  },
+  {
+    "en": "please",
+    "pos": "v.",
+    "zh": "请,使人高兴,使人满意"
+  },
+  {
+    "en": "pleased",
+    "pos": "a.",
+    "zh": "高兴的"
+  },
+  {
+    "en": "pleasure",
+    "pos": "n.",
+    "zh": "高兴，愉快"
+  },
+  {
+    "en": "plenty",
+    "pos": "n.",
+    "zh": "充足，大量"
+  },
+  {
+    "en": "plus",
+    "pos": "prep.",
+    "zh": "加，加上"
+  },
+  {
+    "en": "p.m./pm, P.M. /PM [piːem]",
+    "pos": "n.",
+    "zh": "下午,午后"
+  },
+  {
+    "en": "pocket",
+    "pos": "n.",
+    "zh": "（衣服的）口袋"
+  },
+  {
+    "en": "point",
+    "pos": "v.",
+    "zh": "指，指向 n. 点；分数"
+  },
+  {
+    "en": "police",
+    "pos": "n.",
+    "zh": "警察，警务人员"
+  },
+  {
+    "en": "policeman (复-men) [pəˈliːsmən]",
+    "pos": "n.",
+    "zh": "警察,巡警 policewoman ( -women) n. 女警察"
+  },
+  {
+    "en": "polite",
+    "pos": "a.",
+    "zh": "有礼貌的,有教养的"
+  },
+  {
+    "en": "politics",
+    "pos": "n.",
+    "zh": "政治"
+  },
+  {
+    "en": "pollute",
+    "pos": "vt.",
+    "zh": "污染"
+  },
+  {
+    "en": "pool",
+    "pos": "n.",
+    "zh": "水塘，水池"
+  },
+  {
+    "en": "poor",
+    "pos": "a.",
+    "zh": "贫穷；可怜；不好的,差的"
+  },
+  {
+    "en": "pop = popular [pɔp]",
+    "pos": "a.",
+    "zh": "(口语) （音乐、艺术等）大众的，通俗的"
+  },
+  {
+    "en": "popular",
+    "pos": "a.",
+    "zh": "流行,大众,受欢迎的"
+  },
+  {
+    "en": "population",
+    "pos": "n.",
+    "zh": "人口，人数"
+  },
+  {
+    "en": "pork",
+    "pos": "n.",
+    "zh": "猪肉"
+  },
+  {
+    "en": "porridge",
+    "pos": "n.",
+    "zh": "稀饭，粥"
+  },
+  {
+    "en": "port",
+    "pos": "n.",
+    "zh": "港口，码头"
+  },
+  {
+    "en": "possible",
+    "pos": "a.",
+    "zh": "可能的"
+  },
+  {
+    "en": "post",
+    "pos": "n.",
+    "zh": "邮政，邮寄，邮件 v. 投寄；邮寄"
+  },
+  {
+    "en": "postage",
+    "pos": "n.",
+    "zh": "邮费"
+  },
+  {
+    "en": "postbox",
+    "pos": "n.",
+    "zh": "邮箱"
+  },
+  {
+    "en": "postcard",
+    "pos": "n.",
+    "zh": "明信片"
+  },
+  {
+    "en": "postcode",
+    "pos": "n.",
+    "zh": "（英）邮政编码"
+  },
+  {
+    "en": "postman",
+    "pos": "n.",
+    "zh": "邮递员"
+  },
+  {
+    "en": "potato",
+    "pos": "n.",
+    "zh": "土豆，马铃薯"
+  },
+  {
+    "en": "potential",
+    "pos": "a.",
+    "zh": "潜在的，可能的"
+  },
+  {
+    "en": "pound",
+    "pos": "n.",
+    "zh": "磅；英镑"
+  },
+  {
+    "en": "pour",
+    "pos": "vi.",
+    "zh": "倾泻，不断流出"
+  },
+  {
+    "en": "practice(s)e",
+    "pos": "n.",
+    "zh": "练习"
+  },
+  {
+    "en": "praise [preɪz] n.&",
+    "pos": "vt.",
+    "zh": "赞扬，表扬"
+  },
+  {
+    "en": "prefer",
+    "pos": "vt.",
+    "zh": "宁愿（选择）,更喜欢"
+  },
+  {
+    "en": "prepare",
+    "pos": "vt.",
+    "zh": "准备,预备,调制,配制"
+  },
+  {
+    "en": "present",
+    "pos": "a.",
+    "zh": "出现的，出席的 n. 礼物，赠品 vt. 呈奉，奉送"
+  },
+  {
+    "en": "press",
+    "pos": "vt.",
+    "zh": "压,按 n. 新闻界,出版社"
+  },
+  {
+    "en": "pretty",
+    "pos": "a.",
+    "zh": "漂亮的，俊俏的"
+  },
+  {
+    "en": "prevent",
+    "pos": "vt.",
+    "zh": "防止, 预防"
+  },
+  {
+    "en": "price",
+    "pos": "n.",
+    "zh": "价格，价钱"
+  },
+  {
+    "en": "pride",
+    "pos": "n.",
+    "zh": "自豪，骄傲"
+  },
+  {
+    "en": "print",
+    "pos": "vt.",
+    "zh": "印刷"
+  },
+  {
+    "en": "prize",
+    "pos": "n.",
+    "zh": "奖赏，奖品"
+  },
+  {
+    "en": "probable",
+    "pos": "a.",
+    "zh": "很可能,很有希望的"
+  },
+  {
+    "en": "probably",
+    "pos": "ad.",
+    "zh": "很可能，大概"
+  },
+  {
+    "en": "problem",
+    "pos": "n.",
+    "zh": "问题，难题"
+  },
+  {
+    "en": "produce",
+    "pos": "vt.",
+    "zh": "生产；制造"
+  },
+  {
+    "en": "professor",
+    "pos": "n.",
+    "zh": "教授"
+  },
+  {
+    "en": "programme (美program) [ˈprəʊɡræm]",
+    "pos": "n.",
+    "zh": "节目；项目"
+  },
+  {
+    "en": "progress",
+    "pos": "n.",
+    "zh": "进步,上进 vi. 进展,进行"
+  },
+  {
+    "en": "promise",
+    "pos": "n.",
+    "zh": "& vi. 答应，允诺"
+  },
+  {
+    "en": "pronounce",
+    "pos": "vt.",
+    "zh": "发音"
+  },
+  {
+    "en": "pronunciation",
+    "pos": "n.",
+    "zh": "发音"
+  },
+  {
+    "en": "proper",
+    "pos": "a.",
+    "zh": "恰当的，合适的"
+  },
+  {
+    "en": "protect",
+    "pos": "vt.",
+    "zh": "保护"
+  },
+  {
+    "en": "proud",
+    "pos": "a.",
+    "zh": "自豪的；骄傲的"
+  },
+  {
+    "en": "provide",
+    "pos": "vt.",
+    "zh": "提供"
+  },
+  {
+    "en": "province",
+    "pos": "n.",
+    "zh": "省"
+  },
+  {
+    "en": "public",
+    "pos": "a.",
+    "zh": "公共,公众的 n. 公众"
+  },
+  {
+    "en": "pull [pʊl] 拉，拖",
+    "pos": "n.",
+    "zh": "拉力，引力"
+  },
+  {
+    "en": "pupil",
+    "pos": "n.",
+    "zh": "（小）学生"
+  },
+  {
+    "en": "purple",
+    "pos": "n.",
+    "zh": "/ a. 紫色"
+  },
+  {
+    "en": "purse",
+    "pos": "n.",
+    "zh": "钱包"
+  },
+  {
+    "en": "push",
+    "pos": "n.",
+    "zh": "& v. 推"
+  },
+  {
+    "en": "put (put, put) [pʊt]",
+    "pos": "vt.",
+    "zh": "放，摆"
+  },
+  {
+    "en": "pyramid",
+    "pos": "n.",
+    "zh": "(古埃及)金字塔"
+  },
+  {
+    "en": "quarrel",
+    "pos": "vi.",
+    "zh": "争吵，吵架"
+  },
+  {
+    "en": "quarter",
+    "pos": "n.",
+    "zh": "四分之一，一刻钟"
+  },
+  {
+    "en": "queen",
+    "pos": "n.",
+    "zh": "皇后，女王"
+  },
+  {
+    "en": "question",
+    "pos": "vt.",
+    "zh": "询问 n. 问题"
+  },
+  {
+    "en": "queue",
+    "pos": "n.",
+    "zh": "行列，长队"
+  },
+  {
+    "en": "quick",
+    "pos": "a.",
+    "zh": "快；敏捷的；急剧的"
+  },
+  {
+    "en": "quiet",
+    "pos": "a.",
+    "zh": "安静的；寂静的"
+  },
+  {
+    "en": "quilt",
+    "pos": "n.",
+    "zh": "被子；被状物"
+  },
+  {
+    "en": "quit",
+    "pos": "v.",
+    "zh": "离任，离校，戒掉"
+  },
+  {
+    "en": "quite",
+    "pos": "ad.",
+    "zh": "完全，十分"
+  },
+  {
+    "en": "quiz",
+    "pos": "n.",
+    "zh": "测验，小型考试"
+  },
+  {
+    "en": "rabbit",
+    "pos": "n.",
+    "zh": "兔，家兔"
+  },
+  {
+    "en": "race",
+    "pos": "n.",
+    "zh": "种族，民族 v.（速度）竞赛，比赛 n. 赛跑，竞赛"
+  },
+  {
+    "en": "radio",
+    "pos": "n.",
+    "zh": "无线电，收音机"
+  },
+  {
+    "en": "rail",
+    "pos": "n.",
+    "zh": "铁路"
+  },
+  {
+    "en": "railway",
+    "pos": "n.",
+    "zh": "铁路；铁道"
+  },
+  {
+    "en": "rain",
+    "pos": "n.",
+    "zh": "雨，雨水 vi. 下雨"
+  },
+  {
+    "en": "raincoat",
+    "pos": "n.",
+    "zh": "雨衣"
+  },
+  {
+    "en": "rainy",
+    "pos": "a.",
+    "zh": "下雨的；多雨的"
+  },
+  {
+    "en": "raise",
+    "pos": "vt.",
+    "zh": "使升高；饲养"
+  },
+  {
+    "en": "rat",
+    "pos": "n.",
+    "zh": "老鼠"
+  },
+  {
+    "en": "rather",
+    "pos": "ad.",
+    "zh": "相当，宁可"
+  },
+  {
+    "en": "reach",
+    "pos": "v.",
+    "zh": "到达,伸手(脚)够到"
+  },
+  {
+    "en": "read (read, read) [riːd]",
+    "pos": "v.",
+    "zh": "读；朗读"
+  },
+  {
+    "en": "ready",
+    "pos": "a.",
+    "zh": "准备好的"
+  },
+  {
+    "en": "real",
+    "pos": "a.",
+    "zh": "真实的，确实的"
+  },
+  {
+    "en": "realise (美realize) [ˈrɪəlaɪz]",
+    "pos": "vt.",
+    "zh": "认识到,实现"
+  },
+  {
+    "en": "really v",
+    "pos": "ad.",
+    "zh": "真正地；到底；确实"
+  },
+  {
+    "en": "reason",
+    "pos": "n.",
+    "zh": "理由,原因"
+  },
+  {
+    "en": "receive",
+    "pos": "v.",
+    "zh": "收到，得到"
+  },
+  {
+    "en": "recent",
+    "pos": "a.",
+    "zh": "近来的，最近的"
+  },
+  {
+    "en": "record",
+    "pos": "n.",
+    "zh": "记录；唱片"
+  },
+  {
+    "en": "recycle",
+    "pos": "vt.",
+    "zh": "回收；再循环"
+  },
+  {
+    "en": "red",
+    "pos": "n.",
+    "zh": "红色 a. 红色的"
+  },
+  {
+    "en": "refuse",
+    "pos": "vi.",
+    "zh": "拒绝，不愿"
+  },
+  {
+    "en": "regard",
+    "pos": "v.",
+    "zh": "把…看作"
+  },
+  {
+    "en": "regret",
+    "pos": "n.",
+    "zh": "/ vt. 可惜,遗憾;痛惜;哀悼"
+  },
+  {
+    "en": "regulation",
+    "pos": "n.",
+    "zh": "规则，规章"
+  },
+  {
+    "en": "relax",
+    "pos": "v.",
+    "zh": "（使）放松，轻松"
+  },
+  {
+    "en": "relay",
+    "pos": "n.",
+    "zh": "接力，接替人，中转 v. 接替，补充；转运"
+  },
+  {
+    "en": "remain",
+    "pos": "vt.",
+    "zh": "余下,留下 vi. 保持,仍是"
+  },
+  {
+    "en": "remember",
+    "pos": "v.",
+    "zh": "记得，想起"
+  },
+  {
+    "en": "rent",
+    "pos": "n.",
+    "zh": "& v. 租金"
+  },
+  {
+    "en": "repair",
+    "pos": "n.",
+    "zh": "& vt. 修理；修补"
+  },
+  {
+    "en": "repeat",
+    "pos": "vt.",
+    "zh": "重说，重做"
+  },
+  {
+    "en": "reply",
+    "pos": "n.",
+    "zh": "回答，答复"
+  },
+  {
+    "en": "report",
+    "pos": "n.",
+    "zh": "& v. 报道，报告"
+  },
+  {
+    "en": "research",
+    "pos": "n.",
+    "zh": "研究，调查"
+  },
+  {
+    "en": "rest",
+    "pos": "n.",
+    "zh": "休息；剩余的部分，其余的人（物） vi. 休息，歇息"
+  },
+  {
+    "en": "restaurant",
+    "pos": "n.",
+    "zh": "饭馆, 饭店"
+  },
+  {
+    "en": "result",
+    "pos": "n.",
+    "zh": "结果，效果"
+  },
+  {
+    "en": "return",
+    "pos": "v.",
+    "zh": "归还"
+  },
+  {
+    "en": "review",
+    "pos": "vt.",
+    "zh": "重新调查；回顾；复习 n. 复查；复习；评论"
+  },
+  {
+    "en": "rice",
+    "pos": "n.",
+    "zh": "稻米；米饭"
+  },
+  {
+    "en": "rich",
+    "pos": "a.",
+    "zh": "富裕的，有钱的"
+  },
+  {
+    "en": "riddle",
+    "pos": "n.",
+    "zh": "谜(语)"
+  },
+  {
+    "en": "ride (rode, ridden) [raɪd]",
+    "pos": "v.",
+    "zh": "骑（马、自行车）；乘车 n. 乘车旅行"
+  },
+  {
+    "en": "right",
+    "pos": "n.",
+    "zh": "权利 a. 对,正确的 ad. 正确地,恰恰,完全地 a. 右,右边的"
+  },
+  {
+    "en": "ring (rang, rung) [rɪŋ] v.（钟、铃等）响；打电话",
+    "pos": "n.",
+    "zh": "铃声 n. 环形物（如环、圈、戒指等）"
+  },
+  {
+    "en": "rise (rose, risen) [raɪz]",
+    "pos": "vi.",
+    "zh": "上升，上涨"
+  },
+  {
+    "en": "river",
+    "pos": "n.",
+    "zh": "江；河；水道；巨流"
+  },
+  {
+    "en": "road",
+    "pos": "n.",
+    "zh": "路，道路"
+  },
+  {
+    "en": "rob",
+    "pos": "v.",
+    "zh": "抢夺，抢劫"
+  },
+  {
+    "en": "robot",
+    "pos": "n.",
+    "zh": "机器人"
+  },
+  {
+    "en": "rock",
+    "pos": "n.",
+    "zh": "岩石,大石头 vt. 摇,摇晃"
+  },
+  {
+    "en": "room",
+    "pos": "n.",
+    "zh": "房间,室;空间;地方"
+  },
+  {
+    "en": "rose",
+    "pos": "n.",
+    "zh": "玫瑰花"
+  },
+  {
+    "en": "rough",
+    "pos": "a.",
+    "zh": "粗糙的，粗略的"
+  },
+  {
+    "en": "round",
+    "pos": "ad.",
+    "zh": "转过来 prep. 环绕一周，围着 a. 圆的；球形的"
+  },
+  {
+    "en": "row",
+    "pos": "n.",
+    "zh": "（一）排,（一）行 v. 划船"
+  },
+  {
+    "en": "rubber",
+    "pos": "n.",
+    "zh": "橡胶；合成橡胶"
+  },
+  {
+    "en": "rubbish",
+    "pos": "n.",
+    "zh": "垃圾；废物"
+  },
+  {
+    "en": "rude",
+    "pos": "a.",
+    "zh": "无理的, 粗鲁的"
+  },
+  {
+    "en": "rule",
+    "pos": "n.",
+    "zh": "规则,规定 vt. 统治,支配"
+  },
+  {
+    "en": "ruler",
+    "pos": "n.",
+    "zh": "统治者；直尺"
+  },
+  {
+    "en": "run (ran, run) [rʌn]",
+    "pos": "vi.",
+    "zh": "跑，奔跑；（颜色）褪色"
+  },
+  {
+    "en": "runner",
+    "pos": "n.",
+    "zh": "赛跑者；操作者；滑行装置"
+  },
+  {
+    "en": "rush",
+    "pos": "vi.",
+    "zh": "冲，奔跑"
+  },
+  {
+    "en": "Russia",
+    "pos": "n.",
+    "zh": "俄罗斯，俄国"
+  },
+  {
+    "en": "Russian",
+    "pos": "a.",
+    "zh": "俄国人的，俄语的 n. 俄国人，俄语"
+  },
+  {
+    "en": "sad",
+    "pos": "a.",
+    "zh": "（使人）悲伤的"
+  },
+  {
+    "en": "safe",
+    "pos": "a.",
+    "zh": "安全的 n. 保险柜"
+  },
+  {
+    "en": "safety",
+    "pos": "n.",
+    "zh": "安全，保险"
+  },
+  {
+    "en": "sail",
+    "pos": "n.",
+    "zh": "航行 v. 航行，开航"
+  },
+  {
+    "en": "salad",
+    "pos": "n.",
+    "zh": "色拉"
+  },
+  {
+    "en": "sale",
+    "pos": "n.",
+    "zh": "卖，出售"
+  },
+  {
+    "en": "salesgirl",
+    "pos": "n.",
+    "zh": "女售货员"
+  },
+  {
+    "en": "salesman",
+    "pos": "n.",
+    "zh": "男售货员"
+  },
+  {
+    "en": "saleswoman",
+    "pos": "n.",
+    "zh": "女售货员"
+  },
+  {
+    "en": "salt",
+    "pos": "n.",
+    "zh": "盐"
+  },
+  {
+    "en": "same",
+    "pos": "n.",
+    "zh": "同样的事 a. 同样的,同一"
+  },
+  {
+    "en": "sand",
+    "pos": "n.",
+    "zh": "沙，沙子"
+  },
+  {
+    "en": "sandwich",
+    "pos": "n.",
+    "zh": "三明治（夹心面包片）"
+  },
+  {
+    "en": "satellite",
+    "pos": "n.",
+    "zh": "卫星"
+  },
+  {
+    "en": "satisfaction",
+    "pos": "n.",
+    "zh": "满意"
+  },
+  {
+    "en": "satisfy",
+    "pos": "vt.",
+    "zh": "满足，使满意"
+  },
+  {
+    "en": "Saturday",
+    "pos": "n.",
+    "zh": "星期六"
+  },
+  {
+    "en": "save",
+    "pos": "vt.",
+    "zh": "救，挽救，节省"
+  },
+  {
+    "en": "say (said, said) [seɪ]",
+    "pos": "vt.",
+    "zh": "说，讲"
+  },
+  {
+    "en": "scenery",
+    "pos": "n.",
+    "zh": "风景，景色，风光"
+  },
+  {
+    "en": "school",
+    "pos": "n.",
+    "zh": "学校"
+  },
+  {
+    "en": "schoolbag",
+    "pos": "n.",
+    "zh": "书包"
+  },
+  {
+    "en": "schoolmate",
+    "pos": "n.",
+    "zh": "同校同学"
+  },
+  {
+    "en": "science",
+    "pos": "n.",
+    "zh": "科学，自然科学"
+  },
+  {
+    "en": "scientific",
+    "pos": "a.",
+    "zh": "科学的"
+  },
+  {
+    "en": "scientist",
+    "pos": "n.",
+    "zh": "科学家"
+  },
+  {
+    "en": "scissors",
+    "pos": "n.",
+    "zh": "剪刀，剪子"
+  },
+  {
+    "en": "score",
+    "pos": "n.",
+    "zh": "& v. 得分，分数,二十"
+  },
+  {
+    "en": "screen",
+    "pos": "n.",
+    "zh": "幕，荧光屏"
+  },
+  {
+    "en": "sea",
+    "pos": "n.",
+    "zh": "海，海洋"
+  },
+  {
+    "en": "seagull",
+    "pos": "n.",
+    "zh": "海鸥"
+  },
+  {
+    "en": "search",
+    "pos": "n.",
+    "zh": "& v. 搜寻，搜查"
+  },
+  {
+    "en": "season",
+    "pos": "n.",
+    "zh": "季；季节"
+  },
+  {
+    "en": "seat",
+    "pos": "n.",
+    "zh": "座位，座"
+  },
+  {
+    "en": "second",
+    "pos": "n.",
+    "zh": "秒 num. 第二 a. 第二的"
+  },
+  {
+    "en": "secondhand",
+    "pos": "n.",
+    "zh": "二手货; 旧货"
+  },
+  {
+    "en": "secret",
+    "pos": "n.",
+    "zh": "秘密，内情"
+  },
+  {
+    "en": "secretary",
+    "pos": "n.",
+    "zh": "秘书；书记"
+  },
+  {
+    "en": "see (saw, seen) [siː]",
+    "pos": "vt.",
+    "zh": "看见，看到；领会；拜会"
+  },
+  {
+    "en": "seem",
+    "pos": "v.",
+    "zh": "似乎，好像"
+  },
+  {
+    "en": "seldom",
+    "pos": "ad.",
+    "zh": "很少，不常"
+  },
+  {
+    "en": "sell (sold, sold) [sel]",
+    "pos": "v.",
+    "zh": "卖，售"
+  },
+  {
+    "en": "send (sent, sent) [send]",
+    "pos": "v.",
+    "zh": "打发，派遣；送，邮寄"
+  },
+  {
+    "en": "sentence",
+    "pos": "n.",
+    "zh": "句子"
+  },
+  {
+    "en": "separate",
+    "pos": "v.",
+    "zh": "使分开，使分离 a. 单独的，分开的"
+  },
+  {
+    "en": "September",
+    "pos": "n.",
+    "zh": "9月"
+  },
+  {
+    "en": "serious",
+    "pos": "a.",
+    "zh": "严肃的,严重的,认真的"
+  },
+  {
+    "en": "servant",
+    "pos": "n.",
+    "zh": "仆人，佣人"
+  },
+  {
+    "en": "serve",
+    "pos": "vt.",
+    "zh": "招待（顾客等）,服务"
+  },
+  {
+    "en": "set (set, set) [set]",
+    "pos": "vt.",
+    "zh": "释放，安置 n. 装备，设备"
+  },
+  {
+    "en": "seven",
+    "pos": "num.",
+    "zh": "七"
+  },
+  {
+    "en": "seventeen",
+    "pos": "num.",
+    "zh": "十七"
+  },
+  {
+    "en": "seventh",
+    "pos": "num.",
+    "zh": "第七"
+  },
+  {
+    "en": "seventy",
+    "pos": "num.",
+    "zh": "七十"
+  },
+  {
+    "en": "several",
+    "pos": "pron.",
+    "zh": "几个,数个 a. 若干"
+  },
+  {
+    "en": "severe",
+    "pos": "a.",
+    "zh": "极为恶劣,十分严重的"
+  },
+  {
+    "en": "shall (should)",
+    "pos": "v.",
+    "zh": "aux.（表示将来）将要，会；…好吗"
+  },
+  {
+    "en": "shape",
+    "pos": "n.",
+    "zh": "形状，外形 v. 使成型，制造，塑造"
+  },
+  {
+    "en": "share",
+    "pos": "vt.",
+    "zh": "分享，共同使用"
+  },
+  {
+    "en": "sharp",
+    "pos": "a.",
+    "zh": "锋利的，尖的"
+  },
+  {
+    "en": "sharpen",
+    "pos": "v.",
+    "zh": "（使）变锐利，削尖"
+  },
+  {
+    "en": "sharpener",
+    "pos": "n.",
+    "zh": "削尖用的器具"
+  },
+  {
+    "en": "she",
+    "pos": "pron.",
+    "zh": "她"
+  },
+  {
+    "en": "sheet",
+    "pos": "n.",
+    "zh": "成幅的薄片，薄板"
+  },
+  {
+    "en": "shelf (复 shelves) [ʃelf]",
+    "pos": "n.",
+    "zh": "架子；搁板；格层；礁；陆架"
+  },
+  {
+    "en": "shine",
+    "pos": "n.",
+    "zh": "光泽；光彩；阳光；晴天；光(亮)"
+  },
+  {
+    "en": "shine (shone, shone或-d, -d) [ʃaɪn]",
+    "pos": "v.",
+    "zh": "发光；照耀；杰出；擦亮"
+  },
+  {
+    "en": "ship",
+    "pos": "n.",
+    "zh": "船，轮船 vi. 用船装运"
+  },
+  {
+    "en": "shirt",
+    "pos": "n.",
+    "zh": "男衬衫"
+  },
+  {
+    "en": "shoe",
+    "pos": "n.",
+    "zh": "鞋"
+  },
+  {
+    "en": "shoot [ʃuːt] (shot, shot)",
+    "pos": "vt.",
+    "zh": "射击，射中，发射"
+  },
+  {
+    "en": "shop",
+    "pos": "vi.",
+    "zh": "买东西 n. 商店,车间"
+  },
+  {
+    "en": "shopping",
+    "pos": "n.",
+    "zh": "买东西"
+  },
+  {
+    "en": "shore",
+    "pos": "n.",
+    "zh": "滨，岸"
+  },
+  {
+    "en": "short",
+    "pos": "a.",
+    "zh": "短的；矮的"
+  },
+  {
+    "en": "shot",
+    "pos": "n.",
+    "zh": "射击，开枪，开炮，射击声；子弹"
+  },
+  {
+    "en": "should",
+    "pos": "v.",
+    "zh": "mod. 应当，应该，会 v. aux. 会,应该（shall的过去时态）"
+  },
+  {
+    "en": "shout",
+    "pos": "n.",
+    "zh": "& v. 喊，高声呼喊"
+  },
+  {
+    "en": "show",
+    "pos": "n.",
+    "zh": "展示,展览（会）;演出"
+  },
+  {
+    "en": "show [ʃəʊ] (showed, shown 或 showed)",
+    "pos": "v.",
+    "zh": "给…看,出示,显示"
+  },
+  {
+    "en": "shower",
+    "pos": "n.",
+    "zh": "阵雨；淋浴"
+  },
+  {
+    "en": "shut (shut, shut) [ʃʌt]",
+    "pos": "v.",
+    "zh": "/ n. 关上，封闭；禁闭；"
+  },
+  {
+    "en": "shy",
+    "pos": "a.",
+    "zh": "害羞的"
+  },
+  {
+    "en": "sick",
+    "pos": "a.",
+    "zh": "有病,患病的,（想）呕吐"
+  },
+  {
+    "en": "side",
+    "pos": "n.",
+    "zh": "边，旁边，面，侧面"
+  },
+  {
+    "en": "sign",
+    "pos": "n.",
+    "zh": "符号，标记"
+  },
+  {
+    "en": "silence",
+    "pos": "n.",
+    "zh": "安静，沉默"
+  },
+  {
+    "en": "silentˈsailənt]",
+    "pos": "a.",
+    "zh": "无声的，无对话的"
+  },
+  {
+    "en": "silk",
+    "pos": "n.",
+    "zh": "（蚕）丝，丝织品"
+  },
+  {
+    "en": "silly",
+    "pos": "a.",
+    "zh": "傻的，愚蠢的"
+  },
+  {
+    "en": "simple",
+    "pos": "a.",
+    "zh": "简单的，简易的"
+  },
+  {
+    "en": "since",
+    "pos": "ad.",
+    "zh": "从那时以来 conj. 从…以来，…以后，由于 prep. 从…以来"
+  },
+  {
+    "en": "sing (sang, sung) [siŋ]",
+    "pos": "v.",
+    "zh": "唱，唱歌"
+  },
+  {
+    "en": "singer",
+    "pos": "n.",
+    "zh": "歌唱家，歌手"
+  },
+  {
+    "en": "single",
+    "pos": "a.",
+    "zh": "单一的，单个的"
+  },
+  {
+    "en": "sink (sank, sunk) [siŋk]",
+    "pos": "vi.",
+    "zh": "下沉；消沉  n. 洗涤槽；污水槽"
+  },
+  {
+    "en": "sir",
+    "pos": "n.",
+    "zh": "先生；阁下"
+  },
+  {
+    "en": "sister",
+    "pos": "n.",
+    "zh": "姐；妹"
+  },
+  {
+    "en": "sit (sat, sat) [sɪt]",
+    "pos": "vi.",
+    "zh": "坐"
+  },
+  {
+    "en": "situation",
+    "pos": "n.",
+    "zh": "形势，情况"
+  },
+  {
+    "en": "six",
+    "pos": "num.",
+    "zh": "六"
+  },
+  {
+    "en": "sixth",
+    "pos": "num.",
+    "zh": "第六"
+  },
+  {
+    "en": "sixty",
+    "pos": "num.",
+    "zh": "六十"
+  },
+  {
+    "en": "sixteen",
+    "pos": "num.",
+    "zh": "十六"
+  },
+  {
+    "en": "sixteenth",
+    "pos": "num.",
+    "zh": "第十六"
+  },
+  {
+    "en": "size",
+    "pos": "n.",
+    "zh": "尺寸，大小"
+  },
+  {
+    "en": "skate",
+    "pos": "vi.",
+    "zh": "溜冰，滑冰"
+  },
+  {
+    "en": "skateboard",
+    "pos": "n.",
+    "zh": "冰鞋，滑板"
+  },
+  {
+    "en": "ski",
+    "pos": "n.",
+    "zh": "& vi. 滑雪板；滑雪"
+  },
+  {
+    "en": "skirt",
+    "pos": "n.",
+    "zh": "女裙"
+  },
+  {
+    "en": "sky",
+    "pos": "n.",
+    "zh": "天；天空"
+  },
+  {
+    "en": "sleep (slept, slept) [sliːp]",
+    "pos": "vi.",
+    "zh": "睡觉"
+  },
+  {
+    "en": "slow",
+    "pos": "ad.",
+    "zh": "慢慢地，缓慢地"
+  },
+  {
+    "en": "small",
+    "pos": "a.",
+    "zh": "小的，少的"
+  },
+  {
+    "en": "smell (smelt, smelt / -ed,-ed) [smel]",
+    "pos": "v.",
+    "zh": "嗅，闻到；发气味 n. 气味"
+  },
+  {
+    "en": "smile",
+    "pos": "n.",
+    "zh": "& v. 微笑"
+  },
+  {
+    "en": "smoke",
+    "pos": "n.",
+    "zh": "烟 v. 冒烟；吸烟"
+  },
+  {
+    "en": "smoking",
+    "pos": "n.",
+    "zh": "吸烟,抽烟;冒烟"
+  },
+  {
+    "en": "snake",
+    "pos": "n.",
+    "zh": "蛇 v. 蛇般爬行;蜿蜒行进"
+  },
+  {
+    "en": "snow",
+    "pos": "n.",
+    "zh": "雪 vi.下雪"
+  },
+  {
+    "en": "so",
+    "pos": "ad.",
+    "zh": "如此，这么；非常；同样 conj. 因此，所以"
+  },
+  {
+    "en": "soap",
+    "pos": "n.",
+    "zh": "肥皂"
+  },
+  {
+    "en": "society",
+    "pos": "n.",
+    "zh": "社会"
+  },
+  {
+    "en": "sock",
+    "pos": "n.",
+    "zh": "短袜"
+  },
+  {
+    "en": "sofa",
+    "pos": "n.",
+    "zh": "（长）沙发"
+  },
+  {
+    "en": "soft",
+    "pos": "a.",
+    "zh": "软的，柔和的"
+  },
+  {
+    "en": "soil",
+    "pos": "n.",
+    "zh": "土壤，土地"
+  },
+  {
+    "en": "soldier",
+    "pos": "n.",
+    "zh": "士兵，战士"
+  },
+  {
+    "en": "some",
+    "pos": "a.",
+    "zh": "一些，若干；有些；某一 pron. 若干，一些"
+  },
+  {
+    "en": "somebody",
+    "pos": "pron.",
+    "zh": "某人；有人；有名气的人"
+  },
+  {
+    "en": "someone",
+    "pos": "pron.",
+    "zh": "某一个人"
+  },
+  {
+    "en": "something",
+    "pos": "pron.",
+    "zh": "某事；某物"
+  },
+  {
+    "en": "sometimes",
+    "pos": "ad.",
+    "zh": "有时"
+  },
+  {
+    "en": "somewhere",
+    "pos": "ad.",
+    "zh": "在某处"
+  },
+  {
+    "en": "son",
+    "pos": "n.",
+    "zh": "儿子"
+  },
+  {
+    "en": "song",
+    "pos": "n.",
+    "zh": "歌唱；歌曲"
+  },
+  {
+    "en": "soon",
+    "pos": "ad.",
+    "zh": "不久,很快,一会儿"
+  },
+  {
+    "en": "sorry",
+    "pos": "a.",
+    "zh": "对不起,抱歉;难过的"
+  },
+  {
+    "en": "so-so",
+    "pos": "a.",
+    "zh": "一般；不怎么样；凑合"
+  },
+  {
+    "en": "sound",
+    "pos": "vi.",
+    "zh": "听起来,发出声音 n. 声音"
+  },
+  {
+    "en": "soup",
+    "pos": "n.",
+    "zh": "汤"
+  },
+  {
+    "en": "sour",
+    "pos": "a.",
+    "zh": "酸的，馊的"
+  },
+  {
+    "en": "south",
+    "pos": "a.",
+    "zh": "南(方)的 ad. 在南方；向南方 n. 南；南方；南部"
+  },
+  {
+    "en": "southeast",
+    "pos": "n.",
+    "zh": "东南"
+  },
+  {
+    "en": "southern",
+    "pos": "a.",
+    "zh": "南部的，南方的"
+  },
+  {
+    "en": "southwest",
+    "pos": "n.",
+    "zh": "西南"
+  },
+  {
+    "en": "sow (sowed, sown或-ed) [səu]",
+    "pos": "vt.",
+    "zh": "播种"
+  },
+  {
+    "en": "space",
+    "pos": "n.",
+    "zh": "空间"
+  },
+  {
+    "en": "spaceship",
+    "pos": "n.",
+    "zh": "宇宙飞船"
+  },
+  {
+    "en": "Spanish",
+    "pos": "a.",
+    "zh": "西班牙人的，西班牙的，西班牙语的 n. 西班牙语"
+  },
+  {
+    "en": "speak (spoke, spoken) [ˈspiːk]",
+    "pos": "v.",
+    "zh": "说，讲；谈话；发言"
+  },
+  {
+    "en": "special",
+    "pos": "a.",
+    "zh": "特别的，专门的"
+  },
+  {
+    "en": "speech",
+    "pos": "n.",
+    "zh": "演讲"
+  },
+  {
+    "en": "speed",
+    "pos": "n.",
+    "zh": "速度 v.（使）加速"
+  },
+  {
+    "en": "spell",
+    "pos": "vt.",
+    "zh": "拼写"
+  },
+  {
+    "en": "spirit",
+    "pos": "n.",
+    "zh": "精神"
+  },
+  {
+    "en": "spit",
+    "pos": "v.",
+    "zh": "吐唾沫；吐痰"
+  },
+  {
+    "en": "splendid",
+    "pos": "a.",
+    "zh": "灿烂的，辉煌的；（口语）极好的"
+  },
+  {
+    "en": "spoon",
+    "pos": "n.",
+    "zh": "匙, 调羹"
+  },
+  {
+    "en": "sport",
+    "pos": "n.",
+    "zh": "体育运动，锻炼；(复，英)运动会"
+  },
+  {
+    "en": "spot",
+    "pos": "n.",
+    "zh": "斑点，污点；场所，地点 v. 沾上污渍，弄脏"
+  },
+  {
+    "en": "spring",
+    "pos": "n.",
+    "zh": "春天,春季 n. 泉水,泉"
+  },
+  {
+    "en": "square",
+    "pos": "n.",
+    "zh": "广场 a. 平方的；方形的，宽而结实的（体格，肩膀）"
+  },
+  {
+    "en": "stamp",
+    "pos": "n.",
+    "zh": "邮票"
+  },
+  {
+    "en": "stand",
+    "pos": "n.",
+    "zh": "站；立；停止；立场；地位；台；坛；摊"
+  },
+  {
+    "en": "stand (stood, stood) [stænd]",
+    "pos": "v.",
+    "zh": "站；立；起立；坐落；经受；持久"
+  },
+  {
+    "en": "star",
+    "pos": "n.",
+    "zh": "星，恒星"
+  },
+  {
+    "en": "start",
+    "pos": "v.",
+    "zh": "开始，着手；出发"
+  },
+  {
+    "en": "state",
+    "pos": "n.",
+    "zh": "状态；情形；国家，（美国的）州"
+  },
+  {
+    "en": "station",
+    "pos": "n.",
+    "zh": "站，所，车站；电台"
+  },
+  {
+    "en": "stay",
+    "pos": "n.",
+    "zh": "& vi. 停留，逗留，呆"
+  },
+  {
+    "en": "steal (stole, stolen)  [stiːl]",
+    "pos": "vt.",
+    "zh": "偷, 窃取"
+  },
+  {
+    "en": "steep",
+    "pos": "a.",
+    "zh": "险峻的；陡峭的"
+  },
+  {
+    "en": "step",
+    "pos": "n.",
+    "zh": "脚步,台阶,梯级 vi. 走,跨步"
+  },
+  {
+    "en": "stick (stuck, stuck) [stɪk]",
+    "pos": "vi.",
+    "zh": "粘住，钉住；坚持 n. 木棒（棍）,枝条"
+  },
+  {
+    "en": "still",
+    "pos": "a.",
+    "zh": "不动的,平静的 ad. 仍然,还"
+  },
+  {
+    "en": "stocking",
+    "pos": "n.",
+    "zh": "长统袜"
+  },
+  {
+    "en": "stomach",
+    "pos": "n.",
+    "zh": "胃，胃部"
+  },
+  {
+    "en": "stomachache",
+    "pos": "n.",
+    "zh": "胃疼"
+  },
+  {
+    "en": "stone",
+    "pos": "n.",
+    "zh": "石头，石料"
+  },
+  {
+    "en": "stop",
+    "pos": "n.",
+    "zh": "停；（停车）站 v. 停，停止，阻止"
+  },
+  {
+    "en": "store",
+    "pos": "n.",
+    "zh": "商店 vt. 储藏，存储"
+  },
+  {
+    "en": "storm",
+    "pos": "n.",
+    "zh": "风暴，暴（风）雨"
+  },
+  {
+    "en": "story",
+    "pos": "n.",
+    "zh": "故事，小说"
+  },
+  {
+    "en": "straight",
+    "pos": "a.",
+    "zh": "一直的，直的 ad. 一直地，直地"
+  },
+  {
+    "en": "strange",
+    "pos": "a.",
+    "zh": "奇怪,奇特的,陌生的"
+  },
+  {
+    "en": "street",
+    "pos": "n.",
+    "zh": "街，街道"
+  },
+  {
+    "en": "strict",
+    "pos": "a.",
+    "zh": "严格的，严密的"
+  },
+  {
+    "en": "strong",
+    "pos": "a.",
+    "zh": "强(壮)的；坚固的；强烈的；坚强的"
+  },
+  {
+    "en": "student",
+    "pos": "n.",
+    "zh": "学生"
+  },
+  {
+    "en": "study",
+    "pos": "v.",
+    "zh": "学习；研究 n. 书房"
+  },
+  {
+    "en": "stupid",
+    "pos": "a.",
+    "zh": "愚蠢的，笨的"
+  },
+  {
+    "en": "subject",
+    "pos": "n.",
+    "zh": "题目；主题；学科；主语；主体"
+  },
+  {
+    "en": "succeed",
+    "pos": "vi.",
+    "zh": "成功"
+  },
+  {
+    "en": "success",
+    "pos": "n.",
+    "zh": "成功"
+  },
+  {
+    "en": "successful",
+    "pos": "a.",
+    "zh": "成功的,有成就的"
+  },
+  {
+    "en": "such [sʌtʃ]]",
+    "pos": "ad.",
+    "zh": "那么 pron.（泛指）人，事物 a. 这样的，那样的"
+  },
+  {
+    "en": "sudden",
+    "pos": "a.",
+    "zh": "突然的"
+  },
+  {
+    "en": "sugar",
+    "pos": "n.",
+    "zh": "糖"
+  },
+  {
+    "en": "suggest",
+    "pos": "vt.",
+    "zh": "建议，提议"
+  },
+  {
+    "en": "suggestion",
+    "pos": "n.",
+    "zh": "建议"
+  },
+  {
+    "en": "suit",
+    "pos": "vt.",
+    "zh": "适合 n. 一套（衣服）"
+  },
+  {
+    "en": "summer",
+    "pos": "n.",
+    "zh": "夏天，夏季"
+  },
+  {
+    "en": "sun",
+    "pos": "n.",
+    "zh": "太阳，阳光"
+  },
+  {
+    "en": "Sunday",
+    "pos": "n.",
+    "zh": "星期日"
+  },
+  {
+    "en": "sunglasses",
+    "pos": "n.",
+    "zh": "太阳眼镜，墨镜"
+  },
+  {
+    "en": "sunlight",
+    "pos": "n.",
+    "zh": "日光，阳光"
+  },
+  {
+    "en": "sunny",
+    "pos": "a.",
+    "zh": "晴朗的;阳光充足的"
+  },
+  {
+    "en": "sunrise",
+    "pos": "n.",
+    "zh": "黎明，拂晓"
+  },
+  {
+    "en": "sunset",
+    "pos": "n.",
+    "zh": "日落(时分)"
+  },
+  {
+    "en": "sunshine",
+    "pos": "n.",
+    "zh": "阳光"
+  },
+  {
+    "en": "super",
+    "pos": "a.",
+    "zh": "顶好的，超级的"
+  },
+  {
+    "en": "supermarket",
+    "pos": "n.",
+    "zh": "超级市场"
+  },
+  {
+    "en": "supper",
+    "pos": "n.",
+    "zh": "晚餐，晚饭"
+  },
+  {
+    "en": "supply",
+    "pos": "vt.",
+    "zh": "& n. 供给，供应"
+  },
+  {
+    "en": "suppose",
+    "pos": "vt.",
+    "zh": "猜想,假定,料想"
+  },
+  {
+    "en": "sure",
+    "pos": "a.",
+    "zh": "确信，肯定 ad. (口语)的确，一定，当然"
+  },
+  {
+    "en": "surf",
+    "pos": "v.",
+    "zh": "冲浪"
+  },
+  {
+    "en": "surprise",
+    "pos": "vt.",
+    "zh": "使惊奇,使诧异 n. 惊奇,诧异"
+  },
+  {
+    "en": "sweater",
+    "pos": "n.",
+    "zh": "厚运动衫，毛衣"
+  },
+  {
+    "en": "sweep(swept,swept) [swiːp]",
+    "pos": "v.",
+    "zh": "扫除，扫"
+  },
+  {
+    "en": "sweet",
+    "pos": "n.",
+    "zh": "甜食;蜜饯;甜点;糖果;芳香 a. 甜的;可爱的;亲切的"
+  },
+  {
+    "en": "swim (swam, swum) [swɪm]",
+    "pos": "vi.",
+    "zh": "游泳,游 n. 游泳，游"
+  },
+  {
+    "en": "swimming",
+    "pos": "n.",
+    "zh": "游泳"
+  },
+  {
+    "en": "swimming pool",
+    "pos": "n.",
+    "zh": "游泳池"
+  },
+  {
+    "en": "swing",
+    "pos": "vt.",
+    "zh": "挥舞，摆动 n. 秋千"
+  },
+  {
+    "en": "table",
+    "pos": "n.",
+    "zh": "桌子，表格"
+  },
+  {
+    "en": "tail",
+    "pos": "n.",
+    "zh": "(动物的)尾巴"
+  },
+  {
+    "en": "tailor",
+    "pos": "n.",
+    "zh": "裁缝"
+  },
+  {
+    "en": "take (took, taken)  [teɪk]",
+    "pos": "vt.",
+    "zh": "拿；拿走；做；服用；乘坐；花费"
+  },
+  {
+    "en": "tale",
+    "pos": "n.",
+    "zh": "故事, 传说"
+  },
+  {
+    "en": "talk",
+    "pos": "n.",
+    "zh": "& v. 谈话,讲话,演讲,交谈"
+  },
+  {
+    "en": "tall",
+    "pos": "a.",
+    "zh": "高的"
+  },
+  {
+    "en": "tape",
+    "pos": "n.",
+    "zh": "磁带；录音带"
+  },
+  {
+    "en": "task",
+    "pos": "n.",
+    "zh": "任务, 工作"
+  },
+  {
+    "en": "taste",
+    "pos": "n.",
+    "zh": "品尝, 尝味；味道 vt. 品尝, 尝味"
+  },
+  {
+    "en": "taxi",
+    "pos": "n.",
+    "zh": "出租汽车"
+  },
+  {
+    "en": "tea",
+    "pos": "n.",
+    "zh": "茶；茶叶 "
+  },
+  {
+    "en": "teach(taught,taught) [tiː tʃ]",
+    "pos": "v.",
+    "zh": "教书,教"
+  },
+  {
+    "en": "teacher",
+    "pos": "n.",
+    "zh": "教师，教员"
+  },
+  {
+    "en": "team",
+    "pos": "n.",
+    "zh": "队，组"
+  },
+  {
+    "en": "teamwork",
+    "pos": "n.",
+    "zh": "合作，协同工作"
+  },
+  {
+    "en": "teapot",
+    "pos": "n.",
+    "zh": "茶壶"
+  },
+  {
+    "en": "tear",
+    "pos": "n.",
+    "zh": "眼泪 v. 扯破, 撕开"
+  },
+  {
+    "en": "technology",
+    "pos": "n.",
+    "zh": "技术"
+  },
+  {
+    "en": "teenager",
+    "pos": "n.",
+    "zh": "（13～19岁的）青少年，十几岁的少年"
+  },
+  {
+    "en": "telegram",
+    "pos": "n.",
+    "zh": "电报"
+  },
+  {
+    "en": "telegraph",
+    "pos": "v.",
+    "zh": "(拍) 电报"
+  },
+  {
+    "en": "telephone",
+    "pos": "v.",
+    "zh": "打电话 n. 电话"
+  },
+  {
+    "en": "television",
+    "pos": "n.",
+    "zh": "电视"
+  },
+  {
+    "en": "tell (told, told) [tel]",
+    "pos": "vt.",
+    "zh": "告诉,讲述,吩咐"
+  },
+  {
+    "en": "temperature",
+    "pos": "n.",
+    "zh": "温度"
+  },
+  {
+    "en": "ten",
+    "pos": "num.",
+    "zh": "十"
+  },
+  {
+    "en": "tent",
+    "pos": "n.",
+    "zh": "帐篷"
+  },
+  {
+    "en": "term",
+    "pos": "n.",
+    "zh": "学期;术语;条款;项"
+  },
+  {
+    "en": "terrible",
+    "pos": "a.",
+    "zh": "可怕的；糟糕的"
+  },
+  {
+    "en": "terrify",
+    "pos": "vt.",
+    "zh": "使人感到恐怖"
+  },
+  {
+    "en": "test",
+    "pos": "vt.",
+    "zh": "& n. 测试, 考查，试验"
+  },
+  {
+    "en": "text",
+    "pos": "n.",
+    "zh": "文本，课文"
+  },
+  {
+    "en": "textbook",
+    "pos": "n.",
+    "zh": "课本，教科书"
+  },
+  {
+    "en": "than",
+    "pos": "conj.",
+    "zh": "比"
+  },
+  {
+    "en": "thank",
+    "pos": "vt.",
+    "zh": "感谢，致谢，道谢 n.（复）感谢，谢意"
+  },
+  {
+    "en": "thankful",
+    "pos": "a.",
+    "zh": "感谢的，感激的"
+  },
+  {
+    "en": "that",
+    "pos": "a.",
+    "zh": "& pron.那，那个 conj. 那，那个 ad. 那么，那样"
+  },
+  {
+    "en": "the",
+    "pos": "art.",
+    "zh": "这（那）个,这（那）些"
+  },
+  {
+    "en": "theatre (美theater) ['θiətə]",
+    "pos": "n.",
+    "zh": "剧场，戏院"
+  },
+  {
+    "en": "their",
+    "pos": "pron.",
+    "zh": "他(她,它)们的"
+  },
+  {
+    "en": "theirs",
+    "pos": "pron.",
+    "zh": "他（她,它）们的"
+  },
+  {
+    "en": "them",
+    "pos": "pron.",
+    "zh": "他/她/它们（宾格）"
+  },
+  {
+    "en": "themselves",
+    "pos": "pron.",
+    "zh": "他/她/它们自己"
+  },
+  {
+    "en": "then",
+    "pos": "ad.",
+    "zh": "当时,那时,然后,那么"
+  },
+  {
+    "en": "there",
+    "pos": "int.",
+    "zh": "那!你瞧! n. 那里,那儿 ad. 在那里,往那里"
+  },
+  {
+    "en": "these",
+    "pos": "a.",
+    "zh": "& pron. 这些"
+  },
+  {
+    "en": "they",
+    "pos": "pron.",
+    "zh": "他（她）们；它们"
+  },
+  {
+    "en": "thick",
+    "pos": "a.",
+    "zh": "厚的"
+  },
+  {
+    "en": "thief (复thieves) [θiːf]",
+    "pos": "n.",
+    "zh": "窃贼, 小偷"
+  },
+  {
+    "en": "thin",
+    "pos": "a.",
+    "zh": "薄的；瘦的；稀的"
+  },
+  {
+    "en": "thing",
+    "pos": "n.",
+    "zh": "东西；(复)物品，用品；事情，事件"
+  },
+  {
+    "en": "think (thought, thought) [θɪŋk]",
+    "pos": "v.",
+    "zh": "想；认为；考虑"
+  },
+  {
+    "en": "third",
+    "pos": "num.",
+    "zh": "第三"
+  },
+  {
+    "en": "thirst",
+    "pos": "n.",
+    "zh": "渴；口渴"
+  },
+  {
+    "en": "thirsty",
+    "pos": "a.",
+    "zh": "渴"
+  },
+  {
+    "en": "thirteen",
+    "pos": "num.",
+    "zh": "十三"
+  },
+  {
+    "en": "thirty",
+    "pos": "num.",
+    "zh": "三十"
+  },
+  {
+    "en": "this",
+    "pos": "a.",
+    "zh": "& pron.这，这个"
+  },
+  {
+    "en": "those",
+    "pos": "a.",
+    "zh": "& pron. 那些"
+  },
+  {
+    "en": "though",
+    "pos": "conj.",
+    "zh": "虽然，可是"
+  },
+  {
+    "en": "thought",
+    "pos": "n.",
+    "zh": "思考,思想;念头"
+  },
+  {
+    "en": "thousand",
+    "pos": "num.",
+    "zh": "千"
+  },
+  {
+    "en": "three",
+    "pos": "num.",
+    "zh": "三"
+  },
+  {
+    "en": "through",
+    "pos": "prep.",
+    "zh": "穿（通）过;从始至终 ad. 穿(通)过;自始至终,全部"
+  },
+  {
+    "en": "throw(threw,thrown) [θrəʊ]",
+    "pos": "v.",
+    "zh": "投,掷,扔"
+  },
+  {
+    "en": "Thursday",
+    "pos": "n.",
+    "zh": "星期四"
+  },
+  {
+    "en": "thus",
+    "pos": "ad.",
+    "zh": "这样；因而"
+  },
+  {
+    "en": "tick",
+    "pos": "vt.",
+    "zh": "作记号 n. 记号,符号,滴答声"
+  },
+  {
+    "en": "ticket",
+    "pos": "n.",
+    "zh": "票；卷"
+  },
+  {
+    "en": "tidy",
+    "pos": "a.",
+    "zh": "整洁的，干净的 vt. 弄整洁，弄干净"
+  },
+  {
+    "en": "tie",
+    "pos": "vt.",
+    "zh": "（用绳，线）系，拴，扎 n. 领带，绳子，结；关系"
+  },
+  {
+    "en": "tiger",
+    "pos": "n.",
+    "zh": "老虎"
+  },
+  {
+    "en": "till",
+    "pos": "conj.",
+    "zh": "& prep. 直到,直到…为止"
+  },
+  {
+    "en": "time",
+    "pos": "n.",
+    "zh": "时间;时期;钟点,次,回 vt. 测定…的时间,记录…的时间"
+  },
+  {
+    "en": "tire",
+    "pos": "vi.",
+    "zh": "使疲劳"
+  },
+  {
+    "en": "tired",
+    "pos": "a.",
+    "zh": "疲劳的，累的"
+  },
+  {
+    "en": "to",
+    "pos": "prep.",
+    "zh": "给；对，向，到"
+  },
+  {
+    "en": "today",
+    "pos": "ad.",
+    "zh": "& n. 今天;现在,当前"
+  },
+  {
+    "en": "together",
+    "pos": "ad.",
+    "zh": "一起，共同"
+  },
+  {
+    "en": "toilet",
+    "pos": "n.",
+    "zh": "厕所"
+  },
+  {
+    "en": "Tokyo",
+    "pos": "n.",
+    "zh": "东京"
+  },
+  {
+    "en": "tomato",
+    "pos": "n.",
+    "zh": "西红柿，番茄"
+  },
+  {
+    "en": "tomb",
+    "pos": "n.",
+    "zh": "坟墓"
+  },
+  {
+    "en": "tomorrow",
+    "pos": "ad.",
+    "zh": "& n. 明天"
+  },
+  {
+    "en": "ton",
+    "pos": "n.",
+    "zh": "（重量单位）吨"
+  },
+  {
+    "en": "tongue",
+    "pos": "n.",
+    "zh": "舌，舌头"
+  },
+  {
+    "en": "tonight",
+    "pos": "ad.",
+    "zh": "& n. 今晚，今夜"
+  },
+  {
+    "en": "too",
+    "pos": "ad.",
+    "zh": "也,还,又,太,非常"
+  },
+  {
+    "en": "tool",
+    "pos": "n.",
+    "zh": "工具，器具"
+  },
+  {
+    "en": "tooth (复 teeth) [tuːθ]",
+    "pos": "n.",
+    "zh": "牙齿"
+  },
+  {
+    "en": "toothache",
+    "pos": "n.",
+    "zh": "牙痛"
+  },
+  {
+    "en": "toothbrush",
+    "pos": "n.",
+    "zh": "牙刷"
+  },
+  {
+    "en": "toothpaste",
+    "pos": "n.",
+    "zh": "牙膏"
+  },
+  {
+    "en": "top",
+    "pos": "n.",
+    "zh": "顶部,（物体的）上面"
+  },
+  {
+    "en": "total",
+    "pos": "a.",
+    "zh": "总数的;完全的 n./ v. 合计,总计"
+  },
+  {
+    "en": "touch",
+    "pos": "vt.",
+    "zh": "触摸，接触"
+  },
+  {
+    "en": "tough",
+    "pos": "a.",
+    "zh": "坚硬的；结实的；棘手的，难解的"
+  },
+  {
+    "en": "tour",
+    "pos": "n.",
+    "zh": "参观, 观光, 旅行"
+  },
+  {
+    "en": "tourism",
+    "pos": "n.",
+    "zh": "旅游业；观光"
+  },
+  {
+    "en": "tourist",
+    "pos": "vn.",
+    "zh": "旅行者，观光者"
+  },
+  {
+    "en": "toward(s)",
+    "pos": "prep.",
+    "zh": "向，朝，对于"
+  },
+  {
+    "en": "towel",
+    "pos": "n.",
+    "zh": "毛巾"
+  },
+  {
+    "en": "tower",
+    "pos": "n.",
+    "zh": "塔"
+  },
+  {
+    "en": "town",
+    "pos": "n.",
+    "zh": "城镇，城"
+  },
+  {
+    "en": "toy",
+    "pos": "n.",
+    "zh": "玩具, 玩物"
+  },
+  {
+    "en": "track",
+    "pos": "n.",
+    "zh": "轨道；田径"
+  },
+  {
+    "en": "tractor",
+    "pos": "n.",
+    "zh": "拖拉机"
+  },
+  {
+    "en": "trade",
+    "pos": "n.",
+    "zh": "商业,贸易 vt. 交易"
+  },
+  {
+    "en": "tradition",
+    "pos": "n.",
+    "zh": "传统，风俗"
+  },
+  {
+    "en": "traditional",
+    "pos": "a.",
+    "zh": "传统的，风俗的，惯例的"
+  },
+  {
+    "en": "traffic",
+    "pos": "n.",
+    "zh": "交通，来往车辆"
+  },
+  {
+    "en": "train",
+    "pos": "n.",
+    "zh": "火车 v. 培训,训练"
+  },
+  {
+    "en": "trainer",
+    "pos": "n.",
+    "zh": "训练人；教练"
+  },
+  {
+    "en": "training",
+    "pos": "n.",
+    "zh": "培训"
+  },
+  {
+    "en": "translate",
+    "pos": "vt.",
+    "zh": "翻译"
+  },
+  {
+    "en": "trap",
+    "pos": "n.",
+    "zh": "陷阱 vt. 使陷入困境"
+  },
+  {
+    "en": "travel",
+    "pos": "n.",
+    "zh": "& vi. 旅行"
+  },
+  {
+    "en": "traveler",
+    "pos": "n.",
+    "zh": "旅行者"
+  },
+  {
+    "en": "treat",
+    "pos": "vt.",
+    "zh": "对待，看待"
+  },
+  {
+    "en": "tree",
+    "pos": "n.",
+    "zh": "树"
+  },
+  {
+    "en": "trip",
+    "pos": "n.",
+    "zh": "旅行，旅程"
+  },
+  {
+    "en": "trouble",
+    "pos": "vt.",
+    "zh": "使苦恼,使忧虑,使麻烦 n. 问题,疾病,烦恼,麻烦"
+  },
+  {
+    "en": "trousers",
+    "pos": "n.",
+    "zh": "裤子，长裤"
+  },
+  {
+    "en": "truck",
+    "pos": "n.",
+    "zh": "卡车, 运货车；车皮"
+  },
+  {
+    "en": "true",
+    "pos": "a.",
+    "zh": "真的，真实的；忠诚的"
+  },
+  {
+    "en": "truth",
+    "pos": "n.",
+    "zh": "真理,事实,真相,实际"
+  },
+  {
+    "en": "try",
+    "pos": "v.",
+    "zh": "试，试图，努力"
+  },
+  {
+    "en": "T-shirt",
+    "pos": "n.",
+    "zh": "T恤衫"
+  },
+  {
+    "en": "Tuesday",
+    "pos": "n.",
+    "zh": "星期二"
+  },
+  {
+    "en": "turkey",
+    "pos": "n.",
+    "zh": "火鸡"
+  },
+  {
+    "en": "turn",
+    "pos": "v.",
+    "zh": "旋转，翻转，转变，转弯 n. 轮流，顺序"
+  },
+  {
+    "en": "turning",
+    "pos": "n.",
+    "zh": "拐弯处，拐角处"
+  },
+  {
+    "en": "TV(缩) = television [tiː'viː]",
+    "pos": "n.",
+    "zh": "电视机"
+  },
+  {
+    "en": "twelfth",
+    "pos": "num.",
+    "zh": "第十二"
+  },
+  {
+    "en": "twelve",
+    "pos": "num.",
+    "zh": "十二"
+  },
+  {
+    "en": "twentieth",
+    "pos": "vnum.",
+    "zh": "第二十"
+  },
+  {
+    "en": "twenty",
+    "pos": "num.",
+    "zh": "二十"
+  },
+  {
+    "en": "twenty-first",
+    "pos": "num.",
+    "zh": "第二十一"
+  },
+  {
+    "en": "twenty-one",
+    "pos": "num.",
+    "zh": "二十一"
+  },
+  {
+    "en": "twice",
+    "pos": "ad.",
+    "zh": "两次；两倍"
+  },
+  {
+    "en": "twin",
+    "pos": "n.",
+    "zh": "双胞胎之一"
+  },
+  {
+    "en": "two",
+    "pos": "num.",
+    "zh": "二"
+  },
+  {
+    "en": "type",
+    "pos": "vt.",
+    "zh": "打字 n. 种类,类型"
+  },
+  {
+    "en": "umbrella",
+    "pos": "n.",
+    "zh": "雨伞"
+  },
+  {
+    "en": "U.N./ UN(缩) = the United Nations [juː ˈən]",
+    "pos": "n.",
+    "zh": "联合国"
+  },
+  {
+    "en": "uncle",
+    "pos": "n.",
+    "zh": "叔,伯,舅,姑夫,姨父"
+  },
+  {
+    "en": "under",
+    "pos": "ad.",
+    "zh": "& prep. 在…下面，向…下面"
+  },
+  {
+    "en": "underground",
+    "pos": "a.",
+    "zh": "地下的 n. 地铁"
+  },
+  {
+    "en": "understand (understood, understood) [ʌndəˈstænd]",
+    "pos": "v.",
+    "zh": "懂得;明白;理解"
+  },
+  {
+    "en": "understanding",
+    "pos": "n.",
+    "zh": "领会;理解"
+  },
+  {
+    "en": "unfair",
+    "pos": "a.",
+    "zh": "不公平的，不公正的"
+  },
+  {
+    "en": "unit",
+    "pos": "n.",
+    "zh": "单元，单位"
+  },
+  {
+    "en": "universe",
+    "pos": "n.",
+    "zh": "宇宙"
+  },
+  {
+    "en": "university",
+    "pos": "n.",
+    "zh": "大学"
+  },
+  {
+    "en": "unknown",
+    "pos": "a.",
+    "zh": "不知道的"
+  },
+  {
+    "en": "unless",
+    "pos": "conj.",
+    "zh": "如果不，除非"
+  },
+  {
+    "en": "unlike",
+    "pos": "prep.",
+    "zh": "不像，和…不同"
+  },
+  {
+    "en": "until",
+    "pos": "prep.",
+    "zh": "& conj. 直到…为止"
+  },
+  {
+    "en": "unusual",
+    "pos": "a.",
+    "zh": "不平常的，异常的"
+  },
+  {
+    "en": "up",
+    "pos": "ad.",
+    "zh": "向上;在上方 prep. 向(高处);向(在)…上(面)游"
+  },
+  {
+    "en": "upon",
+    "pos": "prep.",
+    "zh": "在…上面"
+  },
+  {
+    "en": "upstairs",
+    "pos": "ad.",
+    "zh": "在楼上，到楼上"
+  },
+  {
+    "en": "use",
+    "pos": "vt.",
+    "zh": "利用,使用,应用 n. [juːs] 用法,应用,运用"
+  },
+  {
+    "en": "used",
+    "pos": "a.",
+    "zh": "用过的;旧的;二手的"
+  },
+  {
+    "en": "useful",
+    "pos": "a.",
+    "zh": "有用的，有益的"
+  },
+  {
+    "en": "useless",
+    "pos": "a.",
+    "zh": "无用的"
+  },
+  {
+    "en": "user",
+    "pos": "n.",
+    "zh": "使用者；用户"
+  },
+  {
+    "en": "usual",
+    "pos": "a.",
+    "zh": "通常的，平常的"
+  },
+  {
+    "en": "usually",
+    "pos": "ad.",
+    "zh": "通常，经常"
+  },
+  {
+    "en": "valley",
+    "pos": "n.",
+    "zh": "山谷, 溪谷"
+  },
+  {
+    "en": "VCD = versatile compact disk",
+    "pos": "n.",
+    "zh": "影碟光盘"
+  },
+  {
+    "en": "vegetable",
+    "pos": "n.",
+    "zh": "蔬菜"
+  },
+  {
+    "en": "very",
+    "pos": "ad.",
+    "zh": "很，非常"
+  },
+  {
+    "en": "victim",
+    "pos": "n.",
+    "zh": "受害者，牺牲品"
+  },
+  {
+    "en": "video",
+    "pos": "n.",
+    "zh": "录像，视频"
+  },
+  {
+    "en": "village",
+    "pos": "n.",
+    "zh": "村庄，乡村"
+  },
+  {
+    "en": "villager",
+    "pos": "n.",
+    "zh": "村民"
+  },
+  {
+    "en": "violin",
+    "pos": "n.",
+    "zh": "小提琴"
+  },
+  {
+    "en": "visit",
+    "pos": "n.",
+    "zh": "& vt. 参观，访问，拜访"
+  },
+  {
+    "en": "visitor",
+    "pos": "n.",
+    "zh": "访问者，参观者"
+  },
+  {
+    "en": "voice",
+    "pos": "n.",
+    "zh": "说话声; 语态"
+  },
+  {
+    "en": "volleyball",
+    "pos": "n.",
+    "zh": "排球"
+  },
+  {
+    "en": "volunteer",
+    "pos": "n.",
+    "zh": "志愿者 v. 自愿做某事"
+  },
+  {
+    "en": "wait",
+    "pos": "vi.",
+    "zh": "等，等候"
+  },
+  {
+    "en": "wake (woke, woken) [weɪk]",
+    "pos": "v.",
+    "zh": "醒来,叫醒"
+  },
+  {
+    "en": "walk",
+    "pos": "n.",
+    "zh": "& v. 步行；散步"
+  },
+  {
+    "en": "wallet",
+    "pos": "n.",
+    "zh": "(放钱,证件等的)皮夹"
+  },
+  {
+    "en": "want",
+    "pos": "vt.",
+    "zh": "想,想要,需要,必要"
+  },
+  {
+    "en": "war",
+    "pos": "n.",
+    "zh": "战争"
+  },
+  {
+    "en": "warm",
+    "pos": "a.",
+    "zh": "暖和的,温暖的;热情的"
+  },
+  {
+    "en": "warning",
+    "pos": "n.",
+    "zh": "警报"
+  },
+  {
+    "en": "washroom",
+    "pos": "n.",
+    "zh": "盥洗室"
+  },
+  {
+    "en": "waste",
+    "pos": "n.",
+    "zh": "& vt. 浪费"
+  },
+  {
+    "en": "watch",
+    "pos": "vt.",
+    "zh": "观看，注视；当心，注意 n. 手表，表"
+  },
+  {
+    "en": "water",
+    "pos": "n.",
+    "zh": "水v. 浇水"
+  },
+  {
+    "en": "wave",
+    "pos": "n.",
+    "zh": "（热、光、声等的）波，波浪 v. 挥手，挥动，波动"
+  },
+  {
+    "en": "way",
+    "pos": "n.",
+    "zh": "路，路线；方式，手段"
+  },
+  {
+    "en": "we",
+    "pos": "pron.",
+    "zh": "我们"
+  },
+  {
+    "en": "weak",
+    "pos": "a.",
+    "zh": "差的，弱的，淡的"
+  },
+  {
+    "en": "wear (wore, worn) [weə(r)]",
+    "pos": "v.",
+    "zh": "穿，戴"
+  },
+  {
+    "en": "weather",
+    "pos": "n.",
+    "zh": "天气"
+  },
+  {
+    "en": "Wednesday",
+    "pos": "n.",
+    "zh": "星期三"
+  },
+  {
+    "en": "week",
+    "pos": "n.",
+    "zh": "星期，周"
+  },
+  {
+    "en": "weekday",
+    "pos": "n.",
+    "zh": "平日,工作日"
+  },
+  {
+    "en": "weekend",
+    "pos": "n.",
+    "zh": "周末"
+  },
+  {
+    "en": "weigh",
+    "pos": "vt.",
+    "zh": "称…的重量，重（若干）"
+  },
+  {
+    "en": "weight",
+    "pos": "n.",
+    "zh": "重，重量"
+  },
+  {
+    "en": "welcome",
+    "pos": "int.",
+    "zh": "n. & v. 欢迎 a. 受欢迎的"
+  },
+  {
+    "en": "well [wel] (better, best) ad. 好",
+    "pos": "a.",
+    "zh": "好的,健康的 int. 好吧,那么,哎呀 n. 井"
+  },
+  {
+    "en": "well-known",
+    "pos": "a.",
+    "zh": "出名,众所周知的"
+  },
+  {
+    "en": "west",
+    "pos": "a.",
+    "zh": "(在)西；向西,从西来的 ad. 在西方,向西方 n. 西部；西方"
+  },
+  {
+    "en": "western",
+    "pos": "a.",
+    "zh": "西方的，西部的"
+  },
+  {
+    "en": "westerner",
+    "pos": "n.",
+    "zh": "西方人"
+  },
+  {
+    "en": "westwards",
+    "pos": "ad.",
+    "zh": "向西"
+  },
+  {
+    "en": "wet",
+    "pos": "a.",
+    "zh": "湿的,潮的,多雨的"
+  },
+  {
+    "en": "what",
+    "pos": "pron.",
+    "zh": "什么,怎么样 a. 多么，何等；什么"
+  },
+  {
+    "en": "whatever",
+    "pos": "conj.",
+    "zh": "& pron. 无论什么，不管什么"
+  },
+  {
+    "en": "wheat",
+    "pos": "n.",
+    "zh": "小麦"
+  },
+  {
+    "en": "wheel",
+    "pos": "n.",
+    "zh": "轮，机轮"
+  },
+  {
+    "en": "when",
+    "pos": "conj.",
+    "zh": "当…的时候 ad. 什么时候，何时"
+  },
+  {
+    "en": "whenever",
+    "pos": "conj.",
+    "zh": "每当，无论何时"
+  },
+  {
+    "en": "where",
+    "pos": "ad.",
+    "zh": "在哪里；往哪里"
+  },
+  {
+    "en": "wherever",
+    "pos": "conj.",
+    "zh": "无论在哪里"
+  },
+  {
+    "en": "whether",
+    "pos": "conj.",
+    "zh": "是否"
+  },
+  {
+    "en": "which",
+    "pos": "pron.",
+    "zh": "哪一个；哪些"
+  },
+  {
+    "en": "whichever",
+    "pos": "pron.",
+    "zh": "无论哪个;无论哪些"
+  },
+  {
+    "en": "while",
+    "pos": "conj.",
+    "zh": "在…的时候,和…同时 n. 一会儿，一段时间"
+  },
+  {
+    "en": "white",
+    "pos": "a.",
+    "zh": "白色的 n. 白色"
+  },
+  {
+    "en": "who",
+    "pos": "pron.",
+    "zh": "谁"
+  },
+  {
+    "en": "whole",
+    "pos": "a.",
+    "zh": "整个的"
+  },
+  {
+    "en": "whom",
+    "pos": "pron.",
+    "zh": "(who的宾格 )"
+  },
+  {
+    "en": "whose",
+    "pos": "pron.",
+    "zh": "谁的"
+  },
+  {
+    "en": "why",
+    "pos": "ad.",
+    "zh": "/ int. 为什么, 你难道不知道（表示反驳、不耐烦等）"
+  },
+  {
+    "en": "wide",
+    "pos": "a.",
+    "zh": "宽阔的"
+  },
+  {
+    "en": "wife",
+    "pos": "n.",
+    "zh": "妻子"
+  },
+  {
+    "en": "will",
+    "pos": "n.",
+    "zh": "意志, 遗嘱"
+  },
+  {
+    "en": "will (would)",
+    "pos": "v.",
+    "zh": "将,会(表示将来)；愿意，要"
+  },
+  {
+    "en": "win (won, won) [wɪn]",
+    "pos": "n.",
+    "zh": "获胜，赢得 "
+  },
+  {
+    "en": "wind (wound,wound) [wɪnd]",
+    "pos": "vt.",
+    "zh": "缠，连带；蜿蜒，弯曲 n. 风"
+  },
+  {
+    "en": "window",
+    "pos": "n.",
+    "zh": "窗户；计算机的窗"
+  },
+  {
+    "en": "windy",
+    "pos": "a.",
+    "zh": "有风的，多风的"
+  },
+  {
+    "en": "wine",
+    "pos": "n.",
+    "zh": "酒"
+  },
+  {
+    "en": "winner",
+    "pos": "n.",
+    "zh": "获胜者"
+  },
+  {
+    "en": "winter",
+    "pos": "n.",
+    "zh": "冬天，冬季"
+  },
+  {
+    "en": "wish",
+    "pos": "n.",
+    "zh": "愿望，祝愿 vt. 希望，想要，祝愿"
+  },
+  {
+    "en": "with",
+    "pos": "prep.",
+    "zh": "关于,带有,以,和,用,有"
+  },
+  {
+    "en": "without",
+    "pos": "prep.",
+    "zh": "没有"
+  },
+  {
+    "en": "wolf（复wolves）[wʊlf]",
+    "pos": "n.",
+    "zh": "狼"
+  },
+  {
+    "en": "woman (复women) [ˈwʊmən]",
+    "pos": "n.",
+    "zh": "妇女，女人"
+  },
+  {
+    "en": "wonder",
+    "pos": "v.",
+    "zh": "对…疑惑，感到惊奇,想知道 n. 惊讶,惊叹;奇迹"
+  },
+  {
+    "en": "wonderful",
+    "pos": "a.",
+    "zh": "美妙的，精彩的；了不起的；太好了"
+  },
+  {
+    "en": "wood",
+    "pos": "n.",
+    "zh": "木头,木材,(复)树木,森林"
+  },
+  {
+    "en": "wool [wul] l",
+    "pos": "n.",
+    "zh": "羊毛，羊绒"
+  },
+  {
+    "en": "woolen",
+    "pos": "a.",
+    "zh": "羊毛的，羊毛制的"
+  },
+  {
+    "en": "word",
+    "pos": "n.",
+    "zh": "词，单词；话"
+  },
+  {
+    "en": "work",
+    "pos": "n.",
+    "zh": "工作,劳动,事情 vi. 工作;(机器、器官等)运转,活动"
+  },
+  {
+    "en": "worker",
+    "pos": "n.",
+    "zh": "工人；工作者"
+  },
+  {
+    "en": "workplace",
+    "pos": "n.",
+    "zh": "工作场所，车间"
+  },
+  {
+    "en": "works",
+    "pos": "n.",
+    "zh": "著作，作品"
+  },
+  {
+    "en": "world",
+    "pos": "n.",
+    "zh": "世界"
+  },
+  {
+    "en": "worm",
+    "pos": "n.",
+    "zh": "软体虫,蠕虫(尤指蚯蚓)"
+  },
+  {
+    "en": "worried",
+    "pos": "a.",
+    "zh": "担心的，烦恼的"
+  },
+  {
+    "en": "worry",
+    "pos": "n.",
+    "zh": "& v. 烦恼,担忧,发怒,困扰"
+  },
+  {
+    "en": "worse",
+    "pos": "a.",
+    "zh": "(bad的比较级)更坏的"
+  },
+  {
+    "en": "worst",
+    "pos": "a.",
+    "zh": "(bad的最高级)最坏的"
+  },
+  {
+    "en": "worth",
+    "pos": "a.",
+    "zh": "有…的价值,值得…的"
+  },
+  {
+    "en": "wound",
+    "pos": "vt.",
+    "zh": "伤,伤害 n. 创伤,伤口"
+  },
+  {
+    "en": "wounded",
+    "pos": "a.",
+    "zh": "受伤的"
+  },
+  {
+    "en": "write [raɪt] (wrote, written)",
+    "pos": "v.",
+    "zh": "写，书写；写作，著述"
+  },
+  {
+    "en": "wrong",
+    "pos": "a.",
+    "zh": "错误,不正常,有毛病的"
+  },
+  {
+    "en": "X-ray",
+    "pos": "n.",
+    "zh": "X射线；X光"
+  },
+  {
+    "en": "yard",
+    "pos": "n.",
+    "zh": "码；院子；场地"
+  },
+  {
+    "en": "year",
+    "pos": "n.",
+    "zh": "年"
+  },
+  {
+    "en": "yellow",
+    "pos": "a.",
+    "zh": "黄色的"
+  },
+  {
+    "en": "yes",
+    "pos": "ad.",
+    "zh": "是，好，同意"
+  },
+  {
+    "en": "yesterday",
+    "pos": "n.",
+    "zh": "& ad. 昨天"
+  },
+  {
+    "en": "yet",
+    "pos": "ad.",
+    "zh": "尚，还，仍然"
+  },
+  {
+    "en": "you",
+    "pos": "pron.",
+    "zh": "你；你们"
+  },
+  {
+    "en": "young",
+    "pos": "a.",
+    "zh": "年轻的"
+  },
+  {
+    "en": "your",
+    "pos": "pron.",
+    "zh": "你的；你们的"
+  },
+  {
+    "en": "yours",
+    "pos": "pron.",
+    "zh": "你的；你们的"
+  },
+  {
+    "en": "yourself",
+    "pos": "pron.",
+    "zh": "你自己"
+  },
+  {
+    "en": "yourselves",
+    "pos": "pron.",
+    "zh": "你们自己"
+  },
+  {
+    "en": "youth",
+    "pos": "n.",
+    "zh": "青春；青年"
+  },
+  {
+    "en": "zero",
+    "pos": "n.",
+    "zh": "& num. 零,零度,零点"
+  },
+  {
+    "en": "zoo",
+    "pos": "n.",
+    "zh": "动物园"
+  }
+]

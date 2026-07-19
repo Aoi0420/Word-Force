@@ -296,7 +296,7 @@
       <input type="file" id="file-input" accept=".json" style="display:none">
     </label>
   </div>
-  <div id="import-current" class="bg-card border-card rounded-xl p-4">
+  <div id="import-current" class="bg-card border-card rounded-xl p-4 mb-4">
     <div class="text-sm font-medium mb-2">当前词库</div>
     <div class="flex justify-between text-sm">
       <span class="text-dim">名称</span>
@@ -309,6 +309,17 @@
     <div class="flex justify-between text-sm">
       <span class="text-dim">已掌握</span>
       <span id="import-mastered" class="mono lv-7">0</span>
+    </div>
+  </div>
+  <div class="bg-card border-card rounded-xl p-4">
+    <div class="text-sm font-medium mb-3">切换词库</div>
+    <div class="flex gap-2 mb-2">
+      <select id="wordlist-select" class="w-full p-2 rounded bg-surface border-card text-sm" style="color:var(--text-main)">
+      </select>
+      <button id="btn-switch-wordlist" class="btn btn-primary text-sm whitespace-nowrap" style="padding:8px 14px">切换</button>
+    </div>
+    <div class="text-xs text-dim leading-relaxed">
+      切换后学习进度独立保存，互不干扰。当前词库进度不会丢失。
     </div>
   </div>
 </div>
@@ -466,6 +477,17 @@ const CFG = {
   PURGATORY_DISTRACTORS: 5,    // 炼狱模式干扰项数→共6选项
 };
 
+// ===== WORD LISTS =====
+const WORD_LISTS = [
+  { id:'words', file:'words.json', name:'预设' },
+  { id:'cet4',  file:'cet4.json',  name:'CET-4 四级' },
+  { id:'cet6',  file:'cet6.json',  name:'CET-6 六级' },
+  { id:'gaokao',file:'gaokao.json',name:'高考词汇' },
+  { id:'zhongkao',file:'zhongkao.json',name:'中考词汇' },
+];
+function currentListId(){return loadSettings().currentListId||'words'}
+function listMeta(id){return WORD_LISTS.find(l=>l.id===id)||WORD_LISTS[0]}
+
 // ===== SAMPLE WORDS =====
 const SAMPLE_WORDS = [
   {en:"abandon",pos:"v",zh:"遗弃、放弃"},{en:"ability",pos:"n",zh:"能力、才能"},
@@ -551,24 +573,24 @@ const Bitmap = {
 
 // ===== STORE =====
 const Store = {
-  KEYS:{WORDS:'wf_words',DATA:'wf_data',META:'wf_meta'},
-  loadWords(){try{const r=localStorage.getItem(this.KEYS.WORDS);return r?JSON.parse(r):null}catch{return null}},
-  saveWords(w){localStorage.setItem(this.KEYS.WORDS,JSON.stringify(w))},
-  loadBitmap(n){
+  _keys(listId){return{WORDS:'wf_words_'+listId,DATA:'wf_data_'+listId,META:'wf_meta_'+listId}},
+  loadWords(listId){try{const r=localStorage.getItem(this._keys(listId).WORDS);return r?JSON.parse(r):null}catch{return null}},
+  saveWords(listId,w){localStorage.setItem(this._keys(listId).WORDS,JSON.stringify(w))},
+  loadBitmap(listId,n){
     try{
-      const r=localStorage.getItem(this.KEYS.DATA);
+      const r=localStorage.getItem(this._keys(listId).DATA);
       if(!r)return Bitmap.create(n);
       const l=Bitmap.decode(r,n);
       if(l.length<n){const e=new Array(n).fill(0);for(let i=0;i<l.length;i++)e[i]=l[i];return Bitmap.writeAll(e)}
       return Bitmap.writeAll(l.slice(0,n));
     }catch{return Bitmap.create(n)}
   },
-  saveBitmap(b){localStorage.setItem(this.KEYS.DATA,Utils.btoa(b))},
-  loadMeta(){try{const r=localStorage.getItem(this.KEYS.META);if(!r)return this.defaultMeta();return{...this.defaultMeta(),...JSON.parse(r)}}catch{return this.defaultMeta()}},
-  saveMeta(m){this.trimWrongs(m);localStorage.setItem(this.KEYS.META,JSON.stringify(m))},
+  saveBitmap(listId,b){localStorage.setItem(this._keys(listId).DATA,Utils.btoa(b))},
+  loadMeta(listId){try{const r=localStorage.getItem(this._keys(listId).META);if(!r)return this.defaultMeta();return{...this.defaultMeta(),...JSON.parse(r)}}catch{return this.defaultMeta()}},
+  saveMeta(listId,m){this.trimWrongs(m);localStorage.setItem(this._keys(listId).META,JSON.stringify(m))},
   trimWrongs(m){const e=Object.entries(m.wrongs||{}).sort((a,b)=>b[1]-a[1]);if(e.length>50){m.wrongs={};for(let i=0;i<50;i++)m.wrongs[e[i][0]]=e[i][1]}},
   defaultMeta(){return{v:1,n:0,d:'',m:0,t:0,wrongs:{}}},
-  clearAll(){Object.values(this.KEYS).forEach(k=>localStorage.removeItem(k))},
+  clearAll(listId){Object.values(this._keys(listId)).forEach(k=>localStorage.removeItem(k))},
 };
 
 // ===== STATE =====
@@ -582,28 +604,48 @@ const state = {
   levelDist(){const d=[0,0,0,0,0,0,0,0];for(let i=0;i<this.wordCount();i++)d[this.getLevel(i)]++;return d},
   getWrongs(i){return this.meta.wrongs[i]||0},
   incrWrong(i){this.meta.wrongs[i]=(this.meta.wrongs[i]||0)+1},
-  persist(){Store.saveBitmap(this.bitmap);Store.saveMeta(this.meta)},
-  init(){
-    const w=Store.loadWords();
-    if(w&&Array.isArray(w)&&w.length>0)this.words=w;
-    else this.words=SAMPLE_WORDS;
-    this.meta=Store.loadMeta();this.bitmap=Store.loadBitmap(this.wordCount());
+  persist(){const id=currentListId();Store.saveBitmap(id,this.bitmap);Store.saveMeta(id,this.meta)},
+  async loadList(listId){
+    const list=listMeta(listId);if(!list)return false;
+    // Try localStorage first
+    const stored=Store.loadWords(listId);
+    if(stored&&Array.isArray(stored)&&stored.length>0){this.words=stored;return true}
+    // Try fetch JSON
+    try{
+      const r=await fetch(list.file);
+      if(r.ok){const j=await r.json();if(Array.isArray(j)&&j.length>0){this.words=j;Store.saveWords(listId,j);return true}}
+    }catch{}
+    return false;
+  },
+  async init(){
+    const id=currentListId();
+    const ok=await this.loadList(id);
+    if(!ok)this.words=SAMPLE_WORDS;
+    this.meta=Store.loadMeta(id);this.bitmap=Store.loadBitmap(id,this.wordCount());
     this.meta.n=this.wordCount();this.initialized=true;
   },
-  async ensureWords(){
-    // If no words in storage, try loading words.json via fetch
-    const w=Store.loadWords();
-    if(w&&Array.isArray(w)&&w.length>0){this.words=w;return}
-    try{
-      const r=await fetch('words.json');
-      if(r.ok){const j=await r.json();if(Array.isArray(j)&&j.length>0){this.words=j;Store.saveWords(j);return}}
-    }catch{}
-    this.words=SAMPLE_WORDS;
+  async switchToList(listId){
+    if(!this.initialized)return;
+    // Save current
+    const oldId=currentListId();
+    Store.saveBitmap(oldId,this.bitmap);
+    Store.saveMeta(oldId,this.meta);
+    // Set new list
+    const s=loadSettings();s.currentListId=listId;saveSettings(s);
+    // Load new
+    const ok=await this.loadList(listId);
+    if(!ok){this.words=SAMPLE_WORDS;alert('加载词库失败，使用示例词')}
+    this.bitmap=Store.loadBitmap(listId,this.wordCount());
+    this.meta=Store.loadMeta(listId);
+    this.meta.n=this.wordCount();
+    this.resetSession();
+    this.persist();
   },
   replaceWords(w){
-    this.words=w;Store.saveWords(w);
+    const id=currentListId();
+    this.words=w;Store.saveWords(id,w);
     this.bitmap=Bitmap.create(w.length);this.meta=Store.defaultMeta();
-    this.meta.n=w.length;Store.saveBitmap(this.bitmap);Store.saveMeta(this.meta);
+    this.meta.n=w.length;Store.saveBitmap(id,this.bitmap);Store.saveMeta(id,this.meta);
     this.resetSession();
   },
   resetSession(){this.session={active:false,roundCount:0,correctCount:0,wrongCount:0,streak:0,levelUps:0,levelDowns:0,punished:[],recentWrong:new Set(),queue:[],queuePos:0}},
@@ -705,7 +747,9 @@ const Render = {
     el('home-lv7').textContent=mastered;el('home-lv1-6').textContent=learning;el('home-lv0').textContent=unlearned;el('home-total').textContent=n;
     const today=now(),isToday=state.meta.d===today;
     el('home-today-count').textContent=isToday?state.meta.t:0;el('home-today-mastered').textContent=isToday?state.meta.m:0;
-    el('home-wordlist-name').textContent=n>0?`词库 (${n} 词)`:'—';el('home-wordlist-words').textContent=n>0?`${n} 个单词`:'空';
+    const lid=currentListId(),lm=listMeta(lid);
+    el('home-wordlist-name').textContent=lm?lm.name:'—';
+    el('home-wordlist-words').textContent=n>0?`${n} 个单词`:'空';
     const btn=el('btn-start');
     if(n===0){btn.textContent='⚠️ 请先导入词库';btn.disabled=true;btn.style.opacity='.5'}
     else{btn.textContent='▶ 开始强制学习';btn.disabled=false;btn.style.opacity='1'}
@@ -820,8 +864,16 @@ const Render = {
     el('set-intensity').value=ls.intensity;el('val-intensity').textContent=CFG.INTENSITY_LABELS[ls.intensity]||'中等';
   },
   importPage(){
-    const n=state.wordCount(),dist=state.levelDist();
-    el('import-name').textContent=n>0?'自定义词库':'—';el('import-count').textContent=n;el('import-mastered').textContent=dist[7]||0;
+    const n=state.wordCount(),dist=state.levelDist(),lid=currentListId();
+    const lm=listMeta(lid);
+    el('import-name').textContent=lm?lm.name:'—';el('import-count').textContent=n;el('import-mastered').textContent=dist[7]||0;
+    // Populate word list selector
+    const sel=el('wordlist-select');sel.innerHTML='';
+    WORD_LISTS.forEach(l=>{
+      const opt=document.createElement('option');opt.value=l.id;opt.textContent=l.name;
+      if(l.id===lid)opt.selected=true;
+      sel.appendChild(opt);
+    });
   },
   search(q){
     const res=Search.query(q),container=el('search-results');
@@ -858,13 +910,13 @@ const Render = {
 function loadSettings(){
   try{
     const r=localStorage.getItem('wf_settings');
-    if(!r)return{roundSize:10,mode:'normal',intensity:3,qtypes:['en2zh','zh2en','spell','fill']};
+    if(!r)return{roundSize:10,mode:'normal',intensity:3,qtypes:['en2zh','zh2en','spell','fill'],currentListId:'words'};
     const s=JSON.parse(r);
-    // migrate old string-based qtype to array
     if(typeof s.qtype==='string'){s.qtypes=s.qtype==='all'?['en2zh','zh2en','spell','fill']:[s.qtype];delete s.qtype}
     if(!Array.isArray(s.qtypes))s.qtypes=['en2zh','zh2en','spell','fill'];
-    return{roundSize:10,mode:'normal',intensity:3,qtypes:['en2zh','zh2en','spell','fill'],...s};
-  }catch{return{roundSize:10,mode:'normal',intensity:3,qtypes:['en2zh','zh2en','spell','fill']}}
+    if(!s.currentListId)s.currentListId='words';
+    return{roundSize:10,mode:'normal',intensity:3,qtypes:['en2zh','zh2en','spell','fill'],currentListId:'words',...s};
+  }catch{return{roundSize:10,mode:'normal',intensity:3,qtypes:['en2zh','zh2en','spell','fill'],currentListId:'words'}}
 }
 function saveSettings(s){localStorage.setItem('wf_settings',JSON.stringify(s))}
 function now(){return new Date().toISOString().slice(0,10)}
@@ -876,7 +928,7 @@ const App = {
   _blitzTimer:null,_blitzBonus:0,_currentQType:'en2zh',_abyssCleared:false,_hintUsed:false,
   _fillChars:null,_fillProgress:0,_memorizeTimer:null,
   timerInterval:null,timerStart:0,
-  async init(){await state.ensureWords();state.init();const ls=loadSettings();this.mode=ls.mode;this.roundSize=ls.roundSize;this.bindEvents();Router.goHome()},
+  async init(){await state.init();const ls=loadSettings();this.mode=ls.mode;this.roundSize=ls.roundSize;this.bindEvents();Render.dashboard()},
   timerFormat(s){
     const m=String(Math.floor(s/60)).padStart(2,'0'),sec=String(s%60).padStart(2,'0');
     return m+':'+sec;
@@ -965,6 +1017,14 @@ const App = {
     });
     el('btn-reset-data').addEventListener('click',()=>{if(confirm('确定重置所有学习数据？此操作不可撤销！')){state.replaceWords(state.words);Render.dashboard();Render.importPage()}});
     el('file-input').addEventListener('change',e=>this.handleFileImport(e));
+    el('btn-switch-wordlist').addEventListener('click',async()=>{
+      const sel=el('wordlist-select'),newId=sel.value;
+      if(newId===currentListId())return;
+      if(state.wordCount()>0&&!confirm(`切换至「${sel.options[sel.selectedIndex].textContent}」？\n当前词库进度已存档，不会丢失。`))return;
+      await state.switchToList(newId);
+      Render.dashboard();Render.importPage();
+      Router.show('home');
+    });
     // PK
     el('btn-pk').addEventListener('click',()=>{
       PK.setup(20,3);Router.show('pk-setup');
