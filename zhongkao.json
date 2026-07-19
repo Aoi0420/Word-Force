@@ -1,6 +1,6 @@
 [
   {
-    "en": "a (an)",
+    "en": "a",
     "pos": "art.",
     "zh": "一（个、件……）"
   },
@@ -210,12 +210,12 @@
     "zh": "总是；一直；永远"
   },
   {
-    "en": "am/æm/",
+    "en": "am",
     "pos": "v.",
     "zh": "be的人称形式之一 "
   },
   {
-    "en": "a.m./A.M.",
+    "en": "a.m",
     "pos": "n.",
     "zh": "午前，上午"
   },
@@ -450,7 +450,7 @@
     "zh": "秋天，秋季"
   },
   {
-    "en": "awake (awoke, awoken) [əˈweɪk]",
+    "en": "awake",
     "pos": "v.",
     "zh": "唤醒 a. 醒着的"
   },
@@ -475,7 +475,7 @@
     "zh": "回（原处）；向后 a. 后面的 n. 背后，后部；背"
   },
   {
-    "en": "bad (worse, worst) [bæd]",
+    "en": "bad",
     "pos": "a.",
     "zh": "坏的；有害的，不利的；严重的"
   },
@@ -565,7 +565,7 @@
     "zh": "承受，负担，承担；忍受；容忍 n. 熊"
   },
   {
-    "en": "beat (beat, beaten) [biːt]",
+    "en": "beat",
     "pos": "v.",
     "zh": "敲打；跳动；打赢 n.（音乐）节拍"
   },
@@ -580,7 +580,7 @@
     "zh": "因为"
   },
   {
-    "en": "become (became, be come) [bɪˈkʌm]",
+    "en": "become",
     "pos": "v.",
     "zh": "变得；成为"
   },
@@ -620,7 +620,7 @@
     "zh": "请求，乞求，乞讨 "
   },
   {
-    "en": "begin(began,begun) [bɪˈɡɪn]",
+    "en": "begin",
     "pos": "v.",
     "zh": "开始,着手"
   },
@@ -660,7 +660,7 @@
     "zh": "除…以外（还有） ad. 还有，此外"
   },
   {
-    "en": "best（good, well的最高级）[best]",
+    "en": "best",
     "pos": "a.",
     "zh": "& ad. 最好的,最好地,最 n. 最好的（人或物）"
   },
@@ -670,7 +670,7 @@
     "zh": "畅销书"
   },
   {
-    "en": "better (good, well的比较级) [ˈbetə(r)] a.&",
+    "en": "better",
     "pos": "ad.",
     "zh": "更好的,更好地；更,更多 n. 较好的事物between [bɪˈtwiːn] prep. 在（两者）之间；在…中间"
   },
@@ -685,7 +685,7 @@
     "zh": "大的"
   },
   {
-    "en": "bike = bicycle [baɪk]",
+    "en": "bike",
     "pos": "n.",
     "zh": "自行车"
   },
@@ -750,7 +750,7 @@
     "zh": "宽罩衫；（妇女、儿童穿的）短上衣"
   },
   {
-    "en": "blow (blew, blown) [bləʊ]",
+    "en": "blow",
     "pos": "v.",
     "zh": "吹；刮风；吹气 n. 击；打击"
   },
@@ -865,7 +865,7 @@
     "zh": "面包"
   },
   {
-    "en": "break (broke, broken) [breɪk]",
+    "en": "break",
     "pos": "n.",
     "zh": "间隙,中断,暂停 v. 打破（断，碎）"
   },
@@ -890,7 +890,7 @@
     "zh": "明亮的；聪明的"
   },
   {
-    "en": "bring (brought, brought) [brɪŋ]",
+    "en": "bring",
     "pos": "vt.",
     "zh": "拿来，带来，取来"
   },
@@ -940,7 +940,7 @@
     "zh": "刷；擦 n. 刷子"
   },
   {
-    "en": "build (built, built) [bɪld]",
+    "en": "build",
     "pos": "v.",
     "zh": "建筑；造"
   },
@@ -950,7 +950,7 @@
     "zh": "建筑物；房屋；大楼"
   },
   {
-    "en": "burn (-ed, -ed / burnt, burnt) [bɜːn]",
+    "en": "burn",
     "pos": "v.",
     "zh": "燃烧,着火;使烧焦;使晒黑 n. 烧伤;晒伤"
   },
@@ -970,7 +970,7 @@
     "zh": "（本分）工作，职业；职责；生意，交易；事业"
   },
   {
-    "en": "businessman (pl. businessmen)",
+    "en": "businessman",
     "pos": "n.",
     "zh": "商人（男）；男企业家"
   },
@@ -1000,7 +1000,7 @@
     "zh": "纽扣；（电铃等的）按钮 v. 扣（纽扣） "
   },
   {
-    "en": "buy (bought,bought) [baɪ]",
+    "en": "buy",
     "pos": "vt.",
     "zh": "买"
   },
@@ -1020,7 +1020,7 @@
     "zh": "卷心菜，洋白菜"
   },
   {
-    "en": "café [ˈkæfeɪ; (US) kæˈfeɪ]",
+    "en": "cafe",
     "pos": "n.",
     "zh": "咖啡馆;餐馆"
   },
@@ -1050,7 +1050,7 @@
     "zh": "（夏令）营 vi. 野营,宿营"
   },
   {
-    "en": "can (could)",
+    "en": "can",
     "pos": "v.",
     "zh": "可能；能够；可以 n.（美）罐头；罐子"
   },
@@ -1150,7 +1150,7 @@
     "zh": "猫"
   },
   {
-    "en": "catch(caught,caught) [kætʃ]",
+    "en": "catch",
     "pos": "v.",
     "zh": "接住；捉住；赶上；染上（疾病）"
   },
@@ -1180,7 +1180,7 @@
     "zh": "美分（100 cents = 1 dollar）"
   },
   {
-    "en": "centre (美 center ) [ˈsentə]",
+    "en": "centre",
     "pos": "n.",
     "zh": "中心，中央"
   },
@@ -1260,7 +1260,7 @@
     "zh": "化学"
   },
   {
-    "en": "cheque [tʃek] (美check)",
+    "en": "cheque",
     "pos": "n.",
     "zh": "支票"
   },
@@ -1280,7 +1280,7 @@
     "zh": "鸡；鸡肉"
   },
   {
-    "en": "child (复children) [tʃaɪld]",
+    "en": "child",
     "pos": "n.",
     "zh": "孩子，儿童"
   },
@@ -1305,7 +1305,7 @@
     "zh": "巧克力"
   },
   {
-    "en": "choose (chose, chosen) [tʃuːz]",
+    "en": "choose",
     "pos": "vt.",
     "zh": "选择"
   },
@@ -1465,12 +1465,12 @@
     "zh": "学院；专科学校"
   },
   {
-    "en": "colour (美color) ['kʌlə]",
+    "en": "colour",
     "pos": "n.",
     "zh": "颜色 vt. 给…着色，涂色"
   },
   {
-    "en": "come (came, come) [kʌm]",
+    "en": "come",
     "pos": "vi.",
     "zh": "来，来到"
   },
@@ -1595,7 +1595,7 @@
     "zh": "改正；纠正 a. 正确的，对的；恰当的"
   },
   {
-    "en": "cost (cost, cost) [kɔst; (US) kɔːst]",
+    "en": "cost",
     "pos": "v.",
     "zh": "值（钱），花费 n. 价格"
   },
@@ -1720,7 +1720,7 @@
     "zh": "（商店）顾客，主顾"
   },
   {
-    "en": "cut (cut, cut) [kʌt]",
+    "en": "cut",
     "pos": "v.",
     "zh": "切，剪，削，割"
   },
@@ -1950,7 +1950,7 @@
     "zh": "困难，费力"
   },
   {
-    "en": "dig (dug, dug) [dɪɡ]",
+    "en": "dig",
     "pos": "v.",
     "zh": "挖（洞沟）,掘"
   },
@@ -2060,7 +2060,7 @@
     "zh": "分，划分"
   },
   {
-    "en": "do (did, done) [dʊ, duː]",
+    "en": "do",
     "pos": "v.",
     "zh": "& aux. 做，干"
   },
@@ -2130,7 +2130,7 @@
     "zh": "龙"
   },
   {
-    "en": "draw (drew, drawn) [drɔː]",
+    "en": "draw",
     "pos": "v.",
     "zh": "绘画；绘制；拉，拖；提取（金钱）"
   },
@@ -2145,7 +2145,7 @@
     "zh": "图画，素描,绘画"
   },
   {
-    "en": "dream (dreamt, dreamt 或-ed, -ed) [driːm] n.&",
+    "en": "dream",
     "pos": "vt.",
     "zh": "梦，梦想"
   },
@@ -2255,7 +2255,7 @@
     "zh": "容易的，不费力的"
   },
   {
-    "en": "eat (ate, eaten) [iːt]",
+    "en": "eat",
     "pos": "v.",
     "zh": "吃"
   },
@@ -2340,7 +2340,7 @@
     "zh": "别的，其他的"
   },
   {
-    "en": "e-mail [iː-meɪl]]",
+    "en": "e-mail",
     "pos": "n.",
     "zh": "电子邮件"
   },
@@ -2550,7 +2550,7 @@
     "zh": "精确地；确切地"
   },
   {
-    "en": "exam = examination [ɪɡzæmɪˈneɪʃ(ə)n]",
+    "en": "exam",
     "pos": "n.",
     "zh": "考试，测试；检查；审查"
   },
@@ -2680,7 +2680,7 @@
     "zh": "（电影、运动等的）迷；热心的爱好者（支持者） n. 风扇"
   },
   {
-    "en": "far [fɑː(r)] (farther, farthest 或further , furthest) a.&",
+    "en": "far",
     "pos": "ad.",
     "zh": "远的；远地"
   },
@@ -2735,12 +2735,12 @@
     "zh": "父亲"
   },
   {
-    "en": "favour ['feivə] (美favor)",
+    "en": "favour",
     "pos": "n.",
     "zh": "恩惠；好意；帮助"
   },
   {
-    "en": "favourite ['feivərit] (美 favorite)",
+    "en": "favourite",
     "pos": "a.",
     "zh": "喜爱的 n. 特别喜爱的人（或物）"
   },
@@ -2775,7 +2775,7 @@
     "zh": "费，费用"
   },
   {
-    "en": "feed (fed, fed) [fiːd]",
+    "en": "feed",
     "pos": "vt.",
     "zh": "喂（养）；饲（养）"
   },
@@ -2832,12 +2832,7 @@
   {
     "en": "fight",
     "pos": "n.",
-    "zh": "打仗（架），争论"
-  },
-  {
-    "en": "fight [faɪt] (fought, fought) n./",
-    "pos": "v.",
-    "zh": "打仗（架），与…打仗（架）"
+    "zh": "打仗（架），争论；打仗（架），与…打仗（架）"
   },
   {
     "en": "fill",
@@ -2855,7 +2850,7 @@
     "zh": "最后的；终极的"
   },
   {
-    "en": "find [faɪnd] (found, found)",
+    "en": "find",
     "pos": "vt.",
     "zh": "找到，发现，感到"
   },
@@ -2940,7 +2935,7 @@
     "zh": "花"
   },
   {
-    "en": "fly (flew, flown) [flaɪ]",
+    "en": "fly",
     "pos": "vi.",
     "zh": "飞；飞行；飘动 vt. 放（风筝、飞机模型等）n. 苍蝇"
   },
@@ -2990,7 +2985,7 @@
     "zh": "愚蠢的，傻的"
   },
   {
-    "en": "foot (复feet) [fʊt]",
+    "en": "foot",
     "pos": "n.",
     "zh": "足，脚；英尺"
   },
@@ -3025,7 +3020,7 @@
     "zh": "永远；永恒的"
   },
   {
-    "en": "forget (forgot, forgotten) [fəˈɡet]",
+    "en": "forget",
     "pos": "v.",
     "zh": "忘记；忘掉"
   },
@@ -3100,7 +3095,7 @@
     "zh": "自由，空闲的；免费的"
   },
   {
-    "en": "freeze [friːz] (froze, frozen)",
+    "en": "freeze",
     "pos": "vi.",
     "zh": "结冰"
   },
@@ -3110,7 +3105,7 @@
     "zh": "法语 a. 法国的；法国人的；法语的"
   },
   {
-    "en": "Frenchman [ˈfrentʃmən] (复 Frenchmen)",
+    "en": "Frenchman",
     "pos": "n.",
     "zh": "法国人（男）"
   },
@@ -3125,7 +3120,7 @@
     "zh": "星期五"
   },
   {
-    "en": "fridge =refrigerator [rɪˈfrɪdʒəreɪtə(r)]",
+    "en": "fridge",
     "pos": "n.",
     "zh": "冰箱"
   },
@@ -3255,7 +3250,7 @@
     "zh": "德国"
   },
   {
-    "en": "get (got , got) [ɡet]",
+    "en": "get",
     "pos": "vt.",
     "zh": "成为；得到；具有；到达"
   },
@@ -3270,7 +3265,7 @@
     "zh": "女孩"
   },
   {
-    "en": "give (gave, given) [ɡɪv]",
+    "en": "give",
     "pos": "vt.",
     "zh": "给,递给,付出,给予"
   },
@@ -3290,7 +3285,7 @@
     "zh": "手套"
   },
   {
-    "en": "go (went, gone) [ɡəʊ]",
+    "en": "go",
     "pos": "vi.",
     "zh": "去；走；驶；通到；到达 n. 尝试（做某事）"
   },
@@ -3315,7 +3310,7 @@
     "zh": "高尔夫球"
   },
   {
-    "en": "good (better,best) [ɡʊd]",
+    "en": "good",
     "pos": "a.",
     "zh": "好；良好"
   },
@@ -3330,7 +3325,7 @@
     "zh": "善良，美德"
   },
   {
-    "en": "goose (复 geese) [ɡuːs]",
+    "en": "goose",
     "pos": "n.",
     "zh": "鹅"
   },
@@ -3375,12 +3370,12 @@
     "zh": "（外）孙女"
   },
   {
-    "en": "grandma = grandmother [ˈɡrænmɑː, ˈɡrændmʌðə(r)]",
+    "en": "grandma",
     "pos": "n.",
     "zh": "奶奶；外婆"
   },
   {
-    "en": "grandpa = grandfather [ˈɡrænpɑː, ˈɡrændfɑːðə(r)]",
+    "en": "grandpa",
     "pos": "n.",
     "zh": "爷爷,外公"
   },
@@ -3435,7 +3430,7 @@
     "zh": "问候；向…致敬"
   },
   {
-    "en": "grey / gray",
+    "en": "grey",
     "pos": "a.",
     "zh": "灰色的；灰白的"
   },
@@ -3445,7 +3440,7 @@
     "zh": "组，群"
   },
   {
-    "en": "grow (grew, grown) [ɡrəʊ]",
+    "en": "grow",
     "pos": "v.",
     "zh": "生长；发育；种植；变成"
   },
@@ -3535,7 +3530,7 @@
     "zh": "书法"
   },
   {
-    "en": "hang (hung, hung) [hæŋ]",
+    "en": "hang",
     "pos": "v.",
     "zh": "悬挂，吊着；把…吊起  hang (hung, hung) 绞死"
   },
@@ -3590,7 +3585,7 @@
     "zh": "& n. 恨，讨厌"
   },
   {
-    "en": "have (has, had, had) [hæv]",
+    "en": "have",
     "pos": "vt.",
     "zh": "有；吃；喝；进行；经受"
   },
@@ -3635,7 +3630,7 @@
     "zh": "健康的，健壮的"
   },
   {
-    "en": "hear (heard, heard) [hɪə(r)]",
+    "en": "hear",
     "pos": "v.",
     "zh": "听见；听说"
   },
@@ -3725,7 +3720,7 @@
     "zh": "你好（表示打招呼、问候或唤起注意）"
   },
   {
-    "en": "hide (hid, hidden) [haɪd]",
+    "en": "hide",
     "pos": "v.",
     "zh": "把…藏起来，隐藏"
   },
@@ -3765,7 +3760,7 @@
     "zh": "历史，历史学"
   },
   {
-    "en": "hit (hit, hit) [hɪt] n.&",
+    "en": "hit",
     "pos": "vt.",
     "zh": "打,撞,击中"
   },
@@ -3775,7 +3770,7 @@
     "zh": "业余爱好，嗜好"
   },
   {
-    "en": "hold (held, held) [həʊld]",
+    "en": "hold",
     "pos": "vt.",
     "zh": "拿；抱；握住；举行；进行"
   },
@@ -3920,7 +3915,7 @@
     "zh": "赶快；急忙"
   },
   {
-    "en": "hurt (hurt, hurt) [hɜːt]",
+    "en": "hurt",
     "pos": "vt.",
     "zh": "伤害，受伤；伤人感情"
   },
@@ -4250,7 +4245,7 @@
     "zh": "大袋鼠"
   },
   {
-    "en": "keep (kept, kept) [kiːp]",
+    "en": "keep",
     "pos": "v.",
     "zh": "保持；保存；继续不断 vt. 培育，饲养"
   },
@@ -4335,7 +4330,7 @@
     "zh": "膝盖"
   },
   {
-    "en": "knife [naɪf] (复 knives)",
+    "en": "knife",
     "pos": "n.",
     "zh": "小刀;匕首;刀片"
   },
@@ -4345,7 +4340,7 @@
     "zh": "& v. 敲；打；击 "
   },
   {
-    "en": "know(knew,known) [nəʊ]",
+    "en": "know",
     "pos": "v.",
     "zh": "知道，了解；认识；懂得"
   },
@@ -4365,7 +4360,7 @@
     "zh": "朝鲜的；韩国的；韩国的人"
   },
   {
-    "en": "lab[læb] = laboratory",
+    "en": "lab",
     "pos": "n.",
     "zh": "实验室"
   },
@@ -4440,7 +4435,7 @@
     "zh": "法律，法令；定律"
   },
   {
-    "en": "lay (laid, laid) [leɪ]",
+    "en": "lay",
     "pos": "vt.",
     "zh": "放，搁"
   },
@@ -4450,7 +4445,7 @@
     "zh": "懒惰的"
   },
   {
-    "en": "lead (led, led) [liːd]",
+    "en": "lead",
     "pos": "v.",
     "zh": "领导，带领 n. 铅"
   },
@@ -4460,7 +4455,7 @@
     "zh": "领袖，领导人"
   },
   {
-    "en": "leaf (复 leaves) [liːf]",
+    "en": "leaf",
     "pos": "n.",
     "zh": "（树，菜）叶"
   },
@@ -4470,7 +4465,7 @@
     "zh": "联盟，社团"
   },
   {
-    "en": "learn (learnt, learnt；-ed -ed) [lɜːn]",
+    "en": "learn",
     "pos": "vt.",
     "zh": "学，学习，学会"
   },
@@ -4485,7 +4480,7 @@
     "zh": "皮革"
   },
   {
-    "en": "leave (left, left) [liːv]",
+    "en": "leave",
     "pos": "v.",
     "zh": "离开;把…留下，剩下"
   },
@@ -4500,12 +4495,12 @@
     "zh": "腿；腿脚；支柱"
   },
   {
-    "en": "lend (lent, lent) [lend]",
+    "en": "lend",
     "pos": "vt.",
     "zh": "借(出),把…借给"
   },
   {
-    "en": "less（little的比较级） [les] a.&",
+    "en": "less",
     "pos": "ad.",
     "zh": "少于,小于"
   },
@@ -4515,7 +4510,7 @@
     "zh": "课；功课；教训"
   },
   {
-    "en": "let (let, let) [let]",
+    "en": "let",
     "pos": "vt.",
     "zh": "让"
   },
@@ -4540,12 +4535,12 @@
     "zh": "执照，许可证"
   },
   {
-    "en": "lie (lay, lain) [lai] v. 躺;卧;平放;位于n.&",
+    "en": "lie",
     "pos": "vi.",
     "zh": "(lied,lied) 说谎"
   },
   {
-    "en": "life (复lives) [laif]",
+    "en": "life",
     "pos": "n.",
     "zh": "生命；生涯；生活；人生；生物"
   },
@@ -4600,7 +4595,7 @@
     "zh": "乱丢杂物"
   },
   {
-    "en": "little (less, least) [ˈlɪt(ə)l]",
+    "en": "little",
     "pos": "a.",
     "zh": "小的,少的 ad. 很少地, 稍许 n. 没有多少"
   },
@@ -4645,7 +4640,7 @@
     "zh": "看，瞧 v. 看，观看 v. link 看起来"
   },
   {
-    "en": "lose (lost, lost) [luːz]",
+    "en": "lose",
     "pos": "vt.",
     "zh": "失去，丢失"
   },
@@ -4705,7 +4700,7 @@
     "zh": "机器"
   },
   {
-    "en": "madam/ madame",
+    "en": "madam",
     "pos": "n.",
     "zh": "夫人,女士"
   },
@@ -4735,12 +4730,12 @@
     "zh": "大陆"
   },
   {
-    "en": "make (made,made) [meɪk]",
+    "en": "make",
     "pos": "vt.",
     "zh": "制造,做;使得"
   },
   {
-    "en": "man (复men) [mæn]",
+    "en": "man",
     "pos": "n.",
     "zh": "成年男人;人类"
   },
@@ -4760,7 +4755,7 @@
     "zh": "人造的，人工的"
   },
   {
-    "en": "many (more, most) [ˈmenɪ]",
+    "en": "many",
     "pos": "pron.",
     "zh": "许多人（或物）a. 许多的"
   },
@@ -4820,7 +4815,7 @@
     "zh": "一餐（饭） "
   },
   {
-    "en": "mean(meant,meant) [miːn]",
+    "en": "mean",
     "pos": "vt.",
     "zh": "意思,意指"
   },
@@ -4840,7 +4835,7 @@
     "zh": "（猪、牛、羊等的）肉"
   },
   {
-    "en": "meet (met, met) [miːt] vt./",
+    "en": "meet",
     "pos": "n.",
     "zh": "遇见，见到 会；集会"
   },
@@ -4895,7 +4890,7 @@
     "zh": "金属 a. 金属制成的"
   },
   {
-    "en": "metre (美meter) ['mi:tə]",
+    "en": "metre",
     "pos": "n.",
     "zh": "米，公尺"
   },
@@ -4977,12 +4972,7 @@
   {
     "en": "miss",
     "pos": "vt.",
-    "zh": "失去，错过，缺"
-  },
-  {
-    "en": "Miss.",
-    "pos": "n.",
-    "zh": "小姐,女士(称呼未婚妇女)"
+    "zh": "失去，错过，缺；小姐,女士(称呼未婚妇女)"
   },
   {
     "en": "mist",
@@ -4990,7 +4980,7 @@
     "zh": "雾"
   },
   {
-    "en": "mistake (mistook, mistaken) [mɪsˈteɪk]",
+    "en": "mistake",
     "pos": "n.",
     "zh": "错误 vt. 弄错"
   },
@@ -5010,7 +5000,7 @@
     "zh": "现代的"
   },
   {
-    "en": "Mom =Mum [mɔm]",
+    "en": "Mom",
     "pos": "n.",
     "zh": "妈妈"
   },
@@ -5020,7 +5010,7 @@
     "zh": "片刻，瞬间"
   },
   {
-    "en": "mommy = mummy [ˈmʌmɪ]",
+    "en": "mommy",
     "pos": "n.",
     "zh": "妈妈（美）"
   },
@@ -5065,7 +5055,7 @@
     "zh": "月饼"
   },
   {
-    "en": "more（much或many的比较级）[mɔː(r)] a./",
+    "en": "more",
     "pos": "ad.",
     "zh": "另外的;较多的;而且;更 n. 更多的量"
   },
@@ -5075,7 +5065,7 @@
     "zh": "早晨，上午"
   },
   {
-    "en": "most (much或many的最高级) [məʊst; (US) mɔːst]",
+    "en": "most",
     "pos": "a.",
     "zh": "& ad. 最多 n. 大部分,大多数"
   },
@@ -5100,12 +5090,12 @@
     "zh": "摩托车"
   },
   {
-    "en": "mountain(s)",
+    "en": "mountain",
     "pos": "n.",
     "zh": "山，山脉"
   },
   {
-    "en": "mouse (复mice) [maʊs]",
+    "en": "mouse",
     "pos": "n.",
     "zh": "鼠，耗子；（计算机）鼠标"
   },
@@ -5130,22 +5120,22 @@
     "zh": "（口语）电影"
   },
   {
-    "en": "Mr. (mister)",
+    "en": "Mr",
     "pos": "n.",
     "zh": "先生（用于姓名前）"
   },
   {
-    "en": "Mrs. (mistress)",
+    "en": "Mrs",
     "pos": "n.",
     "zh": "夫人, 太太（称呼已婚妇女）"
   },
   {
-    "en": "Ms.",
+    "en": "Ms",
     "pos": "n.",
     "zh": "女士(用在婚姻状况不明的女子姓名前)"
   },
   {
-    "en": "much (more，most) [mʌtʃ] a./",
+    "en": "much",
     "pos": "ad.",
     "zh": "许多，大量，非常，更加"
   },
@@ -5275,12 +5265,12 @@
     "zh": "针"
   },
   {
-    "en": "neighbour (美neighbor) [ˈneibə(r)]",
+    "en": "neighbour",
     "pos": "n.",
     "zh": "邻居，邻人"
   },
   {
-    "en": "neighbourhood (美neighborhood) ['neibəhud]",
+    "en": "neighbourhood",
     "pos": "n.",
     "zh": "四邻；邻近地区"
   },
@@ -5377,12 +5367,7 @@
   {
     "en": "no",
     "pos": "ad.",
-    "zh": "不,不是 a. 没有,无,不"
-  },
-  {
-    "en": "No.(缩) = number [ˈnʌmbə(r)]",
-    "pos": "n.",
-    "zh": "数字;号码"
+    "zh": "不,不是 a. 没有,无,不；数字;号码"
   },
   {
     "en": "nobody",
@@ -5535,7 +5520,7 @@
     "zh": "大洋洲"
   },
   {
-    "en": "o'clock[əʃklɔk]",
+    "en": "o'clock",
     "pos": "n.",
     "zh": "点钟"
   },
@@ -5590,7 +5575,7 @@
     "zh": "老的，旧的"
   },
   {
-    "en": "Olympic(s)",
+    "en": "Olympic",
     "pos": "a.",
     "zh": "& n. 奥林匹克"
   },
@@ -5880,7 +5865,7 @@
     "zh": "& vi. 中止，暂停；停止"
   },
   {
-    "en": "pay [peɪ] (paid, paid)",
+    "en": "pay",
     "pos": "v.",
     "zh": "付钱，给…报酬 n. 工资"
   },
@@ -5955,12 +5940,12 @@
     "zh": "宠物，爱畜"
   },
   {
-    "en": "phone = telephone [fəʊn]",
+    "en": "phone",
     "pos": "v.",
     "zh": "打电话 n. 电话，电话机"
   },
   {
-    "en": "photo =photograph [ˈfəʊtəʊ]",
+    "en": "photo",
     "pos": "n.",
     "zh": "照片"
   },
@@ -6140,7 +6125,7 @@
     "zh": "加，加上"
   },
   {
-    "en": "p.m./pm, P.M. /PM [piːem]",
+    "en": "p.m",
     "pos": "n.",
     "zh": "下午,午后"
   },
@@ -6160,7 +6145,7 @@
     "zh": "警察，警务人员"
   },
   {
-    "en": "policeman (复-men) [pəˈliːsmən]",
+    "en": "policeman",
     "pos": "n.",
     "zh": "警察,巡警 policewoman ( -women) n. 女警察"
   },
@@ -6190,7 +6175,7 @@
     "zh": "贫穷；可怜；不好的,差的"
   },
   {
-    "en": "pop = popular [pɔp]",
+    "en": "pop",
     "pos": "a.",
     "zh": "(口语) （音乐、艺术等）大众的，通俗的"
   },
@@ -6275,12 +6260,12 @@
     "zh": "倾泻，不断流出"
   },
   {
-    "en": "practice(s)e",
+    "en": "practicee",
     "pos": "n.",
     "zh": "练习"
   },
   {
-    "en": "praise [preɪz] n.&",
+    "en": "praise",
     "pos": "vt.",
     "zh": "赞扬，表扬"
   },
@@ -6360,7 +6345,7 @@
     "zh": "教授"
   },
   {
-    "en": "programme (美program) [ˈprəʊɡræm]",
+    "en": "programme",
     "pos": "n.",
     "zh": "节目；项目"
   },
@@ -6415,7 +6400,7 @@
     "zh": "公共,公众的 n. 公众"
   },
   {
-    "en": "pull [pʊl] 拉，拖",
+    "en": "pull",
     "pos": "n.",
     "zh": "拉力，引力"
   },
@@ -6440,7 +6425,7 @@
     "zh": "& v. 推"
   },
   {
-    "en": "put (put, put) [pʊt]",
+    "en": "put",
     "pos": "vt.",
     "zh": "放，摆"
   },
@@ -6565,7 +6550,7 @@
     "zh": "到达,伸手(脚)够到"
   },
   {
-    "en": "read (read, read) [riːd]",
+    "en": "read",
     "pos": "v.",
     "zh": "读；朗读"
   },
@@ -6580,12 +6565,12 @@
     "zh": "真实的，确实的"
   },
   {
-    "en": "realise (美realize) [ˈrɪəlaɪz]",
+    "en": "realise",
     "pos": "vt.",
     "zh": "认识到,实现"
   },
   {
-    "en": "really v",
+    "en": "really",
     "pos": "ad.",
     "zh": "真正地；到底；确实"
   },
@@ -6730,7 +6715,7 @@
     "zh": "谜(语)"
   },
   {
-    "en": "ride (rode, ridden) [raɪd]",
+    "en": "ride",
     "pos": "v.",
     "zh": "骑（马、自行车）；乘车 n. 乘车旅行"
   },
@@ -6740,12 +6725,12 @@
     "zh": "权利 a. 对,正确的 ad. 正确地,恰恰,完全地 a. 右,右边的"
   },
   {
-    "en": "ring (rang, rung) [rɪŋ] v.（钟、铃等）响；打电话",
+    "en": "ring",
     "pos": "n.",
     "zh": "铃声 n. 环形物（如环、圈、戒指等）"
   },
   {
-    "en": "rise (rose, risen) [raɪz]",
+    "en": "rise",
     "pos": "vi.",
     "zh": "上升，上涨"
   },
@@ -6825,7 +6810,7 @@
     "zh": "统治者；直尺"
   },
   {
-    "en": "run (ran, run) [rʌn]",
+    "en": "run",
     "pos": "vi.",
     "zh": "跑，奔跑；（颜色）褪色"
   },
@@ -6940,7 +6925,7 @@
     "zh": "救，挽救，节省"
   },
   {
-    "en": "say (said, said) [seɪ]",
+    "en": "say",
     "pos": "vt.",
     "zh": "说，讲"
   },
@@ -7040,7 +7025,7 @@
     "zh": "秘书；书记"
   },
   {
-    "en": "see (saw, seen) [siː]",
+    "en": "see",
     "pos": "vt.",
     "zh": "看见，看到；领会；拜会"
   },
@@ -7055,12 +7040,12 @@
     "zh": "很少，不常"
   },
   {
-    "en": "sell (sold, sold) [sel]",
+    "en": "sell",
     "pos": "v.",
     "zh": "卖，售"
   },
   {
-    "en": "send (sent, sent) [send]",
+    "en": "send",
     "pos": "v.",
     "zh": "打发，派遣；送，邮寄"
   },
@@ -7095,7 +7080,7 @@
     "zh": "招待（顾客等）,服务"
   },
   {
-    "en": "set (set, set) [set]",
+    "en": "set",
     "pos": "vt.",
     "zh": "释放，安置 n. 装备，设备"
   },
@@ -7130,7 +7115,7 @@
     "zh": "极为恶劣,十分严重的"
   },
   {
-    "en": "shall (should)",
+    "en": "shall",
     "pos": "v.",
     "zh": "aux.（表示将来）将要，会；…好吗"
   },
@@ -7170,19 +7155,14 @@
     "zh": "成幅的薄片，薄板"
   },
   {
-    "en": "shelf (复 shelves) [ʃelf]",
+    "en": "shelf",
     "pos": "n.",
     "zh": "架子；搁板；格层；礁；陆架"
   },
   {
     "en": "shine",
     "pos": "n.",
-    "zh": "光泽；光彩；阳光；晴天；光(亮)"
-  },
-  {
-    "en": "shine (shone, shone或-d, -d) [ʃaɪn]",
-    "pos": "v.",
-    "zh": "发光；照耀；杰出；擦亮"
+    "zh": "光泽；光彩；阳光；晴天；光(亮)；发光；照耀；杰出；擦亮"
   },
   {
     "en": "ship",
@@ -7200,7 +7180,7 @@
     "zh": "鞋"
   },
   {
-    "en": "shoot [ʃuːt] (shot, shot)",
+    "en": "shoot",
     "pos": "vt.",
     "zh": "射击，射中，发射"
   },
@@ -7242,12 +7222,7 @@
   {
     "en": "show",
     "pos": "n.",
-    "zh": "展示,展览（会）;演出"
-  },
-  {
-    "en": "show [ʃəʊ] (showed, shown 或 showed)",
-    "pos": "v.",
-    "zh": "给…看,出示,显示"
+    "zh": "展示,展览（会）;演出；给…看,出示,显示"
   },
   {
     "en": "shower",
@@ -7255,7 +7230,7 @@
     "zh": "阵雨；淋浴"
   },
   {
-    "en": "shut (shut, shut) [ʃʌt]",
+    "en": "shut",
     "pos": "v.",
     "zh": "/ n. 关上，封闭；禁闭；"
   },
@@ -7285,7 +7260,7 @@
     "zh": "安静，沉默"
   },
   {
-    "en": "silentˈsailənt]",
+    "en": "silent",
     "pos": "a.",
     "zh": "无声的，无对话的"
   },
@@ -7310,7 +7285,7 @@
     "zh": "从那时以来 conj. 从…以来，…以后，由于 prep. 从…以来"
   },
   {
-    "en": "sing (sang, sung) [siŋ]",
+    "en": "sing",
     "pos": "v.",
     "zh": "唱，唱歌"
   },
@@ -7325,7 +7300,7 @@
     "zh": "单一的，单个的"
   },
   {
-    "en": "sink (sank, sunk) [siŋk]",
+    "en": "sink",
     "pos": "vi.",
     "zh": "下沉；消沉  n. 洗涤槽；污水槽"
   },
@@ -7340,7 +7315,7 @@
     "zh": "姐；妹"
   },
   {
-    "en": "sit (sat, sat) [sɪt]",
+    "en": "sit",
     "pos": "vi.",
     "zh": "坐"
   },
@@ -7405,7 +7380,7 @@
     "zh": "天；天空"
   },
   {
-    "en": "sleep (slept, slept) [sliːp]",
+    "en": "sleep",
     "pos": "vi.",
     "zh": "睡觉"
   },
@@ -7420,7 +7395,7 @@
     "zh": "小的，少的"
   },
   {
-    "en": "smell (smelt, smelt / -ed,-ed) [smel]",
+    "en": "smell",
     "pos": "v.",
     "zh": "嗅，闻到；发气味 n. 气味"
   },
@@ -7580,7 +7555,7 @@
     "zh": "西南"
   },
   {
-    "en": "sow (sowed, sown或-ed) [səu]",
+    "en": "sow",
     "pos": "vt.",
     "zh": "播种"
   },
@@ -7600,7 +7575,7 @@
     "zh": "西班牙人的，西班牙的，西班牙语的 n. 西班牙语"
   },
   {
-    "en": "speak (spoke, spoken) [ˈspiːk]",
+    "en": "speak",
     "pos": "v.",
     "zh": "说，讲；谈话；发言"
   },
@@ -7672,12 +7647,7 @@
   {
     "en": "stand",
     "pos": "n.",
-    "zh": "站；立；停止；立场；地位；台；坛；摊"
-  },
-  {
-    "en": "stand (stood, stood) [stænd]",
-    "pos": "v.",
-    "zh": "站；立；起立；坐落；经受；持久"
+    "zh": "站；立；停止；立场；地位；台；坛；摊；站；立；起立；坐落；经受；持久"
   },
   {
     "en": "star",
@@ -7705,7 +7675,7 @@
     "zh": "& vi. 停留，逗留，呆"
   },
   {
-    "en": "steal (stole, stolen)  [stiːl]",
+    "en": "steal",
     "pos": "vt.",
     "zh": "偷, 窃取"
   },
@@ -7720,7 +7690,7 @@
     "zh": "脚步,台阶,梯级 vi. 走,跨步"
   },
   {
-    "en": "stick (stuck, stuck) [stɪk]",
+    "en": "stick",
     "pos": "vi.",
     "zh": "粘住，钉住；坚持 n. 木棒（棍）,枝条"
   },
@@ -7830,7 +7800,7 @@
     "zh": "成功的,有成就的"
   },
   {
-    "en": "such [sʌtʃ]]",
+    "en": "such",
     "pos": "ad.",
     "zh": "那么 pron.（泛指）人，事物 a. 这样的，那样的"
   },
@@ -7950,7 +7920,7 @@
     "zh": "厚运动衫，毛衣"
   },
   {
-    "en": "sweep(swept,swept) [swiːp]",
+    "en": "sweep",
     "pos": "v.",
     "zh": "扫除，扫"
   },
@@ -7960,7 +7930,7 @@
     "zh": "甜食;蜜饯;甜点;糖果;芳香 a. 甜的;可爱的;亲切的"
   },
   {
-    "en": "swim (swam, swum) [swɪm]",
+    "en": "swim",
     "pos": "vi.",
     "zh": "游泳,游 n. 游泳，游"
   },
@@ -7995,7 +7965,7 @@
     "zh": "裁缝"
   },
   {
-    "en": "take (took, taken)  [teɪk]",
+    "en": "take",
     "pos": "vt.",
     "zh": "拿；拿走；做；服用；乘坐；花费"
   },
@@ -8040,7 +8010,7 @@
     "zh": "茶；茶叶 "
   },
   {
-    "en": "teach(taught,taught) [tiː tʃ]",
+    "en": "teach",
     "pos": "v.",
     "zh": "教书,教"
   },
@@ -8100,7 +8070,7 @@
     "zh": "电视"
   },
   {
-    "en": "tell (told, told) [tel]",
+    "en": "tell",
     "pos": "vt.",
     "zh": "告诉,讲述,吩咐"
   },
@@ -8175,7 +8145,7 @@
     "zh": "这（那）个,这（那）些"
   },
   {
-    "en": "theatre (美theater) ['θiətə]",
+    "en": "theatre",
     "pos": "n.",
     "zh": "剧场，戏院"
   },
@@ -8225,7 +8195,7 @@
     "zh": "厚的"
   },
   {
-    "en": "thief (复thieves) [θiːf]",
+    "en": "thief",
     "pos": "n.",
     "zh": "窃贼, 小偷"
   },
@@ -8240,7 +8210,7 @@
     "zh": "东西；(复)物品，用品；事情，事件"
   },
   {
-    "en": "think (thought, thought) [θɪŋk]",
+    "en": "think",
     "pos": "v.",
     "zh": "想；认为；考虑"
   },
@@ -8305,7 +8275,7 @@
     "zh": "穿（通）过;从始至终 ad. 穿(通)过;自始至终,全部"
   },
   {
-    "en": "throw(threw,thrown) [θrəʊ]",
+    "en": "throw",
     "pos": "v.",
     "zh": "投,掷,扔"
   },
@@ -8430,7 +8400,7 @@
     "zh": "工具，器具"
   },
   {
-    "en": "tooth (复 teeth) [tuːθ]",
+    "en": "tooth",
     "pos": "n.",
     "zh": "牙齿"
   },
@@ -8485,7 +8455,7 @@
     "zh": "旅行者，观光者"
   },
   {
-    "en": "toward(s)",
+    "en": "toward",
     "pos": "prep.",
     "zh": "向，朝，对于"
   },
@@ -8645,7 +8615,7 @@
     "zh": "拐弯处，拐角处"
   },
   {
-    "en": "TV(缩) = television [tiː'viː]",
+    "en": "TV",
     "pos": "n.",
     "zh": "电视机"
   },
@@ -8705,7 +8675,7 @@
     "zh": "雨伞"
   },
   {
-    "en": "U.N./ UN(缩) = the United Nations [juː ˈən]",
+    "en": "U.N",
     "pos": "n.",
     "zh": "联合国"
   },
@@ -8725,7 +8695,7 @@
     "zh": "地下的 n. 地铁"
   },
   {
-    "en": "understand (understood, understood) [ʌndəˈstænd]",
+    "en": "understand",
     "pos": "v.",
     "zh": "懂得;明白;理解"
   },
@@ -8835,7 +8805,7 @@
     "zh": "山谷, 溪谷"
   },
   {
-    "en": "VCD = versatile compact disk",
+    "en": "VCD",
     "pos": "n.",
     "zh": "影碟光盘"
   },
@@ -8905,7 +8875,7 @@
     "zh": "等，等候"
   },
   {
-    "en": "wake (woke, woken) [weɪk]",
+    "en": "wake",
     "pos": "v.",
     "zh": "醒来,叫醒"
   },
@@ -8980,7 +8950,7 @@
     "zh": "差的，弱的，淡的"
   },
   {
-    "en": "wear (wore, worn) [weə(r)]",
+    "en": "wear",
     "pos": "v.",
     "zh": "穿，戴"
   },
@@ -9025,7 +8995,7 @@
     "zh": "n. & v. 欢迎 a. 受欢迎的"
   },
   {
-    "en": "well [wel] (better, best) ad. 好",
+    "en": "well",
     "pos": "a.",
     "zh": "好的,健康的 int. 好吧,那么,哎呀 n. 井"
   },
@@ -9162,20 +9132,15 @@
   {
     "en": "will",
     "pos": "n.",
-    "zh": "意志, 遗嘱"
+    "zh": "意志, 遗嘱；将,会(表示将来)；愿意，要"
   },
   {
-    "en": "will (would)",
-    "pos": "v.",
-    "zh": "将,会(表示将来)；愿意，要"
-  },
-  {
-    "en": "win (won, won) [wɪn]",
+    "en": "win",
     "pos": "n.",
     "zh": "获胜，赢得 "
   },
   {
-    "en": "wind (wound,wound) [wɪnd]",
+    "en": "wind",
     "pos": "vt.",
     "zh": "缠，连带；蜿蜒，弯曲 n. 风"
   },
@@ -9220,12 +9185,12 @@
     "zh": "没有"
   },
   {
-    "en": "wolf（复wolves）[wʊlf]",
+    "en": "wolf",
     "pos": "n.",
     "zh": "狼"
   },
   {
-    "en": "woman (复women) [ˈwʊmən]",
+    "en": "woman",
     "pos": "n.",
     "zh": "妇女，女人"
   },
@@ -9245,7 +9210,7 @@
     "zh": "木头,木材,(复)树木,森林"
   },
   {
-    "en": "wool [wul] l",
+    "en": "wool",
     "pos": "n.",
     "zh": "羊毛，羊绒"
   },
@@ -9325,7 +9290,7 @@
     "zh": "受伤的"
   },
   {
-    "en": "write [raɪt] (wrote, written)",
+    "en": "write",
     "pos": "v.",
     "zh": "写，书写；写作，著述"
   },

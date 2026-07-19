@@ -1,503 +1,2407 @@
 [
-{"en":"individual","pos":"n./adj.","zh":"个人；单独的"},
-{"en":"largely","pos":"adv.","zh":"很大程度上"},
-{"en":"support","pos":"v./n.","zh":"支持"},
-{"en":"evolve","pos":"v.","zh":"进化"},
-{"en":"lack","pos":"n./v.","zh":"缺乏"},
-{"en":"external","pos":"adj.","zh":"外部的"},
-{"en":"stable","pos":"adj.","zh":"稳定的"},
-{"en":"range","pos":"n.","zh":"范围"},
-{"en":"apparent","pos":"adj.","zh":"明显的，显然的"},
-{"en":"background","pos":"n.","zh":"背景"},
-{"en":"factor","pos":"n.","zh":"因素"},
-{"en":"behavioral experiment","pos":"n.","zh":"行为实验"},
-{"en":"threaten","pos":"v.","zh":"威胁"},
-{"en":"response","pos":"n.","zh":"回应"},
-{"en":"curiosity","pos":"n.","zh":"好奇心"},
-{"en":"privacy","pos":"n.","zh":"隐私"},
-{"en":"focus","pos":"n./v.","zh":"焦点；集中"},
-{"en":"deal with","pos":"phr. v.","zh":"处理，应对"},
-{"en":"vision","pos":"n.","zh":"视野"},
-{"en":"exclude","pos":"v.","zh":"排除"},
-{"en":"feedback","pos":"n.","zh":"反馈"},
-{"en":"cooperate","pos":"v.","zh":"合作"},
-{"en":"virtual","pos":"adj.","zh":"虚拟的"},
-{"en":"satisfy","pos":"v.","zh":"满足"},
-{"en":"protest","pos":"v./n.","zh":"抗议"},
-{"en":"logical","pos":"adj.","zh":"逻辑的"},
-{"en":"tend","pos":"v.","zh":"倾向于"},
-{"en":"reveal","pos":"v.","zh":"揭示"},
-{"en":"importance","pos":"n.","zh":"重要性"},
-{"en":"set up","pos":"phr. v.","zh":"建立，设立"},
-{"en":"standard","pos":"n.","zh":"标准"},
-{"en":"genuine","pos":"adj.","zh":"真诚的，真正的"},
-{"en":"in contrast","pos":"phr. prep.","zh":"相比之下"},
-{"en":"reflect","pos":"v.","zh":"反映，反思"},
-{"en":"interaction","pos":"n.","zh":"互动"},
-{"en":"spirit","pos":"n.","zh":"精神"},
-{"en":"view","pos":"n./v.","zh":"观点；看待"},
-{"en":"version","pos":"n.","zh":"版本"},
-{"en":"progress","pos":"n./v.","zh":"进步"},
-{"en":"simple","pos":"adj.","zh":"简单的"},
-{"en":"provide","pos":"v.","zh":"提供"},
-{"en":"previous","pos":"adj.","zh":"以前的"},
-{"en":"demonstrate","pos":"v.","zh":"展示，演示"},
-{"en":"result","pos":"n./v.","zh":"结果"},
-{"en":"addictive","pos":"adj.","zh":"上瘾的"},
-{"en":"significant","pos":"adj.","zh":"重要的，显著的"},
-{"en":"advocate","pos":"v./n.","zh":"提倡；倡导者"},
-{"en":"accomplish","pos":"v.","zh":"完成"},
-{"en":"select","pos":"v.","zh":"选择"},
-{"en":"acquisition","pos":"n.","zh":"习得，学得"},
-{"en":"ambition","pos":"n.","zh":"抱负，雄心"},
-{"en":"metaphysical","pos":"adj.","zh":"形而上学的"},
-{"en":"identify","pos":"v.","zh":"识别，认同"},
-{"en":"publicly","pos":"adv.","zh":"公开地"},
-{"en":"appear","pos":"v.","zh":"出现"},
-{"en":"scene","pos":"n.","zh":"场景"},
-{"en":"learning-by-teaching","pos":"n.","zh":"教学中；教而学"},
-{"en":"shallow","pos":"adj.","zh":"肤浅的"},
-{"en":"recommend","pos":"v.","zh":"推荐"},
-{"en":"expect","pos":"v.","zh":"期望"},
-{"en":"deal with","pos":"phr. v.","zh":"处理，处置"},
-{"en":"encounter","pos":"v.","zh":"遭遇，遇到"},
-{"en":"harmony","pos":"n.","zh":"和谐"},
-{"en":"trial","pos":"n.","zh":"试验"},
-{"en":"serious","pos":"adj.","zh":"严肃的"},
-{"en":"process","pos":"n.","zh":"过程"},
-{"en":"abandon","pos":"v.","zh":"放弃，抛弃"},
-{"en":"suppose","pos":"v.","zh":"假设"},
-{"en":"prompt","pos":"adj.","zh":"迅速的"},
-{"en":"knowledge","pos":"n.","zh":"知识"},
-{"en":"justify","pos":"v.","zh":"证明……合理"},
-{"en":"pressure","pos":"n.","zh":"(精神或物理)压力"},
-{"en":"technical","pos":"adj.","zh":"技术的"},
-{"en":"scale","pos":"n.","zh":"规模"},
-{"en":"progress","pos":"n.","zh":"进步"},
-{"en":"in terms of","pos":"phr. prep.","zh":"在……方面"},
-{"en":"stress","pos":"n./v.","zh":"压力；强调"},
-{"en":"critical","pos":"adj.","zh":"批判的；重要的"},
-{"en":"tilted upward","pos":"adj.","zh":"向上倾斜"},
-{"en":"risk","pos":"n./v.","zh":"风险"},
-{"en":"clarify","pos":"v.","zh":"澄清，阐明"},
-{"en":"interpret","pos":"v.","zh":"解释，诠释"},
-{"en":"evidence","pos":"n.","zh":"证据"},
-{"en":"manual","pos":"adj.","zh":"手工的"},
-{"en":"urge","pos":"v./n.","zh":"催促"},
-{"en":"accumulate","pos":"v.","zh":"积累"},
-{"en":"disappointment","pos":"n.","zh":"失望"},
-{"en":"challenge","pos":"n./v.","zh":"挑战"},
-{"en":"severe","pos":"adj.","zh":"严重的"},
-{"en":"overstuffed","pos":"adj.","zh":"塞得过满的"},
-{"en":"culture","pos":"n.","zh":"文化"},
-{"en":"superior","pos":"adj.","zh":"更好的"},
-{"en":"emphasis","pos":"n.","zh":"强调"},
-{"en":"vehicle","pos":"n.","zh":"车辆"},
-{"en":"undergo","pos":"v.","zh":"经历"},
-{"en":"incorporate","pos":"v.","zh":"包含"},
-{"en":"separate","pos":"v.","zh":"分开"},
-{"en":"zone out","pos":"phr. v.","zh":"走神，放空"},
-{"en":"desire","pos":"n.","zh":"渴望"},
-{"en":"balance","pos":"n./v.","zh":"平衡"},
-{"en":"willingly","pos":"adv.","zh":"愿意地"},
-{"en":"adequate","pos":"adj.","zh":"足够的，适当的"},
-{"en":"dedicate","pos":"v.","zh":"致力于"},
-{"en":"allocate","pos":"v.","zh":"分配，拨给"},
-{"en":"internal","pos":"adj.","zh":"内部的"},
-{"en":"complain","pos":"v.","zh":"抱怨"},
-{"en":"survive","pos":"v.","zh":"生存"},
-{"en":"measure","pos":"n./v.","zh":"测量"},
-{"en":"resist","pos":"v.","zh":"抵抗"},
-{"en":"interdependent","pos":"adj.","zh":"互相依赖的"},
-{"en":"resource","pos":"n.","zh":"资源"},
-{"en":"broaden","pos":"v.","zh":"拓宽，扩大"},
-{"en":"replace","pos":"v.","zh":"取代"},
-{"en":"deal with","pos":"phr. v.","zh":"处理，应对"},
-{"en":"seek","pos":"v.","zh":"寻找"},
-{"en":"eventually","pos":"adv.","zh":"最终，最后"},
-{"en":"exploit","pos":"v.","zh":"开发"},
-{"en":"negative","pos":"adj.","zh":"消极的"},
-{"en":"attach","pos":"v.","zh":"附加，系上"},
-{"en":"final","pos":"adj.","zh":"最后的"},
-{"en":"enhance","pos":"v.","zh":"增强，提升"},
-{"en":"appreciate","pos":"v.","zh":"欣赏；感激"},
-{"en":"method","pos":"n.","zh":"方法"},
-{"en":"launch","pos":"v.","zh":"发起"},
-{"en":"force","pos":"n./v.","zh":"力量；强迫"},
-{"en":"unique","pos":"adj.","zh":"独特的"},
-{"en":"trigger","pos":"v.","zh":"触发"},
-{"en":"responsible for","pos":"phr. prep.","zh":"对……负责"},
-{"en":"innovation","pos":"n.","zh":"创新"},
-{"en":"profit","pos":"n.","zh":"利润"},
-{"en":"environmental sustainability","pos":"n.","zh":"环境可持续性"},
-{"en":"presence","pos":"n.","zh":"存在"},
-{"en":"satisfy","pos":"v.","zh":"令人满意的"},
-{"en":"suppress","pos":"v.","zh":"抑制"},
-{"en":"motivate","pos":"v.","zh":"激励"},
-{"en":"nicotine","pos":"n.","zh":"尼古丁"},
-{"en":"surroundings","pos":"n.","zh":"环境"},
-{"en":"mechanism","pos":"n.","zh":"机制"},
-{"en":"respond","pos":"v.","zh":"回应"},
-{"en":"growing","pos":"adj.","zh":"增加的，日益增长的"},
-{"en":"ignore","pos":"v.","zh":"忽视"},
-{"en":"appropriate","pos":"adj.","zh":"合适的，恰当的"},
-{"en":"questionnaire","pos":"n.","zh":"问卷"},
-{"en":"ensure","pos":"v.","zh":"确保"},
-{"en":"largely","pos":"adv.","zh":"很大程度上"},
-{"en":"definite","pos":"adj.","zh":"明确的"},
-{"en":"intend","pos":"v.","zh":"打算"},
-{"en":"hostile","pos":"adj.","zh":"敌对的"},
-{"en":"increase","pos":"v./n.","zh":"增加"},
-{"en":"reverse","pos":"v./n.","zh":"颠倒"},
-{"en":"perspective","pos":"n.","zh":"观察角度"},
-{"en":"technique","pos":"n.","zh":"技巧"},
-{"en":"enable","pos":"v.","zh":"使能够"},
-{"en":"specify","pos":"v.","zh":"明确说明"},
-{"en":"deliver","pos":"v.","zh":"递送"},
-{"en":"therefore","pos":"adv.","zh":"因此"},
-{"en":"tolerate","pos":"v.","zh":"容忍"},
-{"en":"plan","pos":"n./v.","zh":"计划"},
-{"en":"design","pos":"n./v.","zh":"设计"},
-{"en":"improve","pos":"v.","zh":"改善"},
-{"en":"available","pos":"adj.","zh":"可获得的，可用的"},
-{"en":"burden","pos":"n.","zh":"负担"},
-{"en":"link","pos":"n./v.","zh":"连接"},
-{"en":"establish","pos":"v.","zh":"建立，确立"},
-{"en":"forbid","pos":"v.","zh":"禁止"},
-{"en":"acquire","pos":"v.","zh":"获得"},
-{"en":"assess","pos":"v.","zh":"评估，评定"},
-{"en":"formal","pos":"adj.","zh":"正式的"},
-{"en":"interest","pos":"n.","zh":"兴趣"},
-{"en":"inevitable","pos":"adj.","zh":"不可避免的"},
-{"en":"register","pos":"v.","zh":"登记，注册"},
-{"en":"reform","pos":"n./v.","zh":"改革"},
-{"en":"attract","pos":"v.","zh":"吸引"},
-{"en":"perspective","pos":"n.","zh":"视角"},
-{"en":"keystone","pos":"adj.","zh":"关键的，核心的"},
-{"en":"landmark","pos":"n.","zh":"里程碑"},
-{"en":"inform","pos":"v.","zh":"通知"},
-{"en":"tilted upward","pos":"adj.","zh":"向上倾斜"},
-{"en":"opportunity","pos":"n.","zh":"机会"},
-{"en":"sympathetic","pos":"adj.","zh":"有同情心的"},
-{"en":"correspond","pos":"v.","zh":"对应，相符"},
-{"en":"prioritize","pos":"v.","zh":"优先考虑"},
-{"en":"volunteer","pos":"v./n.","zh":"志愿者"},
-{"en":"structure","pos":"n.","zh":"结构"},
-{"en":"barrier","pos":"n.","zh":"障碍"},
-{"en":"in order to","pos":"phr. conj.","zh":"为了"},
-{"en":"proof","pos":"n.","zh":"证据"},
-{"en":"overseas","pos":"adj.","zh":"海外的"},
-{"en":"level","pos":"n.","zh":"水平"},
-{"en":"integrate","pos":"v.","zh":"融合"},
-{"en":"procedure","pos":"n.","zh":"程序"},
-{"en":"draw","pos":"v.","zh":"抽出"},
-{"en":"overlook","pos":"v.","zh":"忽视"},
-{"en":"in advance","pos":"phr. adv.","zh":"提前"},
-{"en":"extreme","pos":"adj.","zh":"极端的"},
-{"en":"differentiate","pos":"v.","zh":"区分，辨别"},
-{"en":"insight","pos":"n.","zh":"洞察力"},
-{"en":"regular","pos":"adj.","zh":"有规律的"},
-{"en":"protect","pos":"v.","zh":"保护"},
-{"en":"cautious","pos":"adj.","zh":"小心的，谨慎的"},
-{"en":"substitute","pos":"v./n.","zh":"代替"},
-{"en":"dramatic","pos":"adj.","zh":"戏剧性的"},
-{"en":"prepare","pos":"v.","zh":"准备"},
-{"en":"senior","pos":"adj.","zh":"年长的"},
-{"en":"occur","pos":"v.","zh":"发生"},
-{"en":"powerful","pos":"adj.","zh":"强大的"},
-{"en":"quickly","pos":"adv.","zh":"迅速地"},
-{"en":"expose","pos":"v.","zh":"揭露，暴露"},
-{"en":"attitude","pos":"n.","zh":"态度"},
-{"en":"instance","pos":"n.","zh":"例子"},
-{"en":"meanwhile","pos":"adv.","zh":"同时"},
-{"en":"transmit","pos":"v.","zh":"传输"},
-{"en":"economic","pos":"adj.","zh":"经济的"},
-{"en":"enable","pos":"v.","zh":"使能够"},
-{"en":"solution","pos":"n.","zh":"解决办法"},
-{"en":"impact","pos":"n./v.","zh":"影响"},
-{"en":"experience","pos":"n./v.","zh":"经历"},
-{"en":"theory","pos":"n.","zh":"理论"},
-{"en":"despite","pos":"prep.","zh":"尽管"},
-{"en":"implement","pos":"v.","zh":"实施"},
-{"en":"opinion","pos":"n.","zh":"观点"},
-{"en":"emerge","pos":"v.","zh":"出现，浮现"},
-{"en":"overcome","pos":"v.","zh":"克服"},
-{"en":"furthermore","pos":"adv.","zh":"此外"},
-{"en":"examine","pos":"v.","zh":"检查"},
-{"en":"aware","pos":"adj.","zh":"意识到的"},
-{"en":"drive","pos":"v.","zh":"驾驶；驱使"},
-{"en":"explicit","pos":"adj.","zh":"明确的"},
-{"en":"arise","pos":"v.","zh":"出现，发生"},
-{"en":"dispute","pos":"n./v.","zh":"争端；争论"},
-{"en":"obvious","pos":"adj.","zh":"明显的"},
-{"en":"surpass","pos":"v.","zh":"超越"},
-{"en":"organize","pos":"v.","zh":"组织"},
-{"en":"option","pos":"n.","zh":"选择"},
-{"en":"responsible for","pos":"phr. prep.","zh":"对……负责"},
-{"en":"mutual","pos":"adj.","zh":"相互的"},
-{"en":"poverty","pos":"n.","zh":"贫穷"},
-{"en":"violence","pos":"n.","zh":"暴力"},
-{"en":"define","pos":"v.","zh":"定义"},
-{"en":"quantity","pos":"n.","zh":"数量"},
-{"en":"except","pos":"prep.","zh":"除了"},
-{"en":"visual","pos":"adj.","zh":"视觉的"},
-{"en":"legislation","pos":"n.","zh":"立法"},
-{"en":"expand","pos":"v.","zh":"扩大"},
-{"en":"restrict","pos":"v.","zh":"限制"},
-{"en":"instead","pos":"adv.","zh":"反而"},
-{"en":"largely","pos":"adv.","zh":"很大程度上"},
-{"en":"productivity","pos":"n.","zh":"生产力"},
-{"en":"complaint","pos":"n.","zh":"抱怨"},
-{"en":"routine","pos":"n.","zh":"常规"},
-{"en":"progress","pos":"n.","zh":"进步"},
-{"en":"symbolize","pos":"v.","zh":"象征"},
-{"en":"rush","pos":"adv.","zh":"匆忙地"},
-{"en":"due to","pos":"prep.","zh":"由于"},
-{"en":"guarantee","pos":"n./v.","zh":"保证"},
-{"en":"estimate","pos":"v./n.","zh":"估计"},
-{"en":"project","pos":"n.","zh":"项目"},
-{"en":"professional","pos":"adj.","zh":"专业的"},
-{"en":"respect","pos":"v.","zh":"尊重他人的"},
-{"en":"territory","pos":"n.","zh":"领土"},
-{"en":"liberal","pos":"adj.","zh":"自由的"},
-{"en":"analyse","pos":"v.","zh":"分析"},
-{"en":"site","pos":"n.","zh":"地点"},
-{"en":"aggressive","pos":"adj.","zh":"侵略性的；积极进取"},
-{"en":"tension","pos":"n.","zh":"紧张"},
-{"en":"doubt","pos":"n./v.","zh":"怀疑"},
-{"en":"in charge of","pos":"phr. prep.","zh":"负责"},
-{"en":"inspect","pos":"v.","zh":"检查"},
-{"en":"distinct","pos":"adj.","zh":"明显的，独特的"},
-{"en":"reason","pos":"n.","zh":"原因"},
-{"en":"hesitate","pos":"v.","zh":"犹豫"},
-{"en":"adaptation","pos":"n.","zh":"适应；改编"},
-{"en":"warrant","pos":"v.","zh":"保证"},
-{"en":"aspect","pos":"n.","zh":"方面"},
-{"en":"account for","pos":"phr. v.","zh":"（数量上）占；解释"},
-{"en":"form","pos":"n./v.","zh":"形式；形成"},
-{"en":"deal with","pos":"phr. v.","zh":"处理，应对"},
-{"en":"thus","pos":"adv.","zh":"因此"},
-{"en":"eco-friendly and energy-saving","pos":"adj.","zh":"环保节能"},
-{"en":"widen","pos":"v.","zh":"加宽"},
-{"en":"explore","pos":"v.","zh":"探索"},
-{"en":"goal","pos":"n.","zh":"目标"},
-{"en":"network","pos":"n.","zh":"网络"},
-{"en":"locate","pos":"v.","zh":"定位"},
-{"en":"prevent","pos":"v.","zh":"防止"},
-{"en":"pattern","pos":"n.","zh":"模式"},
-{"en":"topic","pos":"n.","zh":"话题"},
-{"en":"disaster","pos":"n.","zh":"灾难"},
-{"en":"valid","pos":"adj.","zh":"有效的"},
-{"en":"follow","pos":"v.","zh":"跟随"},
-{"en":"interfere","pos":"v.","zh":"干涉"},
-{"en":"status","pos":"n.","zh":"地位"},
-{"en":"withdraw","pos":"v.","zh":"撤回"},
-{"en":"relevant","pos":"adj.","zh":"相关的"},
-{"en":"self-discipline","pos":"n.","zh":"自律"},
-{"en":"qualify","pos":"v.","zh":"使具备资格"},
-{"en":"predict","pos":"v.","zh":"预测"},
-{"en":"legal","pos":"adj.","zh":"法律的"},
-{"en":"evaluate","pos":"v.","zh":"评估"},
-{"en":"hopelessly","pos":"adv.","zh":"绝望地"},
-{"en":"involve","pos":"v.","zh":"涉及，包含"},
-{"en":"topic-centered","pos":"adj.","zh":"以主题为中心的"},
-{"en":"neglect","pos":"v.","zh":"忽视"},
-{"en":"theme","pos":"n.","zh":"主题"},
-{"en":"reciprocal","pos":"adj.","zh":"互惠的"},
-{"en":"rate","pos":"n.","zh":"比率"},
-{"en":"situation","pos":"n.","zh":"情况"},
-{"en":"propose","pos":"v.","zh":"提议"},
-{"en":"effective","pos":"adj.","zh":"有效的"},
-{"en":"extend","pos":"v.","zh":"延伸，扩展"},
-{"en":"promise","pos":"n./v.","zh":"承诺"},
-{"en":"dynamic","pos":"adj.","zh":"动态的"},
-{"en":"temporary","pos":"adj.","zh":"暂时的"},
-{"en":"inference","pos":"n.","zh":"推断"},
-{"en":"maintain","pos":"v.","zh":"维持，保持"},
-{"en":"since","pos":"conj.","zh":"自从"},
-{"en":"determine","pos":"v.","zh":"决定，确定"},
-{"en":"appoint","pos":"v.","zh":"任命，委任"},
-{"en":"encourage","pos":"v.","zh":"鼓励"},
-{"en":"blame","pos":"v./n.","zh":"责备"},
-{"en":"participate","pos":"v.","zh":"参与"},
-{"en":"elevate","pos":"v.","zh":"提升"},
-{"en":"diverse","pos":"adj.","zh":"多样的"},
-{"en":"summarize","pos":"v.","zh":"概括"},
-{"en":"peak","pos":"n.","zh":"顶峰"},
-{"en":"limit","pos":"n./v.","zh":"限制"},
-{"en":"recognize","pos":"v.","zh":"认出，承认"},
-{"en":"plain","pos":"adj.","zh":"纯粹的，简简单单的"},
-{"en":"produce","pos":"v.","zh":"生产"},
-{"en":"attempt","pos":"v./n.","zh":"尝试"},
-{"en":"location","pos":"n.","zh":"位置"},
-{"en":"vary","pos":"v.","zh":"变化"},
-{"en":"tremble","pos":"v.","zh":"发抖"},
-{"en":"trend","pos":"n.","zh":"趋势"},
-{"en":"quit","pos":"v.","zh":"放弃"},
-{"en":"target","pos":"n./v.","zh":"目标；瞄准"},
-{"en":"formal","pos":"adj.","zh":"正式的"},
-{"en":"example","pos":"n.","zh":"例子"},
-{"en":"realization","pos":"n.","zh":"认知，感悟"},
-{"en":"similarly","pos":"adv.","zh":"同样地"},
-{"en":"source","pos":"n.","zh":"来源"},
-{"en":"major","pos":"adj.","zh":"主要的"},
-{"en":"insist","pos":"v.","zh":"坚持"},
-{"en":"remark","pos":"n./v.","zh":"评论"},
-{"en":"gratitude","pos":"n.","zh":"感激"},
-{"en":"notion","pos":"n.","zh":"观念"},
-{"en":"financial","pos":"adj.","zh":"财务的"},
-{"en":"responsible for","pos":"phr. prep.","zh":"对……负责"},
-{"en":"affect","pos":"v.","zh":"影响"},
-{"en":"literature","pos":"n.","zh":"文学"},
-{"en":"generate","pos":"v.","zh":"产生，生成"},
-{"en":"objective","pos":"n.","zh":"目标"},
-{"en":"revise","pos":"v.","zh":"修改"},
-{"en":"appeal","pos":"v./n.","zh":"吸引；呼吁"},
-{"en":"sensitive","pos":"adj.","zh":"敏感的"},
-{"en":"fundamental","pos":"adj.","zh":"基本的，根本的"},
-{"en":"relate","pos":"v.","zh":"有关联"},
-{"en":"efficiency","pos":"n.","zh":"效率"},
-{"en":"shame","pos":"n.","zh":"羞耻"},
-{"en":"demand","pos":"v./n.","zh":"要求"},
-{"en":"distribute","pos":"v.","zh":"分发，分配"},
-{"en":"bind together","pos":"phr. v.","zh":"把……凝聚到一起"},
-{"en":"relieve","pos":"v.","zh":"缓解"},
-{"en":"preserve","pos":"v.","zh":"保护，保存"},
-{"en":"outstanding","pos":"adj.","zh":"杰出的"},
-{"en":"remove","pos":"v.","zh":"移除"},
-{"en":"disability","pos":"n.","zh":"残疾"},
-{"en":"pause","pos":"n./v.","zh":"暂停"},
-{"en":"pursue","pos":"v.","zh":"追求"},
-{"en":"indicate","pos":"v.","zh":"表明"},
-{"en":"potential","pos":"n./adj.","zh":"潜力；潜在的"},
-{"en":"cancel","pos":"v.","zh":"取消"},
-{"en":"clue","pos":"n.","zh":"线索"},
-{"en":"respect","pos":"n./v.","zh":"尊重"},
-{"en":"outcome","pos":"n.","zh":"结果"},
-{"en":"bias","pos":"n./v.","zh":"偏见；带有偏见"},
-{"en":"obtain","pos":"v.","zh":"获得"},
-{"en":"imply","pos":"v.","zh":"暗示"},
-{"en":"preference","pos":"n.","zh":"偏好"},
-{"en":"initiative","pos":"n.","zh":"主动性"},
-{"en":"affordable","pos":"adj.","zh":"负担得起的"},
-{"en":"zest","pos":"n.","zh":"热情"},
-{"en":"accelerate","pos":"v.","zh":"加速"},
-{"en":"utilize","pos":"v.","zh":"利用"},
-{"en":"in spite of","pos":"phr. prep.","zh":"尽管"},
-{"en":"role","pos":"n.","zh":"角色"},
-{"en":"rechargeable battery","pos":"n.","zh":"可充电电池"},
-{"en":"require","pos":"v.","zh":"需要"},
-{"en":"labour","pos":"n.","zh":"劳动"},
-{"en":"original","pos":"adj.","zh":"原始的"},
-{"en":"quality","pos":"n.","zh":"质量"},
-{"en":"transport","pos":"v.","zh":"运输"},
-{"en":"mental","pos":"adj.","zh":"心理的"},
-{"en":"transition","pos":"n.","zh":"过渡"},
-{"en":"ultimate","pos":"adj.","zh":"最终的"},
-{"en":"origin","pos":"n.","zh":"起源"},
-{"en":"highlight","pos":"v./n.","zh":"强调；亮点"},
-{"en":"experiment","pos":"n.","zh":"实验"},
-{"en":"technology","pos":"n.","zh":"技术"},
-{"en":"expectation","pos":"n.","zh":"期待，期望"},
-{"en":"present","pos":"v.","zh":"呈现"},
-{"en":"resolve","pos":"v.","zh":"解决"},
-{"en":"eliminate","pos":"v.","zh":"消除"},
-{"en":"solve","pos":"v.","zh":"解决"},
-{"en":"ease","pos":"n./v.","zh":"容易；缓解"},
-{"en":"philosophy","pos":"n.","zh":"哲学"},
-{"en":"commuting","pos":"n.","zh":"日常通勤"},
-{"en":"promote","pos":"v.","zh":"促进"},
-{"en":"criticism","pos":"n.","zh":"批评，批判"},
-{"en":"witness","pos":"v.","zh":"目击"},
-{"en":"length","pos":"n.","zh":"长度"},
-{"en":"order","pos":"n.","zh":"顺序"},
-{"en":"commuting","pos":"n.","zh":"日常通勤"},
-{"en":"decrease","pos":"v./n.","zh":"减少"},
-{"en":"element","pos":"n.","zh":"元素"},
-{"en":"ignorant","pos":"adj.","zh":"无知的"},
-{"en":"prospect","pos":"n.","zh":"前景"},
-{"en":"planning fallacy","pos":"n.","zh":"计划谬误"},
-{"en":"expert","pos":"n.","zh":"专家"},
-{"en":"devote","pos":"v.","zh":"致力于"},
-{"en":"spontaneous","pos":"adj.","zh":"自发的"},
-{"en":"particular","pos":"adj.","zh":"特别的"},
-{"en":"however","pos":"conj.","zh":"然而"},
-{"en":"whether","pos":"conj.","zh":"是否"},
-{"en":"hold","pos":"v.","zh":"持有"},
-{"en":"margin","pos":"n.","zh":"边缘"},
-{"en":"sense","pos":"n.","zh":"感觉"},
-{"en":"benefit","pos":"n./v.","zh":"好处；受益"},
-{"en":"regard","pos":"n./v.","zh":"尊重；看待"},
-{"en":"earnest","pos":"adj.","zh":"认真的"},
-{"en":"approach","pos":"n./v.","zh":"方法；接近"},
-{"en":"fairly","pos":"adv.","zh":"相当地"},
-{"en":"complain","pos":"v.","zh":"抱怨"},
-{"en":"undertake","pos":"v.","zh":"承担"},
-{"en":"reward","pos":"n./v.","zh":"奖励"},
-{"en":"capable","pos":"adj.","zh":"有能力的"},
-{"en":"infer","pos":"v.","zh":"推断"},
-{"en":"stimulate","pos":"v.","zh":"刺激"},
-{"en":"annoyed","pos":"adj.","zh":"恼怒的"},
-{"en":"feature","pos":"n./v.","zh":"特征；以……为特色"},
-{"en":"sustain","pos":"v.","zh":"维持"},
-{"en":"reject","pos":"v.","zh":"拒绝"},
-{"en":"cross-cultural communication","pos":"n.","zh":"跨文化交流"},
-{"en":"cognitive development","pos":"n.","zh":"认知发展"},
-{"en":"facilitate","pos":"v.","zh":"促进，使便利"},
-{"en":"specific","pos":"adj.","zh":"具体的"},
-{"en":"sufficient","pos":"adj.","zh":"足够的"},
-{"en":"crash","pos":"v.","zh":"坠毁；崩溃"},
-{"en":"threat","pos":"n.","zh":"威胁"},
-{"en":"skill","pos":"n.","zh":"技能"},
-{"en":"react","pos":"v.","zh":"反应"},
-{"en":"endure","pos":"v.","zh":"忍受"},
-{"en":"rechargeable battery","pos":"n.","zh":"可充电电池"},
-{"en":"alternative","pos":"n./adj.","zh":"替代方案；另类的"},
-{"en":"bind together","pos":"phr. v.","zh":"把……凝聚到一起"},
-{"en":"while","pos":"conj.","zh":"当……时"},
-{"en":"efficient","pos":"adj.","zh":"高效的"},
-{"en":"manipulate","pos":"v.","zh":"操纵"},
-{"en":"well up","pos":"phr. v.","zh":"(情绪)涌起"},
-{"en":"zoom","pos":"v.","zh":"快速移动，放大"},
-{"en":"though","pos":"conj.","zh":"尽管"},
-{"en":"exchange","pos":"n./v.","zh":"交换"},
-{"en":"whereas","pos":"conj.","zh":"然而"},
-{"en":"sacrifice","pos":"v./n.","zh":"牺牲"},
-{"en":"lead","pos":"v.","zh":"领导"},
-{"en":"bind together","pos":"phr. v.","zh":"把……凝聚到一起"},
-{"en":"damage","pos":"n./v.","zh":"损害"},
-{"en":"novelty","pos":"n.","zh":"新奇的事物"},
-{"en":"discipline","pos":"n.","zh":"纪律；学科"},
-{"en":"psychological","pos":"adj.","zh":"心理的"},
-{"en":"phenomenon","pos":"n.","zh":"现象"},
-{"en":"physical","pos":"adj.","zh":"身体的"},
-{"en":"judgement","pos":"n.","zh":"判断（力）"},
-{"en":"greedy","pos":"adj.","zh":"贪婪的"},
-{"en":"neutral","pos":"adj.","zh":"中立的"},
-{"en":"sequence","pos":"n.","zh":"顺序"},
-{"en":"push-up","pos":"n.","zh":"俯卧撑（心理层面比喻）"},
-{"en":"diminish","pos":"v.","zh":"减少，削弱"},
-{"en":"assume","pos":"v.","zh":"假设，认为"},
-{"en":"figure out","pos":"phr. v.","zh":"弄清楚"},
-{"en":"series","pos":"n.","zh":"系列"},
-{"en":"retrieval practice","pos":"n.","zh":"提取练习"},
-{"en":"deliberate","pos":"adj.","zh":"故意的"},
-{"en":"manage","pos":"v.","zh":"管理"},
-{"en":"guideline","pos":"n.","zh":"指导方针"},
-{"en":"scope","pos":"n.","zh":"范围"},
-{"en":"passion","pos":"n.","zh":"热情"},
-{"en":"fail","pos":"v.","zh":"失败"},
-{"en":"issue","pos":"n.","zh":"问题"},
-{"en":"former","pos":"adj.","zh":"以前的"},
-{"en":"public","pos":"adj.","zh":"公众的"},
-{"en":"approve","pos":"v.","zh":"批准，赞成"},
-{"en":"acknowledge","pos":"v.","zh":"承认，致谢"},
-{"en":"restore","pos":"v.","zh":"恢复"},
-{"en":"term","pos":"n.","zh":"术语"},
-{"en":"wisdom","pos":"n.","zh":"智慧"},
-{"en":"value","pos":"n.","zh":"价值"},
-{"en":"transform","pos":"v.","zh":"转变"},
-{"en":"task","pos":"n.","zh":"任务"},
-{"en":"passage","pos":"n.","zh":"段落"},
-{"en":"influence","pos":"n./v.","zh":"影响"}
+  {
+    "en": "individual",
+    "pos": "n./adj.",
+    "zh": "个人；单独的"
+  },
+  {
+    "en": "largely",
+    "pos": "adv.",
+    "zh": "很大程度上"
+  },
+  {
+    "en": "support",
+    "pos": "v./n.",
+    "zh": "支持"
+  },
+  {
+    "en": "evolve",
+    "pos": "v.",
+    "zh": "进化"
+  },
+  {
+    "en": "lack",
+    "pos": "n./v.",
+    "zh": "缺乏"
+  },
+  {
+    "en": "external",
+    "pos": "adj.",
+    "zh": "外部的"
+  },
+  {
+    "en": "stable",
+    "pos": "adj.",
+    "zh": "稳定的"
+  },
+  {
+    "en": "range",
+    "pos": "n.",
+    "zh": "范围"
+  },
+  {
+    "en": "apparent",
+    "pos": "adj.",
+    "zh": "明显的，显然的"
+  },
+  {
+    "en": "background",
+    "pos": "n.",
+    "zh": "背景"
+  },
+  {
+    "en": "factor",
+    "pos": "n.",
+    "zh": "因素"
+  },
+  {
+    "en": "behavioral experiment",
+    "pos": "n.",
+    "zh": "行为实验"
+  },
+  {
+    "en": "threaten",
+    "pos": "v.",
+    "zh": "威胁"
+  },
+  {
+    "en": "response",
+    "pos": "n.",
+    "zh": "回应"
+  },
+  {
+    "en": "curiosity",
+    "pos": "n.",
+    "zh": "好奇心"
+  },
+  {
+    "en": "privacy",
+    "pos": "n.",
+    "zh": "隐私"
+  },
+  {
+    "en": "focus",
+    "pos": "n./v.",
+    "zh": "焦点；集中"
+  },
+  {
+    "en": "deal with",
+    "pos": "phr. v.",
+    "zh": "处理，应对"
+  },
+  {
+    "en": "vision",
+    "pos": "n.",
+    "zh": "视野"
+  },
+  {
+    "en": "exclude",
+    "pos": "v.",
+    "zh": "排除"
+  },
+  {
+    "en": "feedback",
+    "pos": "n.",
+    "zh": "反馈"
+  },
+  {
+    "en": "cooperate",
+    "pos": "v.",
+    "zh": "合作"
+  },
+  {
+    "en": "virtual",
+    "pos": "adj.",
+    "zh": "虚拟的"
+  },
+  {
+    "en": "satisfy",
+    "pos": "v.",
+    "zh": "满足"
+  },
+  {
+    "en": "protest",
+    "pos": "v./n.",
+    "zh": "抗议"
+  },
+  {
+    "en": "logical",
+    "pos": "adj.",
+    "zh": "逻辑的"
+  },
+  {
+    "en": "tend",
+    "pos": "v.",
+    "zh": "倾向于"
+  },
+  {
+    "en": "reveal",
+    "pos": "v.",
+    "zh": "揭示"
+  },
+  {
+    "en": "importance",
+    "pos": "n.",
+    "zh": "重要性"
+  },
+  {
+    "en": "set up",
+    "pos": "phr. v.",
+    "zh": "建立，设立"
+  },
+  {
+    "en": "standard",
+    "pos": "n.",
+    "zh": "标准"
+  },
+  {
+    "en": "genuine",
+    "pos": "adj.",
+    "zh": "真诚的，真正的"
+  },
+  {
+    "en": "in contrast",
+    "pos": "phr. prep.",
+    "zh": "相比之下"
+  },
+  {
+    "en": "reflect",
+    "pos": "v.",
+    "zh": "反映，反思"
+  },
+  {
+    "en": "interaction",
+    "pos": "n.",
+    "zh": "互动"
+  },
+  {
+    "en": "spirit",
+    "pos": "n.",
+    "zh": "精神"
+  },
+  {
+    "en": "view",
+    "pos": "n./v.",
+    "zh": "观点；看待"
+  },
+  {
+    "en": "version",
+    "pos": "n.",
+    "zh": "版本"
+  },
+  {
+    "en": "progress",
+    "pos": "n./v.",
+    "zh": "进步"
+  },
+  {
+    "en": "simple",
+    "pos": "adj.",
+    "zh": "简单的"
+  },
+  {
+    "en": "provide",
+    "pos": "v.",
+    "zh": "提供"
+  },
+  {
+    "en": "previous",
+    "pos": "adj.",
+    "zh": "以前的"
+  },
+  {
+    "en": "demonstrate",
+    "pos": "v.",
+    "zh": "展示，演示"
+  },
+  {
+    "en": "result",
+    "pos": "n./v.",
+    "zh": "结果"
+  },
+  {
+    "en": "addictive",
+    "pos": "adj.",
+    "zh": "上瘾的"
+  },
+  {
+    "en": "significant",
+    "pos": "adj.",
+    "zh": "重要的，显著的"
+  },
+  {
+    "en": "advocate",
+    "pos": "v./n.",
+    "zh": "提倡；倡导者"
+  },
+  {
+    "en": "accomplish",
+    "pos": "v.",
+    "zh": "完成"
+  },
+  {
+    "en": "select",
+    "pos": "v.",
+    "zh": "选择"
+  },
+  {
+    "en": "acquisition",
+    "pos": "n.",
+    "zh": "习得，学得"
+  },
+  {
+    "en": "ambition",
+    "pos": "n.",
+    "zh": "抱负，雄心"
+  },
+  {
+    "en": "metaphysical",
+    "pos": "adj.",
+    "zh": "形而上学的"
+  },
+  {
+    "en": "identify",
+    "pos": "v.",
+    "zh": "识别，认同"
+  },
+  {
+    "en": "publicly",
+    "pos": "adv.",
+    "zh": "公开地"
+  },
+  {
+    "en": "appear",
+    "pos": "v.",
+    "zh": "出现"
+  },
+  {
+    "en": "scene",
+    "pos": "n.",
+    "zh": "场景"
+  },
+  {
+    "en": "learning-by-teaching",
+    "pos": "n.",
+    "zh": "教学中；教而学"
+  },
+  {
+    "en": "shallow",
+    "pos": "adj.",
+    "zh": "肤浅的"
+  },
+  {
+    "en": "recommend",
+    "pos": "v.",
+    "zh": "推荐"
+  },
+  {
+    "en": "expect",
+    "pos": "v.",
+    "zh": "期望"
+  },
+  {
+    "en": "encounter",
+    "pos": "v.",
+    "zh": "遭遇，遇到"
+  },
+  {
+    "en": "harmony",
+    "pos": "n.",
+    "zh": "和谐"
+  },
+  {
+    "en": "trial",
+    "pos": "n.",
+    "zh": "试验"
+  },
+  {
+    "en": "serious",
+    "pos": "adj.",
+    "zh": "严肃的"
+  },
+  {
+    "en": "process",
+    "pos": "n.",
+    "zh": "过程"
+  },
+  {
+    "en": "abandon",
+    "pos": "v.",
+    "zh": "放弃，抛弃"
+  },
+  {
+    "en": "suppose",
+    "pos": "v.",
+    "zh": "假设"
+  },
+  {
+    "en": "prompt",
+    "pos": "adj.",
+    "zh": "迅速的"
+  },
+  {
+    "en": "knowledge",
+    "pos": "n.",
+    "zh": "知识"
+  },
+  {
+    "en": "justify",
+    "pos": "v.",
+    "zh": "证明……合理"
+  },
+  {
+    "en": "pressure",
+    "pos": "n.",
+    "zh": "(精神或物理)压力"
+  },
+  {
+    "en": "technical",
+    "pos": "adj.",
+    "zh": "技术的"
+  },
+  {
+    "en": "scale",
+    "pos": "n.",
+    "zh": "规模"
+  },
+  {
+    "en": "in terms",
+    "pos": "phr. prep.",
+    "zh": "在……方面"
+  },
+  {
+    "en": "stress",
+    "pos": "n./v.",
+    "zh": "压力；强调"
+  },
+  {
+    "en": "critical",
+    "pos": "adj.",
+    "zh": "批判的；重要的"
+  },
+  {
+    "en": "tilted upward",
+    "pos": "adj.",
+    "zh": "向上倾斜"
+  },
+  {
+    "en": "risk",
+    "pos": "n./v.",
+    "zh": "风险"
+  },
+  {
+    "en": "clarify",
+    "pos": "v.",
+    "zh": "澄清，阐明"
+  },
+  {
+    "en": "interpret",
+    "pos": "v.",
+    "zh": "解释，诠释"
+  },
+  {
+    "en": "evidence",
+    "pos": "n.",
+    "zh": "证据"
+  },
+  {
+    "en": "manual",
+    "pos": "adj.",
+    "zh": "手工的"
+  },
+  {
+    "en": "urge",
+    "pos": "v./n.",
+    "zh": "催促"
+  },
+  {
+    "en": "accumulate",
+    "pos": "v.",
+    "zh": "积累"
+  },
+  {
+    "en": "disappointment",
+    "pos": "n.",
+    "zh": "失望"
+  },
+  {
+    "en": "challenge",
+    "pos": "n./v.",
+    "zh": "挑战"
+  },
+  {
+    "en": "severe",
+    "pos": "adj.",
+    "zh": "严重的"
+  },
+  {
+    "en": "overstuffed",
+    "pos": "adj.",
+    "zh": "塞得过满的"
+  },
+  {
+    "en": "culture",
+    "pos": "n.",
+    "zh": "文化"
+  },
+  {
+    "en": "superior",
+    "pos": "adj.",
+    "zh": "更好的"
+  },
+  {
+    "en": "emphasis",
+    "pos": "n.",
+    "zh": "强调"
+  },
+  {
+    "en": "vehicle",
+    "pos": "n.",
+    "zh": "车辆"
+  },
+  {
+    "en": "undergo",
+    "pos": "v.",
+    "zh": "经历"
+  },
+  {
+    "en": "incorporate",
+    "pos": "v.",
+    "zh": "包含"
+  },
+  {
+    "en": "separate",
+    "pos": "v.",
+    "zh": "分开"
+  },
+  {
+    "en": "zone out",
+    "pos": "phr. v.",
+    "zh": "走神，放空"
+  },
+  {
+    "en": "desire",
+    "pos": "n.",
+    "zh": "渴望"
+  },
+  {
+    "en": "balance",
+    "pos": "n./v.",
+    "zh": "平衡"
+  },
+  {
+    "en": "willingly",
+    "pos": "adv.",
+    "zh": "愿意地"
+  },
+  {
+    "en": "adequate",
+    "pos": "adj.",
+    "zh": "足够的，适当的"
+  },
+  {
+    "en": "dedicate",
+    "pos": "v.",
+    "zh": "致力于"
+  },
+  {
+    "en": "allocate",
+    "pos": "v.",
+    "zh": "分配，拨给"
+  },
+  {
+    "en": "internal",
+    "pos": "adj.",
+    "zh": "内部的"
+  },
+  {
+    "en": "complain",
+    "pos": "v.",
+    "zh": "抱怨"
+  },
+  {
+    "en": "survive",
+    "pos": "v.",
+    "zh": "生存"
+  },
+  {
+    "en": "measure",
+    "pos": "n./v.",
+    "zh": "测量"
+  },
+  {
+    "en": "resist",
+    "pos": "v.",
+    "zh": "抵抗"
+  },
+  {
+    "en": "interdependent",
+    "pos": "adj.",
+    "zh": "互相依赖的"
+  },
+  {
+    "en": "resource",
+    "pos": "n.",
+    "zh": "资源"
+  },
+  {
+    "en": "broaden",
+    "pos": "v.",
+    "zh": "拓宽，扩大"
+  },
+  {
+    "en": "replace",
+    "pos": "v.",
+    "zh": "取代"
+  },
+  {
+    "en": "seek",
+    "pos": "v.",
+    "zh": "寻找"
+  },
+  {
+    "en": "eventually",
+    "pos": "adv.",
+    "zh": "最终，最后"
+  },
+  {
+    "en": "exploit",
+    "pos": "v.",
+    "zh": "开发"
+  },
+  {
+    "en": "negative",
+    "pos": "adj.",
+    "zh": "消极的"
+  },
+  {
+    "en": "attach",
+    "pos": "v.",
+    "zh": "附加，系上"
+  },
+  {
+    "en": "final",
+    "pos": "adj.",
+    "zh": "最后的"
+  },
+  {
+    "en": "enhance",
+    "pos": "v.",
+    "zh": "增强，提升"
+  },
+  {
+    "en": "appreciate",
+    "pos": "v.",
+    "zh": "欣赏；感激"
+  },
+  {
+    "en": "method",
+    "pos": "n.",
+    "zh": "方法"
+  },
+  {
+    "en": "launch",
+    "pos": "v.",
+    "zh": "发起"
+  },
+  {
+    "en": "force",
+    "pos": "n./v.",
+    "zh": "力量；强迫"
+  },
+  {
+    "en": "unique",
+    "pos": "adj.",
+    "zh": "独特的"
+  },
+  {
+    "en": "trigger",
+    "pos": "v.",
+    "zh": "触发"
+  },
+  {
+    "en": "responsible for",
+    "pos": "phr. prep.",
+    "zh": "对……负责"
+  },
+  {
+    "en": "innovation",
+    "pos": "n.",
+    "zh": "创新"
+  },
+  {
+    "en": "profit",
+    "pos": "n.",
+    "zh": "利润"
+  },
+  {
+    "en": "environmental sustainability",
+    "pos": "n.",
+    "zh": "环境可持续性"
+  },
+  {
+    "en": "presence",
+    "pos": "n.",
+    "zh": "存在"
+  },
+  {
+    "en": "suppress",
+    "pos": "v.",
+    "zh": "抑制"
+  },
+  {
+    "en": "motivate",
+    "pos": "v.",
+    "zh": "激励"
+  },
+  {
+    "en": "nicotine",
+    "pos": "n.",
+    "zh": "尼古丁"
+  },
+  {
+    "en": "surroundings",
+    "pos": "n.",
+    "zh": "环境"
+  },
+  {
+    "en": "mechanism",
+    "pos": "n.",
+    "zh": "机制"
+  },
+  {
+    "en": "respond",
+    "pos": "v.",
+    "zh": "回应"
+  },
+  {
+    "en": "growing",
+    "pos": "adj.",
+    "zh": "增加的，日益增长的"
+  },
+  {
+    "en": "ignore",
+    "pos": "v.",
+    "zh": "忽视"
+  },
+  {
+    "en": "appropriate",
+    "pos": "adj.",
+    "zh": "合适的，恰当的"
+  },
+  {
+    "en": "questionnaire",
+    "pos": "n.",
+    "zh": "问卷"
+  },
+  {
+    "en": "ensure",
+    "pos": "v.",
+    "zh": "确保"
+  },
+  {
+    "en": "definite",
+    "pos": "adj.",
+    "zh": "明确的"
+  },
+  {
+    "en": "intend",
+    "pos": "v.",
+    "zh": "打算"
+  },
+  {
+    "en": "hostile",
+    "pos": "adj.",
+    "zh": "敌对的"
+  },
+  {
+    "en": "increase",
+    "pos": "v./n.",
+    "zh": "增加"
+  },
+  {
+    "en": "reverse",
+    "pos": "v./n.",
+    "zh": "颠倒"
+  },
+  {
+    "en": "perspective",
+    "pos": "n.",
+    "zh": "观察角度"
+  },
+  {
+    "en": "technique",
+    "pos": "n.",
+    "zh": "技巧"
+  },
+  {
+    "en": "enable",
+    "pos": "v.",
+    "zh": "使能够"
+  },
+  {
+    "en": "specify",
+    "pos": "v.",
+    "zh": "明确说明"
+  },
+  {
+    "en": "deliver",
+    "pos": "v.",
+    "zh": "递送"
+  },
+  {
+    "en": "therefore",
+    "pos": "adv.",
+    "zh": "因此"
+  },
+  {
+    "en": "tolerate",
+    "pos": "v.",
+    "zh": "容忍"
+  },
+  {
+    "en": "plan",
+    "pos": "n./v.",
+    "zh": "计划"
+  },
+  {
+    "en": "design",
+    "pos": "n./v.",
+    "zh": "设计"
+  },
+  {
+    "en": "improve",
+    "pos": "v.",
+    "zh": "改善"
+  },
+  {
+    "en": "available",
+    "pos": "adj.",
+    "zh": "可获得的，可用的"
+  },
+  {
+    "en": "burden",
+    "pos": "n.",
+    "zh": "负担"
+  },
+  {
+    "en": "link",
+    "pos": "n./v.",
+    "zh": "连接"
+  },
+  {
+    "en": "establish",
+    "pos": "v.",
+    "zh": "建立，确立"
+  },
+  {
+    "en": "forbid",
+    "pos": "v.",
+    "zh": "禁止"
+  },
+  {
+    "en": "acquire",
+    "pos": "v.",
+    "zh": "获得"
+  },
+  {
+    "en": "assess",
+    "pos": "v.",
+    "zh": "评估，评定"
+  },
+  {
+    "en": "formal",
+    "pos": "adj.",
+    "zh": "正式的"
+  },
+  {
+    "en": "interest",
+    "pos": "n.",
+    "zh": "兴趣"
+  },
+  {
+    "en": "inevitable",
+    "pos": "adj.",
+    "zh": "不可避免的"
+  },
+  {
+    "en": "register",
+    "pos": "v.",
+    "zh": "登记，注册"
+  },
+  {
+    "en": "reform",
+    "pos": "n./v.",
+    "zh": "改革"
+  },
+  {
+    "en": "attract",
+    "pos": "v.",
+    "zh": "吸引"
+  },
+  {
+    "en": "keystone",
+    "pos": "adj.",
+    "zh": "关键的，核心的"
+  },
+  {
+    "en": "landmark",
+    "pos": "n.",
+    "zh": "里程碑"
+  },
+  {
+    "en": "inform",
+    "pos": "v.",
+    "zh": "通知"
+  },
+  {
+    "en": "opportunity",
+    "pos": "n.",
+    "zh": "机会"
+  },
+  {
+    "en": "sympathetic",
+    "pos": "adj.",
+    "zh": "有同情心的"
+  },
+  {
+    "en": "correspond",
+    "pos": "v.",
+    "zh": "对应，相符"
+  },
+  {
+    "en": "prioritize",
+    "pos": "v.",
+    "zh": "优先考虑"
+  },
+  {
+    "en": "volunteer",
+    "pos": "v./n.",
+    "zh": "志愿者"
+  },
+  {
+    "en": "structure",
+    "pos": "n.",
+    "zh": "结构"
+  },
+  {
+    "en": "barrier",
+    "pos": "n.",
+    "zh": "障碍"
+  },
+  {
+    "en": "in order",
+    "pos": "phr. conj.",
+    "zh": "为了"
+  },
+  {
+    "en": "proof",
+    "pos": "n.",
+    "zh": "证据"
+  },
+  {
+    "en": "overseas",
+    "pos": "adj.",
+    "zh": "海外的"
+  },
+  {
+    "en": "level",
+    "pos": "n.",
+    "zh": "水平"
+  },
+  {
+    "en": "integrate",
+    "pos": "v.",
+    "zh": "融合"
+  },
+  {
+    "en": "procedure",
+    "pos": "n.",
+    "zh": "程序"
+  },
+  {
+    "en": "draw",
+    "pos": "v.",
+    "zh": "抽出"
+  },
+  {
+    "en": "overlook",
+    "pos": "v.",
+    "zh": "忽视"
+  },
+  {
+    "en": "in advance",
+    "pos": "phr. adv.",
+    "zh": "提前"
+  },
+  {
+    "en": "extreme",
+    "pos": "adj.",
+    "zh": "极端的"
+  },
+  {
+    "en": "differentiate",
+    "pos": "v.",
+    "zh": "区分，辨别"
+  },
+  {
+    "en": "insight",
+    "pos": "n.",
+    "zh": "洞察力"
+  },
+  {
+    "en": "regular",
+    "pos": "adj.",
+    "zh": "有规律的"
+  },
+  {
+    "en": "protect",
+    "pos": "v.",
+    "zh": "保护"
+  },
+  {
+    "en": "cautious",
+    "pos": "adj.",
+    "zh": "小心的，谨慎的"
+  },
+  {
+    "en": "substitute",
+    "pos": "v./n.",
+    "zh": "代替"
+  },
+  {
+    "en": "dramatic",
+    "pos": "adj.",
+    "zh": "戏剧性的"
+  },
+  {
+    "en": "prepare",
+    "pos": "v.",
+    "zh": "准备"
+  },
+  {
+    "en": "senior",
+    "pos": "adj.",
+    "zh": "年长的"
+  },
+  {
+    "en": "occur",
+    "pos": "v.",
+    "zh": "发生"
+  },
+  {
+    "en": "powerful",
+    "pos": "adj.",
+    "zh": "强大的"
+  },
+  {
+    "en": "quickly",
+    "pos": "adv.",
+    "zh": "迅速地"
+  },
+  {
+    "en": "expose",
+    "pos": "v.",
+    "zh": "揭露，暴露"
+  },
+  {
+    "en": "attitude",
+    "pos": "n.",
+    "zh": "态度"
+  },
+  {
+    "en": "instance",
+    "pos": "n.",
+    "zh": "例子"
+  },
+  {
+    "en": "meanwhile",
+    "pos": "adv.",
+    "zh": "同时"
+  },
+  {
+    "en": "transmit",
+    "pos": "v.",
+    "zh": "传输"
+  },
+  {
+    "en": "economic",
+    "pos": "adj.",
+    "zh": "经济的"
+  },
+  {
+    "en": "solution",
+    "pos": "n.",
+    "zh": "解决办法"
+  },
+  {
+    "en": "impact",
+    "pos": "n./v.",
+    "zh": "影响"
+  },
+  {
+    "en": "experience",
+    "pos": "n./v.",
+    "zh": "经历"
+  },
+  {
+    "en": "theory",
+    "pos": "n.",
+    "zh": "理论"
+  },
+  {
+    "en": "despite",
+    "pos": "prep.",
+    "zh": "尽管"
+  },
+  {
+    "en": "implement",
+    "pos": "v.",
+    "zh": "实施"
+  },
+  {
+    "en": "opinion",
+    "pos": "n.",
+    "zh": "观点"
+  },
+  {
+    "en": "emerge",
+    "pos": "v.",
+    "zh": "出现，浮现"
+  },
+  {
+    "en": "overcome",
+    "pos": "v.",
+    "zh": "克服"
+  },
+  {
+    "en": "furthermore",
+    "pos": "adv.",
+    "zh": "此外"
+  },
+  {
+    "en": "examine",
+    "pos": "v.",
+    "zh": "检查"
+  },
+  {
+    "en": "aware",
+    "pos": "adj.",
+    "zh": "意识到的"
+  },
+  {
+    "en": "drive",
+    "pos": "v.",
+    "zh": "驾驶；驱使"
+  },
+  {
+    "en": "explicit",
+    "pos": "adj.",
+    "zh": "明确的"
+  },
+  {
+    "en": "arise",
+    "pos": "v.",
+    "zh": "出现，发生"
+  },
+  {
+    "en": "dispute",
+    "pos": "n./v.",
+    "zh": "争端；争论"
+  },
+  {
+    "en": "obvious",
+    "pos": "adj.",
+    "zh": "明显的"
+  },
+  {
+    "en": "surpass",
+    "pos": "v.",
+    "zh": "超越"
+  },
+  {
+    "en": "organize",
+    "pos": "v.",
+    "zh": "组织"
+  },
+  {
+    "en": "option",
+    "pos": "n.",
+    "zh": "选择"
+  },
+  {
+    "en": "mutual",
+    "pos": "adj.",
+    "zh": "相互的"
+  },
+  {
+    "en": "poverty",
+    "pos": "n.",
+    "zh": "贫穷"
+  },
+  {
+    "en": "violence",
+    "pos": "n.",
+    "zh": "暴力"
+  },
+  {
+    "en": "define",
+    "pos": "v.",
+    "zh": "定义"
+  },
+  {
+    "en": "quantity",
+    "pos": "n.",
+    "zh": "数量"
+  },
+  {
+    "en": "except",
+    "pos": "prep.",
+    "zh": "除了"
+  },
+  {
+    "en": "visual",
+    "pos": "adj.",
+    "zh": "视觉的"
+  },
+  {
+    "en": "legislation",
+    "pos": "n.",
+    "zh": "立法"
+  },
+  {
+    "en": "expand",
+    "pos": "v.",
+    "zh": "扩大"
+  },
+  {
+    "en": "restrict",
+    "pos": "v.",
+    "zh": "限制"
+  },
+  {
+    "en": "instead",
+    "pos": "adv.",
+    "zh": "反而"
+  },
+  {
+    "en": "productivity",
+    "pos": "n.",
+    "zh": "生产力"
+  },
+  {
+    "en": "complaint",
+    "pos": "n.",
+    "zh": "抱怨"
+  },
+  {
+    "en": "routine",
+    "pos": "n.",
+    "zh": "常规"
+  },
+  {
+    "en": "symbolize",
+    "pos": "v.",
+    "zh": "象征"
+  },
+  {
+    "en": "rush",
+    "pos": "adv.",
+    "zh": "匆忙地"
+  },
+  {
+    "en": "due to",
+    "pos": "prep.",
+    "zh": "由于"
+  },
+  {
+    "en": "guarantee",
+    "pos": "n./v.",
+    "zh": "保证"
+  },
+  {
+    "en": "estimate",
+    "pos": "v./n.",
+    "zh": "估计"
+  },
+  {
+    "en": "project",
+    "pos": "n.",
+    "zh": "项目"
+  },
+  {
+    "en": "professional",
+    "pos": "adj.",
+    "zh": "专业的"
+  },
+  {
+    "en": "respect",
+    "pos": "v.",
+    "zh": "尊重他人的"
+  },
+  {
+    "en": "territory",
+    "pos": "n.",
+    "zh": "领土"
+  },
+  {
+    "en": "liberal",
+    "pos": "adj.",
+    "zh": "自由的"
+  },
+  {
+    "en": "analyse",
+    "pos": "v.",
+    "zh": "分析"
+  },
+  {
+    "en": "site",
+    "pos": "n.",
+    "zh": "地点"
+  },
+  {
+    "en": "aggressive",
+    "pos": "adj.",
+    "zh": "侵略性的；积极进取"
+  },
+  {
+    "en": "tension",
+    "pos": "n.",
+    "zh": "紧张"
+  },
+  {
+    "en": "doubt",
+    "pos": "n./v.",
+    "zh": "怀疑"
+  },
+  {
+    "en": "in charge",
+    "pos": "phr. prep.",
+    "zh": "负责"
+  },
+  {
+    "en": "inspect",
+    "pos": "v.",
+    "zh": "检查"
+  },
+  {
+    "en": "distinct",
+    "pos": "adj.",
+    "zh": "明显的，独特的"
+  },
+  {
+    "en": "reason",
+    "pos": "n.",
+    "zh": "原因"
+  },
+  {
+    "en": "hesitate",
+    "pos": "v.",
+    "zh": "犹豫"
+  },
+  {
+    "en": "adaptation",
+    "pos": "n.",
+    "zh": "适应；改编"
+  },
+  {
+    "en": "warrant",
+    "pos": "v.",
+    "zh": "保证"
+  },
+  {
+    "en": "aspect",
+    "pos": "n.",
+    "zh": "方面"
+  },
+  {
+    "en": "account for",
+    "pos": "phr. v.",
+    "zh": "（数量上）占；解释"
+  },
+  {
+    "en": "form",
+    "pos": "n./v.",
+    "zh": "形式；形成"
+  },
+  {
+    "en": "thus",
+    "pos": "adv.",
+    "zh": "因此"
+  },
+  {
+    "en": "eco-friendly and",
+    "pos": "adj.",
+    "zh": "环保节能"
+  },
+  {
+    "en": "widen",
+    "pos": "v.",
+    "zh": "加宽"
+  },
+  {
+    "en": "explore",
+    "pos": "v.",
+    "zh": "探索"
+  },
+  {
+    "en": "goal",
+    "pos": "n.",
+    "zh": "目标"
+  },
+  {
+    "en": "network",
+    "pos": "n.",
+    "zh": "网络"
+  },
+  {
+    "en": "locate",
+    "pos": "v.",
+    "zh": "定位"
+  },
+  {
+    "en": "prevent",
+    "pos": "v.",
+    "zh": "防止"
+  },
+  {
+    "en": "pattern",
+    "pos": "n.",
+    "zh": "模式"
+  },
+  {
+    "en": "topic",
+    "pos": "n.",
+    "zh": "话题"
+  },
+  {
+    "en": "disaster",
+    "pos": "n.",
+    "zh": "灾难"
+  },
+  {
+    "en": "valid",
+    "pos": "adj.",
+    "zh": "有效的"
+  },
+  {
+    "en": "follow",
+    "pos": "v.",
+    "zh": "跟随"
+  },
+  {
+    "en": "interfere",
+    "pos": "v.",
+    "zh": "干涉"
+  },
+  {
+    "en": "status",
+    "pos": "n.",
+    "zh": "地位"
+  },
+  {
+    "en": "withdraw",
+    "pos": "v.",
+    "zh": "撤回"
+  },
+  {
+    "en": "relevant",
+    "pos": "adj.",
+    "zh": "相关的"
+  },
+  {
+    "en": "self-discipline",
+    "pos": "n.",
+    "zh": "自律"
+  },
+  {
+    "en": "qualify",
+    "pos": "v.",
+    "zh": "使具备资格"
+  },
+  {
+    "en": "predict",
+    "pos": "v.",
+    "zh": "预测"
+  },
+  {
+    "en": "legal",
+    "pos": "adj.",
+    "zh": "法律的"
+  },
+  {
+    "en": "evaluate",
+    "pos": "v.",
+    "zh": "评估"
+  },
+  {
+    "en": "hopelessly",
+    "pos": "adv.",
+    "zh": "绝望地"
+  },
+  {
+    "en": "involve",
+    "pos": "v.",
+    "zh": "涉及，包含"
+  },
+  {
+    "en": "topic-centered",
+    "pos": "adj.",
+    "zh": "以主题为中心的"
+  },
+  {
+    "en": "neglect",
+    "pos": "v.",
+    "zh": "忽视"
+  },
+  {
+    "en": "theme",
+    "pos": "n.",
+    "zh": "主题"
+  },
+  {
+    "en": "reciprocal",
+    "pos": "adj.",
+    "zh": "互惠的"
+  },
+  {
+    "en": "rate",
+    "pos": "n.",
+    "zh": "比率"
+  },
+  {
+    "en": "situation",
+    "pos": "n.",
+    "zh": "情况"
+  },
+  {
+    "en": "propose",
+    "pos": "v.",
+    "zh": "提议"
+  },
+  {
+    "en": "effective",
+    "pos": "adj.",
+    "zh": "有效的"
+  },
+  {
+    "en": "extend",
+    "pos": "v.",
+    "zh": "延伸，扩展"
+  },
+  {
+    "en": "promise",
+    "pos": "n./v.",
+    "zh": "承诺"
+  },
+  {
+    "en": "dynamic",
+    "pos": "adj.",
+    "zh": "动态的"
+  },
+  {
+    "en": "temporary",
+    "pos": "adj.",
+    "zh": "暂时的"
+  },
+  {
+    "en": "inference",
+    "pos": "n.",
+    "zh": "推断"
+  },
+  {
+    "en": "maintain",
+    "pos": "v.",
+    "zh": "维持，保持"
+  },
+  {
+    "en": "since",
+    "pos": "conj.",
+    "zh": "自从"
+  },
+  {
+    "en": "determine",
+    "pos": "v.",
+    "zh": "决定，确定"
+  },
+  {
+    "en": "appoint",
+    "pos": "v.",
+    "zh": "任命，委任"
+  },
+  {
+    "en": "encourage",
+    "pos": "v.",
+    "zh": "鼓励"
+  },
+  {
+    "en": "blame",
+    "pos": "v./n.",
+    "zh": "责备"
+  },
+  {
+    "en": "participate",
+    "pos": "v.",
+    "zh": "参与"
+  },
+  {
+    "en": "elevate",
+    "pos": "v.",
+    "zh": "提升"
+  },
+  {
+    "en": "diverse",
+    "pos": "adj.",
+    "zh": "多样的"
+  },
+  {
+    "en": "summarize",
+    "pos": "v.",
+    "zh": "概括"
+  },
+  {
+    "en": "peak",
+    "pos": "n.",
+    "zh": "顶峰"
+  },
+  {
+    "en": "limit",
+    "pos": "n./v.",
+    "zh": "限制"
+  },
+  {
+    "en": "recognize",
+    "pos": "v.",
+    "zh": "认出，承认"
+  },
+  {
+    "en": "plain",
+    "pos": "adj.",
+    "zh": "纯粹的，简简单单的"
+  },
+  {
+    "en": "produce",
+    "pos": "v.",
+    "zh": "生产"
+  },
+  {
+    "en": "attempt",
+    "pos": "v./n.",
+    "zh": "尝试"
+  },
+  {
+    "en": "location",
+    "pos": "n.",
+    "zh": "位置"
+  },
+  {
+    "en": "vary",
+    "pos": "v.",
+    "zh": "变化"
+  },
+  {
+    "en": "tremble",
+    "pos": "v.",
+    "zh": "发抖"
+  },
+  {
+    "en": "trend",
+    "pos": "n.",
+    "zh": "趋势"
+  },
+  {
+    "en": "quit",
+    "pos": "v.",
+    "zh": "放弃"
+  },
+  {
+    "en": "target",
+    "pos": "n./v.",
+    "zh": "目标；瞄准"
+  },
+  {
+    "en": "example",
+    "pos": "n.",
+    "zh": "例子"
+  },
+  {
+    "en": "realization",
+    "pos": "n.",
+    "zh": "认知，感悟"
+  },
+  {
+    "en": "similarly",
+    "pos": "adv.",
+    "zh": "同样地"
+  },
+  {
+    "en": "source",
+    "pos": "n.",
+    "zh": "来源"
+  },
+  {
+    "en": "major",
+    "pos": "adj.",
+    "zh": "主要的"
+  },
+  {
+    "en": "insist",
+    "pos": "v.",
+    "zh": "坚持"
+  },
+  {
+    "en": "remark",
+    "pos": "n./v.",
+    "zh": "评论"
+  },
+  {
+    "en": "gratitude",
+    "pos": "n.",
+    "zh": "感激"
+  },
+  {
+    "en": "notion",
+    "pos": "n.",
+    "zh": "观念"
+  },
+  {
+    "en": "financial",
+    "pos": "adj.",
+    "zh": "财务的"
+  },
+  {
+    "en": "affect",
+    "pos": "v.",
+    "zh": "影响"
+  },
+  {
+    "en": "literature",
+    "pos": "n.",
+    "zh": "文学"
+  },
+  {
+    "en": "generate",
+    "pos": "v.",
+    "zh": "产生，生成"
+  },
+  {
+    "en": "objective",
+    "pos": "n.",
+    "zh": "目标"
+  },
+  {
+    "en": "revise",
+    "pos": "v.",
+    "zh": "修改"
+  },
+  {
+    "en": "appeal",
+    "pos": "v./n.",
+    "zh": "吸引；呼吁"
+  },
+  {
+    "en": "sensitive",
+    "pos": "adj.",
+    "zh": "敏感的"
+  },
+  {
+    "en": "fundamental",
+    "pos": "adj.",
+    "zh": "基本的，根本的"
+  },
+  {
+    "en": "relate",
+    "pos": "v.",
+    "zh": "有关联"
+  },
+  {
+    "en": "efficiency",
+    "pos": "n.",
+    "zh": "效率"
+  },
+  {
+    "en": "shame",
+    "pos": "n.",
+    "zh": "羞耻"
+  },
+  {
+    "en": "demand",
+    "pos": "v./n.",
+    "zh": "要求"
+  },
+  {
+    "en": "distribute",
+    "pos": "v.",
+    "zh": "分发，分配"
+  },
+  {
+    "en": "bind together",
+    "pos": "phr. v.",
+    "zh": "把……凝聚到一起"
+  },
+  {
+    "en": "relieve",
+    "pos": "v.",
+    "zh": "缓解"
+  },
+  {
+    "en": "preserve",
+    "pos": "v.",
+    "zh": "保护，保存"
+  },
+  {
+    "en": "outstanding",
+    "pos": "adj.",
+    "zh": "杰出的"
+  },
+  {
+    "en": "remove",
+    "pos": "v.",
+    "zh": "移除"
+  },
+  {
+    "en": "disability",
+    "pos": "n.",
+    "zh": "残疾"
+  },
+  {
+    "en": "pause",
+    "pos": "n./v.",
+    "zh": "暂停"
+  },
+  {
+    "en": "pursue",
+    "pos": "v.",
+    "zh": "追求"
+  },
+  {
+    "en": "indicate",
+    "pos": "v.",
+    "zh": "表明"
+  },
+  {
+    "en": "potential",
+    "pos": "n./adj.",
+    "zh": "潜力；潜在的"
+  },
+  {
+    "en": "cancel",
+    "pos": "v.",
+    "zh": "取消"
+  },
+  {
+    "en": "clue",
+    "pos": "n.",
+    "zh": "线索"
+  },
+  {
+    "en": "outcome",
+    "pos": "n.",
+    "zh": "结果"
+  },
+  {
+    "en": "bias",
+    "pos": "n./v.",
+    "zh": "偏见；带有偏见"
+  },
+  {
+    "en": "obtain",
+    "pos": "v.",
+    "zh": "获得"
+  },
+  {
+    "en": "imply",
+    "pos": "v.",
+    "zh": "暗示"
+  },
+  {
+    "en": "preference",
+    "pos": "n.",
+    "zh": "偏好"
+  },
+  {
+    "en": "initiative",
+    "pos": "n.",
+    "zh": "主动性"
+  },
+  {
+    "en": "affordable",
+    "pos": "adj.",
+    "zh": "负担得起的"
+  },
+  {
+    "en": "zest",
+    "pos": "n.",
+    "zh": "热情"
+  },
+  {
+    "en": "accelerate",
+    "pos": "v.",
+    "zh": "加速"
+  },
+  {
+    "en": "utilize",
+    "pos": "v.",
+    "zh": "利用"
+  },
+  {
+    "en": "in spite",
+    "pos": "phr. prep.",
+    "zh": "尽管"
+  },
+  {
+    "en": "role",
+    "pos": "n.",
+    "zh": "角色"
+  },
+  {
+    "en": "rechargeable battery",
+    "pos": "n.",
+    "zh": "可充电电池"
+  },
+  {
+    "en": "require",
+    "pos": "v.",
+    "zh": "需要"
+  },
+  {
+    "en": "labour",
+    "pos": "n.",
+    "zh": "劳动"
+  },
+  {
+    "en": "original",
+    "pos": "adj.",
+    "zh": "原始的"
+  },
+  {
+    "en": "quality",
+    "pos": "n.",
+    "zh": "质量"
+  },
+  {
+    "en": "transport",
+    "pos": "v.",
+    "zh": "运输"
+  },
+  {
+    "en": "mental",
+    "pos": "adj.",
+    "zh": "心理的"
+  },
+  {
+    "en": "transition",
+    "pos": "n.",
+    "zh": "过渡"
+  },
+  {
+    "en": "ultimate",
+    "pos": "adj.",
+    "zh": "最终的"
+  },
+  {
+    "en": "origin",
+    "pos": "n.",
+    "zh": "起源"
+  },
+  {
+    "en": "highlight",
+    "pos": "v./n.",
+    "zh": "强调；亮点"
+  },
+  {
+    "en": "experiment",
+    "pos": "n.",
+    "zh": "实验"
+  },
+  {
+    "en": "technology",
+    "pos": "n.",
+    "zh": "技术"
+  },
+  {
+    "en": "expectation",
+    "pos": "n.",
+    "zh": "期待，期望"
+  },
+  {
+    "en": "present",
+    "pos": "v.",
+    "zh": "呈现"
+  },
+  {
+    "en": "resolve",
+    "pos": "v.",
+    "zh": "解决"
+  },
+  {
+    "en": "eliminate",
+    "pos": "v.",
+    "zh": "消除"
+  },
+  {
+    "en": "solve",
+    "pos": "v.",
+    "zh": "解决"
+  },
+  {
+    "en": "ease",
+    "pos": "n./v.",
+    "zh": "容易；缓解"
+  },
+  {
+    "en": "philosophy",
+    "pos": "n.",
+    "zh": "哲学"
+  },
+  {
+    "en": "commuting",
+    "pos": "n.",
+    "zh": "日常通勤"
+  },
+  {
+    "en": "promote",
+    "pos": "v.",
+    "zh": "促进"
+  },
+  {
+    "en": "criticism",
+    "pos": "n.",
+    "zh": "批评，批判"
+  },
+  {
+    "en": "witness",
+    "pos": "v.",
+    "zh": "目击"
+  },
+  {
+    "en": "length",
+    "pos": "n.",
+    "zh": "长度"
+  },
+  {
+    "en": "order",
+    "pos": "n.",
+    "zh": "顺序"
+  },
+  {
+    "en": "decrease",
+    "pos": "v./n.",
+    "zh": "减少"
+  },
+  {
+    "en": "element",
+    "pos": "n.",
+    "zh": "元素"
+  },
+  {
+    "en": "ignorant",
+    "pos": "adj.",
+    "zh": "无知的"
+  },
+  {
+    "en": "prospect",
+    "pos": "n.",
+    "zh": "前景"
+  },
+  {
+    "en": "planning fallacy",
+    "pos": "n.",
+    "zh": "计划谬误"
+  },
+  {
+    "en": "expert",
+    "pos": "n.",
+    "zh": "专家"
+  },
+  {
+    "en": "devote",
+    "pos": "v.",
+    "zh": "致力于"
+  },
+  {
+    "en": "spontaneous",
+    "pos": "adj.",
+    "zh": "自发的"
+  },
+  {
+    "en": "particular",
+    "pos": "adj.",
+    "zh": "特别的"
+  },
+  {
+    "en": "however",
+    "pos": "conj.",
+    "zh": "然而"
+  },
+  {
+    "en": "whether",
+    "pos": "conj.",
+    "zh": "是否"
+  },
+  {
+    "en": "hold",
+    "pos": "v.",
+    "zh": "持有"
+  },
+  {
+    "en": "margin",
+    "pos": "n.",
+    "zh": "边缘"
+  },
+  {
+    "en": "sense",
+    "pos": "n.",
+    "zh": "感觉"
+  },
+  {
+    "en": "benefit",
+    "pos": "n./v.",
+    "zh": "好处；受益"
+  },
+  {
+    "en": "regard",
+    "pos": "n./v.",
+    "zh": "尊重；看待"
+  },
+  {
+    "en": "earnest",
+    "pos": "adj.",
+    "zh": "认真的"
+  },
+  {
+    "en": "approach",
+    "pos": "n./v.",
+    "zh": "方法；接近"
+  },
+  {
+    "en": "fairly",
+    "pos": "adv.",
+    "zh": "相当地"
+  },
+  {
+    "en": "undertake",
+    "pos": "v.",
+    "zh": "承担"
+  },
+  {
+    "en": "reward",
+    "pos": "n./v.",
+    "zh": "奖励"
+  },
+  {
+    "en": "capable",
+    "pos": "adj.",
+    "zh": "有能力的"
+  },
+  {
+    "en": "infer",
+    "pos": "v.",
+    "zh": "推断"
+  },
+  {
+    "en": "stimulate",
+    "pos": "v.",
+    "zh": "刺激"
+  },
+  {
+    "en": "annoyed",
+    "pos": "adj.",
+    "zh": "恼怒的"
+  },
+  {
+    "en": "feature",
+    "pos": "n./v.",
+    "zh": "特征；以……为特色"
+  },
+  {
+    "en": "sustain",
+    "pos": "v.",
+    "zh": "维持"
+  },
+  {
+    "en": "reject",
+    "pos": "v.",
+    "zh": "拒绝"
+  },
+  {
+    "en": "cross-cultural communication",
+    "pos": "n.",
+    "zh": "跨文化交流"
+  },
+  {
+    "en": "cognitive development",
+    "pos": "n.",
+    "zh": "认知发展"
+  },
+  {
+    "en": "facilitate",
+    "pos": "v.",
+    "zh": "促进，使便利"
+  },
+  {
+    "en": "specific",
+    "pos": "adj.",
+    "zh": "具体的"
+  },
+  {
+    "en": "sufficient",
+    "pos": "adj.",
+    "zh": "足够的"
+  },
+  {
+    "en": "crash",
+    "pos": "v.",
+    "zh": "坠毁；崩溃"
+  },
+  {
+    "en": "threat",
+    "pos": "n.",
+    "zh": "威胁"
+  },
+  {
+    "en": "skill",
+    "pos": "n.",
+    "zh": "技能"
+  },
+  {
+    "en": "react",
+    "pos": "v.",
+    "zh": "反应"
+  },
+  {
+    "en": "endure",
+    "pos": "v.",
+    "zh": "忍受"
+  },
+  {
+    "en": "alternative",
+    "pos": "n./adj.",
+    "zh": "替代方案；另类的"
+  },
+  {
+    "en": "while",
+    "pos": "conj.",
+    "zh": "当……时"
+  },
+  {
+    "en": "efficient",
+    "pos": "adj.",
+    "zh": "高效的"
+  },
+  {
+    "en": "manipulate",
+    "pos": "v.",
+    "zh": "操纵"
+  },
+  {
+    "en": "well up",
+    "pos": "phr. v.",
+    "zh": "(情绪)涌起"
+  },
+  {
+    "en": "zoom",
+    "pos": "v.",
+    "zh": "快速移动，放大"
+  },
+  {
+    "en": "though",
+    "pos": "conj.",
+    "zh": "尽管"
+  },
+  {
+    "en": "exchange",
+    "pos": "n./v.",
+    "zh": "交换"
+  },
+  {
+    "en": "whereas",
+    "pos": "conj.",
+    "zh": "然而"
+  },
+  {
+    "en": "sacrifice",
+    "pos": "v./n.",
+    "zh": "牺牲"
+  },
+  {
+    "en": "lead",
+    "pos": "v.",
+    "zh": "领导"
+  },
+  {
+    "en": "damage",
+    "pos": "n./v.",
+    "zh": "损害"
+  },
+  {
+    "en": "novelty",
+    "pos": "n.",
+    "zh": "新奇的事物"
+  },
+  {
+    "en": "discipline",
+    "pos": "n.",
+    "zh": "纪律；学科"
+  },
+  {
+    "en": "psychological",
+    "pos": "adj.",
+    "zh": "心理的"
+  },
+  {
+    "en": "phenomenon",
+    "pos": "n.",
+    "zh": "现象"
+  },
+  {
+    "en": "physical",
+    "pos": "adj.",
+    "zh": "身体的"
+  },
+  {
+    "en": "judgement",
+    "pos": "n.",
+    "zh": "判断（力）"
+  },
+  {
+    "en": "greedy",
+    "pos": "adj.",
+    "zh": "贪婪的"
+  },
+  {
+    "en": "neutral",
+    "pos": "adj.",
+    "zh": "中立的"
+  },
+  {
+    "en": "sequence",
+    "pos": "n.",
+    "zh": "顺序"
+  },
+  {
+    "en": "push-up",
+    "pos": "n.",
+    "zh": "俯卧撑（心理层面比喻）"
+  },
+  {
+    "en": "diminish",
+    "pos": "v.",
+    "zh": "减少，削弱"
+  },
+  {
+    "en": "assume",
+    "pos": "v.",
+    "zh": "假设，认为"
+  },
+  {
+    "en": "figure out",
+    "pos": "phr. v.",
+    "zh": "弄清楚"
+  },
+  {
+    "en": "series",
+    "pos": "n.",
+    "zh": "系列"
+  },
+  {
+    "en": "retrieval practice",
+    "pos": "n.",
+    "zh": "提取练习"
+  },
+  {
+    "en": "deliberate",
+    "pos": "adj.",
+    "zh": "故意的"
+  },
+  {
+    "en": "manage",
+    "pos": "v.",
+    "zh": "管理"
+  },
+  {
+    "en": "guideline",
+    "pos": "n.",
+    "zh": "指导方针"
+  },
+  {
+    "en": "scope",
+    "pos": "n.",
+    "zh": "范围"
+  },
+  {
+    "en": "passion",
+    "pos": "n.",
+    "zh": "热情"
+  },
+  {
+    "en": "fail",
+    "pos": "v.",
+    "zh": "失败"
+  },
+  {
+    "en": "issue",
+    "pos": "n.",
+    "zh": "问题"
+  },
+  {
+    "en": "former",
+    "pos": "adj.",
+    "zh": "以前的"
+  },
+  {
+    "en": "public",
+    "pos": "adj.",
+    "zh": "公众的"
+  },
+  {
+    "en": "approve",
+    "pos": "v.",
+    "zh": "批准，赞成"
+  },
+  {
+    "en": "acknowledge",
+    "pos": "v.",
+    "zh": "承认，致谢"
+  },
+  {
+    "en": "restore",
+    "pos": "v.",
+    "zh": "恢复"
+  },
+  {
+    "en": "term",
+    "pos": "n.",
+    "zh": "术语"
+  },
+  {
+    "en": "wisdom",
+    "pos": "n.",
+    "zh": "智慧"
+  },
+  {
+    "en": "value",
+    "pos": "n.",
+    "zh": "价值"
+  },
+  {
+    "en": "transform",
+    "pos": "v.",
+    "zh": "转变"
+  },
+  {
+    "en": "task",
+    "pos": "n.",
+    "zh": "任务"
+  },
+  {
+    "en": "passage",
+    "pos": "n.",
+    "zh": "段落"
+  },
+  {
+    "en": "influence",
+    "pos": "n./v.",
+    "zh": "影响"
+  }
 ]
