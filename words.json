@@ -1330,7 +1330,7 @@
     "zh": "因此"
   },
   {
-    "en": "eco-friendly and",
+    "en": "eco-friendly and energy-saving",
     "pos": "adj.",
     "zh": "环保节能"
   },
@@ -2403,5 +2403,20 @@
     "en": "influence",
     "pos": "n./v.",
     "zh": "影响"
+  },
+  {
+    "en": "in terms of",
+    "pos": "phr. prep.",
+    "zh": "在……方面"
+  },
+  {
+    "en": "in charge of",
+    "pos": "phr. prep.",
+    "zh": "负责"
+  },
+  {
+    "en": "in spite of",
+    "pos": "phr. prep.",
+    "zh": "尽管"
   }
 ]
