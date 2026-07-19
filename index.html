@@ -616,7 +616,7 @@ const state = {
     if(stored&&Array.isArray(stored)&&stored.length>0){this.words=stored;return true}
     // Try fetch JSON
     try{
-      const r=await fetch(list.file);
+      const r=await fetch(list.file+'?v='+Date.now());
       if(r.ok){const j=await r.json();if(Array.isArray(j)&&j.length>0){this.words=j;Store.saveWords(listId,j);return true}}
     }catch{}
     return false;
