@@ -54,14 +54,13 @@ jobs:
 
       - name: Build APK with Capacitor
         run: |
+          mkdir -p www
+          cp index.html style.css www/
+          cp *.json www/
           npm init -y
           npm install @capacitor/core @capacitor/cli @capacitor/android
-          npx cap init "Word-Force" "com.wordforce.app" --web-dir .
+          npx cap init "Word-Force" "com.wordforce.app" --web-dir www
           npx cap add android
-          rm -rf android/app/src/main/assets/public/node_modules
-          rm -f android/app/src/main/assets/public/package.json
-          rm -f android/app/src/main/assets/public/package-lock.json
-          rm -f android/app/src/main/assets/public/CNAME
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
