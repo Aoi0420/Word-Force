@@ -758,7 +758,7 @@ const Search = {
 // ===== ANKI IMPORT =====
 const AnkiImport = {
   _FIELD_KWS:{
-    en:['en','english','front','expression','term','vocab','word','vocabulary','sentence','phrase'],
+    en:['en','english','front','expression','term','vocab','word','vocabulary','sentence','phrase','question','task','rubric','verb','v1','v2','v3','英文','英语'],
     zh:['zh','chinese','cn','back','definition','meaning','translation','explanation','释义','解释','中文','翻译','单词','词语','汉语','defsc','deftc'],
     pos:['pos','part of speech','speech','type','grammar','wordtype','词性'],
   },
@@ -769,7 +769,8 @@ const AnkiImport = {
   _nf(n){return n.toLowerCase().replace(/[_\s-]+/g,'').replace(/[^a-z0-9\u4e00-\u9fff]/g,'').trim()},
   _sf(n,kw){const nn=this._nf(n);let s=0;for(const k of kw){const nk=this._nf(k);if(nn===nk)s+=100;else if(nk.length>=3&&(nn.includes(nk)||nk.includes(nn)))s+=50;else if(nk.length>=2&&nn.includes(nk))s+=30;else if(k.length>=4&&n.toLowerCase().includes(k.toLowerCase()))s+=10}return s},
   _ad(fields){
-    const sc={};for(const[k,kw]of Object.entries(this._FIELD_KWS)){let bi=-1,bs=0;for(let i=0;i<fields.length;i++){const s=this._sf(fields[i],kw);if(s>bs){bs=s;bi=i}}if(bi!==-1&&bs>0)sc[k]={f:fields[bi],s:bs,i:bi}}
+    const enPen=['扩展','extension','词根','root','简','繁','source','补充','extra','note','备注','词组','collocation'];
+    const sc={};for(const[k,kw]of Object.entries(this._FIELD_KWS)){let bi=-1,bs=0;for(let i=0;i<fields.length;i++){let s=this._sf(fields[i],kw);if(k==='en')for(const p of enPen)if(fields[i].toLowerCase().includes(p.toLowerCase()))s-=30;if(s>bs){bs=s;bi=i}}if(bi!==-1&&bs>0)sc[k]={f:fields[bi],s:bs,i:bi}}
     const mp={},used=new Set;for(const k of['en','zh','pos']){if(!sc[k]||used.has(sc[k].i))continue;mp[k]=sc[k].f;used.add(sc[k].i)}
     if(!mp.en){mp.en=fields[0];used.add(0)}
     if(!mp.zh&&fields.length>1){for(let i=0;i<fields.length;i++){if(!used.has(i)){mp.zh=fields[i];used.add(i);break}}}
@@ -782,21 +783,35 @@ const AnkiImport = {
   async process(file){
     const ext=file.name.match(/\.(\w+)$/)?.[1]||'';
     let buf;
-    if(ext==='apkg'){
+    if(ext==='apkg'||ext==='colpkg'){
       if(typeof JSZip==='undefined')throw new Error('JSZip 未加载，请检查网络');
       const zip=await JSZip.loadAsync(file);
-      let e=zip.file('collection.anki21')||zip.file('collection.anki2');
-      if(!e)throw new Error('无效的 .apkg 文件：未找到数据库 (collection.anki2/anki21)');
-      buf=await e.async('uint8array');
+      const names=Object.keys(zip.files);
+      const has21=names.includes('collection.anki21');
+      const has2=names.includes('collection.anki2');
+      if(!has21&&!has2)throw new Error('无效的 .apkg 文件：未找到数据库 (collection.anki2/anki21)');
+      // Smart selection: prefer anki21 unless anki2 has real data
+      if(has21&&has2){
+        const b2=await zip.file('collection.anki2').async('uint8array');
+        const b21=await zip.file('collection.anki21').async('uint8array');
+        if(b21.length>4096){
+          try{
+            const SQL=await initSqlJs({locateFile:s=>'https://cdn.jsdelivr.net/npm/sql.js@1.9.0/dist/'+s});
+            const tdb=new SQL.Database(b2);
+            const tc=tdb.exec('SELECT COUNT(*) as c FROM notes');
+            const noteCount=tc.length&&tc[0].values.length?tc[0].values[0][0]:0;
+            tdb.close();
+            buf=noteCount<10&&b21.length>4096?b21:b2;
+          }catch(){buf=b21}
+        }else{buf=b2}
+      }else{buf=await zip.file(has21?'collection.anki21':'collection.anki2').async('uint8array')}
     }else{
       buf=new Uint8Array(await file.arrayBuffer());
     }
-    // Quick check: .colpkg (tar.gz) cannot be parsed as SQLite
-    if(buf[0]===0x1f&&buf[1]===0x8b)throw new Error('检测到 .colpkg 格式（gzip），请用 Anki 导出为 .apkg 格式后重试');
     if(typeof initSqlJs==='undefined')throw new Error('sql.js 未加载，请检查网络');
     const SQL=await initSqlJs({locateFile:s=>'https://cdn.jsdelivr.net/npm/sql.js@1.9.0/dist/'+s});
     let db;
-    try{db=new SQL.Database(buf)}catch(e){throw new Error('无法解析数据库，请确认文件是 Anki 导出的 .apkg 格式而非 .colpkg')}
+    try{db=new SQL.Database(buf)}catch(e){throw new Error('无法解析数据库，请确认文件是 Anki 导出的 .apkg/.colpkg 格式')}
     const cs=db.exec('SELECT models FROM col LIMIT 1');
     if(!cs.length)throw new Error('无效的 Anki 数据库');
     const mm=JSON.parse(cs[0].values[0][0]);
@@ -1308,7 +1323,7 @@ const App = {
     const file=e.target.files[0];if(!file)return;
     const ext=file.name.match(/\.(\w+)$/)?.[1]||'';
     e.target.value='';
-    if(ext==='apkg'||ext==='anki2'){this.importAnki(file);return}
+    if(ext==='apkg'||ext==='colpkg'||ext==='anki2'||ext==='anki21'){this.importAnki(file);return}
     const reader=new FileReader();
     reader.onload=ev=>{
       try{
