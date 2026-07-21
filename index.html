@@ -785,15 +785,18 @@ const AnkiImport = {
     if(ext==='apkg'){
       if(typeof JSZip==='undefined')throw new Error('JSZip 未加载，请检查网络');
       const zip=await JSZip.loadAsync(file);
-      const e=zip.file('collection.anki2');
-      if(!e)throw new Error('未找到 collection.anki2');
+      let e=zip.file('collection.anki21')||zip.file('collection.anki2');
+      if(!e)throw new Error('无效的 .apkg 文件：未找到数据库 (collection.anki2/anki21)');
       buf=await e.async('uint8array');
     }else{
       buf=new Uint8Array(await file.arrayBuffer());
     }
+    // Quick check: .colpkg (tar.gz) cannot be parsed as SQLite
+    if(buf[0]===0x1f&&buf[1]===0x8b)throw new Error('检测到 .colpkg 格式（gzip），请用 Anki 导出为 .apkg 格式后重试');
     if(typeof initSqlJs==='undefined')throw new Error('sql.js 未加载，请检查网络');
     const SQL=await initSqlJs({locateFile:s=>'https://cdn.jsdelivr.net/npm/sql.js@1.9.0/dist/'+s});
-    const db=new SQL.Database(buf);
+    let db;
+    try{db=new SQL.Database(buf)}catch(e){throw new Error('无法解析数据库，请确认文件是 Anki 导出的 .apkg 格式而非 .colpkg')}
     const cs=db.exec('SELECT models FROM col LIMIT 1');
     if(!cs.length)throw new Error('无效的 Anki 数据库');
     const mm=JSON.parse(cs[0].values[0][0]);
