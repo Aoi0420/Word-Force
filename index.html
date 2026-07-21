@@ -456,6 +456,18 @@
 </div>
 
 <!-- WORD DETAIL MODAL -->
+<div id="desktop-guide" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:70;background:rgba(20,23,28,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);flex-direction:column;align-items:center;justify-content:center;padding:24px">
+  <div class="bg-card border-card rounded-xl p-5 max-w-460 w-full" style="max-height:90vh;overflow-y:auto">
+    <div class="text-lg font-bold text-center mb-4" style="color:var(--green-bright)">键盘快捷键</div>
+    <div class="space-y-3 text-sm">
+      <div><div class="font-medium mb-1 text-dim">首页</div><div class="space-y-1"><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">Enter</span><span class="text-dim"> / </span><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">Space</span><span class="ml-2">开始学习</span><br><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">Tab</span><span class="ml-2">切换模式</span><br><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">1</span><span class="ml-1">–</span><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">4</span><span class="ml-2">底部导航</span></div></div>
+      <div><div class="font-medium mb-1 text-dim">答题</div><div class="space-y-1"><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">A</span><span class="ml-1">–</span><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">D</span><span class="ml-2">选择选项</span><br><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">H</span><span class="ml-2">拼写提示</span><br><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">Esc</span><span class="ml-2">退出学习</span></div></div>
+      <div><div class="font-medium mb-1 text-dim">拼写 / 填空</div><div class="space-y-1"><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">字母键</span><span class="ml-2">直接输入</span><br><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">Enter</span><span class="ml-2">提交</span><br><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">Backspace</span><span class="ml-2">删除</span></div></div>
+      <div><div class="font-medium mb-1 text-dim">其他</div><div class="space-y-1"><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">Enter</span><span class="ml-2">继续 / 下一题</span><br><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">Space</span><span class="ml-2">下一题</span><br><span class="mono text-xs bg-surface px-2 py-1 rounded" style="background:var(--bg-surface)">Esc</span><span class="ml-2">返回首页</span></div></div>
+    </div>
+    <button id="desktop-guide-close" class="btn btn-primary btn-block mt-5">知道了</button>
+  </div>
+</div>
 <div id="word-detail" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:60;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px;width:90%;max-width:400px;box-shadow:0 20px 60px rgba(0,0,0,.5)">
   <div class="flex justify-between items-start mb-3">
     <div>
@@ -1145,6 +1157,54 @@ const App = {
     });
     // Escape from search
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&el('page-search').style.display==='flex'){el('page-search').style.display='none';el('word-detail').style.display='none'}});
+    // Desktop keyboard shortcuts for study/result
+    document.addEventListener('keydown',e=>{
+      const key=e.key;
+      if(el('page-study').classList.contains('active')){
+        if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
+        if(this.answering)return;
+        // Fill mode: physical keyboard input
+        if(this._currentQType==='fill'){
+          if(key==='Backspace'){e.preventDefault();if(this._fillProgress>0){this._fillProgress--;const p=Spelling.fillPositions[this._fillProgress].idx;this._fillChars[p]='_';el('study-word').textContent=this._fillChars.join('')}return}
+          if(key==='Enter'){e.preventDefault();this.handleFillSubmit();return}
+          if(key.length===1&&/^[a-zA-Z]$/.test(key)){e.preventDefault();if(this._fillProgress>=Spelling.fillCount)return;const p=Spelling.fillPositions[this._fillProgress].idx;this._fillChars[p]=key.toLowerCase();el('study-word').textContent=this._fillChars.join('');this._fillProgress++;if(this._fillProgress>=Spelling.fillCount)this.handleFillSubmit();return}
+          return;
+        }
+        // Choice mode: A-D selects option
+        if(this._currentQType==='en2zh'||this._currentQType==='zh2en'){
+          const lo=key.toLowerCase(),idx=lo.charCodeAt(0)-97;
+          if(idx>=0&&idx<=3){const opts=el('study-options').querySelectorAll('.opt');if(opts[idx]){e.preventDefault();opts[idx].click();return}}
+        }
+        // Spelling mode: physical keyboard types into input
+        if(this._currentQType==='spell'){
+          if((key==='h'||key==='H')&&!el('btn-spelling-hint').disabled){e.preventDefault();el('btn-spelling-hint').click();return}
+          const inp=el('spelling-input');
+          if(key==='Backspace'){e.preventDefault();inp.value=inp.value.slice(0,-1);return}
+          if(key==='Enter'){e.preventDefault();this.handleSpellingSubmit();return}
+          if(key.length===1&&/^[a-zA-Z '-]$/.test(key)){e.preventDefault();const start=inp.selectionStart||inp.value.length;inp.value=inp.value.slice(0,start)+key+inp.value.slice(inp.selectionEnd||start);const pos=start+key.length;inp.setSelectionRange(pos,pos);if(Spelling.check(inp.value))this.handleSpellingSubmit();return}
+          return;
+        }
+        // Escape to exit study
+        if(key==='Escape'){this.endStudy();return}
+        return;
+      }
+      // Home page: Enter/Space start, Tab cycle mode, 1-4 bottom nav
+      if(el('page-home').classList.contains('active')){
+        if(key==='Enter'||key===' '){e.preventDefault();el('btn-start').click();return}
+        if(key==='Tab'){e.preventDefault();const btns=document.querySelectorAll('.mode-btn');const idx=[...btns].findIndex(b=>b.dataset.mode===App.mode);const next=(idx+1)%btns.length;btns[next].click();return}
+        const num=parseInt(key);
+        if(num>=1&&num<=4){e.preventDefault();const navs=document.querySelectorAll('.page-nav');if(navs[num-1])navs[num-1].click();return}
+        return;
+      }
+      // Memorize page: Enter/Space -> start answering
+      if(el('page-memorize').classList.contains('active')&&(key==='Enter'||key===' ')){e.preventDefault();this.endMemorize();return}
+      // Result page: Enter/Space -> next question
+      if(el('page-result').classList.contains('active')&&(key==='Enter'||key===' ')){e.preventDefault();this.nextQuestion();return}
+      // Round end page: Enter -> continue
+      if(el('page-round').classList.contains('active')&&key==='Enter'){e.preventDefault();this.continueRound();return}
+      // Global: Escape on sub-pages -> home
+      if(key==='Escape'&&!el('page-home').classList.contains('active')&&!el('page-study').classList.contains('active')&&!el('page-result').classList.contains('active')&&!el('page-round').classList.contains('active')&&el('page-search').style.display!=='flex'){e.preventDefault();Router.goHome();return}
+    });
   },
   startStudy(){if(state.wordCount()===0)return;state.resetSession();state.session.active=true;this.answering=false;this._abyssCleared=false;el('study-timer').textContent='00:00';this.timerStartTick();this.startRound();if(this.mode!=='purgatory'&&state.session.queue.length>0){Router.show('memorize');Render.memorize();this.startMemorizeTimer()}else{Router.show('study');this.nextQuestion()}},
   endStudy(){state.session.active=false;this.timerStop();this.clearBlitzTimer();if(this._memorizeTimer){clearInterval(this._memorizeTimer);this._memorizeTimer=null}el('study-countdown-bar').style.display='none';state.persist();Router.goHome()},
@@ -1348,6 +1408,20 @@ const PK = {
 
 // 禁止右键
 document.addEventListener('contextmenu',e=>e.preventDefault());
+
+// 桌面端首次引导
+(function(){
+  if(/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent))return;
+  if(localStorage.getItem('wf_desktop_guide'))return;
+  var guide=document.getElementById('desktop-guide');
+  if(!guide)return;
+  guide.style.display='flex';
+  document.getElementById('desktop-guide-close').onclick=function(){
+    guide.style.display='none';
+    localStorage.setItem('wf_desktop_guide','1');
+  };
+  guide.addEventListener('click',function(e){if(e.target===guide){guide.style.display='none';localStorage.setItem('wf_desktop_guide','1')}});
+})();
 
 document.addEventListener('DOMContentLoaded',()=>App.init());
 </script>
