@@ -924,6 +924,23 @@ function loadSettings(){
 }
 function saveSettings(s){localStorage.setItem('wf_settings',JSON.stringify(s))}
 function now(){return new Date().toISOString().slice(0,10)}
+function loadCustomWordLists(){
+  try{
+    const r=localStorage.getItem('wf_custom_lists');
+    if(!r)return;
+    const lists=JSON.parse(r);
+    if(!Array.isArray(lists))return;
+    for(const l of lists){
+      if(l.id&&l.name&&!WORD_LISTS.find(x=>x.id===l.id)){
+        WORD_LISTS.push({id:l.id,file:'',name:l.name});
+      }
+    }
+  }catch{}
+}
+function saveCustomWordLists(){
+  const customs=WORD_LISTS.filter(l=>String(l.id).startsWith('custom_'));
+  localStorage.setItem('wf_custom_lists',JSON.stringify(customs.map(l=>({id:l.id,name:l.name}))));
+}
 
 // ===== APP =====
 const App = {
@@ -932,7 +949,7 @@ const App = {
   _blitzTimer:null,_blitzBonus:0,_currentQType:'en2zh',_abyssCleared:false,_hintUsed:false,
   _fillChars:null,_fillProgress:0,_memorizeTimer:null,
   timerInterval:null,timerStart:0,
-  async init(){await state.init();const ls=loadSettings();this.mode=ls.mode;this.roundSize=ls.roundSize;this.bindEvents();Render.dashboard()},
+  async init(){loadCustomWordLists();await state.init();const ls=loadSettings();this.mode=ls.mode;this.roundSize=ls.roundSize;this.bindEvents();Render.dashboard()},
   timerFormat(s){
     const m=String(Math.floor(s/60)).padStart(2,'0'),sec=String(s%60).padStart(2,'0');
     return m+':'+sec;
@@ -1168,7 +1185,7 @@ const App = {
         if(name===null)return;
         const finalName=name.trim()||defaultName;
         const id='custom_'+Date.now();
-        WORD_LISTS.push({id,file:'',name:finalName});
+        WORD_LISTS.push({id,file:'',name:finalName});saveCustomWordLists();
         const oldId=currentListId();
         Store.saveBitmap(oldId,state.bitmap);
         Store.saveMeta(oldId,state.meta);
