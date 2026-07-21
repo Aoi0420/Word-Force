@@ -2,6 +2,8 @@
 
 > 没有花哨的记忆方法，只有强制的重复、死记硬背。
 
+[![Build Android APK](https://github.com/Aoi0420/Word-Force/actions/workflows/build-apk.yml/badge.svg)](https://github.com/Aoi0420/Word-Force/actions/workflows/build-apk.yml)
+
 一款极简的记单词工具，纯前端单页应用，无需注册、无需后端、开箱即用。
 
 ## 特性
@@ -37,6 +39,23 @@ python3 -m http.server 8000
 ### 方式三：USB 搬运
 
 适合被防火墙封锁的环境——单 HTML 文件 + CSS，U盘拷贝到任何电脑即可运行。
+
+### 方式四：Android APK
+
+打 tag 自动构建 APK：
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+构建过程由 GitHub Actions 自动完成：
+- 在关于页面注入版本号和构建日期
+- 用 Capacitor 将 Web 应用打包为 Android APK
+- 根据约定式提交生成 Release Notes
+- APK 上传到 GitHub Release 页面
+
+也可在 [Actions 页面](https://github.com/Aoi0420/Word-Force/actions/workflows/build-apk.yml) 手动触发 `workflow_dispatch` 构建（仅生成 Artifact，不创建 Release）。
 
 ## 词库格式
 
@@ -83,6 +102,9 @@ Word-Force/
 ├── cet6.json     # CET-6 六级词库
 ├── gaokao.json   # 高考词库
 ├── zhongkao.json # 中考词库
+├── .github/
+│   └── workflows/
+│       └── build-apk.yml    # GitHub Actions: 构建 Android APK
 ├── docs/
 │   ├── 功能设计.md
 │   └── 技术设计.md
