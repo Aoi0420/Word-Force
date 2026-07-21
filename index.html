@@ -321,6 +321,7 @@
       <span class="text-dim">已掌握</span>
       <span id="import-mastered" class="mono lv-7">0</span>
     </div>
+    <button id="btn-delete-wordlist" class="btn btn-sm btn-danger btn-block mt-4" style="display:none">删除当前词库</button>
   </div>
   <div class="bg-card border-card rounded-xl p-4">
     <div class="text-sm font-medium mb-3">切换词库</div>
@@ -974,6 +975,9 @@ const Render = {
     const n=state.wordCount(),dist=state.levelDist(),lid=currentListId();
     const lm=listMeta(lid);
     el('import-name').textContent=lm?lm.name:'—';el('import-count').textContent=n;el('import-mastered').textContent=dist[7]||0;
+    const delBtn=el('btn-delete-wordlist');
+    const isCustom=String(lid).startsWith('custom_');
+    delBtn.style.display=isCustom?'block':'none';
     // Populate word list selector
     const sel=el('wordlist-select');sel.innerHTML='';
     WORD_LISTS.forEach(l=>{
@@ -1149,6 +1153,7 @@ const App = {
       Render.dashboard();Render.importPage();
       Router.show('home');
     });
+    el('btn-delete-wordlist').addEventListener('click',()=>this.deleteWordList());
     // PK
     el('btn-pk').addEventListener('click',()=>{
       PK.setup(20,3);Router.show('pk-setup');
@@ -1367,6 +1372,20 @@ const App = {
       if(words.length===0){alert('未从 Anki 词库中提取到有效单词');return}
       this._saveImportedWords(words);
     }catch(err){alert('Anki 导入失败：'+err.message)}
+  },
+  deleteWordList(){
+    const lid=currentListId();
+    if(!String(lid).startsWith('custom_')){alert('内置词库不可删除');return}
+    const lm=listMeta(lid);
+    if(!lm||!confirm(`确定删除词库「${lm.name}」？\n该词库的所有学习数据将永久丢失！`))return;
+    const idx=WORD_LISTS.findIndex(l=>l.id===lid);
+    if(idx!==-1)WORD_LISTS.splice(idx,1);
+    Store.clearAll(lid);
+    saveCustomWordLists();
+    const s=loadSettings();s.currentListId='words';saveSettings(s);
+    state.switchToList('words').then(()=>{
+      Render.dashboard();Render.importPage();Router.show('home');
+    });
   },
 };
 
