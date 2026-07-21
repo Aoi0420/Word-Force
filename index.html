@@ -1159,8 +1159,30 @@ const App = {
         const d=JSON.parse(ev.target.result);
         if(!Array.isArray(d)||d.length===0){alert('无效的词库：JSON 格式应为数组，且不能为空');return}
         for(const x of d){if(!x.en||!x.zh){alert('无效的词条：每个单词必须有 "en" 和 "zh" 字段');return}}
-        if(state.wordCount()>0&&!confirm(`将导入 ${d.length} 个单词，覆盖当前词库。确定？`))return;
-        state.replaceWords(d);Render.dashboard();Render.importPage();Router.goHome();alert(`✅ 成功导入 ${d.length} 个单词！`);
+        const now=new Date();
+        const yy=String(now.getFullYear()).slice(2);
+        const mm=String(now.getMonth()+1).padStart(2,'0');
+        const dd=String(now.getDate()).padStart(2,'0');
+        const defaultName='词库-'+yy+'/'+mm+'/'+dd;
+        const name=prompt('请为导入的词库命名：',defaultName);
+        if(name===null)return;
+        const finalName=name.trim()||defaultName;
+        const id='custom_'+Date.now();
+        WORD_LISTS.push({id,file:'',name:finalName});
+        const oldId=currentListId();
+        Store.saveBitmap(oldId,state.bitmap);
+        Store.saveMeta(oldId,state.meta);
+        Store.saveWords(id,d);
+        state.words=d;
+        state.bitmap=Bitmap.create(d.length);
+        state.meta=Store.defaultMeta();
+        state.meta.n=d.length;
+        Store.saveBitmap(id,state.bitmap);
+        Store.saveMeta(id,state.meta);
+        const s=loadSettings();s.currentListId=id;saveSettings(s);
+        state.resetSession();
+        Render.dashboard();Render.importPage();Router.goHome();
+        alert('✅ 成功导入 '+d.length+' 个单词到「'+finalName+'」！');
       }catch(err){alert('JSON 解析失败：'+err.message)}
     };
     reader.readAsText(file);e.target.value='';
