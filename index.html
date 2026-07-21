@@ -750,7 +750,7 @@ const AnkiImport = {
       buf=new Uint8Array(await file.arrayBuffer());
     }
     if(typeof initSqlJs==='undefined')throw new Error('sql.js 未加载，请检查网络');
-    const SQL=await initSqlJs();
+    const SQL=await initSqlJs({locateFile:s=>'https://cdn.jsdelivr.net/npm/sql.js@1.9.0/dist/'+s});
     const db=new SQL.Database(buf);
     const cs=db.exec('SELECT models FROM col LIMIT 1');
     if(!cs.length)throw new Error('无效的 Anki 数据库');
