@@ -10,6 +10,16 @@
 
 <div id="app">
 
+<div id="apk-prompt" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--bg-card);border-top:1px solid var(--border);padding:12px 16px;box-shadow:0 -4px 12px rgba(0,0,0,.3)">
+  <div class="flex items-center justify-between" style="max-width:640px;margin:0 auto">
+    <div class="text-sm" style="color:var(--text-dim)">检测到安卓浏览器，下载 App 获得更好体验</div>
+    <div class="flex items-center gap-2">
+      <a href="https://github.com/Aoi0420/Word-Force/releases/latest" target="_blank" class="btn btn-sm" style="background:var(--green);color:#fff;border-color:var(--green-bright);padding:6px 14px;font-size:13px;text-decoration:none">下载 APK</a>
+      <button id="apk-prompt-close" class="btn btn-ghost btn-sm" style="padding:6px 10px;font-size:13px">稍后</button>
+    </div>
+  </div>
+</div>
+
 <!-- HOME -->
 <div id="page-home" class="page active">
   <div class="flex items-center gap-3 pt-2 pb-4">
@@ -1321,6 +1331,20 @@ const PK = {
   },
   reset(){if(this.timer){clearInterval(this.timer);this.timer=null}this.started=false;el('pk-game').style.display='none';el('pk-result').style.display='none'},
 };
+
+// 安卓 APK 下载提示
+(function(){
+  if(!/android/i.test(navigator.userAgent)) return;
+  var k='wf_apk_prompt_date',d=new Date().toISOString().slice(0,10);
+  if(localStorage.getItem(k)===d) return;
+  var p=document.getElementById('apk-prompt');
+  if(!p) return;
+  p.style.display='block';
+  document.getElementById('apk-prompt-close').onclick=function(){
+    p.style.display='none';
+    try{localStorage.setItem(k,d)}catch(e){}
+  };
+})();
 
 // 禁止右键
 document.addEventListener('contextmenu',e=>e.preventDefault());
