@@ -62,13 +62,7 @@ jobs:
           npx cap init "Word-Force" "com.wordforce.app" --web-dir www
           npx cap add android
           # Fix duplicate Kotlin stdlib classes
-          cat >> android/app/build.gradle << 'EOF'
-
-configurations.all {
-    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk7"
-    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"
-}
-EOF
+          printf '\nconfigurations.all {\n    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk7"\n    exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"\n}\n' >> android/app/build.gradle
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
