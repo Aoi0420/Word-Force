@@ -292,9 +292,10 @@
     <div class="text-sm text-dim mb-4">导入 JSON 格式单词表</div>
     <div class="text-xs text-dim mb-4 mono" style="word-break:break-all">[{"en":"word","pos":"n","zh":"释义"},...]</div>
     <label class="btn btn-primary cursor-pointer inline-flex">
-      📁 选择 JSON 文件
-      <input type="file" id="file-input" accept=".json" style="display:none">
+      📁 选择词库文件
+      <input type="file" id="file-input" accept=".json,.apkg,.anki2" style="display:none">
     </label>
+    <div class="text-xs mt-2"><span class="text-dim">支持 JSON 格式</span><span class="text-muted"> · </span><span style="color:var(--orange)">Anki(.apkg/.anki2) Beta</span></div>
   </div>
   <div id="import-current" class="bg-card border-card rounded-xl p-4 mb-4">
     <div class="text-sm font-medium mb-2">当前词库</div>
@@ -460,6 +461,8 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sql.js@1.9.0/dist/sql-wasm.js"></script>
 <script>
 // ===== CONFIG =====
 const CFG = {
@@ -727,6 +730,49 @@ const Search = {
     scored.sort((a,b)=>b.score-a.score);
     this.results=scored.slice(0,60);
     return this.results;
+  },
+};
+
+// ===== ANKI IMPORT =====
+const AnkiImport = {
+  _pp:[/^([a-zA-Z]+(?:\s*[./&]+\s*[a-zA-Z]+)*\s*[.、]?)\s+/,/^([【［\[(（][^】］\]）)]+[】］\]）])\s*/],
+  _ep(t){for(const p of this._pp){const m=t.match(p);if(m)return{pos:m[1].trim(),cleaned:t.slice(m[0].length).trim()}}return{pos:'',cleaned:t}},
+  async process(file){
+    const ext=file.name.match(/\.(\w+)$/)?.[1]||'';
+    let buf;
+    if(ext==='apkg'){
+      if(typeof JSZip==='undefined')throw new Error('JSZip 未加载，请检查网络');
+      const zip=await JSZip.loadAsync(file);
+      const e=zip.file('collection.anki2');
+      if(!e)throw new Error('未找到 collection.anki2');
+      buf=await e.async('uint8array');
+    }else{
+      buf=new Uint8Array(await file.arrayBuffer());
+    }
+    if(typeof initSqlJs==='undefined')throw new Error('sql.js 未加载，请检查网络');
+    const SQL=await initSqlJs();
+    const db=new SQL.Database(buf);
+    const cs=db.exec('SELECT models FROM col LIMIT 1');
+    if(!cs.length)throw new Error('无效的 Anki 数据库');
+    const mm=JSON.parse(cs[0].values[0][0]);
+    const models=Object.entries(mm).map(([id,m])=>({id,name:m.name,fields:m.flds.map(f=>f.name)}));
+    const ns=db.exec('SELECT mid,COUNT(*) as c FROM notes GROUP BY mid');
+    const cnt={};if(ns.length)for(const r of ns[0].values)cnt[String(r[0])]=r[1];
+    const kws={en:['en','english','front','word','vocabulary','term'],zh:['zh','chinese','cn','back','definition','meaning','translation'],pos:['pos','part of speech','speech','type','grammar']};
+    const sorted=[...models].sort((a,b)=>(cnt[b.id]||0)-(cnt[a.id]||0));
+    let tm=null,fm=null;
+    for(const m of sorted){
+      const mp={},lo=m.fields.map(f=>f.toLowerCase().trim());
+      for(const [key,kw] of Object.entries(kws)){const i=lo.findIndex(f=>kw.includes(f));if(i!==-1)mp[key]=m.fields[i]}
+      if(mp.en&&mp.zh){tm=m;fm=mp;break}
+    }
+    if(!tm){for(const m of sorted){const mp={},lo=m.fields.map(f=>f.toLowerCase().trim());for(const [key,kw] of Object.entries(kws)){const i=lo.findIndex(f=>kw.some(k=>f.includes(k)));if(i!==-1)mp[key]=m.fields[i]}mp.en=mp.en||m.fields[0];mp.zh=mp.zh||(m.fields.length>1?m.fields[1]:m.fields[0]);if(mp.en&&mp.zh){tm=m;fm=mp;break}}}
+    if(!tm)throw new Error('无法自动识别字段映射，请确保词库包含英文和中文释义字段');
+    const r2=db.exec('SELECT flds FROM notes WHERE mid='+tm.id);
+    const hp=fm.pos&&fm.pos!==fm.zh,out=[];
+    if(r2.length){for(const row of r2[0].values){const fs=row[0].split('\x1f'),o={};for(const [k,v] of Object.entries(fm)){const i=tm.fields.indexOf(v);if(i!==-1&&fs[i]!==undefined)o[k]=fs[i].trim()}if(!hp&&o.zh){const{pos,cleaned}=this._ep(o.zh);if(pos){o.pos=pos;o.zh=cleaned}}if(o.en||o.zh)out.push(o)}}
+    db.close();
+    return out;
   },
 };
 
@@ -1170,39 +1216,52 @@ const App = {
   continueRound(){this.answering=false;el('study-countdown-bar').style.display='none';this.startRound();if(this._abyssCleared){this.endStudy();return}if(this.mode!=='purgatory'&&state.session.queue.length>0){Router.show('memorize');Render.memorize();this.startMemorizeTimer()}else{Router.show('study');this.nextQuestion()}},
   handleFileImport(e){
     const file=e.target.files[0];if(!file)return;
+    const ext=file.name.match(/\.(\w+)$/)?.[1]||'';
+    e.target.value='';
+    if(ext==='apkg'||ext==='anki2'){this.importAnki(file);return}
     const reader=new FileReader();
     reader.onload=ev=>{
       try{
         const d=JSON.parse(ev.target.result);
         if(!Array.isArray(d)||d.length===0){alert('无效的词库：JSON 格式应为数组，且不能为空');return}
         for(const x of d){if(!x.en||!x.zh){alert('无效的词条：每个单词必须有 "en" 和 "zh" 字段');return}}
-        const now=new Date();
-        const yy=String(now.getFullYear()).slice(2);
-        const mm=String(now.getMonth()+1).padStart(2,'0');
-        const dd=String(now.getDate()).padStart(2,'0');
-        const defaultName='词库-'+yy+'/'+mm+'/'+dd;
-        const name=prompt('请为导入的词库命名：',defaultName);
-        if(name===null)return;
-        const finalName=name.trim()||defaultName;
-        const id='custom_'+Date.now();
-        WORD_LISTS.push({id,file:'',name:finalName});saveCustomWordLists();
-        const oldId=currentListId();
-        Store.saveBitmap(oldId,state.bitmap);
-        Store.saveMeta(oldId,state.meta);
-        Store.saveWords(id,d);
-        state.words=d;
-        state.bitmap=Bitmap.create(d.length);
-        state.meta=Store.defaultMeta();
-        state.meta.n=d.length;
-        Store.saveBitmap(id,state.bitmap);
-        Store.saveMeta(id,state.meta);
-        const s=loadSettings();s.currentListId=id;saveSettings(s);
-        state.resetSession();
-        Render.dashboard();Render.importPage();Router.goHome();
-        alert('✅ 成功导入 '+d.length+' 个单词到「'+finalName+'」！');
+        this._saveImportedWords(d);
       }catch(err){alert('JSON 解析失败：'+err.message)}
     };
-    reader.readAsText(file);e.target.value='';
+    reader.readAsText(file);
+  },
+  _saveImportedWords(d){
+    const now=new Date();
+    const yy=String(now.getFullYear()).slice(2);
+    const mm=String(now.getMonth()+1).padStart(2,'0');
+    const dd=String(now.getDate()).padStart(2,'0');
+    const defaultName='词库-'+yy+'/'+mm+'/'+dd;
+    const name=prompt('请为导入的词库命名：',defaultName);
+    if(name===null)return;
+    const finalName=name.trim()||defaultName;
+    const id='custom_'+Date.now();
+    WORD_LISTS.push({id,file:'',name:finalName});saveCustomWordLists();
+    const oldId=currentListId();
+    Store.saveBitmap(oldId,state.bitmap);
+    Store.saveMeta(oldId,state.meta);
+    Store.saveWords(id,d);
+    state.words=d;
+    state.bitmap=Bitmap.create(d.length);
+    state.meta=Store.defaultMeta();
+    state.meta.n=d.length;
+    Store.saveBitmap(id,state.bitmap);
+    Store.saveMeta(id,state.meta);
+    const s=loadSettings();s.currentListId=id;saveSettings(s);
+    state.resetSession();
+    Render.dashboard();Render.importPage();Router.goHome();
+    alert('✅ 成功导入 '+d.length+' 个单词到「'+finalName+'」！');
+  },
+  async importAnki(file){
+    try{
+      const words=await AnkiImport.process(file);
+      if(words.length===0){alert('未从 Anki 词库中提取到有效单词');return}
+      this._saveImportedWords(words);
+    }catch(err){alert('Anki 导入失败：'+err.message)}
   },
 };
 
