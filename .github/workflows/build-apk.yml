@@ -1,0 +1,145 @@
+name: Build Android APK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine version
+        id: version
+        run: |
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            RAW="${{ github.ref_name }}"
+            VERSION="${RAW#v}"
+            IS_TAG="true"
+          else
+            VERSION="manual-$(git rev-parse --short HEAD)"
+            IS_TAG="false"
+          fi
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "APK_NAME=Word-Force-universal-${VERSION}.apk" >> "$GITHUB_ENV"
+          echo "IS_TAG=$IS_TAG" >> "$GITHUB_ENV"
+
+      - name: Inject build date into about page
+        run: |
+          BUILD_DATE=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
+          sed -i "/<div class=\"text-center text-2xs text-muted pt-2 leading-relaxed\">/a\\      构建日期: ${BUILD_DATE}<br>" index.html
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Build APK with Capacitor
+        run: |
+          npm init -y
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npx cap init "Word-Force" "com.wordforce.app" --web-dir .
+          npx cap add android
+          rm -rf android/app/src/main/assets/public/node_modules
+          rm -f android/app/src/main/assets/public/package.json
+          rm -f android/app/src/main/assets/public/package-lock.json
+          rm -f android/app/src/main/assets/public/CNAME
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Rename APK
+        run: |
+          mv android/app/build/outputs/apk/debug/app-debug.apk "${{ env.APK_NAME }}"
+
+      - name: Generate changelog
+        if: env.IS_TAG == 'true'
+        run: |
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+
+          if [ -z "$PREV_TAG" ]; then
+            COMMITS=$(git log --pretty=format:"- %s" --reverse)
+          else
+            COMMITS=$(git log $PREV_TAG..HEAD --pretty=format:"- %s" --reverse)
+          fi
+
+          VERSION="${{ env.VERSION }}"
+          PLATFORM="universal"
+
+          echo "## 🚀 What's Changed" > CHANGELOG.md
+          echo "" >> CHANGELOG.md
+
+          FEATURES=$(echo "$COMMITS" | grep -i "^- feat" || true)
+          if [ -n "$FEATURES" ]; then
+            echo "### ✨ New Features" >> CHANGELOG.md
+            echo "$FEATURES" | sed 's/^- feat(\(.*\)): /- [\1] /' | sed 's/^- feat: /- /' >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          FIXES=$(echo "$COMMITS" | grep -i "^- fix" || true)
+          if [ -n "$FIXES" ]; then
+            echo "### 🐛 Bug Fixes" >> CHANGELOG.md
+            echo "$FIXES" | sed 's/^- fix(\(.*\)): /- [\1] /' | sed 's/^- fix: /- /' >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          IMPROVEMENTS=$(echo "$COMMITS" | grep -iE "^- (refactor|perf|docs|style)" || true)
+          if [ -n "$IMPROVEMENTS" ]; then
+            echo "### 💡 Improvements" >> CHANGELOG.md
+            echo "$IMPROVEMENTS" >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          OTHER=$(echo "$COMMITS" | grep -ivE "^- (feat|fix|refactor|perf|docs|style)" || true)
+          if [ -n "$OTHER" ]; then
+            echo "### 📝 Other Changes" >> CHANGELOG.md
+            echo "$OTHER" >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          echo "### 📦 Downloads" >> CHANGELOG.md
+          echo "" >> CHANGELOG.md
+          echo "| Platform | File |" >> CHANGELOG.md
+          echo "|----------|------|" >> CHANGELOG.md
+          echo "| Android | [Word-Force-${PLATFORM}-${VERSION}.apk](https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/Word-Force-${PLATFORM}-${VERSION}.apk) |" >> CHANGELOG.md
+          echo "" >> CHANGELOG.md
+
+          if [ -n "$PREV_TAG" ]; then
+            echo "**Full Changelog**: https://github.com/${{ github.repository }}/compare/${PREV_TAG}...${{ github.ref_name }}" >> CHANGELOG.md
+          fi
+
+          cat CHANGELOG.md
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.APK_NAME }}
+          path: ${{ env.APK_NAME }}
+
+      - name: Create Release
+        if: env.IS_TAG == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --title "${{ github.ref_name }}" \
+            --notes-file CHANGELOG.md \
+            "${{ env.APK_NAME }}"
