@@ -802,7 +802,7 @@ const AnkiImport = {
             const noteCount=tc.length&&tc[0].values.length?tc[0].values[0][0]:0;
             tdb.close();
             buf=noteCount<10&&b21.length>4096?b21:b2;
-          }catch(){buf=b21}
+          }catch(e){buf=b21}
         }else{buf=b2}
       }else{buf=await zip.file(has21?'collection.anki21':'collection.anki2').async('uint8array')}
     }else{
