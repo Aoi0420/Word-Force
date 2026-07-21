@@ -22,20 +22,23 @@ jobs:
         id: version
         run: |
           if [[ "${{ github.event_name }}" == "push" ]]; then
-            RAW="${{ github.ref_name }}"
-            VERSION="${RAW#v}"
+            DISPLAY_VERSION="${{ github.ref_name }}"
+            VERSION="${DISPLAY_VERSION#v}"
             IS_TAG="true"
           else
-            VERSION="manual-$(git rev-parse --short HEAD)"
+            DISPLAY_VERSION="manual-$(git rev-parse --short HEAD)"
+            VERSION="$DISPLAY_VERSION"
             IS_TAG="false"
           fi
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "DISPLAY_VERSION=$DISPLAY_VERSION" >> "$GITHUB_ENV"
           echo "APK_NAME=Word-Force-universal-${VERSION}.apk" >> "$GITHUB_ENV"
           echo "IS_TAG=$IS_TAG" >> "$GITHUB_ENV"
 
-      - name: Inject build date into about page
+      - name: Inject version and build date into about page
         run: |
           BUILD_DATE=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
+          sed -i "/<div class=\"text-center text-2xs text-muted pt-2 leading-relaxed\">/a\\      版本: ${{ env.DISPLAY_VERSION }}<br>" index.html
           sed -i "/<div class=\"text-center text-2xs text-muted pt-2 leading-relaxed\">/a\\      构建日期: ${BUILD_DATE}<br>" index.html
 
       - name: Setup Node.js
