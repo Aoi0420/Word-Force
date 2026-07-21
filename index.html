@@ -757,8 +757,28 @@ const Search = {
 
 // ===== ANKI IMPORT =====
 const AnkiImport = {
-  _pp:[/^([a-zA-Z]+(?:\s*[./&]+\s*[a-zA-Z]+)*\s*[.、]?)\s+/,/^([【［\[(（][^】］\]）)]+[】］\]）])\s*/],
-  _ep(t){for(const p of this._pp){const m=t.match(p);if(m)return{pos:m[1].trim(),cleaned:t.slice(m[0].length).trim()}}return{pos:'',cleaned:t}},
+  _FIELD_KWS:{
+    en:['en','english','front','expression','term','vocab','word','vocabulary','sentence','phrase'],
+    zh:['zh','chinese','cn','back','definition','meaning','translation','explanation','释义','解释','中文','翻译','单词','词语','汉语','defsc','deftc'],
+    pos:['pos','part of speech','speech','type','grammar','wordtype','词性'],
+  },
+  _HTML_RE:[/<br\s*\/?>/gi,/<\/?[^>]+(>|$)/g,/&nbsp;/g,/&amp;/g,/&lt;/g,/&gt;/g,/&quot;/g,/&#39;/g,/\[sound:[^\]]+\]/g,/\[image:[^\]]+\]/g],
+  _HTML_REP:['\n','',' ','&','<','>','"',"'",'',''],
+  _POS_PAT:[/^((?:n|v|adj|adv|prep|conj|pron|int|art|num|det|aux|modal)\b[^.\s]*)\s*[.、．]?\s+/i,/^(vi\.[.\s]|vt\.[.\s]|vi|vt)\s+/i,/^([a-zA-Z]+(?:\s*[./&]+\s*[a-zA-Z]+)*\s*[.、]?)\s+/,/^([【［\[(（][^】］\]）)]+[】］\]）])\s*/,/^(名|动|形|副|介|连|叹|代|数|量|助)\s+/],
+  _strip(s){if(!s)return'';let r=s;for(let i=0;i<this._HTML_RE.length;i++)r=r.replace(this._HTML_RE[i],this._HTML_REP[i]);return r.trim()},
+  _nf(n){return n.toLowerCase().replace(/[_\s-]+/g,'').replace(/[^a-z0-9\u4e00-\u9fff]/g,'').trim()},
+  _sf(n,kw){const nn=this._nf(n);let s=0;for(const k of kw){const nk=this._nf(k);if(nn===nk)s+=100;else if(nk.length>=3&&(nn.includes(nk)||nk.includes(nn)))s+=50;else if(nk.length>=2&&nn.includes(nk))s+=30;else if(k.length>=4&&n.toLowerCase().includes(k.toLowerCase()))s+=10}return s},
+  _ad(fields){
+    const sc={};for(const[k,kw]of Object.entries(this._FIELD_KWS)){let bi=-1,bs=0;for(let i=0;i<fields.length;i++){const s=this._sf(fields[i],kw);if(s>bs){bs=s;bi=i}}if(bi!==-1&&bs>0)sc[k]={f:fields[bi],s:bs,i:bi}}
+    const mp={},used=new Set;for(const k of['en','zh','pos']){if(!sc[k]||used.has(sc[k].i))continue;mp[k]=sc[k].f;used.add(sc[k].i)}
+    if(!mp.en){mp.en=fields[0];used.add(0)}
+    if(!mp.zh&&fields.length>1){for(let i=0;i<fields.length;i++){if(!used.has(i)){mp.zh=fields[i];used.add(i);break}}}
+    return mp;
+  },
+  _ep(t){
+    const s=(t||'').trim();for(const p of this._POS_PAT){const m=s.match(p);if(m){const pos=m[1].trim(),cl=s.slice(m[0].length).trim();if(cl)return{pos,cleaned:cl}}}
+    return{pos:'',cleaned:s};
+  },
   async process(file){
     const ext=file.name.match(/\.(\w+)$/)?.[1]||'';
     let buf;
@@ -780,19 +800,16 @@ const AnkiImport = {
     const models=Object.entries(mm).map(([id,m])=>({id,name:m.name,fields:m.flds.map(f=>f.name)}));
     const ns=db.exec('SELECT mid,COUNT(*) as c FROM notes GROUP BY mid');
     const cnt={};if(ns.length)for(const r of ns[0].values)cnt[String(r[0])]=r[1];
-    const kws={en:['en','english','front','word','vocabulary','term'],zh:['zh','chinese','cn','back','definition','meaning','translation'],pos:['pos','part of speech','speech','type','grammar']};
     const sorted=[...models].sort((a,b)=>(cnt[b.id]||0)-(cnt[a.id]||0));
     let tm=null,fm=null;
     for(const m of sorted){
-      const mp={},lo=m.fields.map(f=>f.toLowerCase().trim());
-      for(const [key,kw] of Object.entries(kws)){const i=lo.findIndex(f=>kw.includes(f));if(i!==-1)mp[key]=m.fields[i]}
+      const mp=this._ad(m.fields);
       if(mp.en&&mp.zh){tm=m;fm=mp;break}
     }
-    if(!tm){for(const m of sorted){const mp={},lo=m.fields.map(f=>f.toLowerCase().trim());for(const [key,kw] of Object.entries(kws)){const i=lo.findIndex(f=>kw.some(k=>f.includes(k)));if(i!==-1)mp[key]=m.fields[i]}mp.en=mp.en||m.fields[0];mp.zh=mp.zh||(m.fields.length>1?m.fields[1]:m.fields[0]);if(mp.en&&mp.zh){tm=m;fm=mp;break}}}
-    if(!tm)throw new Error('无法自动识别字段映射，请确保词库包含英文和中文释义字段');
+    if(!tm){const m=sorted[0];fm={en:m.fields[0],zh:m.fields.length>1?m.fields[1]:m.fields[0]};tm=m}
     const r2=db.exec('SELECT flds FROM notes WHERE mid='+tm.id);
     const hp=fm.pos&&fm.pos!==fm.zh,out=[];
-    if(r2.length){for(const row of r2[0].values){const fs=row[0].split('\x1f'),o={};for(const [k,v] of Object.entries(fm)){const i=tm.fields.indexOf(v);if(i!==-1&&fs[i]!==undefined)o[k]=fs[i].trim()}if(!hp&&o.zh){const{pos,cleaned}=this._ep(o.zh);if(pos){o.pos=pos;o.zh=cleaned}}if(o.en||o.zh)out.push(o)}}
+    if(r2.length){for(const row of r2[0].values){const fs=row[0].split('\x1f'),o={};for(const[k,v]of Object.entries(fm)){const i=tm.fields.indexOf(v);if(i!==-1&&fs[i]!==undefined){const val=this._strip(fs[i]);if(val)o[k]=val}}if(!hp&&o.zh){const{pos,cleaned}=this._ep(o.zh);if(pos){o.pos=pos;o.zh=cleaned}}if(o.en||o.zh)out.push({en:o.en||'',pos:o.pos||'',zh:o.zh||''})}}
     db.close();
     return out;
   },
